@@ -250,6 +250,11 @@ xcodebuild -exportLocalizations -project StardewModManager.xcodeproj -localizati
 xcodebuild -importLocalizations -project StardewModManager.xcodeproj -localizationPath l10n/fr.xcloc
 ```
 
+To add a language (German, say): add `de` to `CFBundleLocalizations` in
+`project.yml`, run `xcodegen generate`, then export with `-exportLanguage de`,
+translate, and import. Settings → General → Language lists every
+translation in the app automatically, named in its own language.
+
 ## Notes / known limitations
 
 - Free Nexus accounts need one click per mod ("Slow download" in the

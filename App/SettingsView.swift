@@ -26,9 +26,10 @@ private struct GeneralSettings: View {
             Section("Language") {
                 Picker("Language", selection: $language) {
                     Text("System (\(AppLanguage.systemName))").tag(AppLanguage.system)
-                    // Language names stay in their own language.
-                    Text(verbatim: "English").tag(AppLanguage.english)
-                    Text(verbatim: "Français").tag(AppLanguage.french)
+                    // Every language the app is translated into, each named in itself.
+                    ForEach(AppLanguage.available, id: \.self) { language in
+                        Text(verbatim: language.name).tag(language)
+                    }
                 }
                 .onChange(of: language) { _, new in new.apply() }
                 if language != AppLanguage.atLaunch {
@@ -219,16 +220,36 @@ private struct NexusSettings: View {
 }
 
 /// The app's own language, independent of macOS's. Stored as the app's
-/// AppleLanguages default, which macOS reads at launch.
-enum AppLanguage: String, Hashable {
-    case system, english = "en", french = "fr"
+/// AppleLanguages default, which macOS reads at launch. The choices come
+/// from the bundle, so adding a translation adds it here.
+struct AppLanguage: Hashable {
+    /// A localization code ("fr", "pt-BR"), or nil to follow macOS.
+    let code: String?
 
+    static let system = AppLanguage(code: nil)
     private static let key = "AppleLanguages"
+
+    /// The app's translations, sorted by their own names.
+    static let available: [AppLanguage] = Set(Bundle.main.localizations)  // can list one twice
+        .subtracting(["Base"])
+        .map { AppLanguage(code: $0) }
+        .sorted { $0.name.localizedStandardCompare($1.name) == .orderedAscending }
+
+    /// "Français", "English", "Deutsch".
+    var name: String {
+        guard let code else { return "" }
+        let name = Locale(identifier: code).localizedString(forIdentifier: code) ?? code
+        return name.prefix(1).uppercased() + name.dropFirst()
+    }
 
     static var current: AppLanguage {
         let domain = UserDefaults.standard.persistentDomain(forName: Bundle.main.bundleIdentifier ?? "")
-        guard let code = (domain?[key] as? [String])?.first else { return .system }
-        return AppLanguage(rawValue: String(code.prefix(2))) ?? .system
+        guard let stored = (domain?[key] as? [String])?.first else { return .system }
+        // "fr-CA" set elsewhere still selects "fr".
+        let codes = available.compactMap(\.code)
+        guard let match = Bundle.preferredLocalizations(from: codes, forPreferences: [stored]).first,
+              codes.contains(match) else { return .system }
+        return AppLanguage(code: match)
     }
 
     /// What this run of the app uses (the setting can change after launch).
@@ -237,15 +258,15 @@ enum AppLanguage: String, Hashable {
     /// The language macOS would pick for the app, by name ("Français").
     static var systemName: String {
         let global = UserDefaults(suiteName: UserDefaults.globalDomain)?.stringArray(forKey: key) ?? Locale.preferredLanguages
-        let code = Bundle.preferredLocalizations(from: ["en", "fr"], forPreferences: global).first ?? "en"
-        return Locale(identifier: code).localizedString(forLanguageCode: code)?.capitalized ?? code
+        let code = Bundle.preferredLocalizations(from: available.compactMap(\.code), forPreferences: global).first ?? "en"
+        return AppLanguage(code: code).name
     }
 
     func apply() {
-        if self == .system {
-            UserDefaults.standard.removeObject(forKey: Self.key)
+        if let code {
+            UserDefaults.standard.set([code], forKey: Self.key)
         } else {
-            UserDefaults.standard.set([rawValue], forKey: Self.key)
+            UserDefaults.standard.removeObject(forKey: Self.key)
         }
     }
 
