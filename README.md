@@ -2,6 +2,12 @@
 
 *A mod manager for Stardew Valley on macOS.* (Formerly "Stardew Mod Manager".)
 
+**[Download Starseed for Mac](https://github.com/matguitarist/starseed/releases/latest/download/Starseed.dmg)**
+(macOS 14 or later). Open the disk image and drag Starseed onto Applications.
+The app isn't signed with an Apple Developer ID, so the first time, macOS
+asks you to confirm in **System Settings → Privacy & Security → Open Anyway**.
+After that, Starseed updates itself.
+
 A native macOS (SwiftUI) mod manager for SMAPI mods, built because the
 official Nexus Mods app doesn't support macOS. Browse and install mods
 from Nexus Mods, get update notifications, or install archives you
@@ -260,9 +266,9 @@ To publish a release:
 1. Bump `MARKETING_VERSION` **and** `CURRENT_PROJECT_VERSION` in
    `project.yml` (Sparkle compares the build number), run
    `xcodegen generate`, and commit.
-2. Run `./release.sh`. It builds the app, zips it, signs the update, pushes,
-   creates the GitHub release with the zip, and then publishes the new
-   `appcast.xml`. Running copies of Starseed see the update within a day,
+2. Run `./release.sh`. It builds the app, makes the zip (signed for
+   Sparkle) and the disk image (`make_dmg.sh`), pushes, creates the GitHub
+   release with both, and then publishes the new `appcast.xml`. Running copies of Starseed see the update within a day,
    or right away with **Starseed → Check for App Updates…**.
 
 The app is signed ad hoc (no Apple Developer ID), so on first launch macOS

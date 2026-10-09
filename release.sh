@@ -1,6 +1,7 @@
 #!/bin/bash
-# Publishes a release of Starseed: builds it, uploads the zip to GitHub
-# Releases, and updates appcast.xml (the feed Sparkle checks) on main.
+# Publishes a release of Starseed: builds it, uploads a disk image (for
+# new installs) and a zip (for Sparkle updates) to GitHub Releases, and
+# updates appcast.xml (the feed Sparkle checks) on main.
 #
 # Before running: bump MARKETING_VERSION and CURRENT_PROJECT_VERSION in
 # project.yml (Sparkle compares the build number), run `xcodegen generate`,
@@ -35,8 +36,14 @@ ditto -c -k --keepParent "dist/Starseed.app" "$ZIP"
     --download-url-prefix "https://github.com/$REPO/releases/download/$TAG/" \
     "$STAGING"
 
+# The disk image is for first installs. A fixed name keeps the README's
+# ".../releases/latest/download/Starseed.dmg" link working. It's made after
+# the appcast so generate_appcast only sees the zip.
+DMG="releases/Starseed.dmg"
+./make_dmg.sh "$DMG"
+
 git push origin HEAD
-gh release create "$TAG" "$ZIP" --repo "$REPO" --title "Starseed $VERSION" --generate-notes
+gh release create "$TAG" "$DMG" "$ZIP" --repo "$REPO" --title "Starseed $VERSION" --generate-notes
 
 # Publish the feed last, once the zip it points to is online.
 cp "$STAGING/appcast.xml" appcast.xml
