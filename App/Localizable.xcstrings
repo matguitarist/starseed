@@ -39,7 +39,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "« %@ » n’existe plus. Choisissez-en un autre pour cette partie."
+            "value" : "« %@ » n’existe plus. Choisissez-en un autre pour cette sauvegarde."
           }
         }
       }
@@ -515,7 +515,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%lld autres identifiants de la partie ne correspondent à aucun mod"
+            "value" : "%lld autres identifiants de la sauvegarde ne correspondent à aucun mod"
           }
         }
       }
@@ -772,7 +772,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Toutes les parties"
+            "value" : "Toutes les sauvegardes"
           }
         }
       }
@@ -782,7 +782,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Toutes les parties et sauvegardes"
+            "value" : "Toutes les sauvegardes et copies"
           }
         }
       }
@@ -892,7 +892,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sauvegarder toutes les parties"
+            "value" : "Copier toutes les sauvegardes"
           }
         }
       }
@@ -902,7 +902,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sauvegardez toutes les parties pour créer un point de restauration."
+            "value" : "Copiez toutes les sauvegardes pour créer un point de restauration."
           }
         }
       }
@@ -912,7 +912,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sauvegarder toutes les parties en une seule sauvegarde"
+            "value" : "Copier toutes les sauvegardes en une seule copie"
           }
         }
       }
@@ -922,7 +922,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sauvegarder maintenant"
+            "value" : "Faire une copie maintenant"
           }
         }
       }
@@ -932,7 +932,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sauvegardez cette partie pour créer un point de restauration."
+            "value" : "Copiez cette sauvegarde pour créer un point de restauration."
           }
         }
       }
@@ -942,7 +942,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Échec de la sauvegarde"
+            "value" : "Échec de la copie"
           }
         }
       }
@@ -953,7 +953,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sauvegardes"
+            "value" : "Copies"
           }
         }
       }
@@ -963,7 +963,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sauvegardes de la ferme %@"
+            "value" : "Copies de la ferme %@"
           }
         }
       }
@@ -1349,7 +1349,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Impossible de supprimer la sauvegarde"
+            "value" : "Impossible de supprimer la copie"
           }
         }
       }
@@ -1459,7 +1459,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Impossible de lire la partie"
+            "value" : "Impossible de lire la sauvegarde"
           }
         }
       }
@@ -1600,7 +1600,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Supprimer cette sauvegarde ?"
+            "value" : "Supprimer cette copie ?"
           }
         }
       }
@@ -1961,7 +1961,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tout ce dont cette partie a besoin est installé"
+            "value" : "Tout ce dont cette sauvegarde a besoin est installé"
           }
         }
       }
@@ -2101,7 +2101,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Trouvés grâce aux identifiants enregistrés dans le fichier de la partie."
+            "value" : "Trouvés grâce aux identifiants enregistrés dans le fichier de sauvegarde."
           }
         }
       }
@@ -2281,7 +2281,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Inclut les sauvegardes quotidiennes automatiques de SMAPI."
+            "value" : "Inclut les copies quotidiennes automatiques de SMAPI."
           }
         }
       }
@@ -2672,7 +2672,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chargez cette partie une fois avec SMAPI, puis revenez : le journal de SMAPI liste chaque lieu et PNJ provenant de mods que vous n’avez pas, ce qui permet de trouver encore plus de mods manquants."
+            "value" : "Chargez cette sauvegarde une fois avec SMAPI, puis revenez : le journal de SMAPI liste chaque lieu et PNJ provenant de mods que vous n’avez pas, ce qui permet de trouver encore plus de mods manquants."
           }
         }
       }
@@ -2682,7 +2682,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lieux et PNJ ignorés par le jeu au chargement de cette partie, regroupés par mod probable. Les correspondances viennent d’une recherche sur Nexus : vérifiez-les avant d’installer."
+            "value" : "Lieux et PNJ ignorés par le jeu au chargement de cette sauvegarde, regroupés par mod probable. Les correspondances viennent d’une recherche sur Nexus : vérifiez-les avant d’installer."
           }
         }
       }
@@ -2953,7 +2953,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mods utilisés par cette partie"
+            "value" : "Mods utilisés par cette sauvegarde"
           }
         }
       }
@@ -3194,7 +3194,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aucune sauvegarde pour l’instant"
+            "value" : "Aucune copie pour l’instant"
           }
         }
       }
@@ -3264,7 +3264,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aucune partie trouvée"
+            "value" : "Aucune sauvegarde trouvée"
           }
         }
       }
@@ -3504,7 +3504,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ouvrir le dossier des parties"
+            "value" : "Ouvrir le dossier des sauvegardes"
           }
         }
       }
@@ -3564,7 +3564,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ouvrir le dossier des parties dans le Finder"
+            "value" : "Ouvrir le dossier des sauvegardes dans le Finder"
           }
         }
       }
@@ -3894,7 +3894,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lecture du fichier de la partie…"
+            "value" : "Lecture du fichier de sauvegarde…"
           }
         }
       }
@@ -4020,7 +4020,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Restaurer %1$@ depuis la sauvegarde du %2$@ ?"
+            "value" : "Restaurer %1$@ depuis la copie du %2$@ ?"
           }
         }
       }
@@ -4036,7 +4036,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Restaurer %1$lld parties depuis la sauvegarde du %2$@ ?"
+            "value" : "Restaurer %1$lld sauvegardes depuis la copie du %2$@ ?"
           }
         }
       }
@@ -4076,7 +4076,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%lld parties restaurées. Les versions précédentes sont dans « Before restore »."
+            "value" : "%lld sauvegardes restaurées. Les versions précédentes sont dans « Before restore »."
           }
         }
       }
@@ -4232,7 +4232,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Parties"
+            "value" : "Sauvegardes"
           }
         }
       }
@@ -4242,7 +4242,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Les parties se trouvent dans ~/.config/StardewValley/Saves."
+            "value" : "Les sauvegardes se trouvent dans ~/.config/StardewValley/Saves."
           }
         }
       }
@@ -4262,7 +4262,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Analyse de la partie…"
+            "value" : "Analyse de la sauvegarde…"
           }
         }
       }
@@ -4312,7 +4312,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Voyez de quels mods une partie a besoin, ou sauvegardez-la et restaurez-la."
+            "value" : "Voyez de quels mods une sauvegarde a besoin, ou faites-en une copie pour la restaurer plus tard."
           }
         }
       }
@@ -4322,7 +4322,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sélectionnez une partie"
+            "value" : "Sélectionnez une sauvegarde"
           }
         }
       }
@@ -4748,7 +4748,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Passer aux mods de cette partie, puis lancer le jeu. Choisissez ensuite la ferme %@ dans « Charger »."
+            "value" : "Passer aux mods de cette sauvegarde, puis lancer le jeu. Choisissez ensuite la ferme %@ dans « Charger »."
           }
         }
       }
@@ -4778,7 +4778,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La version actuelle est d’abord sauvegardée (« Before restore ») et placée dans la Corbeille : vous pouvez donc annuler. Si Steam Cloud signale un conflit la prochaine fois que vous jouez, gardez les fichiers locaux."
+            "value" : "La version actuelle est d’abord copiée (« Before restore ») et placée dans la Corbeille : vous pouvez donc annuler. Si Steam Cloud signale un conflit la prochaine fois que vous jouez, gardez les fichiers locaux."
           }
         }
       }
@@ -4820,7 +4820,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Le jeu écraserait la partie restaurée lors de sa prochaine sauvegarde. Quittez le jeu, puis restaurez."
+            "value" : "Le jeu écraserait la sauvegarde restaurée lors de son prochain enregistrement. Quittez le jeu, puis restaurez."
           }
         }
       }
@@ -4910,7 +4910,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cette partie utilise des mods que vous n’avez pas"
+            "value" : "Cette sauvegarde utilise des mods que vous n’avez pas"
           }
         }
       }
@@ -5223,7 +5223,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Les mods avec lesquels cette partie se joue. « Activer ses mods et jouer » passe à ces mods avant le lancement."
+            "value" : "Les mods avec lesquels cette sauvegarde se joue. « Activer ses mods et jouer » passe à ces mods avant le lancement."
           }
         }
       }

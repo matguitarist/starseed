@@ -244,7 +244,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Les sauvegardes propres à SMAPI sont gérées par son mod Save Backup."
+            "value" : "Les copies propres à SMAPI sont gérées par son mod Save Backup."
           }
         }
       }
@@ -254,7 +254,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cette sauvegarde ne contient pas la partie sélectionnée."
+            "value" : "Cette copie ne contient pas la sauvegarde sélectionnée."
           }
         }
       }
@@ -264,7 +264,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La sauvegarde a été créée mais n’a pas pu être relue."
+            "value" : "La copie a été créée mais n’a pas pu être relue."
           }
         }
       }
@@ -274,7 +274,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aucune partie à sauvegarder."
+            "value" : "Aucune sauvegarde à copier."
           }
         }
       }
