@@ -9,6 +9,8 @@ downloaded yourself. Browsing and local installs need no account.
 
 ## Features
 
+Built-in help: **Help → Starseed Help** (⌘?), in English and French.
+
 - **Browse & search Nexus Mods** inside the app (thumbnails, endorsements,
   downloads, files per mod). No account needed to browse.
 - **Install from Nexus**:

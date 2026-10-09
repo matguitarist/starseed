@@ -1,0 +1,303 @@
+// The Help window (Help → Starseed Help): short, task-based topics. Every
+// paragraph is a String Catalog key, so it's translated like the rest of
+// the app; **bold** marks the names of buttons and sections.
+
+import ModManagerCore
+import SwiftUI
+
+enum HelpTopic: String, CaseIterable, Identifiable {
+    case gettingStarted, installing, managing, updates, requirements, profiles, saves, log, troubleshooting, shortcuts
+
+    var id: String { rawValue }
+
+    var title: LocalizedStringKey {
+        switch self {
+        case .gettingStarted: "Getting Started"
+        case .installing: "Installing Mods"
+        case .managing: "Managing Your Mods"
+        case .updates: "Updates"
+        case .requirements: "Requirements"
+        case .profiles: "Profiles & Collections"
+        case .saves: "Saves & Backups"
+        case .log: "SMAPI Log"
+        case .troubleshooting: "Troubleshooting"
+        case .shortcuts: "Keyboard Shortcuts"
+        }
+    }
+
+    var icon: String {
+        switch self {
+        case .gettingStarted: "flag"
+        case .installing: "square.and.arrow.down"
+        case .managing: "square.stack.3d.up"
+        case .updates: "arrow.down.circle"
+        case .requirements: "puzzlepiece.extension"
+        case .profiles: "person.2"
+        case .saves: "archivebox"
+        case .log: "doc.text.magnifyingglass"
+        case .troubleshooting: "wrench.and.screwdriver"
+        case .shortcuts: "keyboard"
+        }
+    }
+}
+
+struct HelpView: View {
+    static let windowID = "help"
+    @State private var selection: HelpTopic? = .gettingStarted
+
+    var body: some View {
+        NavigationSplitView {
+            List(HelpTopic.allCases, selection: $selection) { topic in
+                Label(topic.title, systemImage: topic.icon).tag(topic)
+            }
+            .navigationSplitViewColumnWidth(min: 190, ideal: 210, max: 260)
+        } detail: {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 18) {
+                    let topic = selection ?? .gettingStarted
+                    Label(topic.title, systemImage: topic.icon)
+                        .font(.largeTitle.bold())
+                        .padding(.bottom, 4)
+                    content(for: topic)
+                }
+                .frame(maxWidth: 680, alignment: .leading)
+                .padding(28)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .textSelection(.enabled)
+            }
+            .id(selection)  // start each topic at the top
+        }
+        .navigationTitle("Starseed Help")
+    }
+
+    @ViewBuilder
+    private func content(for topic: HelpTopic) -> some View {
+        switch topic {
+        case .gettingStarted:
+            HelpText("Starseed installs, updates and organizes Stardew Valley mods. Mods run through **SMAPI**, the mod loader for Stardew Valley, so SMAPI needs to be installed first.")
+            HelpSection("1. Install SMAPI") {
+                HelpText("Download SMAPI from its Nexus page (**Get SMAPI…** in the orange banner opens it) and run its installer. Starseed shows the installed SMAPI version in **Settings → General** and warns when a newer one is out.")
+            }
+            HelpSection("2. Choose your Mods folder") {
+                HelpText("On first launch, pick the game's **Mods** folder. For the Steam version it's inside the game: *Stardew Valley.app/Contents/MacOS/Mods*. You can change it later in **Settings → General**.")
+            }
+            HelpSection("3. Add your Nexus Mods API key") {
+                HelpText("To download from Nexus Mods inside the app, paste your personal API key in **Settings → Nexus Mods** (**Open the Nexus API Keys page…** takes you there). The key is kept in your Keychain.")
+                HelpText("Free Nexus accounts download through Nexus's own page: click **Slow download** once per mod, and Starseed installs the file when it arrives. Premium accounts download directly.")
+            }
+            HelpSection("4. Play") {
+                HelpText("**Play** in the toolbar starts the game through Steam, with SMAPI. If your mods changed since you last played, your saves are backed up first.")
+            }
+
+        case .installing:
+            HelpSection("From files you downloaded") {
+                HelpText("Drop .zip, .7z or .rar archives (or mod folders) on the window, or use **Install Mods…** (⌘O). An archive can hold several mods; each one goes into the Mods folder, and an older copy is replaced, keeping its settings.")
+            }
+            HelpSection("From Nexus Mods") {
+                HelpText("**Browse Nexus** searches Stardew Valley mods. Open one to see its files and requirements, then **Install**. Requirements that are missing can be installed in the same step.")
+                HelpText("**Collections** lists curated mod packs from Nexus. A collection installs every mod it lists, at the versions it was made with.")
+                HelpText("Links in Starseed open in its own Nexus browser, which catches **Mod Manager Download** buttons. To catch them in Safari or Chrome too, click **Use This App** in **Settings → Nexus Mods**.")
+            }
+            HelpSection("Optional files") {
+                HelpText("Mods with extra files on Nexus (add-ons, compatibility patches) show a small badge in the list. The details panel lists them under **Optional Files on Nexus**, each with its own **Install** button.")
+            }
+
+        case .managing:
+            HelpSection("The Installed list") {
+                HelpText("Every mod in the Mods folder, with its version, author and status. Tick or untick **On** to enable or disable a mod: disabled mods stay installed but SMAPI skips them (their folder name starts with a dot). ⌘Z undoes it.")
+                HelpText("Mods made of several parts, like Stardew Valley Expanded, appear as one row you can expand; their parts are enabled and disabled together. Type in the filter bar to find a mod by name, author or ID (⌘F).")
+            }
+            HelpSection("The details panel") {
+                HelpText("Select a mod to see its description and Nexus page, the mods it needs (**Requires**), the mods that use it (**Required By**, **Optional For**) and any **Conflicts** SMAPI reported. From there you can:")
+                HelpBullets([
+                    "edit its settings with **Mod Settings…**, without opening the config file",
+                    "go back to an earlier version under **Previous Versions** (kept automatically when you update)",
+                    "endorse or track it on Nexus",
+                ])
+            }
+            HelpSection("Removing mods") {
+                HelpText("**Move to Trash…** (or the Delete key) puts mods in the Trash, so they can be restored from Finder. If a mod is used by others, you're warned first; afterwards, Starseed offers to remove requirements nothing uses anymore.")
+                HelpText("If the same mod is installed twice, SMAPI loads neither copy: a banner offers **Keep Newest**.")
+            }
+
+        case .updates:
+            HelpText("Starseed asks SMAPI's update service about every installed mod, at launch and every few hours (**Settings → General**). You get a notification when new updates are found, and the status bar at the bottom of the window shows each check's progress and result.")
+            HelpSection("Installing updates") {
+                HelpText("Mods with an update show an **Update to…** button in the **Activity** column. The **Updates** section lists them all, with **Update All**. While a mod downloads and installs, its progress shows in the same column.")
+                HelpText("Open **What's New** under an update to read the changelog from Nexus before installing it.")
+            }
+            HelpSection("If an update breaks something") {
+                HelpText("The version you replaced is kept. Select the mod and pick it under **Previous Versions** in the details panel; your settings carry over.")
+            }
+
+        case .requirements:
+            HelpText("Many mods need others to work: frameworks like Content Patcher or SpaceCore, or tilesheet packs. The **Requirements** section lists what your enabled mods need but you don't have, and which mods need it.")
+            HelpBullets([
+                "**Install** downloads it from Nexus; **Install All** does them all.",
+                "If it's installed but disabled, **Enable** turns it back on.",
+                "Mods hosted elsewhere (ModDrop, GitHub…) get a **Get on…** button that opens their page: download the file there, then drop it on the window.",
+            ])
+            HelpText("**Not listed on Nexus** holds IDs from mods' files that match nothing on their Nexus pages. They're usually covered by a requirement above under another name; if SMAPI's log still says something is missing, search for it.")
+
+        case .profiles:
+            HelpSection("Profiles") {
+                HelpText("A profile remembers which mods are enabled. Save one for each way you play (a big expansion run, a vanilla-plus game…) and switch between them with **Profiles** in the toolbar. Applying a profile can be undone with ⌘Z.")
+            }
+            HelpSection("My Collections") {
+                HelpText("A collection is a list of your mods with their versions and Nexus pages. **Export…** it to share your setup, or keep it as a backup; **Import…** reads one back and offers to install whatever's missing.")
+            }
+            HelpSection("Mods for each save") {
+                HelpText("In **Saves**, choose which profile or collection a save is played with. **Use Mods & Play** switches to those mods before launching, so each farm always gets its own set.")
+            }
+
+        case .saves:
+            HelpSection("Missing mods") {
+                HelpText("**Saves** lists your farms. Select one to see the mods it was played with and which are missing or older here, then **Find Missing Mods** to install them from Nexus.")
+            }
+            HelpSection("Backups") {
+                HelpText("**Back Up All Saves**, or **Back Up Now** on a single farm, makes a zip you can restore later, all at once or one save at a time. Restoring first backs up the current saves, so it can be undone. Backups made by SMAPI's own Save Backup mod are listed too.")
+                HelpText("When your mods changed since you last played, **Play** backs up every save before starting the game; the last 5 of these are kept. You can turn this off in **Settings → General**.")
+            }
+
+        case .log:
+            HelpText("SMAPI writes a log each time the game runs. The **SMAPI Log** section shows the latest one with colors per level (errors, warnings, info…) and filters by level, mod or text.")
+            HelpSection("What SMAPI is telling you") {
+                HelpText("The top of the log turns SMAPI's messages into plain advice, each with a button to fix it:")
+                HelpBullets([
+                    "mods that didn't load, and what they need",
+                    "mods that had errors while you played",
+                    "mods that conflict because they replace the same game files",
+                    "updates for SMAPI and your mods",
+                ])
+            }
+            HelpSection("Asking for help") {
+                HelpText("When reporting a problem to a mod author, share your log: **Upload to smapi.io…** gives you a link to paste. **Clear** hides older lines so the next run is easy to read.")
+            }
+
+        case .troubleshooting:
+            HelpQuestion("macOS asks for Keychain access at launch.") {
+                HelpText("The Nexus API key is stored in your Keychain. Choose **Always Allow**; a rebuilt or updated copy of the app may ask once more.")
+            }
+            HelpQuestion("A download stays on “Waiting on Nexus”.") {
+                HelpText("Free accounts have to click **Slow download** on the Nexus page in Starseed's browser window. Click **Waiting on Nexus** to bring that page back.")
+            }
+            HelpQuestion("A mod doesn't show up in the game.") {
+                HelpText("Check its status in **Installed** and the **SMAPI Log** after starting the game: it may be disabled, missing a requirement, need a newer SMAPI, or conflict with another mod.")
+            }
+            HelpQuestion("The game starts without mods.") {
+                HelpText("SMAPI is probably missing or was removed by a game update. Run SMAPI's installer again (**Get SMAPI…**).")
+            }
+            HelpQuestion("Something else went wrong.") {
+                HelpText("Most problems show up in the **SMAPI Log**. The Stardew Valley modding community can help with it on the official forums and Discord.")
+            }
+
+        case .shortcuts:
+            Grid(alignment: .leading, horizontalSpacing: 24, verticalSpacing: 10) {
+                shortcut("⌘O", "Install mods from files")
+                shortcut("⌘R", "Rescan the Mods folder")
+                shortcut("⇧⌘U", "Check for mod updates")
+                shortcut("⌘F", "Filter the Installed list")
+                shortcut("⌘Z / ⇧⌘Z", "Undo or redo enabling and disabling")
+                shortcut("⌫", "Move the selected mods to the Trash")
+                shortcut("⇧⌘O", "Open the Mods folder")
+                shortcut("⌘L", "Launch Stardew Valley")
+                shortcut("⌘,", "Settings")
+                shortcut("⌘?", "This help")
+            }
+        }
+
+        if topic == .gettingStarted || topic == .troubleshooting {
+            HelpSection("More help") {
+                VStack(alignment: .leading, spacing: 6) {
+                    Link("Stardew Valley Wiki: Getting started with mods", destination: URL(string: "https://stardewvalleywiki.com/Modding:Player_Guide/Getting_Started")!)
+                    Link("SMAPI website and log parser", destination: URL(string: "https://smapi.io")!)
+                    Link("Stardew Valley mods on Nexus Mods", destination: URL(string: "https://www.nexusmods.com/stardewvalley")!)
+                }
+            }
+        }
+    }
+
+    private func shortcut(_ keys: String, _ action: LocalizedStringKey) -> some View {
+        GridRow {
+            Text(verbatim: keys)
+                .font(.body.monospaced())
+                .foregroundStyle(.secondary)
+                .gridColumnAlignment(.trailing)
+            Text(action)
+        }
+    }
+}
+
+private struct HelpText: View {
+    let text: LocalizedStringKey
+    init(_ text: LocalizedStringKey) { self.text = text }
+
+    var body: some View {
+        Text(text)
+            .lineSpacing(3)
+            .fixedSize(horizontal: false, vertical: true)
+    }
+}
+
+private struct HelpBullets: View {
+    let items: [LocalizedStringKey]
+    init(_ items: [LocalizedStringKey]) { self.items = items }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            ForEach(items.indices, id: \.self) { index in
+                HStack(alignment: .firstTextBaseline, spacing: 8) {
+                    Text(verbatim: "•").foregroundStyle(.secondary)
+                    HelpText(items[index])
+                }
+            }
+        }
+        .padding(.leading, 4)
+    }
+}
+
+private struct HelpSection<Content: View>: View {
+    let title: LocalizedStringKey
+    @ViewBuilder let content: Content
+    init(_ title: LocalizedStringKey, @ViewBuilder content: () -> Content) {
+        self.title = title
+        self.content = content()
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(title).font(.title3.bold())
+            content
+        }
+    }
+}
+
+/// A troubleshooting question with its answer.
+private struct HelpQuestion<Content: View>: View {
+    let question: LocalizedStringKey
+    @ViewBuilder let content: Content
+    init(_ question: LocalizedStringKey, @ViewBuilder content: () -> Content) {
+        self.question = question
+        self.content = content()
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text(question).font(.headline)
+            content
+        }
+    }
+}
+
+/// Help menu items. A view, so it can open the Help window.
+struct HelpCommands: View {
+    @Environment(\.openWindow) private var openWindow
+
+    var body: some View {
+        Button("Starseed Help") { openWindow(id: HelpView.windowID) }
+            .keyboardShortcut("?", modifiers: .command)
+        Divider()
+        Link("Stardew Valley Wiki: Getting started with mods", destination: URL(string: "https://stardewvalleywiki.com/Modding:Player_Guide/Getting_Started")!)
+        Link("SMAPI website and log parser", destination: URL(string: "https://smapi.io")!)
+    }
+}

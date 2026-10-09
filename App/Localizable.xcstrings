@@ -74,6 +74,86 @@
         }
       }
     },
+    "**Back Up All Saves**, or **Back Up Now** on a single farm, makes a zip you can restore later, all at once or one save at a time. Restoring first backs up the current saves, so it can be undone. Backups made by SMAPI's own Save Backup mod are listed too." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Copier toutes les sauvegardes**, ou **Faire une copie maintenant** sur une seule ferme, crée un zip à restaurer plus tard, en entier ou une sauvegarde à la fois. Une restauration copie d’abord les sauvegardes actuelles : elle peut donc être annulée. Les copies faites par le mod Save Backup de SMAPI sont aussi listées."
+          }
+        }
+      }
+    },
+    "**Browse Nexus** searches Stardew Valley mods. Open one to see its files and requirements, then **Install**. Requirements that are missing can be installed in the same step." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Parcourir Nexus** cherche parmi les mods de Stardew Valley. Ouvrez-en un pour voir ses fichiers et ses prérequis, puis **Installer**. Les prérequis manquants peuvent être installés en même temps."
+          }
+        }
+      }
+    },
+    "**Collections** lists curated mod packs from Nexus. A collection installs every mod it lists, at the versions it was made with." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Collections** liste les packs de mods sélectionnés sur Nexus. Une collection installe tous les mods qu’elle contient, dans les versions avec lesquelles elle a été créée."
+          }
+        }
+      }
+    },
+    "**Install** downloads it from Nexus; **Install All** does them all." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Installer** le télécharge depuis Nexus ; **Tout installer** les installe tous."
+          }
+        }
+      }
+    },
+    "**Move to Trash…** (or the Delete key) puts mods in the Trash, so they can be restored from Finder. If a mod is used by others, you're warned first; afterwards, Starseed offers to remove requirements nothing uses anymore." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Placer dans la Corbeille…** (ou la touche Supprimer) met les mods à la Corbeille : vous pouvez les récupérer depuis le Finder. Si d’autres mods en ont besoin, vous êtes prévenu avant ; ensuite, Starseed propose de retirer les prérequis que plus rien n’utilise."
+          }
+        }
+      }
+    },
+    "**Not listed on Nexus** holds IDs from mods' files that match nothing on their Nexus pages. They're usually covered by a requirement above under another name; if SMAPI's log still says something is missing, search for it." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Non répertoriés sur Nexus** regroupe des identifiants tirés des fichiers des mods qui ne correspondent à rien sur leurs pages Nexus. Ils sont en général couverts par un prérequis ci-dessus sous un autre nom ; si le journal de SMAPI signale toujours un manque, cherchez-le."
+          }
+        }
+      }
+    },
+    "**Play** in the toolbar starts the game through Steam, with SMAPI. If your mods changed since you last played, your saves are backed up first." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Jouer** dans la barre d’outils lance le jeu via Steam, avec SMAPI. Si vos mods ont changé depuis la dernière partie, vos sauvegardes sont d’abord copiées."
+          }
+        }
+      }
+    },
+    "**Saves** lists your farms. Select one to see the mods it was played with and which are missing or older here, then **Find Missing Mods** to install them from Nexus." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Sauvegardes** liste vos fermes. Sélectionnez-en une pour voir les mods avec lesquels elle a été jouée et ceux qui manquent ou sont plus anciens ici, puis **Trouver les mods manquants** pour les installer depuis Nexus."
+          }
+        }
+      }
+    },
     "%@ — %lld left" : {
       "localizations" : {
         "en" : {
@@ -663,12 +743,82 @@
         }
       }
     },
+    "1. Install SMAPI" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. Installer SMAPI"
+          }
+        }
+      }
+    },
+    "2. Choose your Mods folder" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. Choisir votre dossier Mods"
+          }
+        }
+      }
+    },
+    "3. Add your Nexus Mods API key" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3. Ajouter votre clé d’API Nexus Mods"
+          }
+        }
+      }
+    },
+    "4. Play" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "4. Jouer"
+          }
+        }
+      }
+    },
+    "A collection is a list of your mods with their versions and Nexus pages. **Export…** it to share your setup, or keep it as a backup; **Import…** reads one back and offers to install whatever's missing." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une collection est la liste de vos mods avec leurs versions et leurs pages Nexus. **Exportez-la** pour partager votre configuration ou la garder en sécurité ; **Importer…** la relit et propose d’installer ce qui manque."
+          }
+        }
+      }
+    },
+    "A download stays on “Waiting on Nexus”." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un téléchargement reste sur « En attente sur Nexus »."
+          }
+        }
+      }
+    },
     "A folder inside Mods with %lld mods. SMAPI loads every mod in it." : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Un dossier dans Mods contenant %lld mods. SMAPI charge tous les mods qu’il contient."
+          }
+        }
+      }
+    },
+    "A mod doesn't show up in the game." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un mod n’apparaît pas dans le jeu."
           }
         }
       }
@@ -699,6 +849,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Un profil retient quels mods sont activés."
+          }
+        }
+      }
+    },
+    "A profile remembers which mods are enabled. Save one for each way you play (a big expansion run, a vanilla-plus game…) and switch between them with **Profiles** in the toolbar. Applying a profile can be undone with ⌘Z." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un profil retient quels mods sont activés. Enregistrez-en un pour chaque façon de jouer (une grosse partie avec extensions, une partie presque vanilla…) et passez de l’un à l’autre avec **Profils** dans la barre d’outils. Appliquer un profil s’annule avec ⌘Z."
           }
         }
       }
@@ -955,6 +1115,16 @@
         }
       }
     },
+    "Asking for help" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Demander de l’aide"
+          }
+        }
+      }
+    },
     "Asking SMAPI about %lld mods…" : {
       "localizations" : {
         "fr" : {
@@ -1176,6 +1346,16 @@
         }
       }
     },
+    "Check for mod updates" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher les mises à jour des mods"
+          }
+        }
+      }
+    },
     "Check for mod updates every few hours" : {
       "localizations" : {
         "fr" : {
@@ -1233,6 +1413,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rechercher les mises à jour"
+          }
+        }
+      }
+    },
+    "Check its status in **Installed** and the **SMAPI Log** after starting the game: it may be disabled, missing a requirement, need a newer SMAPI, or conflict with another mod." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vérifiez son état dans **Installés** et dans le **Journal SMAPI** après avoir lancé le jeu : il est peut-être désactivé, il lui manque un prérequis, il demande un SMAPI plus récent, ou il entre en conflit avec un autre mod."
           }
         }
       }
@@ -2051,6 +2241,16 @@
         }
       }
     },
+    "Download SMAPI from its Nexus page (**Get SMAPI…** in the orange banner opens it) and run its installer. Starseed shows the installed SMAPI version in **Settings → General** and warns when a newer one is out." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Téléchargez SMAPI depuis sa page Nexus (**Obtenir SMAPI…** dans le bandeau orange l’ouvre) et lancez son installateur. Starseed affiche la version installée dans **Réglages → Général** et vous prévient quand une nouvelle version sort."
+          }
+        }
+      }
+    },
     "Download the mod's file in your browser, then drop it on this window to install it." : {
       "localizations" : {
         "fr" : {
@@ -2101,6 +2301,16 @@
         }
       }
     },
+    "Drop .zip, .7z or .rar archives (or mod folders) on the window, or use **Install Mods…** (⌘O). An archive can hold several mods; each one goes into the Mods folder, and an older copy is replaced, keeping its settings." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Déposez des archives .zip, .7z ou .rar (ou des dossiers de mods) sur la fenêtre, ou utilisez **Installer des mods…** (⌘O). Une archive peut contenir plusieurs mods ; chacun va dans le dossier Mods, et une ancienne copie est remplacée en gardant ses réglages."
+          }
+        }
+      }
+    },
     "Drop or choose mod archives (.zip, .7z, .rar) downloaded from Nexus or elsewhere." : {
       "localizations" : {
         "fr" : {
@@ -2117,6 +2327,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Doublon"
+          }
+        }
+      }
+    },
+    "edit its settings with **Mod Settings…**, without opening the config file" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "modifier ses réglages avec **Réglages du mod…**, sans ouvrir le fichier de configuration"
           }
         }
       }
@@ -2251,6 +2471,16 @@
         }
       }
     },
+    "endorse or track it on Nexus" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "le recommander ou le suivre sur Nexus"
+          }
+        }
+      }
+    },
     "Endorsed" : {
       "localizations" : {
         "fr" : {
@@ -2298,6 +2528,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tous les fichiers de la page Nexus de ce mod : principaux, optionnels, mises à jour et anciennes versions"
+          }
+        }
+      }
+    },
+    "Every mod in the Mods folder, with its version, author and status. Tick or untick **On** to enable or disable a mod: disabled mods stay installed but SMAPI skips them (their folder name starts with a dot). ⌘Z undoes it." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tous les mods du dossier Mods, avec leur version, leur auteur et leur état. Cochez ou décochez **Activé** pour activer ou désactiver un mod : un mod désactivé reste installé mais SMAPI l’ignore (le nom de son dossier commence par un point). ⌘Z annule."
           }
         }
       }
@@ -2368,6 +2608,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Filtrer par nom, auteur ou identifiant"
+          }
+        }
+      }
+    },
+    "Filter the Installed list" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filtrer la liste Installés"
           }
         }
       }
@@ -2502,6 +2752,46 @@
         }
       }
     },
+    "Free accounts have to click **Slow download** on the Nexus page in Starseed's browser window. Click **Waiting on Nexus** to bring that page back." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les comptes gratuits doivent cliquer sur **Slow download** sur la page Nexus, dans la fenêtre de navigateur de Starseed. Cliquez sur **En attente sur Nexus** pour rouvrir cette page."
+          }
+        }
+      }
+    },
+    "Free Nexus accounts download through Nexus's own page: click **Slow download** once per mod, and Starseed installs the file when it arrives. Premium accounts download directly." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les comptes Nexus gratuits téléchargent via la page de Nexus : cliquez une fois sur **Slow download** par mod, et Starseed installe le fichier à son arrivée. Les comptes Premium téléchargent directement."
+          }
+        }
+      }
+    },
+    "From files you downloaded" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Depuis des fichiers téléchargés"
+          }
+        }
+      }
+    },
+    "From Nexus Mods" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Depuis Nexus Mods"
+          }
+        }
+      }
+    },
     "Game" : {
       "localizations" : {
         "fr" : {
@@ -2562,6 +2852,26 @@
         }
       }
     },
+    "Getting Started" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premiers pas"
+          }
+        }
+      }
+    },
+    "go back to an earlier version under **Previous Versions** (kept automatically when you update)" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "revenir à une version antérieure sous **Versions précédentes** (conservées automatiquement à chaque mise à jour)"
+          }
+        }
+      }
+    },
     "Has optional content: see Optional Files or optional requirements in the details panel" : {
       "localizations" : {
         "fr" : {
@@ -2602,6 +2912,36 @@
         }
       }
     },
+    "If an update breaks something" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si une mise à jour casse quelque chose"
+          }
+        }
+      }
+    },
+    "If it's installed but disabled, **Enable** turns it back on." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "S’il est installé mais désactivé, **Activer** le réactive."
+          }
+        }
+      }
+    },
+    "If the same mod is installed twice, SMAPI loads neither copy: a banner offers **Keep Newest**." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si un mod est installé deux fois, SMAPI ne charge aucune des copies : un bandeau propose **Garder le plus récent**."
+          }
+        }
+      }
+    },
     "Import" : {
       "localizations" : {
         "fr" : {
@@ -2638,6 +2978,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Importer…"
+          }
+        }
+      }
+    },
+    "In **Saves**, choose which profile or collection a save is played with. **Use Mods & Play** switches to those mods before launching, so each farm always gets its own set." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dans **Sauvegardes**, choisissez le profil ou la collection avec lequel une sauvegarde se joue. **Activer ses mods et jouer** bascule sur ces mods avant le lancement : chaque ferme a toujours les siens."
           }
         }
       }
@@ -2773,6 +3123,16 @@
         }
       }
     },
+    "Install mods from files" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installer des mods depuis des fichiers"
+          }
+        }
+      }
+    },
     "Install Mods…" : {
       "localizations" : {
         "fr" : {
@@ -2859,6 +3219,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Installation de %@…"
+          }
+        }
+      }
+    },
+    "Installing Mods" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installer des mods"
+          }
+        }
+      }
+    },
+    "Installing updates" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installer les mises à jour"
           }
         }
       }
@@ -2963,6 +3343,16 @@
         }
       }
     },
+    "Keyboard Shortcuts" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Raccourcis clavier"
+          }
+        }
+      }
+    },
     "Keychain error %d" : {
       "localizations" : {
         "fr" : {
@@ -3049,6 +3439,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bibliothèque"
+          }
+        }
+      }
+    },
+    "Links in Starseed open in its own Nexus browser, which catches **Mod Manager Download** buttons. To catch them in Safari or Chrome too, click **Use This App** in **Settings → Nexus Mods**." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les liens de Starseed s’ouvrent dans son propre navigateur Nexus, qui intercepte les boutons **Mod Manager Download**. Pour les intercepter aussi dans Safari ou Chrome, cliquez sur **Utiliser cette app** dans **Réglages → Nexus Mods**."
           }
         }
       }
@@ -3143,6 +3543,16 @@
         }
       }
     },
+    "macOS asks for Keychain access at launch." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS demande l’accès au trousseau au lancement."
+          }
+        }
+      }
+    },
     "Main files" : {
       "localizations" : {
         "fr" : {
@@ -3153,12 +3563,32 @@
         }
       }
     },
+    "Managing Your Mods" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gérer vos mods"
+          }
+        }
+      }
+    },
     "Manifest error" : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Erreur de manifeste"
+          }
+        }
+      }
+    },
+    "Many mods need others to work: frameworks like Content Patcher or SpaceCore, or tilesheet packs. The **Requirements** section lists what your enabled mods need but you don't have, and which mods need it." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beaucoup de mods en demandent d’autres pour fonctionner : des frameworks comme Content Patcher ou SpaceCore, ou des packs de tilesheets. La section **Prérequis** liste ce dont vos mods activés ont besoin et qui vous manque, et quels mods en ont besoin."
           }
         }
       }
@@ -3239,6 +3669,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Manifeste manquant"
+          }
+        }
+      }
+    },
+    "Missing mods" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods manquants"
           }
         }
       }
@@ -3374,12 +3814,72 @@
         }
       }
     },
+    "Mods for each save" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Des mods pour chaque sauvegarde"
+          }
+        }
+      }
+    },
+    "Mods hosted elsewhere (ModDrop, GitHub…) get a **Get on…** button that opens their page: download the file there, then drop it on the window." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les mods hébergés ailleurs (ModDrop, GitHub…) ont un bouton **Obtenir sur…** qui ouvre leur page : téléchargez-y le fichier, puis déposez-le sur la fenêtre."
+          }
+        }
+      }
+    },
+    "Mods made of several parts, like Stardew Valley Expanded, appear as one row you can expand; their parts are enabled and disabled together. Type in the filter bar to find a mod by name, author or ID (⌘F)." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les mods en plusieurs parties, comme Stardew Valley Expanded, apparaissent sur une seule ligne dépliable ; leurs parties s’activent et se désactivent ensemble. Tapez dans la barre de filtre pour trouver un mod par nom, auteur ou identifiant (⌘F)."
+          }
+        }
+      }
+    },
     "Mods only load through SMAPI. Install it next to the game, then launch the game normally." : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les mods ne se chargent qu’avec SMAPI. Installez-le à côté du jeu, puis lancez le jeu normalement."
+          }
+        }
+      }
+    },
+    "mods that conflict because they replace the same game files" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "les mods en conflit parce qu’ils remplacent les mêmes fichiers du jeu"
+          }
+        }
+      }
+    },
+    "mods that didn't load, and what they need" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "les mods qui ne se sont pas chargés, et ce qu’il leur faut"
+          }
+        }
+      }
+    },
+    "mods that had errors while you played" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "les mods qui ont eu des erreurs pendant la partie"
           }
         }
       }
@@ -3404,12 +3904,42 @@
         }
       }
     },
+    "Mods with an update show an **Update to…** button in the **Activity** column. The **Updates** section lists them all, with **Update All**. While a mod downloads and installs, its progress shows in the same column." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les mods qui ont une mise à jour affichent un bouton **Mettre à jour vers…** dans la colonne **Activité**. La section **Mises à jour** les liste tous, avec **Tout mettre à jour**. Pendant le téléchargement et l’installation, la progression s’affiche dans la même colonne."
+          }
+        }
+      }
+    },
+    "Mods with extra files on Nexus (add-ons, compatibility patches) show a small badge in the list. The details panel lists them under **Optional Files on Nexus**, each with its own **Install** button." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les mods qui ont des fichiers en plus sur Nexus (extensions, patchs de compatibilité) affichent un petit badge dans la liste. Le panneau de détails les présente sous **Fichiers optionnels sur Nexus**, chacun avec son bouton **Installer**."
+          }
+        }
+      }
+    },
     "Mods: any" : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mods : au choix"
+          }
+        }
+      }
+    },
+    "More help" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plus d’aide"
           }
         }
       }
@@ -3430,6 +3960,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Plus recommandés"
+          }
+        }
+      }
+    },
+    "Most problems show up in the **SMAPI Log**. The Stardew Valley modding community can help with it on the official forums and Discord." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La plupart des problèmes apparaissent dans le **Journal SMAPI**. La communauté de modding de Stardew Valley peut vous aider sur les forums officiels et Discord."
           }
         }
       }
@@ -3470,6 +4010,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Placer 1 mod dans la Corbeille"
+          }
+        }
+      }
+    },
+    "Move the selected mods to the Trash" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Placer les mods sélectionnés dans la Corbeille"
           }
         }
       }
@@ -3925,12 +4475,32 @@
         }
       }
     },
+    "On first launch, pick the game's **Mods** folder. For the Steam version it's inside the game: *Stardew Valley.app/Contents/MacOS/Mods*. You can change it later in **Settings → General**." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Au premier lancement, choisissez le dossier **Mods** du jeu. Pour la version Steam, il est dans le jeu : *Stardew Valley.app/Contents/MacOS/Mods*. Vous pourrez le changer dans **Réglages → Général**."
+          }
+        }
+      }
+    },
     "Only the collection is deleted, not the mods." : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Seule la collection est supprimée, pas les mods."
+          }
+        }
+      }
+    },
+    "Open **What's New** under an update to read the changelog from Nexus before installing it." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrez **Nouveautés** sous une mise à jour pour lire son journal des modifications sur Nexus avant de l’installer."
           }
         }
       }
@@ -4052,6 +4622,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ouvrir Starseed"
+          }
+        }
+      }
+    },
+    "Open the Mods folder" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir le dossier Mods"
           }
         }
       }
@@ -4386,6 +4966,16 @@
         }
       }
     },
+    "Profiles & Collections" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profils et collections"
+          }
+        }
+      }
+    },
     "Put v%@ back. The current version is kept here, and your settings carry over." : {
       "localizations" : {
         "fr" : {
@@ -4522,6 +5112,16 @@
         }
       }
     },
+    "Removing mods" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supprimer des mods"
+          }
+        }
+      }
+    },
     "Replace" : {
       "localizations" : {
         "fr" : {
@@ -4588,6 +5188,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nécessite"
+          }
+        }
+      }
+    },
+    "Rescan the Mods folder" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Relire le dossier Mods"
           }
         }
       }
@@ -4850,6 +5460,16 @@
         }
       }
     },
+    "Saves & Backups" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauvegardes et copies"
+          }
+        }
+      }
+    },
     "Saves live in ~/.config/StardewValley/Saves." : {
       "localizations" : {
         "fr" : {
@@ -4940,6 +5560,16 @@
         }
       }
     },
+    "Select a mod to see its description and Nexus page, the mods it needs (**Requires**), the mods that use it (**Required By**, **Optional For**) and any **Conflicts** SMAPI reported. From there you can:" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélectionnez un mod pour voir sa description et sa page Nexus, les mods dont il a besoin (**Nécessite**), ceux qui l’utilisent (**Requis par**, **Optionnel pour**) et les **Conflits** signalés par SMAPI. De là, vous pouvez :"
+          }
+        }
+      }
+    },
     "Select a Save" : {
       "localizations" : {
         "fr" : {
@@ -4976,6 +5606,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Choisir le mod…"
+          }
+        }
+      }
+    },
+    "Settings" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réglages"
           }
         }
       }
@@ -5216,6 +5856,16 @@
         }
       }
     },
+    "SMAPI is probably missing or was removed by a game update. Run SMAPI's installer again (**Get SMAPI…**)." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI manque probablement, ou une mise à jour du jeu l’a retiré. Relancez l’installateur de SMAPI (**Obtenir SMAPI…**)."
+          }
+        }
+      }
+    },
     "SMAPI isn't installed" : {
       "localizations" : {
         "fr" : {
@@ -5246,12 +5896,32 @@
         }
       }
     },
+    "SMAPI website and log parser" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Site de SMAPI et analyseur de journaux"
+          }
+        }
+      }
+    },
     "SMAPI won't load either copy: %@" : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "SMAPI ne chargera aucune des copies : %@"
+          }
+        }
+      }
+    },
+    "SMAPI writes a log each time the game runs. The **SMAPI Log** section shows the latest one with colors per level (errors, warnings, info…) and filters by level, mod or text." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI écrit un journal à chaque lancement du jeu. La section **Journal SMAPI** affiche le plus récent avec une couleur par niveau (erreurs, avertissements, infos…) et des filtres par niveau, mod ou texte."
           }
         }
       }
@@ -5272,6 +5942,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certains mods n’ont pas pu être mis en file d’attente"
+          }
+        }
+      }
+    },
+    "Something else went wrong." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autre chose ne va pas."
           }
         }
       }
@@ -5357,6 +6037,16 @@
         }
       }
     },
+    "Stardew Valley mods on Nexus Mods" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les mods Stardew Valley sur Nexus Mods"
+          }
+        }
+      }
+    },
     "Stardew Valley on Nexus" : {
       "localizations" : {
         "fr" : {
@@ -5367,12 +6057,52 @@
         }
       }
     },
+    "Stardew Valley Wiki: Getting started with mods" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wiki Stardew Valley : débuter avec les mods (en anglais)"
+          }
+        }
+      }
+    },
     "Starseed" : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Starseed"
+          }
+        }
+      }
+    },
+    "Starseed asks SMAPI's update service about every installed mod, at launch and every few hours (**Settings → General**). You get a notification when new updates are found, and the status bar at the bottom of the window shows each check's progress and result." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed interroge le service de mises à jour de SMAPI pour chaque mod installé, au lancement puis toutes les quelques heures (**Réglages → Général**). Vous recevez une notification quand de nouvelles mises à jour sont trouvées, et la barre d’état en bas de la fenêtre montre la progression et le résultat de chaque vérification."
+          }
+        }
+      }
+    },
+    "Starseed Help" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aide de Starseed"
+          }
+        }
+      }
+    },
+    "Starseed installs, updates and organizes Stardew Valley mods. Mods run through **SMAPI**, the mod loader for Stardew Valley, so SMAPI needs to be installed first." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed installe, met à jour et organise les mods de Stardew Valley. Les mods fonctionnent grâce à **SMAPI**, le chargeur de mods de Stardew Valley : il faut donc d’abord installer SMAPI."
           }
         }
       }
@@ -5457,6 +6187,16 @@
         }
       }
     },
+    "The details panel" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le panneau de détails"
+          }
+        }
+      }
+    },
     "The game dropped %lld locations and %lld NPCs from “%@” because their mods aren't installed." : {
       "localizations" : {
         "en" : {
@@ -5489,6 +6229,16 @@
         }
       }
     },
+    "The game starts without mods." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le jeu démarre sans mods."
+          }
+        }
+      }
+    },
     "The game wasn't started, to keep your saves safe: %@\n\nTo play anyway, turn off “Back up saves before playing” in Settings." : {
       "localizations" : {
         "fr" : {
@@ -5509,12 +6259,52 @@
         }
       }
     },
+    "The Installed list" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La liste Installés"
+          }
+        }
+      }
+    },
     "The new language applies after a restart." : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "La nouvelle langue s’applique après un redémarrage."
+          }
+        }
+      }
+    },
+    "The Nexus API key is stored in your Keychain. Choose **Always Allow**; a rebuilt or updated copy of the app may ask once more." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La clé d’API Nexus est rangée dans votre trousseau. Choisissez **Toujours autoriser** ; une copie de l’app mise à jour ou recompilée peut redemander une fois."
+          }
+        }
+      }
+    },
+    "The top of the log turns SMAPI's messages into plain advice, each with a button to fix it:" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le haut du journal transforme les messages de SMAPI en conseils simples, chacun avec un bouton pour corriger :"
+          }
+        }
+      }
+    },
+    "The version you replaced is kept. Select the mod and pick it under **Previous Versions** in the details panel; your settings carry over." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La version remplacée est conservée. Sélectionnez le mod et choisissez-la sous **Versions précédentes** dans le panneau de détails ; vos réglages sont repris."
           }
         }
       }
@@ -5589,6 +6379,16 @@
         }
       }
     },
+    "This help" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cette aide"
+          }
+        }
+      }
+    },
     "This link is for “%@”. Only Stardew Valley mods can be installed here." : {
       "localizations" : {
         "fr" : {
@@ -5639,6 +6439,16 @@
         }
       }
     },
+    "To download from Nexus Mods inside the app, paste your personal API key in **Settings → Nexus Mods** (**Open the Nexus API Keys page…** takes you there). The key is kept in your Keychain." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pour télécharger depuis Nexus Mods dans l’app, collez votre clé d’API personnelle dans **Réglages → Nexus Mods** (**Ouvrir la page des clés d’API Nexus…** vous y emmène). La clé est rangée dans votre trousseau."
+          }
+        }
+      }
+    },
     "Top Rated" : {
       "localizations" : {
         "fr" : {
@@ -5680,12 +6490,32 @@
         }
       }
     },
+    "Troubleshooting" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dépannage"
+          }
+        }
+      }
+    },
     "Try Again" : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réessayer"
+          }
+        }
+      }
+    },
+    "Undo or redo enabling and disabling" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annuler ou rétablir une activation ou désactivation"
           }
         }
       }
@@ -5798,6 +6628,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mises à jour"
+          }
+        }
+      }
+    },
+    "updates for SMAPI and your mods" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "les mises à jour de SMAPI et de vos mods"
           }
         }
       }
@@ -5973,6 +6813,16 @@
         }
       }
     },
+    "What SMAPI is telling you" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce que SMAPI vous dit"
+          }
+        }
+      }
+    },
     "What SMAPI is telling you (%lld)" : {
       "localizations" : {
         "fr" : {
@@ -5989,6 +6839,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nouveautés"
+          }
+        }
+      }
+    },
+    "When reporting a problem to a mod author, share your log: **Upload to smapi.io…** gives you a link to paste. **Clear** hides older lines so the next run is easy to read." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pour signaler un problème à l’auteur d’un mod, partagez votre journal : **Envoyer sur smapi.io…** vous donne un lien à coller. **Effacer** masque les anciennes lignes pour que la prochaine partie soit facile à lire."
+          }
+        }
+      }
+    },
+    "When your mods changed since you last played, **Play** backs up every save before starting the game; the last 5 of these are kept. You can turn this off in **Settings → General**." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si vos mods ont changé depuis la dernière partie, **Jouer** copie toutes les sauvegardes avant de lancer le jeu ; les 5 dernières copies sont conservées. Vous pouvez désactiver cela dans **Réglages → Général**."
           }
         }
       }

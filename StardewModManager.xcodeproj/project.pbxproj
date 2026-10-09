@@ -40,6 +40,7 @@
 		DE5E60839197F15E90C56F40 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E46DB3F74731B560BF4385 /* Keychain.swift */; };
 		DF6863EC182FECE9BC603FB6 /* StardewModManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060CBD6601F4146FAF75C704 /* StardewModManagerApp.swift */; };
 		E04C070C8BA2C7533BDA2E3C /* AppModel+Profiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A51E6BD6FC074BC41A3353 /* AppModel+Profiles.swift */; };
+		E4B5CEEA4A1EB96953C7CCE2 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75577C052056FCD477A7DBDC /* HelpView.swift */; };
 		E61234292113931E91B31C65 /* ModManagerCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8A443BB383FD0A5D9F88D16D /* ModManagerCore */; };
 		E6380C968EC4F20DC698F256 /* AppModel+Updates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003897CE6E3EAFEE4E8ED9B8 /* AppModel+Updates.swift */; };
 		E6B80B50242E1E544D1B4E7A /* ChangelogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B138698F0E21A1D71717833 /* ChangelogView.swift */; };
@@ -70,6 +71,7 @@
 		700FCC9D677E0197700F1C10 /* ModDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModDetailView.swift; sourceTree = "<group>"; };
 		70A27FC71633F5012452E415 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		71A5C63340551AD5F955C117 /* ProfilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesView.swift; sourceTree = "<group>"; };
+		75577C052056FCD477A7DBDC /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		7EC65CDCCA389CF775E52F81 /* BrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserView.swift; sourceTree = "<group>"; };
 		83B72EE4ABCABDFF5EEC268D /* InstalledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstalledView.swift; sourceTree = "<group>"; };
 		847385174D1906D29421D1B4 /* AppModel+Installing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModel+Installing.swift"; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				275D56ADD869132CDA9B3D6D /* ConfigEditorView.swift */,
 				8535F6BA5277F54A75AD419F /* Conflicts.swift */,
 				08DF86F9A956E9A59F63C73C /* Downloads.swift */,
+				75577C052056FCD477A7DBDC /* HelpView.swift */,
 				64C990DD2AE45052FE861170 /* Info.plist */,
 				70A27FC71633F5012452E415 /* InfoPlist.xcstrings */,
 				83B72EE4ABCABDFF5EEC268D /* InstalledView.swift */,
@@ -271,6 +274,7 @@
 				47E9636795C75895D5A37ACC /* ConfigEditorView.swift in Sources */,
 				49022E1AFED4BDEEF85C55AB /* Conflicts.swift in Sources */,
 				D52CAA46469BF512CA60D1E5 /* Downloads.swift in Sources */,
+				E4B5CEEA4A1EB96953C7CCE2 /* HelpView.swift in Sources */,
 				92BF6C1C464C2C813B8FE030 /* InstalledView.swift in Sources */,
 				DE5E60839197F15E90C56F40 /* Keychain.swift in Sources */,
 				B47AEB3DBA2418F1EFA9B8F9 /* Localized.swift in Sources */,

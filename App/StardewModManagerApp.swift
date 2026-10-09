@@ -60,6 +60,9 @@ struct StardewModManagerApp: App {
                     Button("Check for App Updates…") { appUpdater.checkForUpdates() }
                 }
             }
+            CommandGroup(replacing: .help) {
+                HelpCommands()
+            }
             CommandGroup(replacing: .newItem) {
                 Button("Install Mods…") { model.presentInstallPanel() }
                     .keyboardShortcut("o")
@@ -80,6 +83,12 @@ struct StardewModManagerApp: App {
                     .keyboardShortcut("l")
             }
         }
+
+        Window("Starseed Help", id: HelpView.windowID) {
+            HelpView()
+                .frame(minWidth: 640, minHeight: 420)
+        }
+        .defaultSize(width: 900, height: 640)
 
         Window("Nexus Mods", id: BrowserWindow.id) {
             BrowserView()
