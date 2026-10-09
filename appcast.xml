@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Starseed</title>
+        <item>
+            <title>2.1</title>
+            <pubDate>Fri, 09 Oct 2026 17:36:53 -0400</pubDate>
+            <sparkle:version>1</sparkle:version>
+            <sparkle:shortVersionString>2.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/matguitarist/starseed/releases/download/v2.1/Starseed-2.1.zip" length="5714207" type="application/octet-stream" sparkle:edSignature="OVV3KktIVY1CQR92Ia6r9kShQwVWDBEq6Kw04aEVkTvOkohJgnM7R7OXYvI0aclvziXUUR+H2iktCxu5Est6Ag=="/>
+        </item>
+    </channel>
+</rss>
