@@ -224,7 +224,7 @@ stardew_mod_manager/
 │   │   ├── LogInsights.swift     # plain-language findings from SMAPI logs
 │   │   └── FileDownloader.swift
 │   └── Tests/ModManagerCoreTests/
-└── *.py                          # original PySide6 version (legacy)
+└── legacy-python/               # original PySide6 version, kept for reference
 ```
 
 App settings and profiles are stored at

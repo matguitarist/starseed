@@ -10,6 +10,7 @@
 		0F75249C1D10234D3DEA361F /* ModDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700FCC9D677E0197700F1C10 /* ModDetailView.swift */; };
 		171A4655CDBAAB5AD7F35469 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B379ABC7330965D2DBC833 /* AppModel.swift */; };
 		1F50529705F42A85F37609DD /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECCC4ACFA28805A28AD469 /* Background.swift */; };
+		3308FFBE6799F38D542D0D99 /* AppModel+Installing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847385174D1906D29421D1B4 /* AppModel+Installing.swift */; };
 		347139B1801B9B805642EAE5 /* BrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC65CDCCA389CF775E52F81 /* BrowserView.swift */; };
 		353A05FA3748E05DD877DF29 /* ProfilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A5C63340551AD5F955C117 /* ProfilesView.swift */; };
 		47E9636795C75895D5A37ACC /* ConfigEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275D56ADD869132CDA9B3D6D /* ConfigEditorView.swift */; };
@@ -24,22 +25,29 @@
 		B38314289E9A310C62D0F339 /* NexusModSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2521CC450C378D7A7830C95E /* NexusModSheet.swift */; };
 		B7BC09C6E4CDE420460E976A /* MyCollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD0D9CCAE1F0AEA843B0611 /* MyCollectionsView.swift */; };
 		C5881F7B25C85A5AC3105737 /* AppModelEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D257F10B4C9483D2A26D32 /* AppModelEnvironment.swift */; };
+		CB12AA661CCD6EB0118DDF64 /* AppModel+Saves.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30552591D88F603A6043CFE /* AppModel+Saves.swift */; };
+		CBFA0F99DCC419C8F691217E /* AppModel+Nexus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3751918581379943B9AB023D /* AppModel+Nexus.swift */; };
 		D52CAA46469BF512CA60D1E5 /* Downloads.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DF86F9A956E9A59F63C73C /* Downloads.swift */; };
 		DABC5A0FD5CE13412580753B /* UpdatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48197B7BBE7EE15AB71D5108 /* UpdatesView.swift */; };
 		DAC272AC390752F7D3E7F5DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD2E122C00662959EB64731C /* Assets.xcassets */; };
 		DE5E60839197F15E90C56F40 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E46DB3F74731B560BF4385 /* Keychain.swift */; };
 		DF6863EC182FECE9BC603FB6 /* StardewModManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060CBD6601F4146FAF75C704 /* StardewModManagerApp.swift */; };
+		E04C070C8BA2C7533BDA2E3C /* AppModel+Profiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A51E6BD6FC074BC41A3353 /* AppModel+Profiles.swift */; };
 		E61234292113931E91B31C65 /* ModManagerCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8A443BB383FD0A5D9F88D16D /* ModManagerCore */; };
+		E6380C968EC4F20DC698F256 /* AppModel+Updates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003897CE6E3EAFEE4E8ED9B8 /* AppModel+Updates.swift */; };
 		EDBD7163E8C1DA0FBD98BEA5 /* CollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE5DC0AC7558CFA59728A2D /* CollectionsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		003897CE6E3EAFEE4E8ED9B8 /* AppModel+Updates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModel+Updates.swift"; sourceTree = "<group>"; };
 		060CBD6601F4146FAF75C704 /* StardewModManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StardewModManagerApp.swift; sourceTree = "<group>"; };
 		08DF86F9A956E9A59F63C73C /* Downloads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloads.swift; sourceTree = "<group>"; };
+		20A51E6BD6FC074BC41A3353 /* AppModel+Profiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModel+Profiles.swift"; sourceTree = "<group>"; };
 		2521CC450C378D7A7830C95E /* NexusModSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NexusModSheet.swift; sourceTree = "<group>"; };
 		275D56ADD869132CDA9B3D6D /* ConfigEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigEditorView.swift; sourceTree = "<group>"; };
 		27BB4B7EB0BDCA9B8772C45C /* SavesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavesView.swift; sourceTree = "<group>"; };
 		36BD33902DFD3EF0DAE6802F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		3751918581379943B9AB023D /* AppModel+Nexus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModel+Nexus.swift"; sourceTree = "<group>"; };
 		466DFE1F2D8B06DF05695D18 /* StardewModManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StardewModManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48197B7BBE7EE15AB71D5108 /* UpdatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesView.swift; sourceTree = "<group>"; };
 		5EE5DC0AC7558CFA59728A2D /* CollectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsView.swift; sourceTree = "<group>"; };
@@ -49,11 +57,13 @@
 		71A5C63340551AD5F955C117 /* ProfilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesView.swift; sourceTree = "<group>"; };
 		7EC65CDCCA389CF775E52F81 /* BrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserView.swift; sourceTree = "<group>"; };
 		83B72EE4ABCABDFF5EEC268D /* InstalledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstalledView.swift; sourceTree = "<group>"; };
+		847385174D1906D29421D1B4 /* AppModel+Installing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModel+Installing.swift"; sourceTree = "<group>"; };
 		879299EC8FC1BC543B82D3E2 /* LogViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewerView.swift; sourceTree = "<group>"; };
 		882D1E5D99EEAA8946E3990A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		98B379ABC7330965D2DBC833 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		AA3A369DA706FAB88E595F89 /* BrowseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
 		AFD0D9CCAE1F0AEA843B0611 /* MyCollectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionsView.swift; sourceTree = "<group>"; };
+		B30552591D88F603A6043CFE /* AppModel+Saves.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModel+Saves.swift"; sourceTree = "<group>"; };
 		B5FF9E3E65BEAE57ACD20611 /* RequirementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementsView.swift; sourceTree = "<group>"; };
 		B79A52FECDD87ED11901B6D1 /* ModManagerCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ModManagerCore; path = ModManagerCore; sourceTree = SOURCE_ROOT; };
 		BD2E122C00662959EB64731C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -95,6 +105,11 @@
 			isa = PBXGroup;
 			children = (
 				98B379ABC7330965D2DBC833 /* AppModel.swift */,
+				847385174D1906D29421D1B4 /* AppModel+Installing.swift */,
+				3751918581379943B9AB023D /* AppModel+Nexus.swift */,
+				20A51E6BD6FC074BC41A3353 /* AppModel+Profiles.swift */,
+				B30552591D88F603A6043CFE /* AppModel+Saves.swift */,
+				003897CE6E3EAFEE4E8ED9B8 /* AppModel+Updates.swift */,
 				E1D257F10B4C9483D2A26D32 /* AppModelEnvironment.swift */,
 				BD2E122C00662959EB64731C /* Assets.xcassets */,
 				FDECCC4ACFA28805A28AD469 /* Background.swift */,
@@ -205,6 +220,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3308FFBE6799F38D542D0D99 /* AppModel+Installing.swift in Sources */,
+				CBFA0F99DCC419C8F691217E /* AppModel+Nexus.swift in Sources */,
+				E04C070C8BA2C7533BDA2E3C /* AppModel+Profiles.swift in Sources */,
+				CB12AA661CCD6EB0118DDF64 /* AppModel+Saves.swift in Sources */,
+				E6380C968EC4F20DC698F256 /* AppModel+Updates.swift in Sources */,
 				171A4655CDBAAB5AD7F35469 /* AppModel.swift in Sources */,
 				C5881F7B25C85A5AC3105737 /* AppModelEnvironment.swift in Sources */,
 				1F50529705F42A85F37609DD /* Background.swift in Sources */,
