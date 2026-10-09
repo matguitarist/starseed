@@ -109,6 +109,8 @@ extension AppModel {
     /// Looks up names and Nexus IDs for missing dependencies we don't know
     /// yet, optional ones included (so they can be offered for install).
     func resolveMissingDependencies() async {
+        isResolvingRequirements = true
+        defer { isResolvingRequirements = false }
         let optional = mods.filter(\.isEnabled).flatMap { missingOptionalDependencies(for: $0) }
         await resolve(uniqueIDs: missingDependencies.map(\.uniqueID) + optional)
         await resolveFromNexusRequirements()
@@ -147,16 +149,34 @@ extension AppModel {
         allGroups.first { $0.isGroup && $0.mods.contains { $0.id == mod.id } }
     }
 
-    /// "East Scarp: Locations (East Scarp)": names a part with its group, since
-    /// the Installed list shows multi-part mods under the group's name.
+    /// The mods needing a requirement, as the Installed list shows them: a
+    /// part of a multi-part mod is named by its group ("East Scarp", not its
+    /// internal "East Scarp: Locations"), which avoids looking like a mod to install.
     func describeNeeding(_ names: [String]) -> String {
+        var seen = Set<String>()
+        return names.map { name in
+            guard let mod = mods.first(where: { $0.displayName == name }), let group = group(containing: mod) else { return name }
+            return group.name
+        }
+        .filter { seen.insert($0).inserted }
+        .joined(separator: ", ")
+    }
+
+    /// Exact parts for a tooltip: "East Scarp: Locations (in East Scarp)".
+    func describeNeedingParts(_ names: [String]) -> String {
         names.map { name in
             guard let mod = mods.first(where: { $0.displayName == name }),
                   let group = group(containing: mod), group.name != name
             else { return name }
-            return "\(name) (\(group.name))"
+            return String(localized: "\(name) (in \(group.name))")
         }
-        .joined(separator: ", ")
+        .joined(separator: "\n")
+    }
+
+    /// A requirement we can name and point to: installed but disabled, or
+    /// identified on Nexus (SMAPI's database or the needing mod's Nexus page).
+    func isConfirmed(_ dependency: MissingDependency) -> Bool {
+        dependency.disabledCopy != nil || record(forDependency: dependency.uniqueID)?.nexusID != nil
     }
 
     func resolve(uniqueIDs: [String]) async {

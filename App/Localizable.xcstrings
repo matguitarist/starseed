@@ -142,6 +142,22 @@
         }
       }
     },
+    "%@ (in %@)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ (in %2$@)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ (dans %2$@)"
+          }
+        }
+      }
+    },
     "%@ %lld" : {
       "localizations" : {
         "en" : {
@@ -458,6 +474,16 @@
         }
       }
     },
+    "%lld more not listed on Nexus…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld autres non répertoriés sur Nexus…"
+          }
+        }
+      }
+    },
     "%lld of %lld enabled" : {
       "localizations" : {
         "en" : {
@@ -586,6 +612,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "1 mise à jour de mod disponible…"
+          }
+        }
+      }
+    },
+    "1 more not listed on Nexus…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 autre non répertorié sur Nexus…"
           }
         }
       }
@@ -2671,6 +2707,16 @@
         }
       }
     },
+    "Looking up names on Nexus…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recherche des noms sur Nexus…"
+          }
+        }
+      }
+    },
     "Main files" : {
       "localizations" : {
         "fr" : {
@@ -3289,6 +3335,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Non installés : %@"
+          }
+        }
+      }
+    },
+    "Not listed on Nexus (%lld)" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non répertoriés sur Nexus (%lld)"
           }
         }
       }
@@ -4775,6 +4831,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ceux-ci ne sont pas sur Nexus (ou SMAPI ne sait pas où ils se trouvent). Cherchez-les par leur nom :\n\n%@"
+          }
+        }
+      }
+    },
+    "These IDs come from the mods' own files but don't match anything on their Nexus pages. Often they're covered by the requirements above under another name; if SMAPI's log still reports them missing, search for them." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ces identifiants viennent des fichiers des mods mais ne correspondent à rien sur leurs pages Nexus. Ils sont souvent couverts par les prérequis ci-dessus sous un autre nom ; si le journal de SMAPI les signale toujours comme manquants, cherchez-les."
           }
         }
       }

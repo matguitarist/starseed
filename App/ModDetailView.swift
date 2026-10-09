@@ -244,35 +244,41 @@ private struct GroupDetailView: View {
     @AppModelEnvironment private var model
     let group: ModGroup
 
-    /// Required mods any part is missing, with the part that needs each.
+    /// Required mods any part is missing, under their Nexus names. IDs that
+    /// match nothing on Nexus are only counted (see Requirements).
     @ViewBuilder
     private var missingRequirements: some View {
+        var seen = Set<String>()
         let missing = group.mods.flatMap { part in part.missingDependencies.map { (id: $0, part: part) } }
+            .filter { seen.insert($0.id.lowercased()).inserted }
+        let confirmed = missing.filter { model.record(forDependency: $0.id)?.nexusID != nil }
+        let unlisted = missing.count - confirmed.count
         if !missing.isEmpty {
             VStack(alignment: .leading, spacing: 6) {
                 Text("Missing Requirements").font(.headline)
-                ForEach(missing, id: \.id) { item in
+                ForEach(confirmed, id: \.id) { item in
                     let record = model.record(forDependency: item.id)
                     HStack(spacing: 6) {
                         Image(systemName: "xmark.circle.fill").foregroundStyle(.red)
-                        VStack(alignment: .leading, spacing: 0) {
-                            HStack(spacing: 4) {
-                                Text(record?.name ?? item.id)
-                                if let nexusID = record?.nexusID { NexusIDLink(modID: nexusID) }
-                            }
-                            Text("Needed by \(item.part.displayName)").font(.caption).foregroundStyle(.secondary)
-                        }
+                        Text(record?.name ?? item.id)
+                        if let nexusID = record?.nexusID { NexusIDLink(modID: nexusID) }
                         Spacer(minLength: 4)
-                        Button(record?.nexusID == nil ? "Search Nexus" : "Install") {
-                            if record?.nexusID == nil {
-                                let query = (record?.name ?? item.id).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-                                model.openInBrowser(URL(string: "https://www.nexusmods.com/games/stardewvalley/mods?keyword=\(query)")!)
-                            } else {
-                                model.installDependency(item.id, of: item.part)
-                            }
-                        }
-                        .controlSize(.small)
+                        Button("Install") { model.installDependency(item.id, of: item.part) }
+                            .controlSize(.small)
                     }
+                    .help(item.id)
+                }
+                if model.isResolvingRequirements && unlisted > 0 {
+                    HStack(spacing: 6) {
+                        ProgressView().controlSize(.small)
+                        Text("Looking up names on Nexus…").font(.caption).foregroundStyle(.secondary)
+                    }
+                } else if unlisted > 0 {
+                    Button(unlisted == 1 ? "1 more not listed on Nexus…" : "\(unlisted) more not listed on Nexus…") {
+                        model.sidebarSelection = .requirements
+                    }
+                    .buttonStyle(.link)
+                    .font(.caption)
                 }
             }
             .task { await model.resolveMissingDependencies() }

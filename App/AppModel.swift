@@ -115,6 +115,8 @@ final class AppModel {
     var trackedMods: Set<Int> = []
     /// Nexus file lists by mod number, fetched once per session.
     var nexusFiles: [Int: [NexusFile]] = [:]
+    /// True while missing requirements are being looked up (SMAPI, then Nexus pages).
+    var isResolvingRequirements = false
     /// Nexus "Requirements" lists by mod number, fetched once per session.
     var nexusRequirementPages: [Int: [NexusRequirement]] = [:]
 
