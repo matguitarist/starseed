@@ -67,6 +67,16 @@ private struct UpdateRow: View {
     let update: ModUpdate
 
     var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            row
+            if let nexusID = model.nexusID(for: mod) {
+                ChangelogDisclosure(nexusID: nexusID, installed: mod.version, latest: update.version)
+            }
+        }
+        .padding(.vertical, 4)
+    }
+
+    private var row: some View {
         HStack {
             VStack(alignment: .leading, spacing: 2) {
                 HStack(spacing: 6) {
@@ -96,6 +106,5 @@ private struct UpdateRow: View {
                 Link("Open Download Page", destination: url)
             }
         }
-        .padding(.vertical, 4)
     }
 }

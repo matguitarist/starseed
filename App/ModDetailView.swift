@@ -34,14 +34,19 @@ struct ModDetailView: View {
                         .font(.callout)
                         .foregroundStyle(mod.status.color)
                     if let update = model.update(for: mod) {
-                        HStack {
-                            Label("Version \(update.version) available", systemImage: "arrow.down.circle.fill")
-                                .foregroundStyle(.orange)
-                            Spacer()
+                        VStack(alignment: .leading, spacing: 6) {
+                            HStack {
+                                Label("Version \(update.version) available", systemImage: "arrow.down.circle.fill")
+                                    .foregroundStyle(.orange)
+                                Spacer()
+                                if let nexusID = model.nexusID(for: mod) {
+                                    Button("Update…") { model.nexusSheet = NexusSheetRequest(modID: nexusID) }
+                                } else if let url = update.url {
+                                    Link("Download Page", destination: url)
+                                }
+                            }
                             if let nexusID = model.nexusID(for: mod) {
-                                Button("Update…") { model.nexusSheet = NexusSheetRequest(modID: nexusID) }
-                            } else if let url = update.url {
-                                Link("Download Page", destination: url)
+                                ChangelogDisclosure(nexusID: nexusID, installed: mod.version, latest: update.version)
                             }
                         }
                         .font(.callout)

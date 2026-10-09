@@ -103,6 +103,8 @@ final class AppModel {
     /// Pages a free account still has to click "Slow download" on (Update
     /// All / install requirements). Advances each time an nxm link arrives.
     var browserQueue: [BrowserQueueItem] = []
+    /// Nexus changelogs by mod number, fetched when first shown.
+    var changelogs: [Int: [ChangelogEntry]] = [:]
     /// Nexus mods whose files are being looked up before download.
     var preparingNexusIDs: Set<Int> = []
 

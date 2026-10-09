@@ -40,6 +40,7 @@
 		E04C070C8BA2C7533BDA2E3C /* AppModel+Profiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A51E6BD6FC074BC41A3353 /* AppModel+Profiles.swift */; };
 		E61234292113931E91B31C65 /* ModManagerCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8A443BB383FD0A5D9F88D16D /* ModManagerCore */; };
 		E6380C968EC4F20DC698F256 /* AppModel+Updates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003897CE6E3EAFEE4E8ED9B8 /* AppModel+Updates.swift */; };
+		E6B80B50242E1E544D1B4E7A /* ChangelogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B138698F0E21A1D71717833 /* ChangelogView.swift */; };
 		EDBD7163E8C1DA0FBD98BEA5 /* CollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE5DC0AC7558CFA59728A2D /* CollectionsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,8 +55,9 @@
 		27BB4B7EB0BDCA9B8772C45C /* SavesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavesView.swift; sourceTree = "<group>"; };
 		36BD33902DFD3EF0DAE6802F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		3751918581379943B9AB023D /* AppModel+Nexus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModel+Nexus.swift"; sourceTree = "<group>"; };
-		466DFE1F2D8B06DF05695D18 /* StardewModManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = StardewModManager.app; path = "Stardew Mod Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		466DFE1F2D8B06DF05695D18 /* StardewModManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StardewModManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48197B7BBE7EE15AB71D5108 /* UpdatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesView.swift; sourceTree = "<group>"; };
+		5B138698F0E21A1D71717833 /* ChangelogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangelogView.swift; sourceTree = "<group>"; };
 		5CEAACA199435D4A4282751F /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		5EE5DC0AC7558CFA59728A2D /* CollectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsView.swift; sourceTree = "<group>"; };
 		64C990DD2AE45052FE861170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -74,7 +76,7 @@
 		AFD0D9CCAE1F0AEA843B0611 /* MyCollectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionsView.swift; sourceTree = "<group>"; };
 		B30552591D88F603A6043CFE /* AppModel+Saves.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModel+Saves.swift"; sourceTree = "<group>"; };
 		B5FF9E3E65BEAE57ACD20611 /* RequirementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementsView.swift; sourceTree = "<group>"; };
-		B79A52FECDD87ED11901B6D1 /* ModManagerCore */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ModManagerCore; sourceTree = SOURCE_ROOT; };
+		B79A52FECDD87ED11901B6D1 /* ModManagerCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ModManagerCore; path = ModManagerCore; sourceTree = SOURCE_ROOT; };
 		BD2E122C00662959EB64731C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1D257F10B4C9483D2A26D32 /* AppModelEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModelEnvironment.swift; sourceTree = "<group>"; };
 		F0E46DB3F74731B560BF4385 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				FDECCC4ACFA28805A28AD469 /* Background.swift */,
 				7EC65CDCCA389CF775E52F81 /* BrowserView.swift */,
 				AA3A369DA706FAB88E595F89 /* BrowseView.swift */,
+				5B138698F0E21A1D71717833 /* ChangelogView.swift */,
 				667A44B25AC6FAF1BBC3B154 /* CollectionSheet.swift */,
 				5EE5DC0AC7558CFA59728A2D /* CollectionsView.swift */,
 				275D56ADD869132CDA9B3D6D /* ConfigEditorView.swift */,
@@ -249,6 +252,7 @@
 				1F50529705F42A85F37609DD /* Background.swift in Sources */,
 				662EF595FD51F27BFA8675E0 /* BrowseView.swift in Sources */,
 				347139B1801B9B805642EAE5 /* BrowserView.swift in Sources */,
+				E6B80B50242E1E544D1B4E7A /* ChangelogView.swift in Sources */,
 				7FC9C92FCE9783FBAC90971B /* CollectionSheet.swift in Sources */,
 				EDBD7163E8C1DA0FBD98BEA5 /* CollectionsView.swift in Sources */,
 				47E9636795C75895D5A37ACC /* ConfigEditorView.swift in Sources */,

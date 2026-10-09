@@ -389,6 +389,10 @@ public struct NexusClient: Sendable {
         try JSONDecoder().decode(T.self, from: try await send("GET", path, query: query))
     }
 
+    func restData(_ path: String) async throws -> Data {
+        try await send("GET", path)
+    }
+
     /// One REST call; `form` is sent URL-encoded, `json` as a JSON body.
     @discardableResult
     private func send(
