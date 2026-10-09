@@ -68,6 +68,10 @@ final class AppModel {
     /// Set after an install leaves mods with missing requirements.
     var requirementsPrompt: [MissingDependency]?
     var isCheckingUpdates = false
+    /// The running update check's current step, for the status bar.
+    var updateCheckStep: ProgressStep?
+    /// How the last check went; shown briefly in the status bar.
+    var updateCheckResult: String?
     var lastUpdateCheck: Date?
     var updateCheckError: String?
 

@@ -4,6 +4,19 @@
 import ModManagerCore
 import SwiftUI
 
+struct ProgressStep: Equatable {
+    var text: String
+    var fraction: Double?
+}
+
+struct ActivityStatus: Equatable {
+    var text: String
+    var progress: Double?
+    /// A finished task's result: a checkmark instead of a bar.
+    var isResult = false
+    var isError = false
+}
+
 enum ModActivity: Equatable {
     case preparing
     case waitingOnNexus
@@ -34,25 +47,29 @@ extension AppModel {
     }
 
     /// One line for the status bar, with overall progress when known.
-    var activityStatus: (text: String, progress: Double?)? {
+    var activityStatus: ActivityStatus? {
         let active = downloads.filter { !$0.isFinished }
         if !active.isEmpty {
             let downloading = active.filter { $0.state == .downloading }
             if !downloading.isEmpty {
                 let fraction = downloading.map(\.progress).reduce(0, +) / Double(downloading.count)
-                return (String(localized: "Downloading \(downloading.count) mod(s)…"), fraction)
+                return ActivityStatus(text: String(localized: "Downloading \(downloading.count) mod(s)…"), progress: fraction)
             }
             if active.contains(where: { $0.state == .installing }) {
-                return (String(localized: "Installing…"), nil)
+                return ActivityStatus(text: String(localized: "Installing…"))
             }
-            return (String(localized: "Starting \(active.count) download(s)…"), nil)
+            return ActivityStatus(text: String(localized: "Starting \(active.count) download(s)…"))
         }
-        if isInstalling { return (String(localized: "Installing…"), nil) }
-        if !preparingNexusIDs.isEmpty { return (String(localized: "Finding files on Nexus…"), nil) }
-        if isCheckingUpdates { return (String(localized: "Checking for updates…"), nil) }
-        if isResolvingRequirements { return (String(localized: "Looking up requirements…"), nil) }
+        if isInstalling { return ActivityStatus(text: String(localized: "Installing…")) }
+        if !preparingNexusIDs.isEmpty { return ActivityStatus(text: String(localized: "Finding files on Nexus…")) }
+        if let step = updateCheckStep { return ActivityStatus(text: step.text, progress: step.fraction) }
+        if isCheckingUpdates { return ActivityStatus(text: String(localized: "Checking for updates…")) }
+        if isResolvingRequirements { return ActivityStatus(text: String(localized: "Looking up requirements…")) }
         if !browserQueue.isEmpty {
-            return (String(localized: "\(browserQueue.count) download(s) waiting on Nexus: click “Slow download” in the browser"), nil)
+            return ActivityStatus(text: String(localized: "\(browserQueue.count) download(s) waiting on Nexus: click “Slow download” in the browser"))
+        }
+        if let updateCheckResult {
+            return ActivityStatus(text: updateCheckResult, isResult: true, isError: updateCheckError != nil)
         }
         return nil
     }
@@ -113,31 +130,47 @@ struct ActivityCell: View {
     }
 }
 
-/// A thin bar under a list showing what's running.
+/// A thin bar under every page showing what's running, then briefly how
+/// it went ("Checked 30 mods: all up to date").
 struct ActivityStatusBar: View {
     @AppModelEnvironment private var model
 
     var body: some View {
         if let status = model.activityStatus {
             HStack(spacing: 10) {
-                Group {
-                    if let progress = status.progress {
-                        ProgressView(value: progress).progressViewStyle(.linear)
-                    } else {
-                        ProgressView().progressViewStyle(.linear)
+                if status.isResult {
+                    Image(systemName: status.isError ? "exclamationmark.triangle.fill" : "checkmark.circle.fill")
+                        .foregroundStyle(status.isError ? .orange : .green)
+                } else {
+                    Group {
+                        if let progress = status.progress {
+                            ProgressView(value: progress).progressViewStyle(.linear)
+                        } else {
+                            ProgressView().progressViewStyle(.linear)
+                        }
                     }
+                    .frame(width: 140)
+                    .controlSize(.small)
                 }
-                .frame(width: 140)
-                .controlSize(.small)
                 Text(status.text).font(.callout).foregroundStyle(.secondary).lineLimit(1)
-                if let progress = status.progress {
+                if !status.isResult, let progress = status.progress {
                     Text(progress.formatted(.percent.precision(.fractionLength(0))))
                         .font(.callout).monospacedDigit().foregroundStyle(.secondary)
                 }
                 Spacer()
+                if status.isResult {
+                    Button {
+                        model.updateCheckResult = nil
+                    } label: {
+                        Image(systemName: "xmark").foregroundStyle(.secondary)
+                    }
+                    .buttonStyle(.plain)
+                    .help("Dismiss")
+                }
             }
             .padding(.horizontal, 12)
             .padding(.vertical, 6)
+            .frame(maxWidth: .infinity)
             .background(.bar)
             .overlay(alignment: .top) { Divider() }
             .transition(.move(edge: .bottom).combined(with: .opacity))

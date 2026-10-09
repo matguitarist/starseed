@@ -181,14 +181,20 @@ struct InstalledView: View {
             .help("Install mods from downloaded archives (or drop them on the window)")
             .disabled(model.manager == nil || model.isInstalling)
 
-            Button {
-                model.refresh()
-                model.detectSMAPI()
-                Task { await model.checkForUpdates() }
-            } label: {
-                Label("Refresh", systemImage: "arrow.clockwise")
+            if model.isCheckingUpdates {
+                ProgressView()
+                    .controlSize(.small)
+                    .help("Checking for updates…")
+            } else {
+                Button {
+                    model.refresh()
+                    model.detectSMAPI()
+                    Task { await model.checkForUpdates() }
+                } label: {
+                    Label("Refresh", systemImage: "arrow.clockwise")
+                }
+                .help("Rescan the Mods folder and check for updates")
             }
-            .help("Rescan the Mods folder and check for updates")
 
             Button {
                 showProfiles = true

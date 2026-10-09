@@ -19,25 +19,12 @@ struct RootView: View {
             Sidebar(selection: $model.sidebarSelection)
                 .navigationSplitViewColumnWidth(min: 190, ideal: 210, max: 280)
         } detail: {
-            if model.needsFolderSetup {
-                FolderSetupView()
-            } else {
-                switch model.sidebarSelection ?? .installed {
-                case .installed: InstalledView()
-                case .updates: UpdatesView()
-                case .requirements: RequirementsView()
-                case .myCollections: MyCollectionsView()
-                case .browse: BrowseView()
-                case .collections: CollectionsView()
-                case .saves: SavesView()
-                case .log: LogViewerView()
+            detail
+                .safeAreaInset(edge: .bottom, spacing: 0) {
+                    // Every page shows what's running (downloads, update checks...).
+                    ActivityStatusBar()
+                        .animation(.default, value: model.activityStatus)
                 }
-            }
-        }
-        .safeAreaInset(edge: .bottom, spacing: 0) {
-            // Every page shows what's running (downloads, update checks...).
-            ActivityStatusBar()
-                .animation(.default, value: model.activityStatus?.text)
         }
         .sheet(item: $model.nexusSheet) { request in
             NexusModSheet(request: request)
@@ -122,6 +109,25 @@ struct RootView: View {
             Button("OK") {}
         } message: { message in
             Text(message.body)
+        }
+    }
+
+    /// The selected section.
+    @ViewBuilder
+    private var detail: some View {
+        if model.needsFolderSetup {
+            FolderSetupView()
+        } else {
+            switch model.sidebarSelection ?? .installed {
+            case .installed: InstalledView()
+            case .updates: UpdatesView()
+            case .requirements: RequirementsView()
+            case .myCollections: MyCollectionsView()
+            case .browse: BrowseView()
+            case .collections: CollectionsView()
+            case .saves: SavesView()
+            case .log: LogViewerView()
+            }
         }
     }
 

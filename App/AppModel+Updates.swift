@@ -70,7 +70,13 @@ extension AppModel {
     func checkForUpdates() async {
         guard !isCheckingUpdates, !mods.isEmpty else { return }
         isCheckingUpdates = true
-        defer { isCheckingUpdates = false }
+        updateCheckResult = nil
+        defer {
+            isCheckingUpdates = false
+            updateCheckStep = nil
+            showUpdateCheckResult()
+        }
+        updateCheckStep = ProgressStep(text: String(localized: "Asking SMAPI about \(mods.count) mods…"), fraction: 0.05)
         Task { await checkLatestSMAPI() }
         do {
             let results = try await UpdateChecker().check(mods)
@@ -81,9 +87,32 @@ extension AppModel {
         } catch {
             updateCheckError = error.localizedDescription
         }
+        updateCheckStep = ProgressStep(text: String(localized: "Looking up requirements…"), fraction: 0.3)
         await resolveMissingDependencies()
         notifyAboutNewUpdates()
-        await prefetchNexusFiles()
+        await prefetchNexusFiles { done, total in
+            self.updateCheckStep = ProgressStep(
+                text: String(localized: "Reading Nexus file lists (\(done) of \(total))…"),
+                fraction: 0.5 + 0.5 * Double(done) / Double(max(total, 1))
+            )
+        }
+    }
+
+    /// "Checked 30 mods: 2 updates available", for a few seconds.
+    private func showUpdateCheckResult() {
+        let result: String
+        if let updateCheckError {
+            result = String(localized: "Update check failed: \(updateCheckError)")
+        } else if modsWithUpdates.isEmpty {
+            result = String(localized: "Checked \(mods.count) mods: all up to date")
+        } else {
+            result = String(localized: "Checked \(mods.count) mods: \(modsWithUpdates.count) update(s) available")
+        }
+        updateCheckResult = result
+        Task {
+            try? await Task.sleep(for: .seconds(8))
+            if updateCheckResult == result { updateCheckResult = nil }
+        }
     }
 
     /// Mods (enabled or not) that have an update on Nexus, ready for Update All.
@@ -280,12 +309,20 @@ extension AppModel {
 
     /// Fetches Nexus file lists for installed mods (a few at a time) so the
     /// mod list can mark which ones have optional files.
-    func prefetchNexusFiles() async {
+    func prefetchNexusFiles(progress: (_ done: Int, _ total: Int) -> Void = { _, _ in }) async {
         let ids = Array(Set(mods.compactMap { nexusID(for: $0) })).filter { nexusFiles[$0] == nil }
         let client = nexusClient
-        let results = await Self.concurrentMap(ids) { id in try? await client.files(forMod: id) }
-        for (id, files) in zip(ids, results) {
-            if let files { nexusFiles[id] = files }
+        // In chunks, so the status bar can count them.
+        var done = 0
+        progress(0, ids.count)
+        for start in stride(from: 0, to: ids.count, by: 6) {
+            let chunk = Array(ids[start..<min(start + 6, ids.count)])
+            let results = await Self.concurrentMap(chunk) { id in try? await client.files(forMod: id) }
+            for (id, files) in zip(chunk, results) {
+                if let files { nexusFiles[id] = files }
+            }
+            done += chunk.count
+            progress(done, ids.count)
         }
     }
 

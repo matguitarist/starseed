@@ -898,6 +898,16 @@
         }
       }
     },
+    "Asking SMAPI about %lld mods…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Interrogation de SMAPI pour %lld mods…"
+          }
+        }
+      }
+    },
     "Author" : {
       "localizations" : {
         "fr" : {
@@ -1115,6 +1125,32 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vérifier maintenant"
+          }
+        }
+      }
+    },
+    "Checked %lld mods: %lld update(s) available" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Checked %1$lld mods: %2$lld update(s) available"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld mods vérifiés : %2$lld mise(s) à jour disponible(s)"
+          }
+        }
+      }
+    },
+    "Checked %lld mods: all up to date" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld mods vérifiés : tout est à jour"
           }
         }
       }
@@ -1742,6 +1778,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "désactivé dans la collection"
+          }
+        }
+      }
+    },
+    "Dismiss" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fermer"
           }
         }
       }
@@ -4080,6 +4126,22 @@
         }
       }
     },
+    "Reading Nexus file lists (%lld of %lld)…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Reading Nexus file lists (%1$lld of %2$lld)…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lecture des fichiers Nexus (%1$lld sur %2$lld)…"
+          }
+        }
+      }
+    },
     "Reading the save file…" : {
       "localizations" : {
         "fr" : {
@@ -5304,6 +5366,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mise à jour disponible"
+          }
+        }
+      }
+    },
+    "Update check failed: %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La recherche de mises à jour a échoué : %@"
           }
         }
       }
