@@ -48,10 +48,12 @@ targets:
         CFBundleDevelopmentRegion: en
         CFBundleLocalizations: [en, fr]
         LSApplicationCategoryType: public.app-category.games
-        # App updates (Sparkle). Both stay empty until releases are hosted;
-        # the updater is off until they're set.
-        SUFeedURL: ""
-        SUPublicEDKey: ""
+        # App updates (Sparkle): release.sh publishes the zip on GitHub
+        # Releases and the feed (appcast.xml) on the main branch. The key
+        # checks that updates were signed with the private key in the
+        # maintainer's Keychain (account "starseed").
+        SUFeedURL: https://raw.githubusercontent.com/matguitarist/starseed/main/appcast.xml
+        SUPublicEDKey: +PIE3ai3I8a18/RsdsdSorvcunqfx8FyfoJexeOYjWk=
         SUEnableAutomaticChecks: true
         NSHumanReadableCopyright: ""
         # Receive Nexus "Mod Manager Download" links.

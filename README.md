@@ -248,35 +248,27 @@ game, and in the same format as the old Python version.
 
 ## Releasing updates (Sparkle)
 
-The app updates itself with [Sparkle](https://sparkle-project.org). It stays
-off until `SUFeedURL` and `SUPublicEDKey` are set in `project.yml`; then
-**Starseed → Check for App Updates…** and a Settings toggle appear.
+The app updates itself with [Sparkle](https://sparkle-project.org): it reads
+`appcast.xml` from this repo's main branch, downloads the zip from GitHub
+Releases, and checks its signature against `SUPublicEDKey`. The private key
+lives in the maintainer's login Keychain (account `starseed`); back it up with
+`generate_keys --account starseed -x starseed-key.txt` and keep that file
+private. Without it, existing users can't receive updates.
 
-One-time setup:
-
-1. Create the signing key (the private half goes into your login Keychain):
-   ```bash
-   ~/Library/Caches/StardewModManager/DerivedData/SourcePackages/artifacts/sparkle/Sparkle/bin/generate_keys
-   ```
-   Put the printed public key in `SUPublicEDKey`. Back up the private key
-   (`generate_keys -x key.txt`): without it, existing users can't be updated.
-2. Choose where releases live, e.g. GitHub Releases for the zips and
-   GitHub Pages for `appcast.xml`, and put the appcast's URL in `SUFeedURL`.
-3. `xcodegen generate`.
-
-Each release:
+To publish a release:
 
 1. Bump `MARKETING_VERSION` **and** `CURRENT_PROJECT_VERSION` in
-   `project.yml` (Sparkle compares the build number), then `xcodegen generate`.
-2. `./build_app.sh` (ideally signed with a Developer ID and notarized, or
-   macOS warns people on first launch).
-3. Zip it and generate the appcast:
-   ```bash
-   mkdir -p releases
-   ditto -c -k --keepParent "dist/Starseed.app" "releases/Starseed-2.2.zip"
-   ~/Library/Caches/StardewModManager/DerivedData/SourcePackages/artifacts/sparkle/Sparkle/bin/generate_appcast releases
-   ```
-4. Upload the zip and `releases/appcast.xml` to the places from step 2.
+   `project.yml` (Sparkle compares the build number), run
+   `xcodegen generate`, and commit.
+2. Run `./release.sh`. It builds the app, zips it, signs the update, pushes,
+   creates the GitHub release with the zip, and then publishes the new
+   `appcast.xml`. Running copies of Starseed see the update within a day,
+   or right away with **Starseed → Check for App Updates…**.
+
+The app is signed ad hoc (no Apple Developer ID), so on first launch macOS
+says it can't verify the developer: open **System Settings → Privacy &
+Security** and click **Open Anyway**. Updates installed by Sparkle don't ask
+again.
 
 ## Languages
 

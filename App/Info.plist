@@ -62,8 +62,8 @@
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedURL</key>
-	<string></string>
+	<string>https://raw.githubusercontent.com/matguitarist/starseed/main/appcast.xml</string>
 	<key>SUPublicEDKey</key>
-	<string></string>
+	<string>+PIE3ai3I8a18/RsdsdSorvcunqfx8FyfoJexeOYjWk=</string>
 </dict>
 </plist>

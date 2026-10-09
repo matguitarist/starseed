@@ -23,8 +23,15 @@ if [[ -n "${DEVELOPMENT_TEAM:-}" ]]; then
 fi
 
 DERIVED="$HOME/Library/Caches/StardewModManager/DerivedData"
-xcodebuild -project StardewModManager.xcodeproj -scheme StardewModManager "${SIGNING[@]}" \
-    -configuration Release -destination "generic/platform=macOS" -derivedDataPath "$DERIVED" build | grep -E "error:|BUILD" || true
+LOG="$DERIVED/build_app.log"
+mkdir -p "$DERIVED"
+# A failed build must stop here: an older app would still be in DerivedData.
+if ! xcodebuild -project StardewModManager.xcodeproj -scheme StardewModManager "${SIGNING[@]}" \
+    -configuration Release -destination "generic/platform=macOS" -derivedDataPath "$DERIVED" build > "$LOG" 2>&1; then
+    grep -E "error:" "$LOG" | head -20
+    echo "Build failed (full log: $LOG)"
+    exit 1
+fi
 
 APP_NAME="Starseed.app"
 BUILT="$DERIVED/Build/Products/Release/$APP_NAME"
