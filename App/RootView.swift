@@ -38,6 +38,9 @@ struct RootView: View {
             NexusModSheet(request: request)
                 .opensWebLinksInApp()
         }
+        .sheet(item: $model.unusedRequirementsPrompt) { prompt in
+            UnusedRequirementsSheet(prompt: prompt)
+        }
         .sheet(item: $model.collectionSheet) { request in
             CollectionSheet(request: request)
                 .opensWebLinksInApp()

@@ -115,3 +115,18 @@ struct RealRequirementTests {
         }
     }
 }
+
+/// Read-only: what deleting East Scarp would leave unused. REAL_MODS=/path/to/Mods
+@Suite(.enabled(if: ProcessInfo.processInfo.environment["REAL_MODS"] != nil))
+struct RealUnusedTests {
+    @Test func whatIfEastScarpIsDeleted() throws {
+        let mods = try ModManager(modsURL: URL(filePath: ProcessInfo.processInfo.environment["REAL_MODS"]!)).scan()
+        for family in ["eastscarp", "ridgeside", "rsv"] {
+            let removed = mods.filter { $0.uniqueID.lowercased().contains(family) || $0.uniqueID == "ES.BarberShop" && family == "eastscarp" }
+            guard !removed.isEmpty else { continue }
+            let remaining = mods.filter { mod in !removed.contains { $0.id == mod.id } }
+            let unused = UnusedRequirements.find(removed: removed, remaining: remaining)
+            print("◆ delete \(family) (\(removed.count) parts) → suggest: " + (unused.isEmpty ? "nothing" : unused.map { "\($0.mod.displayName) [needed by \($0.neededBy.joined(separator: ", "))]" }.joined(separator: "; ")))
+        }
+    }
+}

@@ -15,6 +15,7 @@
 		353A05FA3748E05DD877DF29 /* ProfilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A5C63340551AD5F955C117 /* ProfilesView.swift */; };
 		3F5760A9F180C2D75771B622 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 70A27FC71633F5012452E415 /* InfoPlist.xcstrings */; };
 		47E9636795C75895D5A37ACC /* ConfigEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275D56ADD869132CDA9B3D6D /* ConfigEditorView.swift */; };
+		5100D9135D68B0C05F95A0B8 /* UnusedRequirementsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0825B0DCF8C284030913ADCA /* UnusedRequirementsSheet.swift */; };
 		52EF3147302B8AF2DE40E91B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882D1E5D99EEAA8946E3990A /* SettingsView.swift */; };
 		662EF595FD51F27BFA8675E0 /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A369DA706FAB88E595F89 /* BrowseView.swift */; };
 		69F3A9FD2183012E92E171F9 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD33902DFD3EF0DAE6802F /* RootView.swift */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		003897CE6E3EAFEE4E8ED9B8 /* AppModel+Updates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModel+Updates.swift"; sourceTree = "<group>"; };
 		060CBD6601F4146FAF75C704 /* StardewModManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StardewModManagerApp.swift; sourceTree = "<group>"; };
+		0825B0DCF8C284030913ADCA /* UnusedRequirementsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnusedRequirementsSheet.swift; sourceTree = "<group>"; };
 		08DF86F9A956E9A59F63C73C /* Downloads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloads.swift; sourceTree = "<group>"; };
 		20A51E6BD6FC074BC41A3353 /* AppModel+Profiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModel+Profiles.swift"; sourceTree = "<group>"; };
 		2521CC450C378D7A7830C95E /* NexusModSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NexusModSheet.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				27BB4B7EB0BDCA9B8772C45C /* SavesView.swift */,
 				882D1E5D99EEAA8946E3990A /* SettingsView.swift */,
 				060CBD6601F4146FAF75C704 /* StardewModManagerApp.swift */,
+				0825B0DCF8C284030913ADCA /* UnusedRequirementsSheet.swift */,
 				48197B7BBE7EE15AB71D5108 /* UpdatesView.swift */,
 			);
 			path = App;
@@ -259,6 +262,7 @@
 				745E4ABF7E08EF53EAAEE6AA /* SavesView.swift in Sources */,
 				52EF3147302B8AF2DE40E91B /* SettingsView.swift in Sources */,
 				DF6863EC182FECE9BC603FB6 /* StardewModManagerApp.swift in Sources */,
+				5100D9135D68B0C05F95A0B8 /* UnusedRequirementsSheet.swift in Sources */,
 				DABC5A0FD5CE13412580753B /* UpdatesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

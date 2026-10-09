@@ -2537,6 +2537,16 @@
         }
       }
     },
+    "Keep All" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tout garder"
+          }
+        }
+      }
+    },
     "Keep Existing" : {
       "localizations" : {
         "fr" : {
@@ -2563,6 +2573,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Garder la copie la plus récente de chacun et placer les autres dans la Corbeille"
+          }
+        }
+      }
+    },
+    "Kept: still needed by %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conservé : encore nécessaire à %@"
           }
         }
       }
@@ -3008,6 +3028,26 @@
         }
       }
     },
+    "Move %lld to Trash" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Placer %lld mods dans la Corbeille"
+          }
+        }
+      }
+    },
+    "Move 1 to Trash" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Placer 1 mod dans la Corbeille"
+          }
+        }
+      }
+    },
     "Move to Trash" : {
       "localizations" : {
         "fr" : {
@@ -3365,6 +3405,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vous ne savez pas où il se trouve ? Lancez le jeu une fois avec SMAPI : son journal affiche une ligne du type « Mods go here: … »."
+          }
+        }
+      }
+    },
+    "Nothing else you have installed uses these anymore. They were only needed by what you just removed." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plus aucun autre mod installé ne les utilise. Ils n’étaient nécessaires qu’à ce que vous venez de supprimer."
           }
         }
       }
@@ -3945,6 +3995,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Retirer"
+          }
+        }
+      }
+    },
+    "Remove Requirements No Longer Needed?" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supprimer les prérequis devenus inutiles ?"
           }
         }
       }
@@ -4855,6 +4915,16 @@
         }
       }
     },
+    "They go to the Trash, so you can put them back from Finder." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ils vont dans la Corbeille : vous pouvez les récupérer depuis le Finder."
+          }
+        }
+      }
+    },
     "This app opens Nexus “Mod Manager Download” links." : {
       "localizations" : {
         "fr" : {
@@ -5204,6 +5274,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Avertissement"
+          }
+        }
+      }
+    },
+    "Was needed by %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Était nécessaire à %@"
           }
         }
       }

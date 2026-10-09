@@ -79,6 +79,12 @@ downloaded yourself. Browsing and local installs need no account.
   Nexus number, or with the same name once tags are removed ("[CP] X",
   "X Code") are grouped. Expand to see the parts; one checkbox turns the
   whole mod on or off.
+- **Clean up after deleting**: when you remove a mod, the app lists its
+  requirements that nothing else uses anymore (e.g. tilesheet packs left
+  behind by an expansion) and offers to move them to the Trash too. Only
+  required dependencies count, a requirement still needed by any other
+  mod (even a disabled one) is kept, and SMAPI's bundled mods are never
+  suggested.
 - **Duplicate detection**: two enabled copies of one mod (SMAPI skips both)
   are flagged, and **Keep Newest** trashes the older copy.
 - **Rollback**: updates keep the replaced version (last 3 per mod in

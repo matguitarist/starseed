@@ -106,6 +106,15 @@ final class AppModel {
     var message: UserMessage?
     var conflictPrompt: ConflictPrompt?
     var pendingTrash: [ModInfo] = []
+    /// Requirements nothing uses anymore after a deletion, offered for removal.
+    var unusedRequirementsPrompt: UnusedRequirementsPrompt?
+
+    struct UnusedRequirementsPrompt: Identifiable {
+        let id = UUID()
+        /// Display names of the mods that were just removed.
+        let removedNames: [String]
+        let items: [UnusedRequirement]
+    }
 
     /// Previous versions of mods, for "Revert".
     let modArchive = ModArchive()
@@ -277,12 +286,17 @@ final class AppModel {
         return failures
     }
 
-    func moveToTrash(_ targets: [ModInfo]) {
+    /// Moves mods to the Trash. Afterwards, requirements that nothing else
+    /// uses anymore are offered for removal (`suggestUnused`).
+    func moveToTrash(_ targets: [ModInfo], suggestUnused: Bool = true) {
         guard let manager else { return }
+        let groupsBefore = allGroups
         var failures: [String] = []
+        var trashed: [ModInfo] = []
         for mod in targets {
             do {
                 try manager.moveToTrash(mod)
+                trashed.append(mod)
             } catch {
                 failures.append("\(mod.displayName): \(error.localizedDescription)")
             }
@@ -290,6 +304,24 @@ final class AppModel {
         refresh()
         if !failures.isEmpty {
             show("Couldn't move to Trash", detail: failures.joined(separator: "\n"))
+        } else if suggestUnused, !trashed.isEmpty {
+            // Other parts of a partly deleted multi-part mod aren't "unused".
+            let trashedIDs = Set(trashed.map(\.id))
+            let siblings = Set(groupsBefore.filter { $0.isGroup && $0.mods.contains { trashedIDs.contains($0.id) } }.flatMap { $0.mods.map(\.id) })
+            // Name removed parts by their group ("East Scarp", not "East Scarp: Locations").
+            func label(_ name: String) -> String {
+                groupsBefore.first { $0.isGroup && $0.mods.contains { $0.displayName == name } }?.name ?? name
+            }
+            func labels(_ names: [String]) -> [String] {
+                var seen = Set<String>()
+                return names.map(label).filter { seen.insert($0).inserted }
+            }
+            let unused = UnusedRequirements.find(removed: trashed, remaining: mods)
+                .filter { !siblings.contains($0.mod.id) }
+                .map { UnusedRequirement(mod: $0.mod, neededBy: labels($0.neededBy)) }
+            if !unused.isEmpty {
+                unusedRequirementsPrompt = UnusedRequirementsPrompt(removedNames: labels(trashed.map(\.displayName)), items: unused)
+            }
         }
     }
 
