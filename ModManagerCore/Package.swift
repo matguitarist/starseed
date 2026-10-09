@@ -5,12 +5,13 @@ import PackageDescription
 // be tested on its own (`swift test` here, or ⌘U in Xcode).
 let package = Package(
     name: "ModManagerCore",
+    defaultLocalization: "en",
     platforms: [.macOS(.v14)],
     products: [
         .library(name: "ModManagerCore", targets: ["ModManagerCore"]),
     ],
     targets: [
-        .target(name: "ModManagerCore"),
+        .target(name: "ModManagerCore", resources: [.process("Resources")]),
         .testTarget(name: "ModManagerCoreTests", dependencies: ["ModManagerCore"]),
     ]
 )

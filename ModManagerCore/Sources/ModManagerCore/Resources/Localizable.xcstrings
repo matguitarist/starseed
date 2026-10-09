@@ -1,0 +1,374 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%@ exited with status %d" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ exited with status %2$d"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ s’est arrêté avec le code %2$d"
+          }
+        }
+      }
+    },
+    "%@ failed (status %d)." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ failed (status %2$d)."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Échec de %1$@ (code %2$d)."
+          }
+        }
+      }
+    },
+    "%@ is not a valid archive (or is damaged)." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ n’est pas une archive valide (ou elle est endommagée)."
+          }
+        }
+      }
+    },
+    "Add your Nexus Mods API key in Settings to download mods." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajoutez votre clé d’API Nexus Mods dans les Réglages pour télécharger des mods."
+          }
+        }
+      }
+    },
+    "Bad \\u escape" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Séquence \\u invalide"
+          }
+        }
+      }
+    },
+    "Can't rename — a folder named '%@' already exists." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de renommer : un dossier nommé « %@ » existe déjà."
+          }
+        }
+      }
+    },
+    "Download failed (HTTP %lld)." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Échec du téléchargement (HTTP %lld)."
+          }
+        }
+      }
+    },
+    "Download finished without a response." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Téléchargement terminé sans réponse."
+          }
+        }
+      }
+    },
+    "Expected , or ]" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "« , » ou « ] » attendu"
+          }
+        }
+      }
+    },
+    "Expected , or } after \"%@\"" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "« , » ou « } » attendu après « %@ »"
+          }
+        }
+      }
+    },
+    "Expected : after \"%@\"" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "« : » attendu après « %@ »"
+          }
+        }
+      }
+    },
+    "Expected %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ attendu"
+          }
+        }
+      }
+    },
+    "Expected a key" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clé attendue"
+          }
+        }
+      }
+    },
+    "Line %lld: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Line %1$lld: %2$@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ligne %1$lld : %2$@"
+          }
+        }
+      }
+    },
+    "Mods folder does not exist:\n%@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le dossier Mods n’existe pas :\n%@"
+          }
+        }
+      }
+    },
+    "Nexus didn't return a download link for this file." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus n’a renvoyé aucun lien de téléchargement pour ce fichier."
+          }
+        }
+      }
+    },
+    "Nexus only allows direct downloads for Premium members. Use “Mod Manager Download” on the website instead." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus ne permet les téléchargements directs qu’aux membres Premium. Utilisez plutôt « Mod Manager Download » sur le site."
+          }
+        }
+      }
+    },
+    "Nexus rate limit reached. Try again in a little while." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limite de requêtes Nexus atteinte. Réessayez dans un moment."
+          }
+        }
+      }
+    },
+    "Nexus request failed (HTTP %lld)." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Échec de la requête Nexus (HTTP %lld)."
+          }
+        }
+      }
+    },
+    "Nexus returned no data." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus n’a renvoyé aucune donnée."
+          }
+        }
+      }
+    },
+    "No manifest.json found anywhere inside %@. It may not be a SMAPI mod (it could be an XNB/content-only mod)." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun manifest.json trouvé dans %@. Ce n’est peut-être pas un mod SMAPI (il peut s’agir d’un mod XNB ou de contenu seul)."
+          }
+        }
+      }
+    },
+    "SMAPI mod lookup failed (HTTP %lld)." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Échec de la recherche de mods SMAPI (HTTP %lld)."
+          }
+        }
+      }
+    },
+    "SMAPI's own backups are managed by its Save Backup mod." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les sauvegardes propres à SMAPI sont gérées par son mod Save Backup."
+          }
+        }
+      }
+    },
+    "That backup doesn't contain the selected save." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cette sauvegarde ne contient pas la partie sélectionnée."
+          }
+        }
+      }
+    },
+    "The backup was created but couldn't be read back." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La sauvegarde a été créée mais n’a pas pu être relue."
+          }
+        }
+      }
+    },
+    "There are no saves to back up." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucune partie à sauvegarder."
+          }
+        }
+      }
+    },
+    "This file isn't a Stardew Mod Manager mod list." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce fichier n’est pas une liste de mods Stardew Mod Manager."
+          }
+        }
+      }
+    },
+    "This is the SMAPI installer, not a mod. It's been unpacked to your Downloads folder: double-click “%@” (or right-click → Open) and follow the steps. Quit the game first if it's running." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il s’agit de l’installateur de SMAPI, pas d’un mod. Il a été décompressé dans votre dossier Téléchargements : double-cliquez sur « %@ » (ou clic droit → Ouvrir) et suivez les étapes. Quittez d’abord le jeu s’il est lancé."
+          }
+        }
+      }
+    },
+    "Unclosed [" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "« [ » non fermé"
+          }
+        }
+      }
+    },
+    "Unclosed {" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "« { » non fermé"
+          }
+        }
+      }
+    },
+    "Unclosed string" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chaîne non fermée"
+          }
+        }
+      }
+    },
+    "Unexpected end of file" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fin de fichier inattendue"
+          }
+        }
+      }
+    },
+    "Unexpected text after the end of the file" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Texte inattendu après la fin du fichier"
+          }
+        }
+      }
+    },
+    "Unexpected value “%@”" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Valeur inattendue « %@ »"
+          }
+        }
+      }
+    },
+    "Your Nexus Mods API key was rejected. Check it in Settings." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Votre clé d’API Nexus Mods a été refusée. Vérifiez-la dans les Réglages."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

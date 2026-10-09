@@ -77,7 +77,7 @@ struct MyCollectionsView: View {
     }
 
     private func startNaming() {
-        newName = "My Mods \(Date.now.formatted(date: .abbreviated, time: .omitted))"
+        newName = String(localized: "My Mods \(Date.now.formatted(date: .abbreviated, time: .omitted))")
         isNaming = true
     }
 
@@ -153,7 +153,10 @@ private struct ModListDetail: View {
     }
 
     private var subtitle: String {
-        var parts = ["\(list.mods.count) mods", "saved \(list.createdAt.formatted(date: .abbreviated, time: .shortened))"]
+        var parts = [
+            String(localized: "\(list.mods.count) mods"),
+            String(localized: "saved \(list.createdAt.formatted(date: .abbreviated, time: .shortened))"),
+        ]
         if let game = list.gameVersion { parts.append("Stardew \(game)") }
         if let smapi = list.smapiVersion { parts.append("SMAPI \(smapi)") }
         return parts.joined(separator: " · ")

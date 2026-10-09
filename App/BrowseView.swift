@@ -32,7 +32,7 @@ struct BrowseView: View {
             }
             .safeAreaInset(edge: .top, spacing: 0) {
                 Picker("Sort", selection: $sort) {
-                    ForEach(NexusSort.allCases, id: \.self) { Text($0.title) }
+                    ForEach(NexusSort.allCases, id: \.self) { Text($0.localizedTitle) }
                 }
                 .pickerStyle(.segmented)
                 .labelsHidden()

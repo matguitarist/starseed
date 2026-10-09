@@ -11,8 +11,14 @@ struct SavesView: View {
     static let allSavesID = "__all__"
 
     enum Tab: String, CaseIterable {
-        case mods = "Mods"
-        case backups = "Backups"
+        case mods, backups
+
+        var title: String {
+            switch self {
+            case .mods: String(localized: "Mods", comment: "Saves tab")
+            case .backups: String(localized: "Backups", comment: "Saves tab")
+            }
+        }
     }
 
     var body: some View {
@@ -57,7 +63,7 @@ struct SavesView: View {
             ToolbarItemGroup {
                 Button {
                     Task {
-                        if await model.backUpSaves(saves.map(\.id), label: "All saves") != nil {
+                        if await model.backUpSaves(saves.map(\.id), label: String(localized: "All saves")) != nil {
                             model.selectedSaveID = Self.allSavesID
                         }
                     }
@@ -85,7 +91,7 @@ struct SavesView: View {
             VStack(spacing: 0) {
                 HStack(spacing: 12) {
                     Picker("View", selection: $tab) {
-                        ForEach(Tab.allCases, id: \.self) { Text($0.rawValue) }
+                        ForEach(Tab.allCases, id: \.self) { Text($0.title) }
                     }
                     .pickerStyle(.segmented)
                     .labelsHidden()
@@ -181,7 +187,7 @@ private struct BackupsView: View {
         ) {
             Button("Move to Trash", role: .destructive) {
                 guard let backup = pendingDelete else { return }
-                do { try model.backupStore.delete(backup) } catch { model.show("Couldn't Delete Backup", error.localizedDescription) }
+                do { try model.backupStore.delete(backup) } catch { model.show("Couldn’t Delete Backup", detail: error.localizedDescription) }
                 Task { await reload() }
             }
         }
@@ -272,7 +278,7 @@ private struct BackupsView: View {
         let ids = pending.ids ?? pending.backup.saveIDs
         let names = ids.map { pending.backup.saveNames[$0] ?? $0 }
         let when = pending.backup.date.formatted(date: .abbreviated, time: .shortened)
-        return names.count == 1 ? "Restore \(names[0]) from \(when)?" : "Restore \(names.count) saves from \(when)?"
+        return names.count == 1 ? String(localized: "Restore \(names[0]) from \(when)?") : String(localized: "Restore \(names.count) saves from \(when)?")
     }
 
     private func restore(_ backup: SaveBackup, ids: [String]?) async {
@@ -280,7 +286,7 @@ private struct BackupsView: View {
         defer { isWorking = false }
         if await model.restoreSaves(from: backup, ids: ids) {
             let count = (ids ?? backup.saveIDs).count
-            restoredMessage = count == 1 ? "Restored. The previous version is in “Before restore”." : "Restored \(count) saves. The previous versions are in “Before restore”."
+            restoredMessage = count == 1 ? String(localized: "Restored. The previous version is in “Before restore”.") : String(localized: "Restored \(count) saves. The previous versions are in “Before restore”.")
             onRestore()
             await reload()
         }
@@ -300,7 +306,7 @@ private struct SaveAnalysisView: View {
     @State private var analysis: AppModel.SaveAnalysis?
     @State private var error: String?
     @State private var selected: Set<Int> = []   // Nexus mod IDs ticked for install
-    @State private var status = "Scanning the save…"
+    @State private var status = String(localized: "Scanning the save…")
     @State private var editingRow: String?        // row whose match is being changed
     @State private var linkDraft = ""
     @State private var linkError: String?
@@ -448,8 +454,7 @@ private struct SaveAnalysisView: View {
             statusIcon(installed: gap.installed)
             VStack(alignment: .leading, spacing: 2) {
                 Text(gap.group.key).font(.headline)
-                Text("\(gap.group.locations.count) location\(gap.group.locations.count == 1 ? "" : "s")"
-                     + (gap.group.npcs.isEmpty ? "" : " · NPCs: " + gap.group.npcs.prefix(6).joined(separator: ", ") + (gap.group.npcs.count > 6 ? "…" : "")))
+                Text(locationSummary(gap.group))
                     .font(.caption)
                     .foregroundStyle(.secondary)
                     .lineLimit(2)
@@ -514,14 +519,14 @@ private struct SaveAnalysisView: View {
 
     private func applyLink(to rowID: String) async {
         guard let modID = NexusClient.modID(fromLinkOrNumber: linkDraft) else {
-            linkError = "That isn't a Stardew Valley mod link or number."
+            linkError = String(localized: "That isn't a Stardew Valley mod link or number.")
             return
         }
         let name: String
         do {
             name = try await model.nexusClient.mod(id: modID).name
         } catch {
-            linkError = "Couldn't find mod #\(modID) on Nexus."
+            linkError = String(localized: "Couldn't find mod #\(String(modID)) on Nexus.")
             return
         }
         let match = ModMatch(modID: modID, name: name, author: nil, confidence: .chosen, matchedTerm: linkDraft)
@@ -539,6 +544,13 @@ private struct SaveAnalysisView: View {
         if installed == nil { selected.insert(modID) }
         self.analysis = analysis
         editingRow = nil
+    }
+
+    private func locationSummary(_ group: MissingContentGroup) -> String {
+        let locations = group.locations.count == 1 ? String(localized: "1 location") : String(localized: "\(group.locations.count) locations")
+        guard !group.npcs.isEmpty else { return locations }
+        let npcs = group.npcs.prefix(6).joined(separator: ", ") + (group.npcs.count > 6 ? "…" : "")
+        return locations + " · " + String(localized: "NPCs: \(npcs)")
     }
 
     private func checkbox(_ modID: Int) -> some View {
@@ -595,10 +607,10 @@ private struct ConfidenceBadge: View {
 
     var body: some View {
         let (text, color): (String, Color) = switch confidence {
-        case .confirmed: ("SMAPI database", .green)
-        case .byAuthor: ("matched by author", .teal)
-        case .byName: ("possible match", .orange)
-        case .chosen: ("your choice", .blue)
+        case .confirmed: (String(localized: "SMAPI database"), .green)
+        case .byAuthor: (String(localized: "matched by author"), .teal)
+        case .byName: (String(localized: "possible match"), .orange)
+        case .chosen: (String(localized: "your choice"), .blue)
         }
         Text(text)
             .font(.caption2.weight(.semibold))

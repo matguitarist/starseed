@@ -146,7 +146,10 @@ public struct NXMLink: Sendable, Equatable {
 
 public struct NexusError: LocalizedError, Sendable {
     public let message: String
-    public init(_ message: String) { self.message = message }
+    /// A message to show the user, translated from this package's String Catalog.
+    public init(_ message: String.LocalizationValue) { self.message = String(localized: message, bundle: .module) }
+    /// A message used as is (e.g. Nexus's own error text).
+    public init(verbatim message: String) { self.message = message }
     public var errorDescription: String? { message }
 }
 
@@ -376,7 +379,10 @@ public struct NexusClient: Sendable {
         if let result = envelope.data {
             return result
         }
-        throw NexusError(envelope.errors?.map(\.message).joined(separator: "\n") ?? "Nexus returned no data.")
+        if let errors = envelope.errors, !errors.isEmpty {
+            throw NexusError(verbatim: errors.map(\.message).joined(separator: "\n"))
+        }
+        throw NexusError("Nexus returned no data.")
     }
 
     private func rest<T: Decodable>(_ path: String, query: [URLQueryItem] = []) async throws -> T {
@@ -479,13 +485,13 @@ public struct NexusClient: Sendable {
         let serverMessage = (try? JSONDecoder().decode(Message.self, from: data))?.message
         switch http.statusCode {
         case 401:
-            throw NexusError(serverMessage ?? "Your Nexus Mods API key was rejected. Check it in Settings.")
+            throw serverMessage.map(NexusError.init(verbatim:)) ?? NexusError("Your Nexus Mods API key was rejected. Check it in Settings.")
         case 403:
-            throw NexusError(serverMessage ?? "Nexus only allows direct downloads for Premium members. Use “Mod Manager Download” on the website instead.")
+            throw serverMessage.map(NexusError.init(verbatim:)) ?? NexusError("Nexus only allows direct downloads for Premium members. Use “Mod Manager Download” on the website instead.")
         case 429:
             throw NexusError("Nexus rate limit reached. Try again in a little while.")
         default:
-            throw NexusError(serverMessage ?? "Nexus request failed (HTTP \(http.statusCode)).")
+            throw serverMessage.map(NexusError.init(verbatim:)) ?? NexusError("Nexus request failed (HTTP \(http.statusCode)).")
         }
     }
 }

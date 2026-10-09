@@ -66,7 +66,7 @@ struct BrowserView: View {
         .onAppear {
             browser.onNXMLink = { model.browserDidReceiveNXM($0) }
             browser.onArchiveDownloaded = { model.installBrowserDownload($0) }
-            browser.onDownloadFailed = { model.show("Download Failed", $0) }
+            browser.onDownloadFailed = { model.show("Download Failed", detail: $0) }
             if let request = model.browserRequest {
                 browser.load(request.url)
             } else {

@@ -155,8 +155,8 @@ final class AppModel {
 
     var summary: String {
         let enabled = mods.filter(\.isEnabled).count
-        let shown = searchText.isEmpty ? "" : "\(visibleMods.count) shown · "
-        return "\(shown)\(mods.count) mods · \(enabled) enabled"
+        let total = String(localized: "\(mods.count) mods · \(enabled) enabled")
+        return searchText.isEmpty ? total : String(localized: "\(visibleMods.count) shown · \(total)")
     }
 
     var profileNames: [String] {
@@ -190,7 +190,7 @@ final class AppModel {
             do {
                 try configStore.setModsURL(url)
             } catch {
-                show("Couldn't save settings", error.localizedDescription)
+                show("Couldn't save settings", detail: error.localizedDescription)
             }
         }
         manager = ModManager(modsURL: url, archive: modArchive)
@@ -204,7 +204,7 @@ final class AppModel {
 
     func chooseModsFolder() {
         let panel = NSOpenPanel()
-        panel.message = "Select your Stardew Valley \"Mods\" folder"
+        panel.message = String(localized: "Select your Stardew Valley “Mods” folder")
         panel.canChooseDirectories = true
         panel.canChooseFiles = false
         panel.showsHiddenFiles = true  // the Steam path lives under ~/Library
@@ -221,7 +221,7 @@ final class AppModel {
             scanned = try manager.scan()
         } catch {
             scanned = []
-            show("Couldn't read Mods folder", error.localizedDescription)
+            show("Couldn't read Mods folder", detail: error.localizedDescription)
         }
         markModsNeedingNewerSMAPI(in: &scanned)
         mods = scanned  // one assignment: one recompute of derived data
@@ -240,7 +240,7 @@ final class AppModel {
         selection = selection.filter { id in allGroups.contains { $0.id == id } }
             .union(mods.filter { selectedKeys.contains(Self.stableKey($0)) }.map(\.id))
         if !failures.isEmpty {
-            show("Couldn't toggle mod", failures.joined(separator: "\n"))
+            show("Couldn't toggle mod", detail: failures.joined(separator: "\n"))
         }
     }
 
@@ -285,7 +285,7 @@ final class AppModel {
         }
         refresh()
         if !failures.isEmpty {
-            show("Couldn't move to Trash", failures.joined(separator: "\n"))
+            show("Couldn't move to Trash", detail: failures.joined(separator: "\n"))
         }
     }
 
@@ -338,7 +338,7 @@ final class AppModel {
         do {
             try modArchive.restore(version, replacing: mod)
         } catch {
-            show("Couldn't Revert", error.localizedDescription)
+            show("Couldn't Revert", detail: error.localizedDescription)
         }
         refresh()
         Task { await checkForUpdates() }
@@ -390,7 +390,18 @@ final class AppModel {
         }
     }
 
-    func show(_ title: String, _ body: String) {
-        message = UserMessage(title: title, body: body)
+    /// Shows an alert. Both texts are looked up in the String Catalog.
+    func show(_ title: String.LocalizationValue, _ body: String.LocalizationValue) {
+        message = UserMessage(title: String(localized: title), body: String(localized: body))
+    }
+
+    /// Shows an alert whose body is already final text (e.g. a system error).
+    func show(_ title: String.LocalizationValue, detail: String) {
+        message = UserMessage(title: String(localized: title), body: detail)
+    }
+
+    /// Shows an alert with an already-localized title and body.
+    func show(localizedTitle title: String, detail: String) {
+        message = UserMessage(title: title, body: detail)
     }
 }

@@ -114,7 +114,7 @@ struct RootView: View {
 
     private var trashTitle: String {
         let targets = model.pendingTrash
-        return targets.count == 1 ? "Move '\(targets[0].displayName)' to the Trash?" : "Move \(targets.count) mods to the Trash?"
+        return targets.count == 1 ? String(localized: "Move “\(targets[0].displayName)” to the Trash?") : String(localized: "Move \(targets.count) mods to the Trash?")
     }
 }
 

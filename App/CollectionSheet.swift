@@ -199,7 +199,7 @@ struct CollectionSheet: View {
             Button("Save as Profile") {
                 guard let revision else { return }
                 let count = model.saveProfile(fromCollection: revision)
-                profileSaved = "Saved profile “\(revision.collection.name)” (\(count) mods)"
+                profileSaved = String(localized: "Saved profile “\(revision.collection.name)” (\(count) mods)")
             }
             .disabled(revision == nil)
             .help("Save a profile that enables the collection's installed mods")

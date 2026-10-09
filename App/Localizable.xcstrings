@@ -1,0 +1,5247 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "· %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "· %@"
+          }
+        }
+      }
+    },
+    "· %@ available" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "· %@ disponible"
+          }
+        }
+      }
+    },
+    "· Revision %lld" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "· Révision %lld"
+          }
+        }
+      }
+    },
+    "“%@” no longer exists. Pick another one for this save." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "« %@ » n’existe plus. Choisissez-en un autre pour cette partie."
+          }
+        }
+      }
+    },
+    "(During: %@.)" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(Pendant : %@.)"
+          }
+        }
+      }
+    },
+    "(found via “%@”)" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(trouvé via « %@ »)"
+          }
+        }
+      }
+    },
+    "(imported)" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(importée)"
+          }
+        }
+      }
+    },
+    "%@ — %lld left" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ — %2$lld left"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ — encore %2$lld"
+          }
+        }
+      }
+    },
+    "%@ · Free account" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ · Compte gratuit"
+          }
+        }
+      }
+    },
+    "%@ · Premium" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ · Premium"
+          }
+        }
+      }
+    },
+    "%@ · v%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ · v%2$@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ · v%2$@"
+          }
+        }
+      }
+    },
+    "%@ (%lld)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ (%2$lld)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ (%2$lld)"
+          }
+        }
+      }
+    },
+    "%@ %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$lld"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ %2$lld"
+          }
+        }
+      }
+    },
+    "%@ collections" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ collections"
+          }
+        }
+      }
+    },
+    "%@ contains mods already in your Mods folder:\n\n%@\n\nReplace them with this version? Old versions go to the Trash and their config.json settings are kept." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ contains mods already in your Mods folder:\n\n%2$@\n\nReplace them with this version? Old versions go to the Trash and their config.json settings are kept."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ contient des mods déjà présents dans votre dossier Mods :\n\n%2$@\n\nLes remplacer par cette version ? Les anciennes versions vont à la Corbeille et leurs réglages config.json sont conservés."
+          }
+        }
+      }
+    },
+    "%@ didn't load" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ ne s’est pas chargé"
+          }
+        }
+      }
+    },
+    "%@ didn't load: it needs a newer SMAPI" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ ne s’est pas chargé : il lui faut un SMAPI plus récent"
+          }
+        }
+      }
+    },
+    "%@ didn't load: it needs mods you don't have" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ ne s’est pas chargé : il lui faut des mods que vous n’avez pas"
+          }
+        }
+      }
+    },
+    "%@ Farm" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ferme %@"
+          }
+        }
+      }
+    },
+    "%@ had %lld errors while you played" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ had %2$lld errors while you played"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ a eu %2$lld erreurs pendant que vous jouiez"
+          }
+        }
+      }
+    },
+    "%@ had an error while you played" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ a eu une erreur pendant que vous jouiez"
+          }
+        }
+      }
+    },
+    "%@ mods" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ mods"
+          }
+        }
+      }
+    },
+    "%@ or later" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ ou ultérieur"
+          }
+        }
+      }
+    },
+    "%@ Settings" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réglages de %@"
+          }
+        }
+      }
+    },
+    "%@: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@: %2$@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ : %2$@"
+          }
+        }
+      }
+    },
+    "%@: no downloadable file" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ : aucun fichier téléchargeable"
+          }
+        }
+      }
+    },
+    "%lld available" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld disponibles"
+          }
+        }
+      }
+    },
+    "%lld disabled" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld désactivés"
+          }
+        }
+      }
+    },
+    "%lld installed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld installés"
+          }
+        }
+      }
+    },
+    "%lld locations" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld lieux"
+          }
+        }
+      }
+    },
+    "%lld missing" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld manquants"
+          }
+        }
+      }
+    },
+    "%lld missing requirements…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld prérequis manquants…"
+          }
+        }
+      }
+    },
+    "%lld mod updates available" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld mises à jour de mods disponibles"
+          }
+        }
+      }
+    },
+    "%lld mod updates available…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld mises à jour de mods disponibles…"
+          }
+        }
+      }
+    },
+    "%lld mods" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld mods"
+          }
+        }
+      }
+    },
+    "%lld mods · %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld mods · %2$@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld mods · %2$@"
+          }
+        }
+      }
+    },
+    "%lld mods · %lld enabled" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld mods · %2$lld enabled"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld mods · %2$lld activés"
+          }
+        }
+      }
+    },
+    "%lld mods are installed twice" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld mods sont installés en double"
+          }
+        }
+      }
+    },
+    "%lld mods need a newer SMAPI" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld mods nécessitent un SMAPI plus récent"
+          }
+        }
+      }
+    },
+    "%lld Mods Selected" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld mods sélectionnés"
+          }
+        }
+      }
+    },
+    "%lld of %lld enabled" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld of %2$lld enabled"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld sur %2$lld activés"
+          }
+        }
+      }
+    },
+    "%lld older here" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld plus anciens ici"
+          }
+        }
+      }
+    },
+    "%lld other IDs in the save didn't match a mod" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld autres identifiants de la partie ne correspondent à aucun mod"
+          }
+        }
+      }
+    },
+    "%lld parts" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld parties"
+          }
+        }
+      }
+    },
+    "%lld parts of one mod. Enable or disable them together." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld parties d’un même mod. Activez-les ou désactivez-les ensemble."
+          }
+        }
+      }
+    },
+    "%lld shown · %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld shown · %2$@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld affichés · %2$@"
+          }
+        }
+      }
+    },
+    "%lld to update" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld à mettre à jour"
+          }
+        }
+      }
+    },
+    "→ %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "→ %@"
+          }
+        }
+      }
+    },
+    "1 location" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 lieu"
+          }
+        }
+      }
+    },
+    "1 missing requirement…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 prérequis manquant…"
+          }
+        }
+      }
+    },
+    "1 mod update available" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 mise à jour de mod disponible"
+          }
+        }
+      }
+    },
+    "1 mod update available…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 mise à jour de mod disponible…"
+          }
+        }
+      }
+    },
+    "A folder inside Mods with %lld mods. SMAPI loads every mod in it." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un dossier dans Mods contenant %lld mods. SMAPI charge tous les mods qu’il contient."
+          }
+        }
+      }
+    },
+    "A mod is installed twice" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un mod est installé en double"
+          }
+        }
+      }
+    },
+    "A mod needs a newer SMAPI" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un mod nécessite un SMAPI plus récent"
+          }
+        }
+      }
+    },
+    "A profile remembers which mods are enabled." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un profil retient quels mods sont activés."
+          }
+        }
+      }
+    },
+    "Add your Nexus API key in Settings first" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajoutez d’abord votre clé d’API Nexus dans les Réglages"
+          }
+        }
+      }
+    },
+    "Add your Nexus API key in Settings to install collections." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajoutez votre clé d’API Nexus dans les Réglages pour installer des collections."
+          }
+        }
+      }
+    },
+    "Add your Nexus API key to install mods." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajoutez votre clé d’API Nexus pour installer des mods."
+          }
+        }
+      }
+    },
+    "Add your personal Nexus Mods API key in Settings → Nexus Mods to download mods." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajoutez votre clé d’API Nexus Mods personnelle dans Réglages → Nexus Mods pour télécharger des mods."
+          }
+        }
+      }
+    },
+    "Alert" : {
+      "comment" : "SMAPI log level",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alerte"
+          }
+        }
+      }
+    },
+    "All Installed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tout est installé"
+          }
+        }
+      }
+    },
+    "All mods up to date" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tous les mods sont à jour"
+          }
+        }
+      }
+    },
+    "All Mods Up to Date" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tous les mods sont à jour"
+          }
+        }
+      }
+    },
+    "All Nexus Files…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tous les fichiers Nexus…"
+          }
+        }
+      }
+    },
+    "All Requirements Installed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tous les prérequis sont installés"
+          }
+        }
+      }
+    },
+    "All saves" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toutes les parties"
+          }
+        }
+      }
+    },
+    "All Saves & Backups" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toutes les parties et sauvegardes"
+          }
+        }
+      }
+    },
+    "Already Installed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Déjà installé"
+          }
+        }
+      }
+    },
+    "Another app (or none) opens Nexus “Mod Manager Download” links." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une autre app (ou aucune) ouvre les liens « Mod Manager Download » de Nexus."
+          }
+        }
+      }
+    },
+    "Any (keep current mods)" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun (garder les mods actuels)"
+          }
+        }
+      }
+    },
+    "API key" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clé d’API"
+          }
+        }
+      }
+    },
+    "API Key" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clé d’API"
+          }
+        }
+      }
+    },
+    "Applied %@." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ appliqué."
+          }
+        }
+      }
+    },
+    "Apply" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appliquer"
+          }
+        }
+      }
+    },
+    "Archived" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Archivés"
+          }
+        }
+      }
+    },
+    "Author" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auteur"
+          }
+        }
+      }
+    },
+    "Back" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Précédent"
+          }
+        }
+      }
+    },
+    "Back Up All Saves" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauvegarder toutes les parties"
+          }
+        }
+      }
+    },
+    "Back up all saves to create a restore point." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauvegardez toutes les parties pour créer un point de restauration."
+          }
+        }
+      }
+    },
+    "Back up every save into one backup" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauvegarder toutes les parties en une seule sauvegarde"
+          }
+        }
+      }
+    },
+    "Back Up Now" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauvegarder maintenant"
+          }
+        }
+      }
+    },
+    "Back up this save to create a restore point." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauvegardez cette partie pour créer un point de restauration."
+          }
+        }
+      }
+    },
+    "Backup Failed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Échec de la sauvegarde"
+          }
+        }
+      }
+    },
+    "Backups" : {
+      "comment" : "Saves tab",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauvegardes"
+          }
+        }
+      }
+    },
+    "Backups of %@ Farm" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauvegardes de la ferme %@"
+          }
+        }
+      }
+    },
+    "Browse Nexus" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parcourir Nexus"
+          }
+        }
+      }
+    },
+    "by %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "par %@"
+          }
+        }
+      }
+    },
+    "By default, mods you already have in a newer version are kept." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Par défaut, les mods que vous avez déjà dans une version plus récente sont conservés."
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annuler"
+          }
+        }
+      }
+    },
+    "Change Mods Folder…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Changer de dossier Mods…"
+          }
+        }
+      }
+    },
+    "Change…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modifier…"
+          }
+        }
+      }
+    },
+    "Changes apply the next time you start the game." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les modifications s’appliquent au prochain lancement du jeu."
+          }
+        }
+      }
+    },
+    "Check for mod updates every few hours" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher les mises à jour des mods toutes les quelques heures"
+          }
+        }
+      }
+    },
+    "Check for Update…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher une mise à jour…"
+          }
+        }
+      }
+    },
+    "Check for updates" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher les mises à jour"
+          }
+        }
+      }
+    },
+    "Check for Updates" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher les mises à jour"
+          }
+        }
+      }
+    },
+    "Check Now" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vérifier maintenant"
+          }
+        }
+      }
+    },
+    "Checking for Updates…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recherche de mises à jour…"
+          }
+        }
+      }
+    },
+    "Checking Nexus for optional files…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recherche de fichiers optionnels sur Nexus…"
+          }
+        }
+      }
+    },
+    "Checking SMAPI's mod database…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Consultation de la base de mods de SMAPI…"
+          }
+        }
+      }
+    },
+    "Checking your Nexus account… (macOS may ask to allow Keychain access)" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vérification de votre compte Nexus… (macOS peut demander l’accès au trousseau)"
+          }
+        }
+      }
+    },
+    "Checking…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vérification…"
+          }
+        }
+      }
+    },
+    "Choose a mod list exported from Stardew Mod Manager" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisissez une liste de mods exportée depuis Stardew Mod Manager"
+          }
+        }
+      }
+    },
+    "Choose a specific file on Nexus" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisir un fichier précis sur Nexus"
+          }
+        }
+      }
+    },
+    "Choose Folder…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisir un dossier…"
+          }
+        }
+      }
+    },
+    "Choose which log to show" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisir le journal à afficher"
+          }
+        }
+      }
+    },
+    "Choose Your Mods Folder" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisissez votre dossier Mods"
+          }
+        }
+      }
+    },
+    "Choose your Mods folder first." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisissez d’abord votre dossier Mods."
+          }
+        }
+      }
+    },
+    "Clear" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Effacer"
+          }
+        }
+      }
+    },
+    "Clear filter" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Effacer le filtre"
+          }
+        }
+      }
+    },
+    "Clear: hide everything logged so far and show only new messages (⌘K). The log file isn't changed." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Effacer : masquer tout ce qui a été journalisé jusqu’ici et n’afficher que les nouveaux messages (⌘K). Le fichier journal n’est pas modifié."
+          }
+        }
+      }
+    },
+    "Cleared at %@ · %lld earlier messages hidden" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Cleared at %1$@ · %2$lld earlier messages hidden"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Effacé à %1$@ · %2$lld messages précédents masqués"
+          }
+        }
+      }
+    },
+    "Click **Slow download** below. The next mod opens automatically after each download starts." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cliquez sur **Slow download** ci-dessous. Le mod suivant s’ouvre automatiquement dès que chaque téléchargement commence."
+          }
+        }
+      }
+    },
+    "Close" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fermer"
+          }
+        }
+      }
+    },
+    "collection “%@”" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "la collection « %@ »"
+          }
+        }
+      }
+    },
+    "Collection Not Found" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Collection introuvable"
+          }
+        }
+      }
+    },
+    "Collections" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Collections"
+          }
+        }
+      }
+    },
+    "content pack for" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "pack de contenu pour"
+          }
+        }
+      }
+    },
+    "Copy Log" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copier le journal"
+          }
+        }
+      }
+    },
+    "Copy, share, or show the log file" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copier, partager ou afficher le fichier journal"
+          }
+        }
+      }
+    },
+    "Couldn’t Change Default App" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de changer l’app par défaut"
+          }
+        }
+      }
+    },
+    "Couldn't Change Tracking" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de modifier le suivi"
+          }
+        }
+      }
+    },
+    "Couldn’t Delete Backup" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de supprimer la sauvegarde"
+          }
+        }
+      }
+    },
+    "Couldn't Endorse" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de recommander"
+          }
+        }
+      }
+    },
+    "Couldn't find a Nexus page for:\n\n%@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucune page Nexus trouvée pour :\n\n%@"
+          }
+        }
+      }
+    },
+    "Couldn't find mod #%@ on Nexus." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mod nº %@ introuvable sur Nexus."
+          }
+        }
+      }
+    },
+    "Couldn't Find Some Requirements" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Certains prérequis sont introuvables"
+          }
+        }
+      }
+    },
+    "Couldn't Load Collection" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de charger la collection"
+          }
+        }
+      }
+    },
+    "Couldn't Load Files" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de charger les fichiers"
+          }
+        }
+      }
+    },
+    "Couldn't move to Trash" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de placer dans la Corbeille"
+          }
+        }
+      }
+    },
+    "Couldn't Reach Nexus" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de joindre Nexus"
+          }
+        }
+      }
+    },
+    "Couldn't Read config.json" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de lire config.json"
+          }
+        }
+      }
+    },
+    "Couldn't read Mods folder" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de lire le dossier Mods"
+          }
+        }
+      }
+    },
+    "Couldn't Read Save" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de lire la partie"
+          }
+        }
+      }
+    },
+    "Couldn't Remove Endorsement" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de retirer la recommandation"
+          }
+        }
+      }
+    },
+    "Couldn't Revert" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de revenir en arrière"
+          }
+        }
+      }
+    },
+    "Couldn't save API key" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d’enregistrer la clé d’API"
+          }
+        }
+      }
+    },
+    "Couldn't Save Collection" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d’enregistrer la collection"
+          }
+        }
+      }
+    },
+    "Couldn't Save Link" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d’enregistrer le lien"
+          }
+        }
+      }
+    },
+    "Couldn't save profiles" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d’enregistrer les profils"
+          }
+        }
+      }
+    },
+    "Couldn't save settings" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d’enregistrer les réglages"
+          }
+        }
+      }
+    },
+    "Couldn't toggle mod" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d’activer ou désactiver le mod"
+          }
+        }
+      }
+    },
+    "Couldn't toggle:\n%@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d’activer ou désactiver :\n%@"
+          }
+        }
+      }
+    },
+    "Crash Log" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Journal de plantage"
+          }
+        }
+      }
+    },
+    "Debug" : {
+      "comment" : "SMAPI log level",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Débogage"
+          }
+        }
+      }
+    },
+    "Delete" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supprimer"
+          }
+        }
+      }
+    },
+    "Delete “%@”?" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supprimer « %@ » ?"
+          }
+        }
+      }
+    },
+    "Delete this backup?" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supprimer cette sauvegarde ?"
+          }
+        }
+      }
+    },
+    "Delete…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supprimer…"
+          }
+        }
+      }
+    },
+    "Details" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Détails"
+          }
+        }
+      }
+    },
+    "Details…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Détails…"
+          }
+        }
+      }
+    },
+    "Disable" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Désactiver"
+          }
+        }
+      }
+    },
+    "Disable All" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tout désactiver"
+          }
+        }
+      }
+    },
+    "Disable all parts" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Désactiver toutes les parties"
+          }
+        }
+      }
+    },
+    "Disabled" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Désactivé"
+          }
+        }
+      }
+    },
+    "disabled in collection" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "désactivé dans la collection"
+          }
+        }
+      }
+    },
+    "Download and install every Nexus update" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Télécharger et installer toutes les mises à jour Nexus"
+          }
+        }
+      }
+    },
+    "Download and install the ticked mods" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Télécharger et installer les mods cochés"
+          }
+        }
+      }
+    },
+    "Download Failed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Échec du téléchargement"
+          }
+        }
+      }
+    },
+    "Download it from Nexus" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le télécharger depuis Nexus"
+          }
+        }
+      }
+    },
+    "Download missing and older mods from Nexus" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Télécharger depuis Nexus les mods manquants ou plus anciens"
+          }
+        }
+      }
+    },
+    "Download Page" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page de téléchargement"
+          }
+        }
+      }
+    },
+    "Download…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Télécharger…"
+          }
+        }
+      }
+    },
+    "Downloading %@…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Téléchargement de %@…"
+          }
+        }
+      }
+    },
+    "Downloads" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Téléchargements"
+          }
+        }
+      }
+    },
+    "Drop or choose mod archives (.zip, .7z, .rar) downloaded from Nexus or elsewhere." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Déposez ou choisissez des archives de mods (.zip, .7z, .rar) téléchargées sur Nexus ou ailleurs."
+          }
+        }
+      }
+    },
+    "Duplicate" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Doublon"
+          }
+        }
+      }
+    },
+    "Edit this mod's config.json" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modifier le config.json de ce mod"
+          }
+        }
+      }
+    },
+    "empty" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "vide"
+          }
+        }
+      }
+    },
+    "empty list" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "liste vide"
+          }
+        }
+      }
+    },
+    "Enable" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activer"
+          }
+        }
+      }
+    },
+    "Enable All" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tout activer"
+          }
+        }
+      }
+    },
+    "Enable all parts" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activer toutes les parties"
+          }
+        }
+      }
+    },
+    "Enable exactly the mods this collection had enabled, and disable the rest" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activer exactement les mods que cette collection avait activés, et désactiver les autres"
+          }
+        }
+      }
+    },
+    "Enable or download every missing requirement" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activer ou télécharger tous les prérequis manquants"
+          }
+        }
+      }
+    },
+    "Enable These Mods" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activer ces mods"
+          }
+        }
+      }
+    },
+    "Enabled" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activé"
+          }
+        }
+      }
+    },
+    "Endorse" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recommander"
+          }
+        }
+      }
+    },
+    "Endorsed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recommandé"
+          }
+        }
+      }
+    },
+    "Error" : {
+      "comment" : "SMAPI log level",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreur"
+          }
+        }
+      }
+    },
+    "Errors:\n%@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreurs :\n%@"
+          }
+        }
+      }
+    },
+    "Every enabled mod has the framework mods it needs." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chaque mod activé dispose des mods de base dont il a besoin."
+          }
+        }
+      }
+    },
+    "Every file on this mod's Nexus page: main, optional, updates and old versions" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tous les fichiers de la page Nexus de ce mod : principaux, optionnels, mises à jour et anciennes versions"
+          }
+        }
+      }
+    },
+    "Everything this save needs is installed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tout ce dont cette partie a besoin est installé"
+          }
+        }
+      }
+    },
+    "Export “%@” to share it or use it on another computer" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exportez « %@ » pour la partager ou l’utiliser sur un autre ordinateur"
+          }
+        }
+      }
+    },
+    "Export Failed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Échec de l’exportation"
+          }
+        }
+      }
+    },
+    "Export…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exporter…"
+          }
+        }
+      }
+    },
+    "Failed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Échec"
+          }
+        }
+      }
+    },
+    "Files…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fichiers…"
+          }
+        }
+      }
+    },
+    "Filter by name, author, or ID" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filtrer par nom, auteur ou identifiant"
+          }
+        }
+      }
+    },
+    "Find" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher"
+          }
+        }
+      }
+    },
+    "Find Missing Mods" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trouver les mods manquants"
+          }
+        }
+      }
+    },
+    "Fix the JSON first: %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Corrigez d’abord le JSON : %@"
+          }
+        }
+      }
+    },
+    "Follow Live" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suivre en direct"
+          }
+        }
+      }
+    },
+    "Form" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formulaire"
+          }
+        }
+      }
+    },
+    "Forward" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suivant"
+          }
+        }
+      }
+    },
+    "Found a Stardew Valley Mods folder at:\n%@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un dossier Mods de Stardew Valley a été trouvé ici :\n%@"
+          }
+        }
+      }
+    },
+    "Found from IDs stored in the save file." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trouvés grâce aux identifiants enregistrés dans le fichier de la partie."
+          }
+        }
+      }
+    },
+    "Free account: **Download…** opens Nexus in the app's browser (sign in there the first time). Click **Slow download** and the mod installs automatically." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Compte gratuit : **Télécharger…** ouvre Nexus dans le navigateur de l’app (connectez-vous-y la première fois). Cliquez sur **Slow download** et le mod s’installe automatiquement."
+          }
+        }
+      }
+    },
+    "Free account: the Nexus browser opens each mod in turn. Click **Slow download** on each page." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Compte gratuit : le navigateur Nexus ouvre chaque mod tour à tour. Cliquez sur **Slow download** sur chaque page."
+          }
+        }
+      }
+    },
+    "Free accounts can't download with the API key alone. Nexus only hands out download links on its website, to a signed-in user." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les comptes gratuits ne peuvent pas télécharger avec la seule clé d’API. Nexus ne fournit les liens de téléchargement que sur son site, à un utilisateur connecté."
+          }
+        }
+      }
+    },
+    "Game" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jeu"
+          }
+        }
+      }
+    },
+    "General" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Général"
+          }
+        }
+      }
+    },
+    "Get Mods" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obtenir des mods"
+          }
+        }
+      }
+    },
+    "Get Nexus notifications when this mod is updated" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recevoir une notification Nexus quand ce mod est mis à jour"
+          }
+        }
+      }
+    },
+    "Get SMAPI…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obtenir SMAPI…"
+          }
+        }
+      }
+    },
+    "Has optional content: see Optional Files or optional requirements in the details panel" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contenu optionnel disponible : voir les fichiers optionnels ou les prérequis optionnels dans le panneau de détails"
+          }
+        }
+      }
+    },
+    "Hide %@ messages" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masquer les messages « %@ »"
+          }
+        }
+      }
+    },
+    "Hide key" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masquer la clé"
+          }
+        }
+      }
+    },
+    "https://www.nexusmods.com/stardewvalley/mods/7286" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "https://www.nexusmods.com/stardewvalley/mods/7286"
+          }
+        }
+      }
+    },
+    "Import" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importer"
+          }
+        }
+      }
+    },
+    "Import a collection file (.json)" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importer un fichier de collection (.json)"
+          }
+        }
+      }
+    },
+    "Import Failed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Échec de l’importation"
+          }
+        }
+      }
+    },
+    "Import…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importer…"
+          }
+        }
+      }
+    },
+    "Include" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inclure"
+          }
+        }
+      }
+    },
+    "Includes SMAPI's automatic daily backups." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inclut les sauvegardes quotidiennes automatiques de SMAPI."
+          }
+        }
+      }
+    },
+    "Info" : {
+      "comment" : "SMAPI log level",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Info"
+          }
+        }
+      }
+    },
+    "Install" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installer"
+          }
+        }
+      }
+    },
+    "Install %lld Missing" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installer les %lld manquants"
+          }
+        }
+      }
+    },
+    "Install %lld Mods" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installer %lld mods"
+          }
+        }
+      }
+    },
+    "Install %lld Selected" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installer les %lld sélectionnés"
+          }
+        }
+      }
+    },
+    "Install All" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tout installer"
+          }
+        }
+      }
+    },
+    "Install Complete" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installation terminée"
+          }
+        }
+      }
+    },
+    "Install Finished with Problems" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installation terminée avec des problèmes"
+          }
+        }
+      }
+    },
+    "Install Missing" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installer les manquants"
+          }
+        }
+      }
+    },
+    "Install Mods" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installer des mods"
+          }
+        }
+      }
+    },
+    "Install mods from downloaded archives (or drop them on the window)" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installer des mods depuis des archives téléchargées (ou les déposer sur la fenêtre)"
+          }
+        }
+      }
+    },
+    "Install Mods…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installer des mods…"
+          }
+        }
+      }
+    },
+    "Installed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installés"
+          }
+        }
+      }
+    },
+    "Installed %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version %@ installée"
+          }
+        }
+      }
+    },
+    "Installed %@ — a newer version is available" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version %@ installée — une version plus récente est disponible"
+          }
+        }
+      }
+    },
+    "Installed and enabled" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installé et activé"
+          }
+        }
+      }
+    },
+    "Installed but disabled" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installé mais désactivé"
+          }
+        }
+      }
+    },
+    "Installed, disabled" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installé, désactivé"
+          }
+        }
+      }
+    },
+    "Installed/updated: %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installés ou mis à jour : %@"
+          }
+        }
+      }
+    },
+    "Installing %@…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installation de %@…"
+          }
+        }
+      }
+    },
+    "Installing…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installation…"
+          }
+        }
+      }
+    },
+    "It may be broken or outdated. Updating it often helps; if not, report it to its author with your log." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il est peut-être défectueux ou obsolète. Le mettre à jour aide souvent ; sinon, signalez le problème à son auteur avec votre journal."
+          }
+        }
+      }
+    },
+    "It needs SMAPI %@ or later." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il nécessite SMAPI %@ ou ultérieur."
+          }
+        }
+      }
+    },
+    "It's installed but disabled" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il est installé mais désactivé"
+          }
+        }
+      }
+    },
+    "Item %lld" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Élément %lld"
+          }
+        }
+      }
+    },
+    "Keep Existing" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Garder l’existant"
+          }
+        }
+      }
+    },
+    "Keep Newest" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Garder le plus récent"
+          }
+        }
+      }
+    },
+    "Keep the newest copy of each and move the others to the Trash" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Garder la copie la plus récente de chacun et placer les autres dans la Corbeille"
+          }
+        }
+      }
+    },
+    "Keychain error %d" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreur du trousseau %d"
+          }
+        }
+      }
+    },
+    "Last checked %@." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dernière vérification %@."
+          }
+        }
+      }
+    },
+    "Later" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plus tard"
+          }
+        }
+      }
+    },
+    "Latest Log" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dernier journal"
+          }
+        }
+      }
+    },
+    "Launch Stardew Valley" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lancer Stardew Valley"
+          }
+        }
+      }
+    },
+    "Launch Stardew Valley via Steam" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lancer Stardew Valley via Steam"
+          }
+        }
+      }
+    },
+    "Launch the game" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lancer le jeu"
+          }
+        }
+      }
+    },
+    "Library" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bibliothèque"
+          }
+        }
+      }
+    },
+    "Links in this app open in its own Nexus browser, which catches these downloads itself. Making this app the default also catches “Mod Manager Download” clicks in Safari or Chrome." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les liens de cette app s’ouvrent dans son propre navigateur Nexus, qui intercepte lui-même ces téléchargements. Faire de cette app l’app par défaut intercepte aussi les clics « Mod Manager Download » dans Safari ou Chrome."
+          }
+        }
+      }
+    },
+    "Load More" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Charger plus"
+          }
+        }
+      }
+    },
+    "Load this save once with SMAPI, then come back: SMAPI's log lists every location and NPC from mods you don't have, which finds even more missing mods." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chargez cette partie une fois avec SMAPI, puis revenez : le journal de SMAPI liste chaque lieu et PNJ provenant de mods que vous n’avez pas, ce qui permet de trouver encore plus de mods manquants."
+          }
+        }
+      }
+    },
+    "Locations and NPCs the game dropped when loading this save, grouped by their probable mod. Matches come from a Nexus search, so check them before installing." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lieux et PNJ ignorés par le jeu au chargement de cette partie, regroupés par mod probable. Les correspondances viennent d’une recherche sur Nexus : vérifiez-les avant d’installer."
+          }
+        }
+      }
+    },
+    "Log Cleared" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Journal effacé"
+          }
+        }
+      }
+    },
+    "Log File" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fichier journal"
+          }
+        }
+      }
+    },
+    "Main files" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fichiers principaux"
+          }
+        }
+      }
+    },
+    "Manifest error" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreur de manifeste"
+          }
+        }
+      }
+    },
+    "Match %lld newer installed mods to the collection's versions" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aligner %lld mods installés plus récents sur les versions de la collection"
+          }
+        }
+      }
+    },
+    "matched by author" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "trouvé par auteur"
+          }
+        }
+      }
+    },
+    "Matching %lld groups of missing content on Nexus…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recherche sur Nexus de %lld groupes de contenu manquant…"
+          }
+        }
+      }
+    },
+    "Matching %lld mod IDs on Nexus…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recherche sur Nexus de %lld identifiants de mods…"
+          }
+        }
+      }
+    },
+    "Miscellaneous" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Divers"
+          }
+        }
+      }
+    },
+    "Missing content (from your last game session)" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contenu manquant (d’après votre dernière session de jeu)"
+          }
+        }
+      }
+    },
+    "Missing dependency" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dépendance manquante"
+          }
+        }
+      }
+    },
+    "Missing manifest" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Manifeste manquant"
+          }
+        }
+      }
+    },
+    "Missing or disabled" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Manquant ou désactivé"
+          }
+        }
+      }
+    },
+    "Missing Requirements" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prérequis manquants"
+          }
+        }
+      }
+    },
+    "Missing: %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Manquant : %@"
+          }
+        }
+      }
+    },
+    "Mod Manager Downloads" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Téléchargements « Mod Manager »"
+          }
+        }
+      }
+    },
+    "Mod Settings…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réglages du mod…"
+          }
+        }
+      }
+    },
+    "Mod update available" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mise à jour de mod disponible"
+          }
+        }
+      }
+    },
+    "Mode" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mode"
+          }
+        }
+      }
+    },
+    "Mods" : {
+      "comment" : "Saves tab",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods"
+          }
+        }
+      }
+    },
+    "Mods (%lld)" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods (%lld)"
+          }
+        }
+      }
+    },
+    "Mods can't be swapped while the game is running." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de changer de mods pendant que le jeu tourne."
+          }
+        }
+      }
+    },
+    "Mods folder" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dossier Mods"
+          }
+        }
+      }
+    },
+    "Mods only load through SMAPI. Install it next to the game, then launch the game normally." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les mods ne se chargent qu’avec SMAPI. Installez-le à côté du jeu, puis lancez le jeu normalement."
+          }
+        }
+      }
+    },
+    "Mods this collection had enabled are turned on and every other mod is turned off. Nothing is deleted." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les mods que cette collection avait activés sont activés et tous les autres sont désactivés. Rien n’est supprimé."
+          }
+        }
+      }
+    },
+    "Mods this save uses" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods utilisés par cette partie"
+          }
+        }
+      }
+    },
+    "Mods: any" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods : au choix"
+          }
+        }
+      }
+    },
+    "Most Downloaded" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plus téléchargés"
+          }
+        }
+      }
+    },
+    "Most Endorsed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plus recommandés"
+          }
+        }
+      }
+    },
+    "Move “%@” to the Trash?" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Placer « %@ » dans la Corbeille ?"
+          }
+        }
+      }
+    },
+    "Move %lld mods to the Trash?" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Placer %lld mods dans la Corbeille ?"
+          }
+        }
+      }
+    },
+    "Move to Trash" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Placer dans la Corbeille"
+          }
+        }
+      }
+    },
+    "Move to Trash…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Placer dans la Corbeille…"
+          }
+        }
+      }
+    },
+    "My Collections" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mes collections"
+          }
+        }
+      }
+    },
+    "My Mods %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mes mods %@"
+          }
+        }
+      }
+    },
+    "Name" : {
+      "comment" : "Sort by name",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nom"
+          }
+        }
+      }
+    },
+    "Needed by %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Requis par %@"
+          }
+        }
+      }
+    },
+    "Needed to download mods. Sign in to Nexus, open your account's API Keys page, and copy the “Personal API Key” at the bottom. It's stored in your Keychain." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nécessaire pour télécharger des mods. Connectez-vous à Nexus, ouvrez la page « API Keys » de votre compte et copiez la « Personal API Key » en bas de page. Elle est enregistrée dans votre trousseau."
+          }
+        }
+      }
+    },
+    "Needs newer SMAPI" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI plus récent requis"
+          }
+        }
+      }
+    },
+    "Needs SMAPI" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nécessite SMAPI"
+          }
+        }
+      }
+    },
+    "New messages appear here as SMAPI writes them. Starting the game again begins a fresh log." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les nouveaux messages apparaissent ici au fur et à mesure que SMAPI les écrit. Relancer le jeu démarre un nouveau journal."
+          }
+        }
+      }
+    },
+    "Newer SMAPI versions fix bugs and support newer mods." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les versions récentes de SMAPI corrigent des bugs et prennent en charge les mods récents."
+          }
+        }
+      }
+    },
+    "Newest" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plus récents"
+          }
+        }
+      }
+    },
+    "Nexus" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus"
+          }
+        }
+      }
+    },
+    "Nexus API Key Needed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clé d’API Nexus nécessaire"
+          }
+        }
+      }
+    },
+    "Nexus asks you to try a mod for a little while before endorsing it. Try again later." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus vous demande d’essayer un mod un moment avant de le recommander. Réessayez plus tard."
+          }
+        }
+      }
+    },
+    "Nexus Mods" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus Mods"
+          }
+        }
+      }
+    },
+    "Nexus notifies you about this mod. Click to stop." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus vous avertit à propos de ce mod. Cliquez pour arrêter."
+          }
+        }
+      }
+    },
+    "Nexus only lets you endorse mods you've downloaded with this account." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus ne permet de recommander que les mods téléchargés avec ce compte."
+          }
+        }
+      }
+    },
+    "No Backups Yet" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucune sauvegarde pour l’instant"
+          }
+        }
+      }
+    },
+    "No collections yet" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucune collection pour l’instant"
+          }
+        }
+      }
+    },
+    "No Files" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun fichier"
+          }
+        }
+      }
+    },
+    "No match found on Nexus" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucune correspondance sur Nexus"
+          }
+        }
+      }
+    },
+    "No Matching Messages" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun message correspondant"
+          }
+        }
+      }
+    },
+    "No Mod Selected" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun mod sélectionné"
+          }
+        }
+      }
+    },
+    "No profiles yet" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun profil pour l’instant"
+          }
+        }
+      }
+    },
+    "No Saves Found" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucune partie trouvée"
+          }
+        }
+      }
+    },
+    "No SMAPI Log Yet" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pas encore de journal SMAPI"
+          }
+        }
+      }
+    },
+    "Not a Stardew Valley Mod" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce n’est pas un mod Stardew Valley"
+          }
+        }
+      }
+    },
+    "Not connected" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non connecté"
+          }
+        }
+      }
+    },
+    "Not found next to the Mods folder" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introuvable à côté du dossier Mods"
+          }
+        }
+      }
+    },
+    "Not installed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non installé"
+          }
+        }
+      }
+    },
+    "Not installed (optional)" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non installé (optionnel)"
+          }
+        }
+      }
+    },
+    "Not installed: %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non installés : %@"
+          }
+        }
+      }
+    },
+    "not set" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "non défini"
+          }
+        }
+      }
+    },
+    "Not sure where it is? Launch the game through SMAPI once — its log prints a line like “Mods go here: …”." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous ne savez pas où il se trouve ? Lancez le jeu une fois avec SMAPI : son journal affiche une ligne du type « Mods go here: … »."
+          }
+        }
+      }
+    },
+    "Nothing to install" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rien à installer"
+          }
+        }
+      }
+    },
+    "Notify me about new updates" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "M’avertir des nouvelles mises à jour"
+          }
+        }
+      }
+    },
+    "NPCs: %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PNJ : %@"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        }
+      }
+    },
+    "Old versions" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anciennes versions"
+          }
+        }
+      }
+    },
+    "On" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activé"
+          }
+        }
+      }
+    },
+    "Only the collection is deleted, not the mods." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seule la collection est supprimée, pas les mods."
+          }
+        }
+      }
+    },
+    "Open Download Page" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir la page de téléchargement"
+          }
+        }
+      }
+    },
+    "Open in Default Browser" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir dans le navigateur par défaut"
+          }
+        }
+      }
+    },
+    "Open in Text Editor" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir dans l’éditeur de texte"
+          }
+        }
+      }
+    },
+    "Open Log File…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir un fichier journal…"
+          }
+        }
+      }
+    },
+    "Open Mods Folder" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir le dossier Mods"
+          }
+        }
+      }
+    },
+    "Open Nexus Page" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir la page Nexus"
+          }
+        }
+      }
+    },
+    "Open Saves Folder" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir le dossier des parties"
+          }
+        }
+      }
+    },
+    "Open Settings…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir les Réglages…"
+          }
+        }
+      }
+    },
+    "Open SMAPI's download page. Its installer unpacks to your Downloads folder." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir la page de téléchargement de SMAPI. Son installateur est décompressé dans votre dossier Téléchargements."
+          }
+        }
+      }
+    },
+    "Open Stardew Mod Manager" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir Stardew Mod Manager"
+          }
+        }
+      }
+    },
+    "Open the Mods folder in Finder" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir le dossier Mods dans le Finder"
+          }
+        }
+      }
+    },
+    "Open the Nexus API Keys page…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir la page des clés d’API Nexus…"
+          }
+        }
+      }
+    },
+    "Open the saves folder in Finder" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir le dossier des parties dans le Finder"
+          }
+        }
+      }
+    },
+    "Open this mod's Nexus page" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir la page Nexus de ce mod"
+          }
+        }
+      }
+    },
+    "Open this page in your default browser" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir cette page dans votre navigateur par défaut"
+          }
+        }
+      }
+    },
+    "Open Updates" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir les mises à jour"
+          }
+        }
+      }
+    },
+    "Opens the Nexus download page. Click “Slow download” and it installs automatically." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvre la page de téléchargement Nexus. Cliquez sur « Slow download » et l’installation se fait automatiquement."
+          }
+        }
+      }
+    },
+    "Opens the Nexus download page. Click “Slow download” and the file installs automatically." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvre la page de téléchargement Nexus. Cliquez sur « Slow download » et le fichier s’installe automatiquement."
+          }
+        }
+      }
+    },
+    "optional" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "optionnel"
+          }
+        }
+      }
+    },
+    "Optional (%lld)" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optionnels (%lld)"
+          }
+        }
+      }
+    },
+    "Optional files" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fichiers optionnels"
+          }
+        }
+      }
+    },
+    "Optional Files on Nexus" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fichiers optionnels sur Nexus"
+          }
+        }
+      }
+    },
+    "Paste" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coller"
+          }
+        }
+      }
+    },
+    "Paste the right Nexus link (e.g. nexusmods.com/stardewvalley/mods/7286) or mod number" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Collez le bon lien Nexus (par ex. nexusmods.com/stardewvalley/mods/7286) ou le numéro du mod"
+          }
+        }
+      }
+    },
+    "Paste your personal API key" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Collez votre clé d’API personnelle"
+          }
+        }
+      }
+    },
+    "Pick your Mods folder before installing mods." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisissez votre dossier Mods avant d’installer des mods."
+          }
+        }
+      }
+    },
+    "Play" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jouer"
+          }
+        }
+      }
+    },
+    "Play Stardew Valley" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jouer à Stardew Valley"
+          }
+        }
+      }
+    },
+    "Plays with “%@”" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se joue avec « %@ »"
+          }
+        }
+      }
+    },
+    "possible match" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "correspondance possible"
+          }
+        }
+      }
+    },
+    "Premium: everything downloads and installs automatically." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium : tout se télécharge et s’installe automatiquement."
+          }
+        }
+      }
+    },
+    "Premium: files install directly." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium : les fichiers s’installent directement."
+          }
+        }
+      }
+    },
+    "Premium: mods download and install directly from the app." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium : les mods se téléchargent et s’installent directement depuis l’app."
+          }
+        }
+      }
+    },
+    "Previous Versions" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versions précédentes"
+          }
+        }
+      }
+    },
+    "Problems:" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Problèmes :"
+          }
+        }
+      }
+    },
+    "profile “%@”" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "le profil « %@ »"
+          }
+        }
+      }
+    },
+    "Profile Applied" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil appliqué"
+          }
+        }
+      }
+    },
+    "Profile name" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nom du profil"
+          }
+        }
+      }
+    },
+    "Profile Not Found" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil introuvable"
+          }
+        }
+      }
+    },
+    "Profiles" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profils"
+          }
+        }
+      }
+    },
+    "Put v%@ back. The current version is kept here, and your settings carry over." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remettre la v%@. La version actuelle est conservée ici, et vos réglages sont repris."
+          }
+        }
+      }
+    },
+    "Quit" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quitter"
+          }
+        }
+      }
+    },
+    "Quit Stardew Valley First" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quittez d’abord Stardew Valley"
+          }
+        }
+      }
+    },
+    "Quit the game first: mods are only loaded when it starts." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quittez d’abord le jeu : les mods ne sont chargés qu’à son lancement."
+          }
+        }
+      }
+    },
+    "Raw JSON" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JSON brut"
+          }
+        }
+      }
+    },
+    "Reading the save file…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lecture du fichier de la partie…"
+          }
+        }
+      }
+    },
+    "Recently Updated" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mis à jour récemment"
+          }
+        }
+      }
+    },
+    "Refresh" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualiser"
+          }
+        }
+      }
+    },
+    "Reload" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recharger"
+          }
+        }
+      }
+    },
+    "Reload automatically and scroll to new messages while the game runs" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recharger automatiquement et défiler jusqu’aux nouveaux messages pendant que le jeu tourne"
+          }
+        }
+      }
+    },
+    "Remove" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retirer"
+          }
+        }
+      }
+    },
+    "Replace" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remplacer"
+          }
+        }
+      }
+    },
+    "replaced %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "remplacée le %@"
+          }
+        }
+      }
+    },
+    "Requirements" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prérequis"
+          }
+        }
+      }
+    },
+    "Requires" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nécessite"
+          }
+        }
+      }
+    },
+    "Rescan the Mods folder and check for updates" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Relire le dossier Mods et rechercher les mises à jour"
+          }
+        }
+      }
+    },
+    "Restore" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restaurer"
+          }
+        }
+      }
+    },
+    "Restore %@ from %@?" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Restore %1$@ from %2$@?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restaurer %1$@ depuis la sauvegarde du %2$@ ?"
+          }
+        }
+      }
+    },
+    "Restore %lld saves from %@?" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Restore %1$lld saves from %2$@?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restaurer %1$lld parties depuis la sauvegarde du %2$@ ?"
+          }
+        }
+      }
+    },
+    "Restore All" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tout restaurer"
+          }
+        }
+      }
+    },
+    "Restore Failed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Échec de la restauration"
+          }
+        }
+      }
+    },
+    "Restore One" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En restaurer une"
+          }
+        }
+      }
+    },
+    "Restored %lld saves. The previous versions are in “Before restore”." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld parties restaurées. Les versions précédentes sont dans « Before restore »."
+          }
+        }
+      }
+    },
+    "Restored. The previous version is in “Before restore”." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restaurée. La version précédente est dans « Before restore »."
+          }
+        }
+      }
+    },
+    "Revert" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Revenir"
+          }
+        }
+      }
+    },
+    "Save" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer"
+          }
+        }
+      }
+    },
+    "Save & Verify" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer et vérifier"
+          }
+        }
+      }
+    },
+    "Save a profile that enables the collection's installed mods" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer un profil qui active les mods installés de la collection"
+          }
+        }
+      }
+    },
+    "Save and switch between sets of enabled mods" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer des ensembles de mods activés et passer de l’un à l’autre"
+          }
+        }
+      }
+    },
+    "Save as Profile" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer comme profil"
+          }
+        }
+      }
+    },
+    "Save Current" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer l’actuel"
+          }
+        }
+      }
+    },
+    "Save Current Mods" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer les mods actuels"
+          }
+        }
+      }
+    },
+    "Save Current Mods…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer les mods actuels…"
+          }
+        }
+      }
+    },
+    "Save the installed mods as a new collection" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer les mods installés comme nouvelle collection"
+          }
+        }
+      }
+    },
+    "Save your installed mods as a list, export it, and import it on another Mac (or share it with a friend) to install the same mods." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrez vos mods installés sous forme de liste, exportez-la, puis importez-la sur un autre Mac (ou partagez-la avec un ami) pour installer les mêmes mods."
+          }
+        }
+      }
+    },
+    "saved %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "enregistrée le %@"
+          }
+        }
+      }
+    },
+    "Saved profile “%@” (%lld mods)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Saved profile “%1$@” (%2$lld mods)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil « %1$@ » enregistré (%2$lld mods)"
+          }
+        }
+      }
+    },
+    "Saves" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parties"
+          }
+        }
+      }
+    },
+    "Saves live in ~/.config/StardewValley/Saves." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les parties se trouvent dans ~/.config/StardewValley/Saves."
+          }
+        }
+      }
+    },
+    "Saves the %lld installed mods, their versions and Nexus numbers. A collection with the same name is replaced." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistre les %lld mods installés, leurs versions et leurs numéros Nexus. Une collection du même nom est remplacée."
+          }
+        }
+      }
+    },
+    "Scanning the save…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Analyse de la partie…"
+          }
+        }
+      }
+    },
+    "Search collections" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher des collections"
+          }
+        }
+      }
+    },
+    "Search log" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher dans le journal"
+          }
+        }
+      }
+    },
+    "Search Nexus" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chercher sur Nexus"
+          }
+        }
+      }
+    },
+    "Search, or paste a Nexus link or mod #" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher, ou coller un lien Nexus ou un nº de mod"
+          }
+        }
+      }
+    },
+    "See which mods a save needs, or back it up and restore it." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voyez de quels mods une partie a besoin, ou sauvegardez-la et restaurez-la."
+          }
+        }
+      }
+    },
+    "Select a Save" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélectionnez une partie"
+          }
+        }
+      }
+    },
+    "Select downloaded mod archives (.zip, .7z, .rar)" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélectionnez des archives de mods téléchargées (.zip, .7z, .rar)"
+          }
+        }
+      }
+    },
+    "Select your Stardew Valley “Mods” folder" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélectionnez votre dossier « Mods » de Stardew Valley"
+          }
+        }
+      }
+    },
+    "Set Mod…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisir le mod…"
+          }
+        }
+      }
+    },
+    "Share" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Partager"
+          }
+        }
+      }
+    },
+    "Show %@ messages" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher les messages « %@ »"
+          }
+        }
+      }
+    },
+    "Show All" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tout afficher"
+          }
+        }
+      }
+    },
+    "Show icon in the menu bar" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher l’icône dans la barre des menus"
+          }
+        }
+      }
+    },
+    "Show in Finder" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher dans le Finder"
+          }
+        }
+      }
+    },
+    "Show key" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher la clé"
+          }
+        }
+      }
+    },
+    "Show Messages" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher les messages"
+          }
+        }
+      }
+    },
+    "Show old versions" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher les anciennes versions"
+          }
+        }
+      }
+    },
+    "Show only %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher seulement %@"
+          }
+        }
+      }
+    },
+    "Show or hide mod details" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher ou masquer les détails du mod"
+          }
+        }
+      }
+    },
+    "Show Requirements" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher les prérequis"
+          }
+        }
+      }
+    },
+    "Sign in once in the app's Nexus browser (the login is remembered). After that, each mod is one click on **Slow download** and installs automatically." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connectez-vous une fois dans le navigateur Nexus de l’app (la connexion est mémorisée). Ensuite, chaque mod s’obtient d’un clic sur **Slow download** et s’installe automatiquement."
+          }
+        }
+      }
+    },
+    "Sign In to Nexus…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se connecter à Nexus…"
+          }
+        }
+      }
+    },
+    "Skip" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passer"
+          }
+        }
+      }
+    },
+    "Skipped: %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignorés : %@"
+          }
+        }
+      }
+    },
+    "SMAPI" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI"
+          }
+        }
+      }
+    },
+    "SMAPI %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI %@"
+          }
+        }
+      }
+    },
+    "SMAPI %@ installed — %@ is available" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "SMAPI %1$@ installed — %2$@ is available"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI %1$@ installé — la version %2$@ est disponible"
+          }
+        }
+      }
+    },
+    "SMAPI %@ is available" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI %@ est disponible"
+          }
+        }
+      }
+    },
+    "SMAPI database" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "base SMAPI"
+          }
+        }
+      }
+    },
+    "SMAPI Installer Ready" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installateur SMAPI prêt"
+          }
+        }
+      }
+    },
+    "SMAPI isn't installed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI n’est pas installé"
+          }
+        }
+      }
+    },
+    "SMAPI Log" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Journal SMAPI"
+          }
+        }
+      }
+    },
+    "SMAPI says: %@." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI indique : %@."
+          }
+        }
+      }
+    },
+    "SMAPI won't load either copy: %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI ne chargera aucune des copies : %@"
+          }
+        }
+      }
+    },
+    "Some Mods Aren't on Nexus" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Certains mods ne sont pas sur Nexus"
+          }
+        }
+      }
+    },
+    "Some Mods Couldn't Be Queued" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Certains mods n’ont pas pu être mis en file d’attente"
+          }
+        }
+      }
+    },
+    "Sort" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trier"
+          }
+        }
+      }
+    },
+    "Source: %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Source : %@"
+          }
+        }
+      }
+    },
+    "Stardew Mod Manager" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stardew Mod Manager"
+          }
+        }
+      }
+    },
+    "Stardew Valley" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stardew Valley"
+          }
+        }
+      }
+    },
+    "Stardew Valley %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stardew Valley %@"
+          }
+        }
+      }
+    },
+    "Stardew Valley Is Running" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stardew Valley est en cours d’exécution"
+          }
+        }
+      }
+    },
+    "Stardew Valley is running. Quit it before restoring." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stardew Valley est en cours d’exécution. Quittez-le avant de restaurer."
+          }
+        }
+      }
+    },
+    "Stardew Valley mods on Nexus" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods Stardew Valley sur Nexus"
+          }
+        }
+      }
+    },
+    "Stardew Valley on Nexus" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stardew Valley sur Nexus"
+          }
+        }
+      }
+    },
+    "Status" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "État"
+          }
+        }
+      }
+    },
+    "Stop" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arrêter"
+          }
+        }
+      }
+    },
+    "Switch to this save's mods, then launch the game. Then pick %@ Farm in Load Game." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passer aux mods de cette partie, puis lancer le jeu. Choisissez ensuite la ferme %@ dans « Charger »."
+          }
+        }
+      }
+    },
+    "Thank the author by endorsing this mod on Nexus" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remerciez l’auteur en recommandant ce mod sur Nexus"
+          }
+        }
+      }
+    },
+    "That isn't a Stardew Valley mod link or number." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce n’est pas un lien ni un numéro de mod Stardew Valley."
+          }
+        }
+      }
+    },
+    "The current version is backed up first (“Before restore”) and moved to the Trash, so you can undo this. If Steam Cloud reports a conflict the next time you play, keep the local files." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La version actuelle est d’abord sauvegardée (« Before restore ») et placée dans la Corbeille : vous pouvez donc annuler. Si Steam Cloud signale un conflit la prochaine fois que vous jouez, gardez les fichiers locaux."
+          }
+        }
+      }
+    },
+    "The game dropped %lld locations and %lld NPCs from “%@” because their mods aren't installed." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The game dropped %1$lld locations and %2$lld NPCs from “%3$@” because their mods aren't installed."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le jeu a ignoré %1$lld lieux et %2$lld PNJ de « %3$@ », car leurs mods ne sont pas installés."
+          }
+        }
+      }
+    },
+    "The game dropped %lld locations from “%@” because their mods aren't installed." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The game dropped %1$lld locations from “%2$@” because their mods aren't installed."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le jeu a ignoré %1$lld lieux de « %2$@ », car leurs mods ne sont pas installés."
+          }
+        }
+      }
+    },
+    "The game would overwrite the restored save the next time it saves. Quit to the desktop, then restore." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le jeu écraserait la partie restaurée lors de sa prochaine sauvegarde. Quittez le jeu, puis restaurez."
+          }
+        }
+      }
+    },
+    "These aren't on Nexus (or SMAPI doesn't know where they are). Search for them by name:\n\n%@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ceux-ci ne sont pas sur Nexus (ou SMAPI ne sait pas où ils se trouvent). Cherchez-les par leur nom :\n\n%@"
+          }
+        }
+      }
+    },
+    "These mods need the newer version: %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ces mods ont besoin de la version récente : %@"
+          }
+        }
+      }
+    },
+    "This app opens Nexus “Mod Manager Download” links." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cette app ouvre les liens « Mod Manager Download » de Nexus."
+          }
+        }
+      }
+    },
+    "This file has comments; saving from the form removes them." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce fichier contient des commentaires ; enregistrer depuis le formulaire les supprime."
+          }
+        }
+      }
+    },
+    "This link is for “%@”. Only Stardew Valley mods can be installed here." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce lien concerne « %@ ». Seuls les mods Stardew Valley peuvent être installés ici."
+          }
+        }
+      }
+    },
+    "This mod has no downloadable files." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce mod n’a aucun fichier téléchargeable."
+          }
+        }
+      }
+    },
+    "This mod needs the newer version: %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce mod a besoin de la version récente : %@"
+          }
+        }
+      }
+    },
+    "This save uses mods you don't have" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cette partie utilise des mods que vous n’avez pas"
+          }
+        }
+      }
+    },
+    "Top Rated" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mieux notées"
+          }
+        }
+      }
+    },
+    "Trace" : {
+      "comment" : "SMAPI log level",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trace"
+          }
+        }
+      }
+    },
+    "Track" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suivre"
+          }
+        }
+      }
+    },
+    "Tracking" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suivi"
+          }
+        }
+      }
+    },
+    "Try Again" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réessayer"
+          }
+        }
+      }
+    },
+    "Unique ID" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identifiant unique"
+          }
+        }
+      }
+    },
+    "Unsupported Link" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lien non pris en charge"
+          }
+        }
+      }
+    },
+    "Up to Date" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À jour"
+          }
+        }
+      }
+    },
+    "Update" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mettre à jour"
+          }
+        }
+      }
+    },
+    "Update All" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tout mettre à jour"
+          }
+        }
+      }
+    },
+    "Update available" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mise à jour disponible"
+          }
+        }
+      }
+    },
+    "Update to %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mettre à jour vers %@"
+          }
+        }
+      }
+    },
+    "Update…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mettre à jour…"
+          }
+        }
+      }
+    },
+    "Updated %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mis à jour à %@"
+          }
+        }
+      }
+    },
+    "Updates" : {
+      "comment" : "Nexus file category",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mises à jour"
+          }
+        }
+      }
+    },
+    "Upload to smapi.io…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Envoyer sur smapi.io…"
+          }
+        }
+      }
+    },
+    "Use “%@”?" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utiliser « %@ » ?"
+          }
+        }
+      }
+    },
+    "Use Mods & Play" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activer ses mods et jouer"
+          }
+        }
+      }
+    },
+    "Use This App" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utiliser cette app"
+          }
+        }
+      }
+    },
+    "Use This Folder" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utiliser ce dossier"
+          }
+        }
+      }
+    },
+    "Use This Mod" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utiliser ce mod"
+          }
+        }
+      }
+    },
+    "Use This Set…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utiliser cet ensemble…"
+          }
+        }
+      }
+    },
+    "v%@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "v%@"
+          }
+        }
+      }
+    },
+    "Version" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version"
+          }
+        }
+      }
+    },
+    "Version %@ available" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version %@ disponible"
+          }
+        }
+      }
+    },
+    "View" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Affichage"
+          }
+        }
+      }
+    },
+    "View on Nexus Mods" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voir sur Nexus Mods"
+          }
+        }
+      }
+    },
+    "Walk through each update's Nexus download page" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parcourir la page de téléchargement Nexus de chaque mise à jour"
+          }
+        }
+      }
+    },
+    "Warning" : {
+      "comment" : "SMAPI log level",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avertissement"
+          }
+        }
+      }
+    },
+    "What SMAPI is telling you (%lld)" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce que SMAPI vous dit (%lld)"
+          }
+        }
+      }
+    },
+    "Which mods this save is played with. “Use Mods & Play” switches to them before launching." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les mods avec lesquels cette partie se joue. « Activer ses mods et jouer » passe à ces mods avant le lancement."
+          }
+        }
+      }
+    },
+    "Which Nexus mod is it?" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De quel mod Nexus s’agit-il ?"
+          }
+        }
+      }
+    },
+    "With the menu bar icon, closing the window keeps the app running so it can keep checking. Quit from the icon's menu." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avec l’icône dans la barre des menus, fermer la fenêtre laisse l’app ouverte pour continuer à vérifier. Quittez depuis le menu de l’icône."
+          }
+        }
+      }
+    },
+    "You can restore it from the Trash in Finder." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous pouvez le restaurer depuis la Corbeille dans le Finder."
+          }
+        }
+      }
+    },
+    "You can't endorse your own mod." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous ne pouvez pas recommander votre propre mod."
+          }
+        }
+      }
+    },
+    "You endorsed this mod. Click to withdraw it." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous avez recommandé ce mod. Cliquez pour retirer votre recommandation."
+          }
+        }
+      }
+    },
+    "You have %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous avez la %@"
+          }
+        }
+      }
+    },
+    "You have %@ (newer)" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous avez la %@ (plus récente)"
+          }
+        }
+      }
+    },
+    "your choice" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "votre choix"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

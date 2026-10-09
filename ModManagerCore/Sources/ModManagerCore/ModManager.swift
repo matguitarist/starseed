@@ -13,7 +13,14 @@ public struct ModManagerError: LocalizedError, Sendable {
     /// A file worth showing in Finder alongside the message (e.g. the SMAPI installer).
     public let revealURL: URL?
 
-    public init(_ message: String, revealURL: URL? = nil) {
+    /// A message to show the user, translated from this package's String Catalog.
+    public init(_ message: String.LocalizationValue, revealURL: URL? = nil) {
+        self.message = String(localized: message, bundle: .module)
+        self.revealURL = revealURL
+    }
+
+    /// A message used as is (e.g. from the system or a server).
+    public init(verbatim message: String, revealURL: URL? = nil) {
         self.message = message
         self.revealURL = revealURL
     }
@@ -263,16 +270,12 @@ public struct ModManager: Sendable {
                 let folder = try Self.moveToUniqueLocation(installer.deletingLastPathComponent(), in: installerDestination)
                 try? fm.removeItem(at: work)
                 throw ModManagerError(
-                    "This is the SMAPI installer, not a mod. It's been unpacked to your Downloads folder: "
-                        + "double-click “\(installer.lastPathComponent)” (or right-click → Open) and follow the steps, then quit the game first if it's running.",
+                    "This is the SMAPI installer, not a mod. It's been unpacked to your Downloads folder: double-click “\(installer.lastPathComponent)” (or right-click → Open) and follow the steps. Quit the game first if it's running.",
                     revealURL: folder.appending(path: installer.lastPathComponent)
                 )
             }
             try? fm.removeItem(at: work)
-            throw ModManagerError(
-                "No manifest.json found anywhere inside \(archiveName) — "
-                    + "this may not be a SMAPI mod (could be an XNB/content-only mod)."
-            )
+            throw ModManagerError("No manifest.json found anywhere inside \(archiveName). It may not be a SMAPI mod (it could be an XNB/content-only mod).")
         }
 
         return PreparedInstall(

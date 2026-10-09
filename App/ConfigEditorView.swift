@@ -107,7 +107,7 @@ struct ConfigEditorView: View {
                 value = try ConfigJSON.parse(Data(rawText.utf8)).value
                 saveError = nil
             } catch {
-                saveError = "Fix the JSON first: \(error.localizedDescription)"
+                saveError = String(localized: "Fix the JSON first: \(error.localizedDescription)")
                 rawMode = true
             }
         }
@@ -148,7 +148,7 @@ private struct JSONFields: View {
             }
         case .array(let items):
             ForEach(items.indices, id: \.self) { index in
-                field(label: "Item \(index + 1)", value: Binding(
+                field(label: String(localized: "Item \(index + 1)"), value: Binding(
                     get: { items.indices.contains(index) ? items[index] : .null },
                     set: { newValue in
                         guard case .array(var current) = value, current.indices.contains(index) else { return }

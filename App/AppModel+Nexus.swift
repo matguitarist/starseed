@@ -12,7 +12,7 @@ extension AppModel {
         do {
             try Keychain.saveNexusAPIKey(key)
         } catch {
-            show("Couldn't save API key", error.localizedDescription)
+            show("Couldn't save API key", detail: error.localizedDescription)
             return
         }
         nexusAPIKey = key
@@ -63,7 +63,7 @@ extension AppModel {
                     endorsements[modID] = .abstained
                 }
             } catch {
-                show(endorsed ? "Couldn't Endorse" : "Couldn't Remove Endorsement", Self.friendlyNexusMessage(error.localizedDescription))
+                show(endorsed ? "Couldn't Endorse" : "Couldn't Remove Endorsement", detail: Self.friendlyNexusMessage(error.localizedDescription))
             }
         }
     }
@@ -79,7 +79,7 @@ extension AppModel {
                     trackedMods.remove(modID)
                 }
             } catch {
-                show("Couldn't Change Tracking", Self.friendlyNexusMessage(error.localizedDescription))
+                show("Couldn't Change Tracking", detail: Self.friendlyNexusMessage(error.localizedDescription))
             }
         }
     }
@@ -88,11 +88,11 @@ extension AppModel {
     static func friendlyNexusMessage(_ message: String) -> String {
         switch message {
         case let m where m.contains("NOT_DOWNLOADED_MOD"):
-            "Nexus only lets you endorse mods you've downloaded with this account."
+            String(localized: "Nexus only lets you endorse mods you've downloaded with this account.")
         case let m where m.contains("TOO_SOON_AFTER_DOWNLOAD"):
-            "Nexus asks you to try a mod for a little while before endorsing it. Try again later."
+            String(localized: "Nexus asks you to try a mod for a little while before endorsing it. Try again later.")
         case let m where m.contains("IS_OWN_MOD"):
-            "You can't endorse your own mod."
+            String(localized: "You can't endorse your own mod.")
         default:
             message
         }

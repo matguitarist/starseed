@@ -39,7 +39,7 @@ extension AppModel {
         guard !fresh.isEmpty else { return }
 
         let content = UNMutableNotificationContent()
-        content.title = fresh.count == 1 ? "Mod update available" : "\(fresh.count) mod updates available"
+        content.title = fresh.count == 1 ? String(localized: "Mod update available") : String(localized: "\(fresh.count) mod updates available")
         content.body = fresh.prefix(4).map { "\($0.0.displayName) \($0.1.version)" }.joined(separator: ", ")
             + (fresh.count > 4 ? "…" : "")
         content.sound = .default
@@ -62,14 +62,16 @@ struct MenuBarContent: View {
         Button("Play Stardew Valley") { model.launchGame() }
         Divider()
         let updates = model.modsWithUpdates.count
-        Button(updates == 0 ? "All mods up to date" : "\(updates) mod update\(updates == 1 ? "" : "s") available…") {
+        Button(updates == 0 ? String(localized: "All mods up to date")
+               : updates == 1 ? String(localized: "1 mod update available…")
+               : String(localized: "\(updates) mod updates available…")) {
             model.sidebarSelection = .updates
             showMainWindow()
         }
         .disabled(updates == 0)
         let missing = model.missingDependencies.count
         if missing > 0 {
-            Button("\(missing) missing requirement\(missing == 1 ? "" : "s")…") {
+            Button(missing == 1 ? String(localized: "1 missing requirement…") : String(localized: "\(missing) missing requirements…")) {
                 model.sidebarSelection = .requirements
                 showMainWindow()
             }

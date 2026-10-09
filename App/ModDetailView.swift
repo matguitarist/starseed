@@ -30,7 +30,7 @@ struct ModDetailView: View {
                     Text(mod.displayName)
                         .font(.title2.bold())
                         .textSelection(.enabled)
-                    Label(mod.status.rawValue, systemImage: "circle.fill")
+                    Label(mod.status.title, systemImage: "circle.fill")
                         .font(.callout)
                         .foregroundStyle(mod.status.color)
                     if let update = model.update(for: mod) {
@@ -60,7 +60,7 @@ struct ModDetailView: View {
                     row("Version", mod.version)
                     row("Author", mod.author)
                     if !mod.uniqueID.isEmpty { row("Unique ID", mod.uniqueID) }
-                    if let minimum = mod.minimumApiVersion { row("Needs SMAPI", "\(minimum) or later") }
+                    if let minimum = mod.minimumApiVersion { row("Needs SMAPI", String(localized: "\(minimum) or later")) }
                     if let nexusID = model.nexusID(for: mod) {
                         GridRow {
                             Text("Nexus").foregroundStyle(.secondary)
@@ -82,10 +82,10 @@ struct ModDetailView: View {
                     VStack(alignment: .leading, spacing: 6) {
                         Text("Requires").font(.headline)
                         if let framework = mod.contentPackFor {
-                            dependencyRow(framework, of: mod, required: true, note: "content pack for")
+                            dependencyRow(framework, of: mod, required: true, note: String(localized: "content pack for"))
                         }
                         ForEach(mod.dependencies, id: \.uniqueID) { dep in
-                            dependencyRow(dep.uniqueID, of: mod, required: dep.isRequired, note: dep.isRequired ? nil : "optional")
+                            dependencyRow(dep.uniqueID, of: mod, required: dep.isRequired, note: dep.isRequired ? nil : String(localized: "optional"))
                         }
                     }
                 }
@@ -153,7 +153,7 @@ struct ModDetailView: View {
         }
     }
 
-    private func row(_ label: String, _ value: String) -> some View {
+    private func row(_ label: LocalizedStringKey, _ value: String) -> some View {
         GridRow {
             Text(label).foregroundStyle(.secondary)
             Text(value).textSelection(.enabled)
@@ -268,7 +268,7 @@ private struct GroupDetailView: View {
                                     .foregroundStyle(.secondary)
                             }
                             Spacer()
-                            Text(mod.status.rawValue).font(.caption).foregroundStyle(mod.status.color)
+                            Text(mod.status.title).font(.caption).foregroundStyle(mod.status.color)
                         }
                     }
                 }

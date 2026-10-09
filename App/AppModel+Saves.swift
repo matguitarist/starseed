@@ -38,7 +38,7 @@ extension AppModel {
         do {
             try configStore.saveSaveLinks(saveLinks)
         } catch {
-            show("Couldn't Save Link", error.localizedDescription)
+            show("Couldn't Save Link", detail: error.localizedDescription)
         }
     }
 
@@ -60,7 +60,7 @@ extension AppModel {
             switch modSet.kind {
             case .profile:
                 guard let ids = profiles[modSet.name] else { return show("Profile Not Found", "“\(modSet.name)” no longer exists. Pick another one for this save.") }
-                applyEnabledSet(ids, title: "profile '\(modSet.name)'")
+                applyEnabledSet(ids, title: String(localized: "profile “\(modSet.name)”"))
             case .collection:
                 guard let list = modLists.first(where: { $0.name == modSet.name }) else { return show("Collection Not Found", "“\(modSet.name)” no longer exists. Pick another one for this save.") }
                 apply(list)
@@ -87,7 +87,7 @@ extension AppModel {
         let file = save.saveFile
 
         // 1. UniqueIDs in the save file (off the main thread: saves are 20+ MB).
-        progress("Reading the save file…")
+        progress(String(localized: "Reading the save file…"))
         let candidates = try await Task.detached { try SaveAnalyzer.candidateModIDs(inSaveFile: file) }.value
         let ordered = candidates.sorted { $0.value > $1.value }
 
@@ -102,7 +102,7 @@ extension AppModel {
 
         // 2. SMAPI's mod database (one batched request), then Nexus by
         //    author/name for the rest, several at a time.
-        progress("Checking SMAPI's mod database…")
+        progress(String(localized: "Checking SMAPI's mod database…"))
         let records = (try? await UpdateChecker().lookup(uniqueIDs: unresolved.map(\.id))) ?? [:]
         var needsSearch: [String] = []
         var matches: [String: ModMatch] = [:]
@@ -113,7 +113,7 @@ extension AppModel {
                 needsSearch.append(id)
             }
         }
-        progress("Matching \(needsSearch.count) mod IDs on Nexus…")
+        progress(String(localized: "Matching \(needsSearch.count) mod IDs on Nexus…"))
         let found = await Self.concurrentMap(needsSearch) { id in try? await client.findMod(forUniqueID: id) }
         for (id, match) in zip(needsSearch, found) { matches[id] = match }
 
@@ -147,7 +147,7 @@ extension AppModel {
         if let log = try? SMAPILog.load(from: SMAPILog.latestLogURL), log.loadedSaveID == save.id {
             analysis.logCoversSave = true
             let groups = SaveAnalyzer.group(log.unknownLocations)
-            progress("Matching \(groups.count) groups of missing content on Nexus…")
+            progress(String(localized: "Matching \(groups.count) groups of missing content on Nexus…"))
             let groupMatches = await Self.concurrentMap(groups) { group in try? await client.likelyMod(for: group) }
             for (group, match) in zip(groups, groupMatches) {
                 analysis.gaps.append(SaveContentGap(group: group, match: match, installed: match.flatMap { installedMod(nexusID: $0.modID) }))
@@ -182,7 +182,7 @@ extension AppModel {
         do {
             return try await backupStore.backUp(saveIDs: ids, label: label)
         } catch {
-            show("Backup Failed", error.localizedDescription)
+            show("Backup Failed", detail: error.localizedDescription)
             return nil
         }
     }
@@ -197,7 +197,7 @@ extension AppModel {
             try await backupStore.restore(backup, saveIDs: ids)
             return true
         } catch {
-            show("Restore Failed", error.localizedDescription)
+            show("Restore Failed", detail: error.localizedDescription)
             return false
         }
     }

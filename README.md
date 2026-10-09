@@ -231,6 +231,19 @@ App settings and profiles are stored at
 `~/Library/Application Support/StardewModManager/` — separate from the
 game, and in the same format as the old Python version.
 
+## Languages
+
+English and French. Strings live in String Catalogs
+(`App/Localizable.xcstrings`, `App/InfoPlist.xcstrings`, and
+`ModManagerCore/Sources/ModManagerCore/Resources/Localizable.xcstrings`).
+To update translations after changing text:
+
+```bash
+xcodebuild -exportLocalizations -project StardewModManager.xcodeproj -localizationPath l10n -exportLanguage fr
+# edit l10n/fr.xcloc/Localized Contents/fr.xliff (or open the .xcloc in Xcode)
+xcodebuild -importLocalizations -project StardewModManager.xcodeproj -localizationPath l10n/fr.xcloc
+```
+
 ## Notes / known limitations
 
 - Free Nexus accounts need one click per mod ("Slow download" in the

@@ -12,7 +12,7 @@ extension AppModel {
     func presentInstallPanel() {
         guard manager != nil else { return }
         let panel = NSOpenPanel()
-        panel.message = "Select downloaded mod archives (.zip, .7z, .rar)"
+        panel.message = String(localized: "Select downloaded mod archives (.zip, .7z, .rar)")
         panel.allowedContentTypes = ModManager.archiveExtensions.compactMap { UTType(filenameExtension: $0) }
         panel.allowsMultipleSelection = true
         panel.directoryURL = .downloadsDirectory
@@ -44,7 +44,7 @@ extension AppModel {
     private func performInstall(_ urls: [URL], replaceExisting: Bool, quiet: Bool) async -> InstallResult {
         var total = InstallResult()
         guard let manager else {
-            total.errors.append("Choose your Mods folder first.")
+            total.errors.append(String(localized: "Choose your Mods folder first."))
             report(total)
             return total
         }
@@ -70,7 +70,7 @@ extension AppModel {
             } catch let error as ModManagerError where error.revealURL != nil {
                 // SMAPI's installer: unpacked to Downloads rather than installed.
                 NSWorkspace.shared.activateFileViewerSelecting([error.revealURL!])
-                show("SMAPI Installer Ready", error.message)
+                show("SMAPI Installer Ready", detail: error.message)
             } catch {
                 total.errors.append(error.localizedDescription)
             }
@@ -112,11 +112,11 @@ extension AppModel {
     private func report(_ result: InstallResult) {
         guard !result.isEmpty else { return }
         var lines: [String] = []
-        if !result.installed.isEmpty { lines.append("Installed/updated: " + result.installed.joined(separator: ", ")) }
-        if !result.skipped.isEmpty { lines.append("Skipped: " + result.skipped.joined(separator: ", ")) }
-        if !result.errors.isEmpty { lines.append("Errors:\n" + result.errors.joined(separator: "\n")) }
-        let title = result.errors.isEmpty ? "Install Complete" : "Install Finished with Problems"
-        show(title, lines.joined(separator: "\n\n"))
+        if !result.installed.isEmpty { lines.append(String(localized: "Installed/updated: \(result.installed.joined(separator: ", "))")) }
+        if !result.skipped.isEmpty { lines.append(String(localized: "Skipped: \(result.skipped.joined(separator: ", "))")) }
+        if !result.errors.isEmpty { lines.append(String(localized: "Errors:\n\(result.errors.joined(separator: "\n"))")) }
+        let title = result.errors.isEmpty ? String(localized: "Install Complete") : String(localized: "Install Finished with Problems")
+        show(localizedTitle: title, detail: lines.joined(separator: "\n\n"))
     }
 
     // MARK: Downloads
@@ -134,7 +134,7 @@ extension AppModel {
             return
         }
         guard let link = NXMLink(url: url) else {
-            show("Unsupported Link", url.absoluteString)
+            show("Unsupported Link", detail: url.absoluteString)
             return
         }
         guard link.gameDomain == NexusClient.gameDomain else {
@@ -211,7 +211,7 @@ extension AppModel {
                     } else if let file = NexusFile.bestMatch(in: try await client.files(forMod: request.modID), version: request.version) {
                         fileID = file.fileId
                     } else {
-                        failures.append("\(request.title): no downloadable file")
+                        failures.append(String(localized: "\(request.title): no downloadable file"))
                         continue
                     }
                     if isPremium {
@@ -231,7 +231,7 @@ extension AppModel {
                 openInBrowser(browserQueue[0].url)
             }
             if !failures.isEmpty {
-                show("Some Mods Couldn't Be Queued", failures.joined(separator: "\n"))
+                show("Some Mods Couldn't Be Queued", detail: failures.joined(separator: "\n"))
             }
         }
     }

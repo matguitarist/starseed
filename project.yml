@@ -4,12 +4,17 @@
 name: StardewModManager
 options:
   bundleIdPrefix: local.stardew-mod-manager
+  developmentLanguage: en
   deploymentTarget:
     macOS: "14.0"
   createIntermediateGroups: true
 settings:
   base:
     SWIFT_VERSION: "6.0"
+    # Localization: string literals in SwiftUI views and String(localized:)
+    # are extracted into App/Localizable.xcstrings (English + French).
+    LOCALIZATION_PREFERS_STRING_CATALOGS: YES
+    SWIFT_EMIT_LOC_STRINGS: YES
     MARKETING_VERSION: "2.1"
     CURRENT_PROJECT_VERSION: "1"
 packages:
@@ -27,6 +32,8 @@ targets:
       path: App/Info.plist
       properties:
         CFBundleDisplayName: Stardew Mod Manager
+        CFBundleDevelopmentRegion: en
+        CFBundleLocalizations: [en, fr]
         LSApplicationCategoryType: public.app-category.games
         NSHumanReadableCopyright: ""
         # Receive Nexus "Mod Manager Download" links.

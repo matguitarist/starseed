@@ -104,7 +104,9 @@ struct LogViewerView: View {
                     .foregroundStyle(.orange)
                 VStack(alignment: .leading, spacing: 1) {
                     Text("This save uses mods you don't have").font(.headline)
-                    Text("The game dropped \(unknown.count) locations\(npcCount > 0 ? " and \(npcCount) NPCs" : "") from “\(saveID)” because their mods aren't installed.")
+                    Text(npcCount > 0
+                         ? "The game dropped \(unknown.count) locations and \(npcCount) NPCs from “\(saveID)” because their mods aren't installed."
+                         : "The game dropped \(unknown.count) locations from “\(saveID)” because their mods aren't installed.")
                         .font(.callout)
                         .foregroundStyle(.secondary)
                 }
@@ -202,7 +204,7 @@ struct LogViewerView: View {
         } label: {
             HStack(spacing: 4) {
                 Image(systemName: level.symbol)
-                Text("\(level.title) \(count)")
+                Text("\(level.localizedTitle) \(count)")
                     .monospacedDigit()
             }
             .font(.callout.weight(.medium))
@@ -213,7 +215,7 @@ struct LogViewerView: View {
             .foregroundStyle(isOn ? level.color : .secondary)
         }
         .buttonStyle(.plain)
-        .help(isOn ? "Hide \(level.title.lowercased()) messages" : "Show \(level.title.lowercased()) messages")
+        .help(isOn ? Text("Hide \(level.localizedTitle) messages") : Text("Show \(level.localizedTitle) messages"))
     }
 
     // MARK: Entries
@@ -361,7 +363,7 @@ private struct LogRow: View {
         HStack(alignment: .firstTextBaseline, spacing: 8) {
             Text(entry.time)
                 .foregroundStyle(.tertiary)
-            Text(entry.level.rawValue)
+            Text(verbatim: entry.level.rawValue)  // SMAPI's own level codes
                 .font(.system(.caption, design: .monospaced).weight(.bold))
                 .foregroundStyle(entry.level == .info ? Color.secondary : entry.level.color)
                 .frame(width: 44, alignment: .leading)
@@ -438,15 +440,15 @@ private struct InsightsPanel: View {
     private func title(_ insight: LogInsight) -> String {
         switch insight.kind {
         case .skippedMod(let name, _, let missing, let smapi):
-            if !missing.isEmpty { return "\(name) didn't load: it needs mods you don't have" }
-            if smapi != nil { return "\(name) didn't load: it needs a newer SMAPI" }
-            return "\(name) didn't load"
+            if !missing.isEmpty { return String(localized: "\(name) didn't load: it needs mods you don't have") }
+            if smapi != nil { return String(localized: "\(name) didn't load: it needs a newer SMAPI") }
+            return String(localized: "\(name) didn't load")
         case .modErrors(let source, let count, _):
-            return "\(source) had \(count) error\(count == 1 ? "" : "s") while you played"
+            return count == 1 ? String(localized: "\(source) had an error while you played") : String(localized: "\(source) had \(count) errors while you played")
         case .updatesAvailable(let list):
-            return "\(list.count) mod update\(list.count == 1 ? "" : "s") available"
+            return list.count == 1 ? String(localized: "1 mod update available") : String(localized: "\(list.count) mod updates available")
         case .smapiUpdate(let version, _):
-            return "SMAPI \(version) is available"
+            return String(localized: "SMAPI \(version) is available")
         }
     }
 
@@ -455,17 +457,17 @@ private struct InsightsPanel: View {
         case .skippedMod(_, let reason, let missing, let smapi):
             if !missing.isEmpty {
                 let names = missing.map { model.record(forDependency: $0)?.name ?? $0 }
-                return "Missing: " + names.joined(separator: ", ")
+                return String(localized: "Missing: \(names.joined(separator: ", "))")
             }
-            if let smapi, !smapi.isEmpty { return "It needs SMAPI \(smapi) or later." }
-            return "SMAPI says: \(reason)."
+            if let smapi, !smapi.isEmpty { return String(localized: "It needs SMAPI \(smapi) or later.") }
+            return String(localized: "SMAPI says: \(reason).")
         case .modErrors(_, _, let events):
-            let during = events.isEmpty ? "" : " (during \(events.joined(separator: ", ")))"
-            return "It may be broken or outdated\(during). Updating it often helps; if not, report it to its author with your log."
+            let advice = String(localized: "It may be broken or outdated. Updating it often helps; if not, report it to its author with your log.")
+            return events.isEmpty ? advice : advice + " " + String(localized: "(During: \(events.joined(separator: ", ")).)")
         case .updatesAvailable(let list):
             return list.map { "\($0.name) \($0.version)" }.joined(separator: ", ")
         case .smapiUpdate:
-            return "Newer SMAPI versions fix bugs and support newer mods."
+            return String(localized: "Newer SMAPI versions fix bugs and support newer mods.")
         }
     }
 

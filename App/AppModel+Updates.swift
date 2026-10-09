@@ -204,7 +204,7 @@ extension AppModel {
         }
         queueNexusInstalls(requests)
         if !unresolved.isEmpty {
-            show("Couldn't Find Some Requirements", "These aren't on Nexus (or SMAPI doesn't know where they are). Search for them by name:\n\n" + unresolved.joined(separator: "\n"))
+            show("Couldn't Find Some Requirements", "These aren't on Nexus (or SMAPI doesn't know where they are). Search for them by name:\n\n\(unresolved.joined(separator: "\n"))")
         }
     }
 

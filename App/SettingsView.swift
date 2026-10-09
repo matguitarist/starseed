@@ -165,7 +165,7 @@ private struct NexusSettings: View {
             ProgressView().controlSize(.small)
         case .signedIn(let user):
             Label(
-                "\(user.name) · \(user.isPremium ? "Premium" : "Free account")",
+                user.isPremium ? String(localized: "\(user.name) · Premium") : String(localized: "\(user.name) · Free account"),
                 systemImage: "person.crop.circle.badge.checkmark"
             )
             .foregroundStyle(.green)
@@ -191,7 +191,7 @@ private struct NexusSettings: View {
         do {
             try await NSWorkspace.shared.setDefaultApplication(at: Bundle.main.bundleURL, toOpenURLsWithScheme: "nxm")
         } catch {
-            model.show("Couldn't Change Default App", error.localizedDescription)
+            model.show("Couldn’t Change Default App", detail: error.localizedDescription)
         }
         refreshHandlerStatus()
     }

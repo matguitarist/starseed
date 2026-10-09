@@ -23,7 +23,7 @@ extension AppModel {
     /// without a UniqueID (no/broken manifest) are left alone.
     func applyProfile(named name: String) {
         guard let ids = profiles[name] else { return }
-        applyEnabledSet(ids, title: "profile '\(name)'")
+        applyEnabledSet(ids, title: String(localized: "profile “\(name)”"))
     }
 
     /// Enables exactly the given UniqueIDs and disables every other mod that
@@ -42,17 +42,17 @@ extension AppModel {
         selection = []
         refresh()
 
-        var lines = ["Applied \(title)."]
-        if !notInstalled.isEmpty { lines.append("Not installed: " + notInstalled.joined(separator: ", ")) }
-        if !failures.isEmpty { lines.append("Couldn't toggle:\n" + failures.joined(separator: "\n")) }
-        if lines.count > 1 { show("Profile Applied", lines.joined(separator: "\n\n")) }
+        var lines = [String(localized: "Applied \(title).")]
+        if !notInstalled.isEmpty { lines.append(String(localized: "Not installed: \(notInstalled.joined(separator: ", "))")) }
+        if !failures.isEmpty { lines.append(String(localized: "Couldn't toggle:\n\(failures.joined(separator: "\n"))")) }
+        if lines.count > 1 { show("Profile Applied", detail: lines.joined(separator: "\n\n")) }
     }
 
     func persistProfiles() {
         do {
             try configStore.saveProfiles(profiles)
         } catch {
-            show("Couldn't save profiles", error.localizedDescription)
+            show("Couldn't save profiles", detail: error.localizedDescription)
         }
     }
 
@@ -85,7 +85,7 @@ extension AppModel {
             loadModLists()
             return list
         } catch {
-            show("Couldn't Save Collection", error.localizedDescription)
+            show("Couldn't Save Collection", detail: error.localizedDescription)
             return nil
         }
     }
@@ -99,12 +99,12 @@ extension AppModel {
         let panel = NSSavePanel()
         panel.nameFieldStringValue = list.suggestedFileName
         panel.allowedContentTypes = [.json]
-        panel.message = "Export “\(list.name)” to share it or use it on another computer"
+        panel.message = String(localized: "Export “\(list.name)” to share it or use it on another computer")
         guard panel.runModal() == .OK, let url = panel.url else { return }
         do {
             try list.encoded().write(to: url, options: .atomic)
         } catch {
-            show("Export Failed", error.localizedDescription)
+            show("Export Failed", detail: error.localizedDescription)
         }
     }
 
@@ -112,17 +112,17 @@ extension AppModel {
     func importModList() -> ModList? {
         let panel = NSOpenPanel()
         panel.allowedContentTypes = [.json]
-        panel.message = "Choose a mod list exported from Stardew Mod Manager"
+        panel.message = String(localized: "Choose a mod list exported from Stardew Mod Manager")
         guard panel.runModal() == .OK, let url = panel.url else { return nil }
         do {
             var list = try ModList.decode(from: Data(contentsOf: url))
             // Don't silently replace a different list that has the same name.
             if modLists.contains(where: { $0.name == list.name && $0 != list }) {
-                list.name += " (imported)"
+                list.name += " " + String(localized: "(imported)")
             }
             return store(list)
         } catch {
-            show("Import Failed", error.localizedDescription)
+            show("Import Failed", detail: error.localizedDescription)
             return nil
         }
     }
@@ -157,13 +157,13 @@ extension AppModel {
             var seen = Set<Int>()
             queueNexusInstalls(requests.filter { seen.insert($0.modID).inserted })
             if !unknown.isEmpty {
-                show("Some Mods Aren't on Nexus", "Couldn't find a Nexus page for:\n\n" + unknown.joined(separator: "\n"))
+                show("Some Mods Aren't on Nexus", "Couldn't find a Nexus page for:\n\n\(unknown.joined(separator: "\n"))")
             }
         }
     }
 
     /// Enables exactly the mods the list had enabled, like a profile.
     func apply(_ list: ModList) {
-        applyEnabledSet(list.mods.filter(\.enabled).map(\.uniqueID), title: "collection '\(list.name)'")
+        applyEnabledSet(list.mods.filter(\.enabled).map(\.uniqueID), title: String(localized: "collection “\(list.name)”"))
     }
 }

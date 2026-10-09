@@ -33,7 +33,7 @@ public indirect enum JSONValue: Equatable, Sendable {
 public struct JSONParseError: LocalizedError, Sendable {
     public let message: String
     public let line: Int
-    public var errorDescription: String? { "Line \(line): \(message)" }
+    public var errorDescription: String? { String(localized: "Line \(line): \(message)", bundle: .module) }
 }
 
 public enum ConfigJSON {
@@ -114,7 +114,9 @@ private struct Parser {
 
     var line: Int { bytes[..<min(index, bytes.count)].filter { $0 == UInt8(ascii: "\n") }.count + 1 }
 
-    func fail(_ message: String) -> JSONParseError { JSONParseError(message: message, line: line) }
+    func fail(_ message: String.LocalizationValue) -> JSONParseError {
+        JSONParseError(message: String(localized: message, bundle: .module), line: line)
+    }
 
     mutating func parseDocument() throws -> JSONValue {
         let value = try parseValue()

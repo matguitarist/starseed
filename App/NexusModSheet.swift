@@ -127,7 +127,7 @@ struct NexusModSheet: View {
 
     private var fileSections: [(title: String, files: [NexusFile])] {
         Dictionary(grouping: visibleFiles, by: \.category)
-            .map { ($0.value[0].categoryTitle, $0.value, $0.value[0].categoryOrder) }
+            .map { ($0.value[0].localizedCategory, $0.value, $0.value[0].categoryOrder) }
             .sorted { $0.2 < $1.2 }
             .map { ($0.0, $0.1) }
     }

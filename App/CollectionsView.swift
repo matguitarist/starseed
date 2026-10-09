@@ -25,7 +25,7 @@ struct CollectionsView: View {
             .onSubmit(of: .search) { submittedQuery = query }
             .safeAreaInset(edge: .top, spacing: 0) {
                 Picker("Sort", selection: $sort) {
-                    ForEach(CollectionSort.allCases, id: \.self) { Text($0.title) }
+                    ForEach(CollectionSort.allCases, id: \.self) { Text($0.localizedTitle) }
                 }
                 .pickerStyle(.segmented)
                 .labelsHidden()

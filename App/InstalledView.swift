@@ -144,8 +144,9 @@ struct InstalledView: View {
 
             TableColumn("Status", value: \.statusText) { row in
                 Text(row.statusText).foregroundStyle(row.statusColor)
+                    .help(row.statusText)
             }
-            .width(min: 90, ideal: 130)
+            .width(min: 90, ideal: 170)  // room for longer translations ("Dépendance manquante")
         }
         .contextMenu(forSelectionType: String.self) { ids in
             let modIDs = model.modIDs(expanding: ids)
@@ -257,15 +258,19 @@ struct SMAPIBanner: View {
     private var message: (title: String, detail: String?)? {
         guard model.manager != nil else { return nil }
         guard let smapi = model.smapi else {
-            return ("SMAPI isn't installed", "Mods only load through SMAPI. Install it next to the game, then launch the game normally.")
+            return (String(localized: "SMAPI isn't installed"), String(localized: "Mods only load through SMAPI. Install it next to the game, then launch the game normally."))
         }
         let needing = model.modsNeedingNewerSMAPI
         if model.isSMAPIOutdated, let installed = smapi.version, let latest = model.latestSMAPIVersion {
-            let detail = needing.isEmpty ? nil : "\(needing.count) mod\(needing.count == 1 ? "" : "s") need\(needing.count == 1 ? "s" : "") the newer version: " + needing.map(\.displayName).joined(separator: ", ")
-            return ("SMAPI \(installed) installed — \(latest) is available", detail)
+            let names = needing.map(\.displayName).joined(separator: ", ")
+            let detail = needing.isEmpty ? nil
+                : needing.count == 1 ? String(localized: "This mod needs the newer version: \(names)")
+                : String(localized: "These mods need the newer version: \(names)")
+            return (String(localized: "SMAPI \(installed.description) installed — \(latest.description) is available"), detail)
         }
         if !needing.isEmpty {
-            return ("\(needing.count) mod\(needing.count == 1 ? " needs" : "s need") a newer SMAPI", needing.map(\.displayName).joined(separator: ", "))
+            let title = needing.count == 1 ? String(localized: "A mod needs a newer SMAPI") : String(localized: "\(needing.count) mods need a newer SMAPI")
+            return (title, needing.map(\.displayName).joined(separator: ", "))
         }
         return nil
     }
@@ -359,9 +364,9 @@ struct ModRow: Identifiable {
 
     var statusText: String {
         if isGroup, enabledState == .mixed, status == .disabled {
-            return "\(mods.filter(\.isEnabled).count) of \(mods.count) enabled"
+            return String(localized: "\(mods.filter(\.isEnabled).count) of \(mods.count) enabled")
         }
-        return status.rawValue
+        return status.title
     }
 
     var statusColor: Color {
@@ -403,9 +408,7 @@ struct DuplicatesBanner: View {
                 Image(systemName: "doc.on.doc.fill").foregroundStyle(.red)
                 VStack(alignment: .leading, spacing: 1) {
                     Text(groups.count == 1 ? "A mod is installed twice" : "\(groups.count) mods are installed twice").font(.headline)
-                    Text("SMAPI won't load either copy: " + groups.map { copies in
-                        "\(copies[0].displayName) (\(copies.map(\.relativePath).joined(separator: ", ")))"
-                    }.joined(separator: "; "))
+                    Text("SMAPI won't load either copy: \(groups.map { copies in "\(copies[0].displayName) (\(copies.map(\.relativePath).joined(separator: ", ")))" }.joined(separator: "; "))")
                         .font(.callout)
                         .foregroundStyle(.secondary)
                         .lineLimit(2)
