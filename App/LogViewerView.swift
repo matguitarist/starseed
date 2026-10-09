@@ -324,6 +324,7 @@ struct LogViewerView: View {
         do {
             log = try await Task.detached { try SMAPILog.load(from: url) }.value
             lastModified = modified
+            if url == SMAPILog.latestLogURL, let log { model.setLogConflicts(from: log.insights) }
             loadError = nil
             await updateSummary()
         } catch {
@@ -449,6 +450,8 @@ private struct InsightsPanel: View {
             return list.count == 1 ? String(localized: "1 mod update available") : String(localized: "\(list.count) mod updates available")
         case .smapiUpdate(let version, _):
             return String(localized: "SMAPI \(version) is available")
+        case .assetConflict(let mods, _):
+            return String(localized: "Conflict: \(mods.formatted(.list(type: .and)))")
         }
     }
 
@@ -468,6 +471,8 @@ private struct InsightsPanel: View {
             return list.map { "\($0.name) \($0.version)" }.joined(separator: ", ")
         case .smapiUpdate:
             return String(localized: "Newer SMAPI versions fix bugs and support newer mods.")
+        case .assetConflict(_, let assets):
+            return String(localized: "They replace the same game files (\(ConflictsSection.assetList(assets))), so SMAPI used the originals and neither change shows. Disable one of them.")
         }
     }
 
@@ -497,6 +502,19 @@ private struct InsightsPanel: View {
             Button("Open Updates") { model.sidebarSelection = .updates }
         case .smapiUpdate:
             Button("Get SMAPI…") { model.getSMAPI() }
+        case .assetConflict(let mods, _):
+            let installed = mods.compactMap { model.installedMod(named: $0) }.filter(\.isEnabled)
+            if installed.count > 1 {
+                Menu("Disable One") {
+                    ForEach(installed) { mod in
+                        Button(mod.displayName) {
+                            model.setEnabled(Set((model.group(containing: mod)?.mods ?? [mod]).map(\.id)), false)
+                        }
+                    }
+                }
+                .fixedSize()
+                .help("Disabling can be undone with ⌘Z")
+            }
         }
     }
 }

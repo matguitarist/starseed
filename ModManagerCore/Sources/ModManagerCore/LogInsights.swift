@@ -15,6 +15,9 @@ public struct LogInsight: Identifiable, Hashable, Sendable {
         case updatesAvailable([AvailableUpdate])
         /// SMAPI itself has an update.
         case smapiUpdate(version: String, url: URL?)
+        /// Several mods replace the same game assets, so SMAPI used the
+        /// original ones instead: none of their versions show up.
+        case assetConflict(mods: [String], assets: [String])
     }
 
     public struct AvailableUpdate: Hashable, Sendable {
@@ -32,6 +35,7 @@ public struct LogInsight: Identifiable, Hashable, Sendable {
         case .modErrors(let source, _, _): "errors:\(source)"
         case .updatesAvailable: "updates"
         case .smapiUpdate: "smapi-update"
+        case .assetConflict(let mods, _): "conflict:" + mods.joined(separator: "|")
         }
     }
 }
@@ -43,10 +47,22 @@ extension SMAPILog {
         var smapiUpdate: LogInsight?
         var errorsBySource: [String: (count: Int, events: [String])] = [:]
         var inUpdateList = false
+        var conflictAssets: [[String]: [String]] = [:]  // mods -> assets
+        var conflictOrder: [[String]] = []
 
         for entry in entries {
             // Multi-line messages: SMAPI's lists are one entry per line.
             let message = entry.message
+
+            // "Multiple mods want to provide the 'Maps/Town' asset: A, B. An asset can't be loaded multiple times…"
+            if entry.source == "SMAPI", message.hasPrefix("Multiple mods want to provide the '"),
+               let match = message.firstMatch(of: /^Multiple mods want to provide the '(.+?)' asset: (.+?)\. An asset can't be loaded multiple times/) {
+                let mods = Self.conflictingMods(String(match.2))
+                let asset = String(match.1)
+                if conflictAssets[mods] == nil { conflictOrder.append(mods) }
+                if !(conflictAssets[mods] ?? []).contains(asset) { conflictAssets[mods, default: []].append(asset) }
+                continue
+            }
 
             // "   - Better Crafting 1.2.0 because it requires mods which aren't installed (leclair.Common)."
             if entry.source == "SMAPI", entry.level >= .warn, message.contains(" because "),
@@ -95,12 +111,41 @@ extension SMAPILog {
         }
 
         var insights = skipped
+        insights += conflictOrder.map { LogInsight(kind: .assetConflict(mods: $0, assets: conflictAssets[$0] ?? []), level: .warn) }
         insights += errorsBySource
             .sorted { $0.value.count > $1.value.count }
             .map { LogInsight(kind: .modErrors(source: $0.key, count: $0.value.count, events: $0.value.events), level: .error) }
         if let smapiUpdate { insights.append(smapiUpdate) }
         if !updates.isEmpty { insights.append(LogInsight(kind: .updatesAvailable(updates), level: .alert)) }
         return insights
+    }
+
+    /// "Content Patcher (for the 'A, B' content pack), Some Mod" -> ["A, B",
+    /// "Some Mod"]: a content pack is named rather than its framework.
+    static func conflictingMods(_ list: String) -> [String] {
+        var tokens: [String] = []
+        var current = ""
+        var depth = 0
+        var chars = Array(list)[...]
+        while let char = chars.first {
+            chars = chars.dropFirst()
+            if char == "(" { depth += 1 } else if char == ")" { depth = max(0, depth - 1) }
+            if char == ",", depth == 0, chars.first == " " {
+                tokens.append(current)
+                current = ""
+                chars = chars.dropFirst()
+                continue
+            }
+            current.append(char)
+        }
+        tokens.append(current)
+        var seen = Set<String>()
+        return tokens.map { token -> String in
+            if let pack = token.wholeMatch(of: /.+? \(for the '(.+)' content pack\)/) { return String(pack.1) }
+            return token.trimmingCharacters(in: .whitespaces)
+        }
+        .filter { !$0.isEmpty && seen.insert($0).inserted }
+        .sorted()
     }
 
     /// "Better Crafting 1.2.0" -> "Better Crafting".

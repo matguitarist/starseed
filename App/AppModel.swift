@@ -105,6 +105,8 @@ final class AppModel {
     /// Pages a free account still has to click "Slow download" on (Update
     /// All / install requirements). Advances each time an nxm link arrives.
     var browserQueue: [BrowserQueueItem] = []
+    /// Asset conflicts SMAPI reported in the latest log (mods -> assets).
+    var logConflicts: [LogConflict] = []
     /// Nexus changelogs by mod number, fetched when first shown.
     var changelogs: [Int: [ChangelogEntry]] = [:]
     /// Nexus mods whose files are being looked up before download.
@@ -209,6 +211,7 @@ final class AppModel {
         } else {
             needsFolderSetup = true
         }
+        Task { await loadLogConflicts() }
         nexusAccount = .checking
         Task {
             nexusAPIKey = await Task.detached { Keychain.readNexusAPIKey() }.value

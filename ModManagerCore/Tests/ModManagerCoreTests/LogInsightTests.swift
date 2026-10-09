@@ -37,6 +37,22 @@ import Testing
         #expect(!kinds.contains { if case .modErrors("game", _, _) = $0 { true } else { false } })  // the game's own errors aren't a mod's fault
     }
 
+    @Test func groupsAssetConflictsByMods() {
+        let log = """
+        [10:00:00 INFO  SMAPI] SMAPI 4.5.2 with Stardew Valley 1.6.15 build 24356 on macOS Unix 27.0.1
+        [10:02:00 WARN  SMAPI] Multiple mods want to provide the 'Maps/Town' asset: Content Patcher (for the 'Leah's Cottage, Remade' content pack), Town Remix. An asset can't be loaded multiple times, so SMAPI will use the default asset instead. Uninstall one of the mods to fix this. (Message for modders: you should avoid AssetLoadPriority.Exclusive if possible to avoid conflicts.)
+        [10:02:01 WARN  SMAPI] Multiple mods want to provide the 'Maps/Town' asset: Content Patcher (for the 'Leah's Cottage, Remade' content pack), Town Remix. An asset can't be loaded multiple times, so SMAPI will use the default asset instead. Uninstall one of the mods to fix this.
+        [10:02:02 WARN  SMAPI] Multiple mods want to provide the 'Maps/Town_Fair' asset: Content Patcher (for the 'Leah's Cottage, Remade' content pack), Town Remix. An asset can't be loaded multiple times, so SMAPI will use the default asset instead. Uninstall one of the mods to fix this.
+        """
+        let conflicts = SMAPILog(text: log).insights.compactMap { insight -> ([String], [String])? in
+            if case .assetConflict(let mods, let assets) = insight.kind { return (mods, assets) }
+            return nil
+        }
+        #expect(conflicts.count == 1)
+        #expect(conflicts.first?.0 == ["Leah's Cottage, Remade", "Town Remix"])
+        #expect(conflicts.first?.1 == ["Maps/Town", "Maps/Town_Fair"])
+    }
+
     @Test func stripsVersionsFromNames() {
         #expect(SMAPILog.stripVersion("Better Crafting 1.2.0") == "Better Crafting")
         #expect(SMAPILog.stripVersion("Mod v2.1.0-beta.1") == "Mod")

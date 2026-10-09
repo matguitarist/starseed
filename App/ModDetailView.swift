@@ -99,6 +99,7 @@ struct ModDetailView: View {
                     optionalFilesSection(for: mod, nexusID: nexusID)
                 }
 
+                ConflictsSection(targets: [mod])
                 DependentsSection(targets: [mod])
 
                 previousVersions(for: mod)
@@ -331,6 +332,7 @@ private struct GroupDetailView: View {
 
                 missingRequirements
 
+                ConflictsSection(targets: group.mods)
                 DependentsSection(targets: group.mods)
 
                 if let nexusID = group.mods.lazy.compactMap({ model.nexusID(for: $0) }).first {
