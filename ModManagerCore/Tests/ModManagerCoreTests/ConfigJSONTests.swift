@@ -83,3 +83,35 @@ struct RealGroupingTests {
         }
     }
 }
+
+/// Read-only: prints missing requirements of a real Mods folder and what SMAPI's database knows about them.
+@Suite(.enabled(if: ProcessInfo.processInfo.environment["REAL_MODS"] != nil))
+struct RealRequirementTests {
+    @Test func printMissing() async throws {
+        let mods = try ModManager(modsURL: URL(filePath: ProcessInfo.processInfo.environment["REAL_MODS"]!)).scan()
+        let missing = MissingDependency.find(in: mods)
+        let records = (try? await UpdateChecker().lookup(uniqueIDs: missing.map(\.uniqueID))) ?? [:]
+        for dep in missing {
+            let record = records[dep.uniqueID.lowercased()]
+            print("✱ \(dep.uniqueID) — name: \(record?.name ?? "?") nexus: \(record?.nexusID.map(String.init) ?? "?") — needed by \(dep.requiredBy.joined(separator: ", "))")
+        }
+        // Same steps as AppModel.resolveFromNexusRequirements.
+        let allRecords = (try? await UpdateChecker().check(mods).records) ?? [:]
+        let groups = ModGrouping.groups(mods) { $0.nexusModID ?? allRecords[$0.uniqueID.lowercased()]?.nexusID }
+        let client = NexusClient(apiKey: nil, appVersion: "test")
+        for dep in missing where records[dep.uniqueID.lowercased()]?.nexusID == nil {
+            for name in dep.requiredBy {
+                guard let needing = mods.first(where: { $0.displayName == name }),
+                      let group = groups.first(where: { $0.mods.contains { $0.id == needing.id } }),
+                      let page = group.mods.lazy.compactMap({ $0.nexusModID ?? allRecords[$0.uniqueID.lowercased()]?.nexusID }).first
+                else { print("  ? no Nexus page for \(name)"); continue }
+                let reqs = try await client.requirements(forMod: page)
+                let match = RequirementMatcher.bestMatch(for: dep.uniqueID, among: reqs)
+                print("→ \(dep.uniqueID) via #\(page) (\(group.name)): \(match.map { "\($0.name) #\($0.modID!)" } ?? "no match")")
+            }
+        }
+        for mod in mods where mod.uniqueID.lowercased().contains("eastscarp") || mod.uniqueID == "ES.BarberShop" {
+            print("• \(mod.relativePath) [\(mod.uniqueID)] enabled=\(mod.isEnabled) status=\(mod.status.rawValue) missing=\(mod.missingDependencies)")
+        }
+    }
+}

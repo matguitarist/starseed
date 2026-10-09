@@ -115,6 +115,8 @@ final class AppModel {
     var trackedMods: Set<Int> = []
     /// Nexus file lists by mod number, fetched once per session.
     var nexusFiles: [Int: [NexusFile]] = [:]
+    /// Nexus "Requirements" lists by mod number, fetched once per session.
+    var nexusRequirementPages: [Int: [NexusRequirement]] = [:]
 
     /// Which profile/collection each save uses (AppModel+Saves).
     var saveLinks: [String: SaveModSet] = [:]

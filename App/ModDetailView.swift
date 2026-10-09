@@ -244,6 +244,41 @@ private struct GroupDetailView: View {
     @AppModelEnvironment private var model
     let group: ModGroup
 
+    /// Required mods any part is missing, with the part that needs each.
+    @ViewBuilder
+    private var missingRequirements: some View {
+        let missing = group.mods.flatMap { part in part.missingDependencies.map { (id: $0, part: part) } }
+        if !missing.isEmpty {
+            VStack(alignment: .leading, spacing: 6) {
+                Text("Missing Requirements").font(.headline)
+                ForEach(missing, id: \.id) { item in
+                    let record = model.record(forDependency: item.id)
+                    HStack(spacing: 6) {
+                        Image(systemName: "xmark.circle.fill").foregroundStyle(.red)
+                        VStack(alignment: .leading, spacing: 0) {
+                            HStack(spacing: 4) {
+                                Text(record?.name ?? item.id)
+                                if let nexusID = record?.nexusID { NexusIDLink(modID: nexusID) }
+                            }
+                            Text("Needed by \(item.part.displayName)").font(.caption).foregroundStyle(.secondary)
+                        }
+                        Spacer(minLength: 4)
+                        Button(record?.nexusID == nil ? "Search Nexus" : "Install") {
+                            if record?.nexusID == nil {
+                                let query = (record?.name ?? item.id).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+                                model.openInBrowser(URL(string: "https://www.nexusmods.com/games/stardewvalley/mods?keyword=\(query)")!)
+                            } else {
+                                model.installDependency(item.id, of: item.part)
+                            }
+                        }
+                        .controlSize(.small)
+                    }
+                }
+            }
+            .task { await model.resolveMissingDependencies() }
+        }
+    }
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 14) {
@@ -272,6 +307,8 @@ private struct GroupDetailView: View {
                         }
                     }
                 }
+
+                missingRequirements
 
                 if let nexusID = group.mods.lazy.compactMap({ model.nexusID(for: $0) }).first {
                     HStack {

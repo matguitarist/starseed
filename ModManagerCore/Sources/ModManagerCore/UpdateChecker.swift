@@ -31,6 +31,12 @@ public struct SMAPIModRecord: Hashable, Sendable {
     public let uniqueID: String
     public let name: String?
     public let nexusID: Int?
+
+    public init(uniqueID: String, name: String?, nexusID: Int?) {
+        self.uniqueID = uniqueID
+        self.name = name
+        self.nexusID = nexusID
+    }
 }
 
 public struct SMAPIResults: Sendable {

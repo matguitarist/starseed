@@ -56,7 +56,7 @@ private struct RequirementRow: View {
                         Text(dependency.uniqueID).font(.caption).foregroundStyle(.tertiary)
                     }
                 }
-                Text("Needed by \(ListFormatter.localizedString(byJoining: dependency.requiredBy))")
+                Text("Needed by \(model.describeNeeding(dependency.requiredBy))")
                     .font(.callout)
                     .foregroundStyle(.secondary)
                     .lineLimit(2)

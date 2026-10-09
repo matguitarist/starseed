@@ -111,6 +111,52 @@ extension AppModel {
     func resolveMissingDependencies() async {
         let optional = mods.filter(\.isEnabled).flatMap { missingOptionalDependencies(for: $0) }
         await resolve(uniqueIDs: missingDependencies.map(\.uniqueID) + optional)
+        await resolveFromNexusRequirements()
+    }
+
+    /// Tilesheet and content packs are often missing from SMAPI's database.
+    /// The mod that needs them lists them on its Nexus page, so match the
+    /// missing IDs against that list ("Lumisteria.LumiTilesheetsIndoor" ->
+    /// "Lumisteria Tilesheets - Indoor", #9599).
+    func resolveFromNexusRequirements() async {
+        let client = nexusClient
+        for dependency in missingDependencies where smapiRecords[dependency.id]?.nexusID == nil {
+            for needingName in dependency.requiredBy {
+                guard let needing = mods.first(where: { $0.displayName == needingName }),
+                      let pageID = nexusPage(for: needing)
+                else { continue }
+                if nexusRequirementPages[pageID] == nil {
+                    nexusRequirementPages[pageID] = (try? await client.requirements(forMod: pageID)) ?? []
+                }
+                let candidates = (nexusRequirementPages[pageID] ?? []).filter { $0.modID.map { !isInstalled(nexusID: $0) } ?? false }
+                if let match = RequirementMatcher.bestMatch(for: dependency.uniqueID, among: candidates), let modID = match.modID {
+                    smapiRecords[dependency.id] = SMAPIModRecord(uniqueID: dependency.uniqueID, name: match.name, nexusID: modID)
+                    break
+                }
+            }
+        }
+    }
+
+    /// The Nexus page of a mod, or of the multi-part mod it belongs to.
+    func nexusPage(for mod: ModInfo) -> Int? {
+        if let id = nexusID(for: mod) { return id }
+        return group(containing: mod)?.mods.lazy.compactMap { self.nexusID(for: $0) }.first
+    }
+
+    func group(containing mod: ModInfo) -> ModGroup? {
+        allGroups.first { $0.isGroup && $0.mods.contains { $0.id == mod.id } }
+    }
+
+    /// "East Scarp: Locations (East Scarp)": names a part with its group, since
+    /// the Installed list shows multi-part mods under the group's name.
+    func describeNeeding(_ names: [String]) -> String {
+        names.map { name in
+            guard let mod = mods.first(where: { $0.displayName == name }),
+                  let group = group(containing: mod), group.name != name
+            else { return name }
+            return "\(name) (\(group.name))"
+        }
+        .joined(separator: ", ")
     }
 
     func resolve(uniqueIDs: [String]) async {
