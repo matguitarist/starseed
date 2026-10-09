@@ -1,0 +1,17 @@
+# Build output
+.build/
+.swiftpm/
+dist/
+DerivedData/
+
+# Xcode per-user state
+xcuserdata/
+*.xcuserstate
+
+# Legacy Python version
+.venv/
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store

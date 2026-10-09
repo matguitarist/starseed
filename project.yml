@@ -1,0 +1,71 @@
+# XcodeGen spec — regenerate the Xcode project with:  xcodegen generate
+# (The generated StardewModManager.xcodeproj is checked in too, so XcodeGen
+# is only needed when adding targets or changing build settings.)
+name: StardewModManager
+options:
+  bundleIdPrefix: local.stardew-mod-manager
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MARKETING_VERSION: "2.1"
+    CURRENT_PROJECT_VERSION: "1"
+packages:
+  ModManagerCore:
+    path: ModManagerCore
+targets:
+  StardewModManager:
+    type: application
+    platform: macOS
+    sources:
+      - App
+    dependencies:
+      - package: ModManagerCore
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleDisplayName: Stardew Mod Manager
+        LSApplicationCategoryType: public.app-category.games
+        NSHumanReadableCopyright: ""
+        # Receive Nexus "Mod Manager Download" links.
+        CFBundleURLTypes:
+          - CFBundleURLName: Nexus Mods download link
+            CFBundleURLSchemes: [nxm]
+            CFBundleTypeRole: Viewer
+        # Let users open/drop mod archives onto the app icon.
+        CFBundleDocumentTypes:
+          - CFBundleTypeName: Mod Archive
+            CFBundleTypeRole: Viewer
+            LSHandlerRank: Alternate
+            LSItemContentTypes: [public.zip-archive, org.7-zip.7-zip-archive, com.rarlab.rar-archive]
+    settings:
+      base:
+        PRODUCT_NAME: Stardew Mod Manager
+        PRODUCT_BUNDLE_IDENTIFIER: local.stardew-mod-manager
+        PRODUCT_MODULE_NAME: StardewModManager
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        # Ad-hoc "Sign to Run Locally" by default. With an ad-hoc signature,
+        # macOS asks for Keychain access again after every rebuild; signing with
+        # an Apple Development team (DEVELOPMENT_TEAM=XXXXXXXXXX ./build_app.sh)
+        # keeps the app's identity stable so it only asks once.
+        CODE_SIGN_STYLE: Automatic
+        CODE_SIGN_IDENTITY: "-"
+        ENABLE_HARDENED_RUNTIME: YES
+        # No App Sandbox: the app manages the game's Mods folder anywhere on disk.
+        ENABLE_APP_SANDBOX: NO
+        ENABLE_USER_SCRIPT_SANDBOXING: YES
+schemes:
+  StardewModManager:
+    build:
+      targets:
+        StardewModManager: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - package: ModManagerCore/ModManagerCoreTests
+    archive:
+      config: Release

@@ -1,0 +1,45 @@
+import Foundation
+import Testing
+@testable import ModManagerCore
+
+@Suite struct LogInsightTests {
+    static let log = """
+    [10:00:00 INFO  SMAPI] SMAPI 4.5.2 with Stardew Valley 1.6.15 build 24356 on macOS Unix 27.0.1
+    [10:00:02 ERROR SMAPI] Skipped mods
+    [10:00:02 ERROR SMAPI] --------------------------------------------------
+    [10:00:02 ERROR SMAPI]    These mods could not be added to your game.
+    [10:00:02 ERROR SMAPI]
+    [10:00:02 ERROR SMAPI]    - Better Crafting 1.2.0 because it requires mods which aren't installed (leclair.Common, spacechase0.SpaceCore).
+    [10:00:02 ERROR SMAPI]    - Fancy Mod 2.0.0 because it needs SMAPI 4.6.0 or later. Please update SMAPI.
+    [10:00:02 ERROR SMAPI]    - Old Thing 1.0 because it's no longer compatible.
+    [10:00:05 ALERT SMAPI] You can update SMAPI to 4.6.0: https://smapi.io
+    [10:00:05 ALERT SMAPI] You can update 2 mods:
+    [10:00:05 ALERT SMAPI]    Lookup Anything 1.53.0: https://www.nexusmods.com/stardewvalley/mods/541
+    [10:00:05 ALERT SMAPI]    Generic Mod Config Menu 1.16.1: https://www.nexusmods.com/stardewvalley/mods/5098
+    [10:00:06 INFO  SMAPI] Type 'help' for help.
+    [10:01:00 ERROR Lookup Anything] This mod failed in the Input.ButtonsChanged event. Technical details:
+    System.NullReferenceException: boom
+    [10:01:01 ERROR Lookup Anything] This mod failed in the Input.ButtonsChanged event. Technical details:
+    [10:01:02 ERROR Lookup Anything] This mod failed in the Display.Rendered event. Technical details:
+    [10:01:03 ERROR game] Something the game itself did.
+    """
+
+    @Test func explainsSkippedModsErrorsAndUpdates() {
+        let insights = SMAPILog(text: Self.log).insights
+        let kinds = insights.map(\.kind)
+
+        #expect(kinds.contains(.skippedMod(name: "Better Crafting", reason: "it requires mods which aren't installed (leclair.Common, spacechase0.SpaceCore)", missingIDs: ["leclair.Common", "spacechase0.SpaceCore"], needsSMAPI: nil)))
+        #expect(kinds.contains { if case .skippedMod("Fancy Mod", _, _, "4.6.0") = $0 { true } else { false } })
+        #expect(kinds.contains { if case .skippedMod("Old Thing", "it's no longer compatible", [], nil) = $0 { true } else { false } })
+        #expect(kinds.contains(.modErrors(source: "Lookup Anything", count: 3, events: ["Input.ButtonsChanged", "Display.Rendered"])))
+        #expect(kinds.contains(.smapiUpdate(version: "4.6.0", url: URL(string: "https://smapi.io"))))
+        #expect(kinds.contains { if case .updatesAvailable(let list) = $0 { list.map(\.name) == ["Lookup Anything", "Generic Mod Config Menu"] && list[0].version == "1.53.0" } else { false } })
+        #expect(!kinds.contains { if case .modErrors("game", _, _) = $0 { true } else { false } })  // the game's own errors aren't a mod's fault
+    }
+
+    @Test func stripsVersionsFromNames() {
+        #expect(SMAPILog.stripVersion("Better Crafting 1.2.0") == "Better Crafting")
+        #expect(SMAPILog.stripVersion("Mod v2.1.0-beta.1") == "Mod")
+        #expect(SMAPILog.stripVersion("Stardew Valley Expanded") == "Stardew Valley Expanded")
+    }
+}

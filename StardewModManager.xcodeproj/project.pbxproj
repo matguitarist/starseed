@@ -1,0 +1,437 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0F75249C1D10234D3DEA361F /* ModDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700FCC9D677E0197700F1C10 /* ModDetailView.swift */; };
+		171A4655CDBAAB5AD7F35469 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B379ABC7330965D2DBC833 /* AppModel.swift */; };
+		1F50529705F42A85F37609DD /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECCC4ACFA28805A28AD469 /* Background.swift */; };
+		347139B1801B9B805642EAE5 /* BrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC65CDCCA389CF775E52F81 /* BrowserView.swift */; };
+		353A05FA3748E05DD877DF29 /* ProfilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A5C63340551AD5F955C117 /* ProfilesView.swift */; };
+		47E9636795C75895D5A37ACC /* ConfigEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275D56ADD869132CDA9B3D6D /* ConfigEditorView.swift */; };
+		52EF3147302B8AF2DE40E91B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882D1E5D99EEAA8946E3990A /* SettingsView.swift */; };
+		662EF595FD51F27BFA8675E0 /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A369DA706FAB88E595F89 /* BrowseView.swift */; };
+		69F3A9FD2183012E92E171F9 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD33902DFD3EF0DAE6802F /* RootView.swift */; };
+		745E4ABF7E08EF53EAAEE6AA /* SavesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BB4B7EB0BDCA9B8772C45C /* SavesView.swift */; };
+		7FC9C92FCE9783FBAC90971B /* CollectionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667A44B25AC6FAF1BBC3B154 /* CollectionSheet.swift */; };
+		92BF6C1C464C2C813B8FE030 /* InstalledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B72EE4ABCABDFF5EEC268D /* InstalledView.swift */; };
+		A6523D07ADA48F91AE9DA70A /* LogViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879299EC8FC1BC543B82D3E2 /* LogViewerView.swift */; };
+		A842122987F23B29355D563E /* RequirementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF9E3E65BEAE57ACD20611 /* RequirementsView.swift */; };
+		B38314289E9A310C62D0F339 /* NexusModSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2521CC450C378D7A7830C95E /* NexusModSheet.swift */; };
+		B7BC09C6E4CDE420460E976A /* MyCollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD0D9CCAE1F0AEA843B0611 /* MyCollectionsView.swift */; };
+		D52CAA46469BF512CA60D1E5 /* Downloads.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DF86F9A956E9A59F63C73C /* Downloads.swift */; };
+		DABC5A0FD5CE13412580753B /* UpdatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48197B7BBE7EE15AB71D5108 /* UpdatesView.swift */; };
+		DAC272AC390752F7D3E7F5DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD2E122C00662959EB64731C /* Assets.xcassets */; };
+		DE5E60839197F15E90C56F40 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E46DB3F74731B560BF4385 /* Keychain.swift */; };
+		DF6863EC182FECE9BC603FB6 /* StardewModManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060CBD6601F4146FAF75C704 /* StardewModManagerApp.swift */; };
+		E61234292113931E91B31C65 /* ModManagerCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8A443BB383FD0A5D9F88D16D /* ModManagerCore */; };
+		EDBD7163E8C1DA0FBD98BEA5 /* CollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE5DC0AC7558CFA59728A2D /* CollectionsView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		060CBD6601F4146FAF75C704 /* StardewModManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StardewModManagerApp.swift; sourceTree = "<group>"; };
+		08DF86F9A956E9A59F63C73C /* Downloads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloads.swift; sourceTree = "<group>"; };
+		2521CC450C378D7A7830C95E /* NexusModSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NexusModSheet.swift; sourceTree = "<group>"; };
+		275D56ADD869132CDA9B3D6D /* ConfigEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigEditorView.swift; sourceTree = "<group>"; };
+		27BB4B7EB0BDCA9B8772C45C /* SavesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavesView.swift; sourceTree = "<group>"; };
+		36BD33902DFD3EF0DAE6802F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		466DFE1F2D8B06DF05695D18 /* StardewModManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StardewModManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		48197B7BBE7EE15AB71D5108 /* UpdatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesView.swift; sourceTree = "<group>"; };
+		5EE5DC0AC7558CFA59728A2D /* CollectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsView.swift; sourceTree = "<group>"; };
+		64C990DD2AE45052FE861170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		667A44B25AC6FAF1BBC3B154 /* CollectionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionSheet.swift; sourceTree = "<group>"; };
+		700FCC9D677E0197700F1C10 /* ModDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModDetailView.swift; sourceTree = "<group>"; };
+		71A5C63340551AD5F955C117 /* ProfilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesView.swift; sourceTree = "<group>"; };
+		7EC65CDCCA389CF775E52F81 /* BrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserView.swift; sourceTree = "<group>"; };
+		83B72EE4ABCABDFF5EEC268D /* InstalledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstalledView.swift; sourceTree = "<group>"; };
+		879299EC8FC1BC543B82D3E2 /* LogViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewerView.swift; sourceTree = "<group>"; };
+		882D1E5D99EEAA8946E3990A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		98B379ABC7330965D2DBC833 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		AA3A369DA706FAB88E595F89 /* BrowseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
+		AFD0D9CCAE1F0AEA843B0611 /* MyCollectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionsView.swift; sourceTree = "<group>"; };
+		B5FF9E3E65BEAE57ACD20611 /* RequirementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementsView.swift; sourceTree = "<group>"; };
+		B79A52FECDD87ED11901B6D1 /* ModManagerCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ModManagerCore; path = ModManagerCore; sourceTree = SOURCE_ROOT; };
+		BD2E122C00662959EB64731C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F0E46DB3F74731B560BF4385 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		FDECCC4ACFA28805A28AD469 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B0E4F8E96C75C4661431B762 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E61234292113931E91B31C65 /* ModManagerCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7DA5104365E979D715368E00 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				466DFE1F2D8B06DF05695D18 /* StardewModManager.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9FDC79F8A3249922785C0454 = {
+			isa = PBXGroup;
+			children = (
+				AE375F680B55DC33B9817CE7 /* App */,
+				E4944D31FBBB7B5E5CADB4AB /* Packages */,
+				7DA5104365E979D715368E00 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AE375F680B55DC33B9817CE7 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				98B379ABC7330965D2DBC833 /* AppModel.swift */,
+				BD2E122C00662959EB64731C /* Assets.xcassets */,
+				FDECCC4ACFA28805A28AD469 /* Background.swift */,
+				7EC65CDCCA389CF775E52F81 /* BrowserView.swift */,
+				AA3A369DA706FAB88E595F89 /* BrowseView.swift */,
+				667A44B25AC6FAF1BBC3B154 /* CollectionSheet.swift */,
+				5EE5DC0AC7558CFA59728A2D /* CollectionsView.swift */,
+				275D56ADD869132CDA9B3D6D /* ConfigEditorView.swift */,
+				08DF86F9A956E9A59F63C73C /* Downloads.swift */,
+				64C990DD2AE45052FE861170 /* Info.plist */,
+				83B72EE4ABCABDFF5EEC268D /* InstalledView.swift */,
+				F0E46DB3F74731B560BF4385 /* Keychain.swift */,
+				879299EC8FC1BC543B82D3E2 /* LogViewerView.swift */,
+				700FCC9D677E0197700F1C10 /* ModDetailView.swift */,
+				AFD0D9CCAE1F0AEA843B0611 /* MyCollectionsView.swift */,
+				2521CC450C378D7A7830C95E /* NexusModSheet.swift */,
+				71A5C63340551AD5F955C117 /* ProfilesView.swift */,
+				B5FF9E3E65BEAE57ACD20611 /* RequirementsView.swift */,
+				36BD33902DFD3EF0DAE6802F /* RootView.swift */,
+				27BB4B7EB0BDCA9B8772C45C /* SavesView.swift */,
+				882D1E5D99EEAA8946E3990A /* SettingsView.swift */,
+				060CBD6601F4146FAF75C704 /* StardewModManagerApp.swift */,
+				48197B7BBE7EE15AB71D5108 /* UpdatesView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E4944D31FBBB7B5E5CADB4AB /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				B79A52FECDD87ED11901B6D1 /* ModManagerCore */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		326BB16F7C12FFE2FA650C4B /* StardewModManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D63B97F9BCEBA4B4417E4B3 /* Build configuration list for PBXNativeTarget "StardewModManager" */;
+			buildPhases = (
+				4F364AA5390ACF3BFE522284 /* Sources */,
+				A113107CFD615077827B2F8B /* Resources */,
+				B0E4F8E96C75C4661431B762 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StardewModManager;
+			packageProductDependencies = (
+				8A443BB383FD0A5D9F88D16D /* ModManagerCore */,
+			);
+			productName = StardewModManager;
+			productReference = 466DFE1F2D8B06DF05695D18 /* StardewModManager.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AB29ACB4EA250346433743C4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					326BB16F7C12FFE2FA650C4B = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 9344753EBFAC45A316C21FAA /* Build configuration list for PBXProject "StardewModManager" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 9FDC79F8A3249922785C0454;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				97D190738D8CEA28B281FAE7 /* XCLocalSwiftPackageReference "ModManagerCore" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 7DA5104365E979D715368E00 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				326BB16F7C12FFE2FA650C4B /* StardewModManager */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A113107CFD615077827B2F8B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAC272AC390752F7D3E7F5DC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4F364AA5390ACF3BFE522284 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				171A4655CDBAAB5AD7F35469 /* AppModel.swift in Sources */,
+				1F50529705F42A85F37609DD /* Background.swift in Sources */,
+				662EF595FD51F27BFA8675E0 /* BrowseView.swift in Sources */,
+				347139B1801B9B805642EAE5 /* BrowserView.swift in Sources */,
+				7FC9C92FCE9783FBAC90971B /* CollectionSheet.swift in Sources */,
+				EDBD7163E8C1DA0FBD98BEA5 /* CollectionsView.swift in Sources */,
+				47E9636795C75895D5A37ACC /* ConfigEditorView.swift in Sources */,
+				D52CAA46469BF512CA60D1E5 /* Downloads.swift in Sources */,
+				92BF6C1C464C2C813B8FE030 /* InstalledView.swift in Sources */,
+				DE5E60839197F15E90C56F40 /* Keychain.swift in Sources */,
+				A6523D07ADA48F91AE9DA70A /* LogViewerView.swift in Sources */,
+				0F75249C1D10234D3DEA361F /* ModDetailView.swift in Sources */,
+				B7BC09C6E4CDE420460E976A /* MyCollectionsView.swift in Sources */,
+				B38314289E9A310C62D0F339 /* NexusModSheet.swift in Sources */,
+				353A05FA3748E05DD877DF29 /* ProfilesView.swift in Sources */,
+				A842122987F23B29355D563E /* RequirementsView.swift in Sources */,
+				69F3A9FD2183012E92E171F9 /* RootView.swift in Sources */,
+				745E4ABF7E08EF53EAAEE6AA /* SavesView.swift in Sources */,
+				52EF3147302B8AF2DE40E91B /* SettingsView.swift in Sources */,
+				DF6863EC182FECE9BC603FB6 /* StardewModManagerApp.swift in Sources */,
+				DABC5A0FD5CE13412580753B /* UpdatesView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0345D25328C195BF4B1138E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "local.stardew-mod-manager";
+				PRODUCT_MODULE_NAME = StardewModManager;
+				PRODUCT_NAME = "Stardew Mod Manager";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		97AD59324C226F9A544BA789 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 2.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		A0B6330D916B20C5BED33F4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 2.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		F8152DD216AC0A5ED6A8DA97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "local.stardew-mod-manager";
+				PRODUCT_MODULE_NAME = StardewModManager;
+				PRODUCT_NAME = "Stardew Mod Manager";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8D63B97F9BCEBA4B4417E4B3 /* Build configuration list for PBXNativeTarget "StardewModManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8152DD216AC0A5ED6A8DA97 /* Debug */,
+				0345D25328C195BF4B1138E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9344753EBFAC45A316C21FAA /* Build configuration list for PBXProject "StardewModManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97AD59324C226F9A544BA789 /* Debug */,
+				A0B6330D916B20C5BED33F4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		97D190738D8CEA28B281FAE7 /* XCLocalSwiftPackageReference "ModManagerCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ModManagerCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8A443BB383FD0A5D9F88D16D /* ModManagerCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ModManagerCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = AB29ACB4EA250346433743C4 /* Project object */;
+}
