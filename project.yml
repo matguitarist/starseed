@@ -20,6 +20,10 @@ settings:
 packages:
   ModManagerCore:
     path: ModManagerCore
+  # Self-updates for the app (see "Releasing updates" in the README).
+  Sparkle:
+    url: https://github.com/sparkle-project/Sparkle
+    exactVersion: 2.10.0
 targets:
   StardewModManager:
     type: application
@@ -28,6 +32,13 @@ targets:
       - App
     dependencies:
       - package: ModManagerCore
+      - package: Sparkle
+    # A locally ("ad-hoc") signed app with the hardened runtime can't load
+    # separately signed frameworks (Sparkle) without this.
+    entitlements:
+      path: App/StardewModManager.entitlements
+      properties:
+        com.apple.security.cs.disable-library-validation: true
     info:
       path: App/Info.plist
       properties:
@@ -35,6 +46,11 @@ targets:
         CFBundleDevelopmentRegion: en
         CFBundleLocalizations: [en, fr]
         LSApplicationCategoryType: public.app-category.games
+        # App updates (Sparkle). Both stay empty until releases are hosted;
+        # the updater is off until they're set.
+        SUFeedURL: ""
+        SUPublicEDKey: ""
+        SUEnableAutomaticChecks: true
         NSHumanReadableCopyright: ""
         # Receive Nexus "Mod Manager Download" links.
         CFBundleURLTypes:

@@ -242,6 +242,38 @@ App settings and profiles are stored at
 `~/Library/Application Support/StardewModManager/` — separate from the
 game, and in the same format as the old Python version.
 
+## Releasing updates (Sparkle)
+
+The app updates itself with [Sparkle](https://sparkle-project.org). It stays
+off until `SUFeedURL` and `SUPublicEDKey` are set in `project.yml`; then
+**Stardew Mod Manager → Check for App Updates…** and a Settings toggle appear.
+
+One-time setup:
+
+1. Create the signing key (the private half goes into your login Keychain):
+   ```bash
+   ~/Library/Caches/StardewModManager/DerivedData/SourcePackages/artifacts/sparkle/Sparkle/bin/generate_keys
+   ```
+   Put the printed public key in `SUPublicEDKey`. Back up the private key
+   (`generate_keys -x key.txt`): without it, existing users can't be updated.
+2. Choose where releases live, e.g. GitHub Releases for the zips and
+   GitHub Pages for `appcast.xml`, and put the appcast's URL in `SUFeedURL`.
+3. `xcodegen generate`.
+
+Each release:
+
+1. Bump `MARKETING_VERSION` **and** `CURRENT_PROJECT_VERSION` in
+   `project.yml` (Sparkle compares the build number), then `xcodegen generate`.
+2. `./build_app.sh` (ideally signed with a Developer ID and notarized, or
+   macOS warns people on first launch).
+3. Zip it and generate the appcast:
+   ```bash
+   mkdir -p releases
+   ditto -c -k --keepParent "dist/Stardew Mod Manager.app" "releases/StardewModManager-2.2.zip"
+   ~/Library/Caches/StardewModManager/DerivedData/SourcePackages/artifacts/sparkle/Sparkle/bin/generate_appcast releases
+   ```
+4. Upload the zip and `releases/appcast.xml` to the places from step 2.
+
 ## Languages
 
 English and French. Strings live in String Catalogs

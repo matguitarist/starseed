@@ -31,6 +31,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
 struct StardewModManagerApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     @State private var model = AppModel.shared
+    private let appUpdater = AppUpdater.shared
     @AppStorage(Preferences.showMenuBarIcon) private var showMenuBarIcon = false
 
     var body: some Scene {
@@ -51,6 +52,11 @@ struct StardewModManagerApp: App {
         }
         .defaultSize(width: 1180, height: 700)
         .commands {
+            if appUpdater.isConfigured {
+                CommandGroup(after: .appInfo) {
+                    Button("Check for App Updates…") { appUpdater.checkForUpdates() }
+                }
+            }
             CommandGroup(replacing: .newItem) {
                 Button("Install Mods…") { model.presentInstallPanel() }
                     .keyboardShortcut("o")

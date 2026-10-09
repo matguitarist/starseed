@@ -10,6 +10,7 @@
 		0F75249C1D10234D3DEA361F /* ModDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700FCC9D677E0197700F1C10 /* ModDetailView.swift */; };
 		1301601D123E3D5DEC935931 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9603579CCCD6BA0E539392AF /* Activity.swift */; };
 		171A4655CDBAAB5AD7F35469 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B379ABC7330965D2DBC833 /* AppModel.swift */; };
+		1ED9266FE169076AE48E26D0 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 9BC9EBD9F28B49969A6D335D /* Sparkle */; };
 		1F50529705F42A85F37609DD /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECCC4ACFA28805A28AD469 /* Background.swift */; };
 		3308FFBE6799F38D542D0D99 /* AppModel+Installing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847385174D1906D29421D1B4 /* AppModel+Installing.swift */; };
 		347139B1801B9B805642EAE5 /* BrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC65CDCCA389CF775E52F81 /* BrowserView.swift */; };
@@ -43,6 +44,7 @@
 		E6380C968EC4F20DC698F256 /* AppModel+Updates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003897CE6E3EAFEE4E8ED9B8 /* AppModel+Updates.swift */; };
 		E6B80B50242E1E544D1B4E7A /* ChangelogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B138698F0E21A1D71717833 /* ChangelogView.swift */; };
 		EDBD7163E8C1DA0FBD98BEA5 /* CollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE5DC0AC7558CFA59728A2D /* CollectionsView.swift */; };
+		FFE2795999525A669CAF3DCD /* AppUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1DF3E623C48D20A3DA9F99 /* AppUpdater.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,13 +52,15 @@
 		060CBD6601F4146FAF75C704 /* StardewModManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StardewModManagerApp.swift; sourceTree = "<group>"; };
 		0825B0DCF8C284030913ADCA /* UnusedRequirementsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnusedRequirementsSheet.swift; sourceTree = "<group>"; };
 		08DF86F9A956E9A59F63C73C /* Downloads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloads.swift; sourceTree = "<group>"; };
+		0D1DF3E623C48D20A3DA9F99 /* AppUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdater.swift; sourceTree = "<group>"; };
 		20A51E6BD6FC074BC41A3353 /* AppModel+Profiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModel+Profiles.swift"; sourceTree = "<group>"; };
 		2521CC450C378D7A7830C95E /* NexusModSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NexusModSheet.swift; sourceTree = "<group>"; };
 		275D56ADD869132CDA9B3D6D /* ConfigEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigEditorView.swift; sourceTree = "<group>"; };
 		27BB4B7EB0BDCA9B8772C45C /* SavesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavesView.swift; sourceTree = "<group>"; };
 		36BD33902DFD3EF0DAE6802F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		3751918581379943B9AB023D /* AppModel+Nexus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModel+Nexus.swift"; sourceTree = "<group>"; };
-		466DFE1F2D8B06DF05695D18 /* StardewModManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StardewModManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A7745432F262C11C31A9634 /* StardewModManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StardewModManager.entitlements; sourceTree = "<group>"; };
+		466DFE1F2D8B06DF05695D18 /* StardewModManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = StardewModManager.app; path = "Stardew Mod Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		48197B7BBE7EE15AB71D5108 /* UpdatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesView.swift; sourceTree = "<group>"; };
 		5B138698F0E21A1D71717833 /* ChangelogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangelogView.swift; sourceTree = "<group>"; };
 		5CEAACA199435D4A4282751F /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -78,7 +82,7 @@
 		AFD0D9CCAE1F0AEA843B0611 /* MyCollectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionsView.swift; sourceTree = "<group>"; };
 		B30552591D88F603A6043CFE /* AppModel+Saves.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModel+Saves.swift"; sourceTree = "<group>"; };
 		B5FF9E3E65BEAE57ACD20611 /* RequirementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementsView.swift; sourceTree = "<group>"; };
-		B79A52FECDD87ED11901B6D1 /* ModManagerCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ModManagerCore; path = ModManagerCore; sourceTree = SOURCE_ROOT; };
+		B79A52FECDD87ED11901B6D1 /* ModManagerCore */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ModManagerCore; sourceTree = SOURCE_ROOT; };
 		BD2E122C00662959EB64731C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1D257F10B4C9483D2A26D32 /* AppModelEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModelEnvironment.swift; sourceTree = "<group>"; };
 		F0E46DB3F74731B560BF4385 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E61234292113931E91B31C65 /* ModManagerCore in Frameworks */,
+				1ED9266FE169076AE48E26D0 /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +131,7 @@
 				B30552591D88F603A6043CFE /* AppModel+Saves.swift */,
 				003897CE6E3EAFEE4E8ED9B8 /* AppModel+Updates.swift */,
 				E1D257F10B4C9483D2A26D32 /* AppModelEnvironment.swift */,
+				0D1DF3E623C48D20A3DA9F99 /* AppUpdater.swift */,
 				BD2E122C00662959EB64731C /* Assets.xcassets */,
 				FDECCC4ACFA28805A28AD469 /* Background.swift */,
 				7EC65CDCCA389CF775E52F81 /* BrowserView.swift */,
@@ -151,6 +157,7 @@
 				36BD33902DFD3EF0DAE6802F /* RootView.swift */,
 				27BB4B7EB0BDCA9B8772C45C /* SavesView.swift */,
 				882D1E5D99EEAA8946E3990A /* SettingsView.swift */,
+				3A7745432F262C11C31A9634 /* StardewModManager.entitlements */,
 				060CBD6601F4146FAF75C704 /* StardewModManagerApp.swift */,
 				0825B0DCF8C284030913ADCA /* UnusedRequirementsSheet.swift */,
 				48197B7BBE7EE15AB71D5108 /* UpdatesView.swift */,
@@ -184,6 +191,7 @@
 			name = StardewModManager;
 			packageProductDependencies = (
 				8A443BB383FD0A5D9F88D16D /* ModManagerCore */,
+				9BC9EBD9F28B49969A6D335D /* Sparkle */,
 			);
 			productName = StardewModManager;
 			productReference = 466DFE1F2D8B06DF05695D18 /* StardewModManager.app */;
@@ -214,6 +222,7 @@
 			mainGroup = 9FDC79F8A3249922785C0454;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+				2DF448B9CF2E098DE27DB586 /* XCRemoteSwiftPackageReference "Sparkle" */,
 				97D190738D8CEA28B281FAE7 /* XCLocalSwiftPackageReference "ModManagerCore" */,
 			);
 			preferredProjectObjectVersion = 77;
@@ -252,6 +261,7 @@
 				E6380C968EC4F20DC698F256 /* AppModel+Updates.swift in Sources */,
 				171A4655CDBAAB5AD7F35469 /* AppModel.swift in Sources */,
 				C5881F7B25C85A5AC3105737 /* AppModelEnvironment.swift in Sources */,
+				FFE2795999525A669CAF3DCD /* AppUpdater.swift in Sources */,
 				1F50529705F42A85F37609DD /* Background.swift in Sources */,
 				662EF595FD51F27BFA8675E0 /* BrowseView.swift in Sources */,
 				347139B1801B9B805642EAE5 /* BrowserView.swift in Sources */,
@@ -286,6 +296,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/StardewModManager.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -435,6 +446,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/StardewModManager.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -483,10 +495,26 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		2DF448B9CF2E098DE27DB586 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = exactVersion;
+				version = 2.10.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		8A443BB383FD0A5D9F88D16D /* ModManagerCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ModManagerCore;
+		};
+		9BC9EBD9F28B49969A6D335D /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2DF448B9CF2E098DE27DB586 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -59,6 +59,15 @@ private struct GeneralSettings: View {
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
+            if AppUpdater.shared.isConfigured {
+                Section("App Updates") {
+                    Toggle("Check for new versions of Stardew Mod Manager", isOn: Binding(
+                        get: { AppUpdater.shared.automaticallyChecks },
+                        set: { AppUpdater.shared.automaticallyChecks = $0 }
+                    ))
+                    Button("Check Now") { AppUpdater.shared.checkForUpdates() }
+                }
+            }
             LabeledContent("Mods folder") {
                 VStack(alignment: .trailing, spacing: 6) {
                     Text(model.manager?.modsURL.path(percentEncoded: false) ?? "Not set")
