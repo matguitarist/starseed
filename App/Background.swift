@@ -9,6 +9,8 @@ enum Preferences {
     static let notifyUpdates = "notifyUpdates"              // default on
     static let showMenuBarIcon = "showMenuBarIcon"          // default off
     static let notifiedUpdates = "notifiedUpdates"          // ["uniqueid@version"]
+    static let backupBeforePlay = "backupBeforePlay"        // default on
+    static let lastPlayedModSet = "lastPlayedModSet"        // fingerprint of enabled mods at last Play
 
     static func bool(_ key: String, default value: Bool) -> Bool {
         UserDefaults.standard.object(forKey: key) as? Bool ?? value

@@ -70,7 +70,7 @@ extension AppModel {
     func checkForUpdates() async {
         guard !isCheckingUpdates, !mods.isEmpty else { return }
         isCheckingUpdates = true
-        updateCheckResult = nil
+        statusResult = nil
         defer {
             isCheckingUpdates = false
             updateCheckStep = nil
@@ -100,18 +100,22 @@ extension AppModel {
 
     /// "Checked 30 mods: 2 updates available", for a few seconds.
     private func showUpdateCheckResult() {
-        let result: String
         if let updateCheckError {
-            result = String(localized: "Update check failed: \(updateCheckError)")
+            showStatusResult(String(localized: "Update check failed: \(updateCheckError)"), isError: true)
         } else if modsWithUpdates.isEmpty {
-            result = String(localized: "Checked \(mods.count) mods: all up to date")
+            showStatusResult(String(localized: "Checked \(mods.count) mods: all up to date"))
         } else {
-            result = String(localized: "Checked \(mods.count) mods: \(modsWithUpdates.count) update(s) available")
+            showStatusResult(String(localized: "Checked \(mods.count) mods: \(modsWithUpdates.count) update(s) available"))
         }
-        updateCheckResult = result
+    }
+
+    /// Shows how a task went in the status bar for a few seconds.
+    func showStatusResult(_ text: String, isError: Bool = false) {
+        let result = StatusResult(text: text, isError: isError)
+        statusResult = result
         Task {
             try? await Task.sleep(for: .seconds(8))
-            if updateCheckResult == result { updateCheckResult = nil }
+            if statusResult == result { statusResult = nil }
         }
     }
 

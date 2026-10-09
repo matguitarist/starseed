@@ -2,6 +2,7 @@
 // each save is played with.
 
 import AppKit
+import CryptoKit
 import ModManagerCore
 import SwiftUI
 
@@ -198,6 +199,53 @@ extension AppModel {
             return true
         } catch {
             show("Restore Failed", detail: error.localizedDescription)
+            return false
+        }
+    }
+
+    // MARK: Backup before playing
+
+    /// The label of automatic backups, in English and the current language
+    /// (so a language switch doesn't stop old ones from being pruned).
+    private static var beforePlayLabels: Set<String> {
+        ["Before playing with changed mods", String(localized: "Before playing with changed mods")]
+    }
+
+    /// Which mods (and versions) are enabled, as a short stable string.
+    var enabledModsFingerprint: String {
+        let list = mods.filter(\.isEnabled)
+            .map { "\($0.uniqueID.lowercased())@\($0.version)" }
+            .sorted()
+            .joined(separator: "\n")
+        return SHA256.hash(data: Data(list.utf8)).map { String(format: "%02x", $0) }.joined()
+    }
+
+    /// A mod update can break a save in ways that only show later, so before
+    /// playing with a different set of mods than last time, zip all saves.
+    /// Keeps the last 5 of these. Returns false when the backup failed (the
+    /// game is then not started).
+    func backUpSavesIfModsChanged() async -> Bool {
+        guard Preferences.bool(Preferences.backupBeforePlay, default: true), !isGameRunning else { return true }
+        let fingerprint = enabledModsFingerprint
+        let defaults = UserDefaults.standard
+        guard defaults.string(forKey: Preferences.lastPlayedModSet) != fingerprint else { return true }
+
+        let store = backupStore
+        let ids = SaveGame.list(in: store.savesFolder).map(\.id)
+        guard !ids.isEmpty else {
+            defaults.set(fingerprint, forKey: Preferences.lastPlayedModSet)
+            return true
+        }
+        isBackingUpBeforePlay = true
+        defer { isBackingUpBeforePlay = false }
+        do {
+            try await store.backUp(saveIDs: ids, label: String(localized: "Before playing with changed mods"))
+            try? await store.prune(labels: Self.beforePlayLabels, keep: 5)
+            defaults.set(fingerprint, forKey: Preferences.lastPlayedModSet)
+            showStatusResult(String(localized: "Your mods changed, so your saves were backed up before playing (Saves → Backups)"))
+            return true
+        } catch {
+            show("Saves Not Backed Up", detail: String(localized: "The game wasn't started, to keep your saves safe: \(error.localizedDescription)\n\nTo play anyway, turn off “Back up saves before playing” in Settings."))
             return false
         }
     }

@@ -70,8 +70,10 @@ final class AppModel {
     var isCheckingUpdates = false
     /// The running update check's current step, for the status bar.
     var updateCheckStep: ProgressStep?
-    /// How the last check went; shown briefly in the status bar.
-    var updateCheckResult: String?
+    /// How the last task went (update check, backup before playing);
+    /// shown briefly in the status bar.
+    var statusResult: StatusResult?
+    var isBackingUpBeforePlay = false
     var lastUpdateCheck: Date?
     var updateCheckError: String?
 
@@ -428,9 +430,14 @@ final class AppModel {
 
     /// On macOS, SMAPI's installer replaces the game's own launcher, so a
     /// normal Steam launch already runs through SMAPI.
+    /// Starts the game through Steam, first backing up the saves when the
+    /// mods changed since the last Play (see `backUpSavesIfModsChanged`).
     func launchGame() {
-        if let url = URL(string: "steam://rungameid/\(AppConstants.steamAppID)") {
-            NSWorkspace.shared.open(url)
+        Task {
+            guard await backUpSavesIfModsChanged() else { return }
+            if let url = URL(string: "steam://rungameid/\(AppConstants.steamAppID)") {
+                NSWorkspace.shared.open(url)
+            }
         }
     }
 

@@ -130,6 +130,26 @@ public struct SaveBackupStore: Sendable {
         return backup
     }
 
+    /// Keeps the newest `keep` of this app's backups whose label is one of
+    /// `labels` (e.g. automatic ones), recycling the rest.
+    public func prune(labels: Set<String>, keep: Int) async throws {
+        // "Auto 2" is a second "Auto" made in the same second.
+        func split(_ label: String) -> (base: String, counter: Int) {
+            guard let match = label.wholeMatch(of: /(.+)\s(\d+)/), let counter = Int(match.2) else { return (label, 1) }
+            return (String(match.1), counter)
+        }
+        // Newest first by the name's timestamp, then by that counter.
+        func age(_ backup: SaveBackup) -> (String, Int) {
+            (String(backup.url.lastPathComponent.prefix(19)), split(backup.label).counter)
+        }
+        let matching = await list()
+            .filter { !$0.isSMAPIBackup && labels.contains(split($0.label).base) }
+            .sorted { age($0) > age($1) }
+        for backup in matching.dropFirst(keep) {
+            try recycle(backup.url)
+        }
+    }
+
     // MARK: Restoring
 
     /// Restores saves from a backup (all of them when `saveIDs` is nil). The

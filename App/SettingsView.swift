@@ -19,6 +19,7 @@ private struct GeneralSettings: View {
     @AppStorage(Preferences.autoCheckUpdates) private var autoCheckUpdates = true
     @AppStorage(Preferences.notifyUpdates) private var notifyUpdates = true
     @AppStorage(Preferences.showMenuBarIcon) private var showMenuBarIcon = false
+    @AppStorage(Preferences.backupBeforePlay) private var backupBeforePlay = true
     @State private var language = AppLanguage.current
 
     var body: some View {
@@ -49,6 +50,12 @@ private struct GeneralSettings: View {
                 Toggle("Notify me about new updates", isOn: $notifyUpdates)
                 Toggle("Show icon in the menu bar", isOn: $showMenuBarIcon)
                 Text("With the menu bar icon, closing the window keeps the app running so it can keep checking. Quit from the icon's menu.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            Section("Saves") {
+                Toggle("Back up saves before playing when mods changed", isOn: $backupBeforePlay)
+                Text("Play zips all your saves first if mods were added, removed, updated, or switched on or off since you last played. The last 5 of these backups are kept, under Saves.")
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }

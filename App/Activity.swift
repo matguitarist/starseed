@@ -9,6 +9,12 @@ struct ProgressStep: Equatable {
     var fraction: Double?
 }
 
+struct StatusResult: Equatable {
+    let id = UUID()  // the same text twice is two results
+    var text: String
+    var isError = false
+}
+
 struct ActivityStatus: Equatable {
     var text: String
     var progress: Double?
@@ -61,6 +67,7 @@ extension AppModel {
             return ActivityStatus(text: String(localized: "Starting \(active.count) download(s)…"))
         }
         if isInstalling { return ActivityStatus(text: String(localized: "Installing…")) }
+        if isBackingUpBeforePlay { return ActivityStatus(text: String(localized: "Backing up your saves before playing…")) }
         if !preparingNexusIDs.isEmpty { return ActivityStatus(text: String(localized: "Finding files on Nexus…")) }
         if let step = updateCheckStep { return ActivityStatus(text: step.text, progress: step.fraction) }
         if isCheckingUpdates { return ActivityStatus(text: String(localized: "Checking for updates…")) }
@@ -68,8 +75,8 @@ extension AppModel {
         if !browserQueue.isEmpty {
             return ActivityStatus(text: String(localized: "\(browserQueue.count) download(s) waiting on Nexus: click “Slow download” in the browser"))
         }
-        if let updateCheckResult {
-            return ActivityStatus(text: updateCheckResult, isResult: true, isError: updateCheckError != nil)
+        if let statusResult {
+            return ActivityStatus(text: statusResult.text, isResult: true, isError: statusResult.isError)
         }
         return nil
     }
@@ -160,7 +167,7 @@ struct ActivityStatusBar: View {
                 Spacer()
                 if status.isResult {
                     Button {
-                        model.updateCheckResult = nil
+                        model.statusResult = nil
                     } label: {
                         Image(systemName: "xmark").foregroundStyle(.secondary)
                     }

@@ -30,6 +30,22 @@ import Testing
         #expect(await store.list().count == 1)
     }
 
+    @Test func prunesOnlyMatchingBackups() async throws {
+        let tmp = try TempDir()
+        let (_, store) = try makeSaves(tmp)
+        try await store.backUp(saveIDs: ["Mats_1"], label: "Manual")
+        var auto: [SaveBackup] = []
+        for _ in 0..<4 {
+            auto.append(try await store.backUp(saveIDs: ["Mats_1"], label: "Auto"))
+        }
+        try await store.prune(labels: ["Auto"], keep: 2)
+        let left = await store.list().map(\.url.lastPathComponent).sorted()
+        #expect(left.count == 3)
+        #expect(left.contains { $0.hasSuffix("Manual.zip") })
+        // The two newest automatic ones stay.
+        #expect(Set(left).isSuperset(of: auto.suffix(2).map(\.url.lastPathComponent)))
+    }
+
     @Test func restoresOneSaveAndKeepsABeforeRestoreCopy() async throws {
         let tmp = try TempDir()
         let (saves, store) = try makeSaves(tmp)
