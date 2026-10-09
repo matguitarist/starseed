@@ -266,7 +266,49 @@ final class AppModel {
     func setEnabled(_ ids: Set<ModInfo.ID>, _ enabled: Bool) {
         // Selection follows the mods through renames (".Off" -> "Off").
         let selectedKeys = Set(mods.filter { selection.contains($0.id) }.map(Self.stableKey))
-        let failures = toggle(mods.filter { ids.contains($0.id) }, to: enabled)
+        let targets = mods.filter { ids.contains($0.id) && $0.isEnabled != enabled }
+        if !targets.isEmpty {
+            let name = targets.count == 1
+                ? (enabled ? String(localized: "Enable \(targets[0].displayName)") : String(localized: "Disable \(targets[0].displayName)"))
+                : (enabled ? String(localized: "Enable \(targets.count) Mods") : String(localized: "Disable \(targets.count) Mods"))
+            registerEnabledUndo(before: enabledSnapshot, actionName: name)
+        }
+        let failures = toggle(targets, to: enabled)
+        refresh()
+        selection = selection.filter { id in allGroups.contains { $0.id == id } }
+            .union(mods.filter { selectedKeys.contains(Self.stableKey($0)) }.map(\.id))
+        if !failures.isEmpty {
+            show("Couldn't toggle mod", detail: failures.joined(separator: "\n"))
+        }
+    }
+
+    // MARK: Undo
+
+    /// Which mods are enabled, by `stableKey` (survives the renames).
+    var enabledSnapshot: Set<String> {
+        Set(mods.filter(\.isEnabled).map(Self.stableKey))
+    }
+
+    /// Lets ⌘Z put the enabled mods back as they were in `before`, and ⇧⌘Z
+    /// redo it. Uses the key window's undo manager, like the Edit menu.
+    func registerEnabledUndo(before: Set<String>, actionName: String) {
+        guard let undoManager = NSApp.keyWindow?.undoManager ?? NSApp.mainWindow?.undoManager else { return }
+        undoManager.registerUndo(withTarget: self) { model in
+            MainActor.assumeIsolated {
+                let current = model.enabledSnapshot
+                model.registerEnabledUndo(before: current, actionName: actionName)
+                model.restoreEnabled(before)
+            }
+        }
+        undoManager.setActionName(actionName)
+    }
+
+    /// Enables exactly the mods in `snapshot` (by stable key).
+    func restoreEnabled(_ snapshot: Set<String>) {
+        let selectedKeys = Set(mods.filter { selection.contains($0.id) }.map(Self.stableKey))
+        // Disable first, then enable (enabling may rename folders).
+        var failures = toggle(mods.filter { $0.isEnabled && !snapshot.contains(Self.stableKey($0)) }, to: false)
+        failures += toggle(mods.filter { !$0.isEnabled && snapshot.contains(Self.stableKey($0)) }, to: true)
         refresh()
         selection = selection.filter { id in allGroups.contains { $0.id == id } }
             .union(mods.filter { selectedKeys.contains(Self.stableKey($0)) }.map(\.id))

@@ -32,6 +32,7 @@ extension AppModel {
         guard manager != nil else { return }
         let wanted = Set(ids.map { $0.lowercased() })
         let withIDs = mods.filter { !$0.uniqueID.isEmpty }
+        registerEnabledUndo(before: enabledSnapshot, actionName: String(localized: "Apply \(title)"))
         // Disable first, then enable (enabling may rename folders).
         var failures = toggle(withIDs.filter { !wanted.contains($0.uniqueID.lowercased()) }, to: false)
         failures += toggle(withIDs.filter { wanted.contains($0.uniqueID.lowercased()) }, to: true)
