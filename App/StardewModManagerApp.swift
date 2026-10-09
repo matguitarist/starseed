@@ -52,6 +52,9 @@ struct StardewModManagerApp: App {
         }
         .defaultSize(width: 1180, height: 700)
         .commands {
+            CommandGroup(replacing: .appInfo) {
+                Button("About Stardew Mod Manager") { AboutPanel.show() }
+            }
             if appUpdater.isConfigured {
                 CommandGroup(after: .appInfo) {
                     Button("Check for App Updates…") { appUpdater.checkForUpdates() }
@@ -95,5 +98,28 @@ struct StardewModManagerApp: App {
                 .opensWebLinksInApp()  // must be inside .environment(model): it reads the model
                 .environment(model)
         }
+    }
+}
+
+/// The standard About panel, with the icon passed in explicitly (macOS can
+/// show a stale generic icon for a rebuilt app) and a short credit line.
+enum AboutPanel {
+    static func show() {
+        let credits = NSMutableAttributedString(
+            string: String(localized: "Mod updates and info come from SMAPI's web API and Nexus Mods. Not affiliated with ConcernedApe, SMAPI or Nexus Mods."),
+            attributes: [
+                .font: NSFont.systemFont(ofSize: NSFont.smallSystemFontSize),
+                .foregroundColor: NSColor.secondaryLabelColor,
+            ]
+        )
+        let style = NSMutableParagraphStyle()
+        style.alignment = .center
+        credits.addAttribute(.paragraphStyle, value: style, range: NSRange(location: 0, length: credits.length))
+        var options: [NSApplication.AboutPanelOptionKey: Any] = [.credits: credits]
+        if let icon = NSImage(named: "AppIcon") ?? NSImage(named: NSImage.applicationIconName) {
+            options[.applicationIcon] = icon
+        }
+        NSApp.orderFrontStandardAboutPanel(options: options)
+        NSApp.activate()
     }
 }

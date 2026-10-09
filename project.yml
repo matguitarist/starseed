@@ -43,6 +43,8 @@ targets:
       path: App/Info.plist
       properties:
         CFBundleDisplayName: Stardew Mod Manager
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         CFBundleDevelopmentRegion: en
         CFBundleLocalizations: [en, fr]
         LSApplicationCategoryType: public.app-category.games

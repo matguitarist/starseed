@@ -703,6 +703,16 @@
         }
       }
     },
+    "About Stardew Mod Manager" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À propos de Stardew Mod Manager"
+          }
+        }
+      }
+    },
     "Activity" : {
       "localizations" : {
         "fr" : {
@@ -3256,6 +3266,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mise à jour de mod disponible"
+          }
+        }
+      }
+    },
+    "Mod updates and info come from SMAPI's web API and Nexus Mods. Not affiliated with ConcernedApe, SMAPI or Nexus Mods." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les mises à jour et infos des mods viennent de l’API web de SMAPI et de Nexus Mods. Non affilié à ConcernedApe, SMAPI ou Nexus Mods."
           }
         }
       }
