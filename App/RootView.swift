@@ -90,7 +90,12 @@ struct RootView: View {
                 model.pendingTrash = []
             }
         } message: {
-            Text("You can restore it from the Trash in Finder.")
+            let users = model.dependents(of: model.pendingTrash).required.filter(\.isEnabled).map(\.name)
+            if users.isEmpty {
+                Text("You can restore it from the Trash in Finder.")
+            } else {
+                Text("Required by \(users.joined(separator: ", ")), which will stop working. You can restore it from the Trash in Finder.")
+            }
         }
         .alert(
             "Already Installed",

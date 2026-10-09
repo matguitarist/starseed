@@ -94,6 +94,8 @@ struct ModDetailView: View {
                     optionalFilesSection(for: mod, nexusID: nexusID)
                 }
 
+                DependentsSection(targets: [mod])
+
                 previousVersions(for: mod)
 
                 Text(mod.folderURL.path(percentEncoded: false))
@@ -316,6 +318,8 @@ private struct GroupDetailView: View {
 
                 missingRequirements
 
+                DependentsSection(targets: group.mods)
+
                 if let nexusID = group.mods.lazy.compactMap({ model.nexusID(for: $0) }).first {
                     HStack {
                         Text("Nexus").foregroundStyle(.secondary)
@@ -338,6 +342,41 @@ private struct GroupDetailView: View {
             }
             .padding()
             .frame(maxWidth: .infinity, alignment: .leading)
+        }
+    }
+}
+
+/// "Required by" / "Optional for": installed mods that use this one.
+struct DependentsSection: View {
+    @AppModelEnvironment private var model
+    let targets: [ModInfo]
+
+    var body: some View {
+        let dependents = model.dependents(of: targets)
+        if !dependents.isEmpty {
+            VStack(alignment: .leading, spacing: 6) {
+                if !dependents.required.isEmpty {
+                    Text("Required By").font(.headline)
+                    users(dependents.required, icon: "link")
+                }
+                if !dependents.optional.isEmpty {
+                    Text("Optional For").font(.headline)
+                    users(dependents.optional, icon: "link.badge.plus")
+                }
+            }
+            .help("Other installed mods that use this one. Removing or disabling it affects them.")
+        }
+    }
+
+    private func users(_ list: [AppModel.Dependents.User], icon: String) -> some View {
+        ForEach(list, id: \.self) { user in
+            HStack(spacing: 6) {
+                Image(systemName: icon).foregroundStyle(.secondary).frame(width: 16)
+                Text(user.name).foregroundStyle(user.isEnabled ? .primary : .secondary)
+                if !user.isEnabled {
+                    Text("disabled").font(.caption).foregroundStyle(.secondary)
+                }
+            }
         }
     }
 }

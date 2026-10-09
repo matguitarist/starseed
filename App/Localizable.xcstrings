@@ -1665,6 +1665,16 @@
         }
       }
     },
+    "disabled" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "désactivé"
+          }
+        }
+      }
+    },
     "Disabled" : {
       "localizations" : {
         "fr" : {
@@ -3709,6 +3719,26 @@
         }
       }
     },
+    "Optional For" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optionnel pour"
+          }
+        }
+      }
+    },
+    "Other installed mods that use this one. Removing or disabling it affects them." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les autres mods installés qui utilisent celui-ci. Le supprimer ou le désactiver les affecte."
+          }
+        }
+      }
+    },
     "Paste" : {
       "localizations" : {
         "fr" : {
@@ -4025,6 +4055,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "remplacée le %@"
+          }
+        }
+      }
+    },
+    "Required By" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Requis par"
+          }
+        }
+      }
+    },
+    "Required by %@, which will stop working. You can restore it from the Trash in Finder." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Requis par %@, qui cessera de fonctionner. Vous pouvez le restaurer depuis la Corbeille dans le Finder."
           }
         }
       }

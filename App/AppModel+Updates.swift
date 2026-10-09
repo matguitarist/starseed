@@ -149,6 +149,44 @@ extension AppModel {
         allGroups.first { $0.isGroup && $0.mods.contains { $0.id == mod.id } }
     }
 
+    /// Installed mods that use one of `targets`, named as the Installed list
+    /// shows them (a part by its group). Other `targets` and their groups'
+    /// parts don't count: a mod doesn't "use" its own parts.
+    struct Dependents {
+        struct User: Hashable {
+            let name: String
+            let isEnabled: Bool
+        }
+        var required: [User] = []
+        var optional: [User] = []
+        var isEmpty: Bool { required.isEmpty && optional.isEmpty }
+    }
+
+    func dependents(of targets: [ModInfo]) -> Dependents {
+        let ids = Set(targets.map { $0.uniqueID.lowercased() }.filter { !$0.isEmpty })
+        guard !ids.isEmpty else { return Dependents() }
+        var excluded = Set(targets.map(\.id))
+        for target in targets {
+            excluded.formUnion(group(containing: target)?.mods.map(\.id) ?? [])
+        }
+        var required: [String: Bool] = [:]   // name -> any enabled
+        var optional: [String: Bool] = [:]
+        for other in mods where !excluded.contains(other.id) {
+            let name = group(containing: other)?.name ?? other.displayName
+            let needs = other.dependencies.filter(\.isRequired).map { $0.uniqueID.lowercased() } + [other.contentPackFor?.lowercased()].compactMap { $0 }
+            if needs.contains(where: ids.contains) {
+                required[name] = (required[name] ?? false) || other.isEnabled
+            } else if other.dependencies.contains(where: { !$0.isRequired && ids.contains($0.uniqueID.lowercased()) }) {
+                optional[name] = (optional[name] ?? false) || other.isEnabled
+            }
+        }
+        func users(_ map: [String: Bool]) -> [Dependents.User] {
+            map.map { Dependents.User(name: $0.key, isEnabled: $0.value) }
+                .sorted { $0.name.localizedStandardCompare($1.name) == .orderedAscending }
+        }
+        return Dependents(required: users(required), optional: users(optional.filter { required[$0.key] == nil }))
+    }
+
     /// The mods needing a requirement, as the Installed list shows them: a
     /// part of a multi-part mod is named by its group ("East Scarp", not its
     /// internal "East Scarp: Locations"), which avoids looking like a mod to install.

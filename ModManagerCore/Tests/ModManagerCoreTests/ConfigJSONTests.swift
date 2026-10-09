@@ -130,3 +130,20 @@ struct RealUnusedTests {
         }
     }
 }
+
+/// Read-only: which installed mods use a few frameworks. REAL_MODS=/path/to/Mods
+@Suite(.enabled(if: ProcessInfo.processInfo.environment["REAL_MODS"] != nil))
+struct RealDependentsTests {
+    @Test func whoUsesFrameworks() throws {
+        let mods = try ModManager(modsURL: URL(filePath: ProcessInfo.processInfo.environment["REAL_MODS"]!)).scan()
+        let groups = ModGrouping.groups(mods, nexusID: \.nexusModID)
+        func label(_ mod: ModInfo) -> String { groups.first { $0.isGroup && $0.mods.contains { $0.id == mod.id } }?.name ?? mod.displayName }
+        for id in ["spacechase0.SpaceCore", "Pathoschild.ContentPatcher", "Esca.FarmTypeManager"] {
+            let users = Set(mods.filter { m in
+                m.uniqueID.caseInsensitiveCompare(id) != .orderedSame
+                    && (m.contentPackFor?.caseInsensitiveCompare(id) == .orderedSame || m.dependencies.contains { $0.isRequired && $0.uniqueID.caseInsensitiveCompare(id) == .orderedSame })
+            }.map(label)).sorted()
+            print("◇ \(id) required by: \(users.joined(separator: ", "))")
+        }
+    }
+}
