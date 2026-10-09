@@ -372,10 +372,17 @@ struct DependentsSection: View {
         ForEach(list, id: \.self) { user in
             HStack(spacing: 6) {
                 Image(systemName: icon).foregroundStyle(.secondary).frame(width: 16)
-                Text(user.name).foregroundStyle(user.isEnabled ? .primary : .secondary)
+                Button {
+                    model.reveal(rowID: user.rowID)
+                } label: {
+                    Text(user.name).foregroundStyle(user.isEnabled ? Color.accentColor : .secondary)
+                }
+                .buttonStyle(.plain)
+                .help("Show \(user.name) in the list")
                 if !user.isEnabled {
                     Text("disabled").font(.caption).foregroundStyle(.secondary)
                 }
+                if let nexusID = user.nexusID { NexusIDLink(modID: nexusID) }
             }
         }
     }
