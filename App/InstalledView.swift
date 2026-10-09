@@ -127,17 +127,14 @@ struct InstalledView: View {
             .width(min: 160, ideal: 300)
 
             TableColumn("Version", value: \.version, comparator: .localizedStandard) { row in
-                HStack(spacing: 4) {
-                    Text(row.version).monospacedDigit()
-                    if let update = row.mods.lazy.compactMap({ model.update(for: $0) }).first {
-                        Text("→ \(update.version)")
-                            .monospacedDigit()
-                            .foregroundStyle(.orange)
-                            .help("Update available")
-                    }
-                }
+                Text(row.version).monospacedDigit()
             }
-            .width(min: 60, ideal: 110)
+            .width(min: 50, ideal: 80)
+
+            TableColumn("Activity") { row in
+                ActivityCell(mods: row.mods)
+            }
+            .width(min: 110, ideal: 160)
 
             TableColumn("Author", value: \.author, comparator: .localizedStandard)
                 .width(min: 80, ideal: 140)
@@ -146,7 +143,7 @@ struct InstalledView: View {
                 Text(row.statusText).foregroundStyle(row.statusColor)
                     .help(row.statusText)
             }
-            .width(min: 90, ideal: 170)  // room for longer translations ("Dépendance manquante")
+            .width(min: 90, ideal: 140)
         }
         .contextMenu(forSelectionType: String.self) { ids in
             let modIDs = model.modIDs(expanding: ids)
@@ -176,9 +173,6 @@ struct InstalledView: View {
     @ToolbarContentBuilder
     private var toolbar: some ToolbarContent {
         ToolbarItemGroup(placement: .primaryAction) {
-            if model.isInstalling {
-                ProgressView().controlSize(.small)
-            }
             Button {
                 model.presentInstallPanel()
             } label: {

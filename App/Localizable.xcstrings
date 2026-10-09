@@ -174,6 +174,16 @@
         }
       }
     },
+    "%@ available" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ disponible"
+          }
+        }
+      }
+    },
     "%@ collections" : {
       "localizations" : {
         "fr" : {
@@ -338,6 +348,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%lld désactivés"
+          }
+        }
+      }
+    },
+    "%lld download(s) waiting on Nexus: click “Slow download” in the browser" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld téléchargement(s) en attente sur Nexus : cliquez sur « Slow download » dans le navigateur"
           }
         }
       }
@@ -567,6 +587,7 @@
       }
     },
     "→ %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
@@ -662,6 +683,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Un profil retient quels mods sont activés."
+          }
+        }
+      }
+    },
+    "Activity" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activité"
           }
         }
       }
@@ -1088,6 +1119,16 @@
         }
       }
     },
+    "Checking for updates…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recherche des mises à jour…"
+          }
+        }
+      }
+    },
     "Checking for Updates…" : {
       "localizations" : {
         "fr" : {
@@ -1240,6 +1281,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Effacé à %1$@ · %2$lld messages précédents masqués"
+          }
+        }
+      }
+    },
+    "Click “Slow download” on the Nexus page in the browser" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cliquez sur « Slow download » sur la page Nexus dans le navigateur"
           }
         }
       }
@@ -1715,6 +1766,16 @@
         }
       }
     },
+    "Download and install version %@ from Nexus" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Télécharger et installer la version %@ depuis Nexus"
+          }
+        }
+      }
+    },
     "Download Failed" : {
       "localizations" : {
         "fr" : {
@@ -1771,6 +1832,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Téléchargement de %@…"
+          }
+        }
+      }
+    },
+    "Downloading %lld mod(s)…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Téléchargement de %lld mod(s)…"
           }
         }
       }
@@ -2052,6 +2123,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Trouver les mods manquants"
+          }
+        }
+      }
+    },
+    "Finding file…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recherche du fichier…"
+          }
+        }
+      }
+    },
+    "Finding files on Nexus…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recherche des fichiers sur Nexus…"
           }
         }
       }
@@ -2607,6 +2698,16 @@
         }
       }
     },
+    "Language" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Langue"
+          }
+        }
+      }
+    },
     "Last checked %@." : {
       "localizations" : {
         "fr" : {
@@ -2743,6 +2844,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Recherche des noms sur Nexus…"
+          }
+        }
+      }
+    },
+    "Looking up requirements…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recherche des prérequis…"
           }
         }
       }
@@ -4109,6 +4220,16 @@
         }
       }
     },
+    "Restart Now" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Redémarrer"
+          }
+        }
+      }
+    },
     "Restore" : {
       "localizations" : {
         "fr" : {
@@ -4833,6 +4954,16 @@
         }
       }
     },
+    "Starting %lld download(s)…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Démarrage de %lld téléchargement(s)…"
+          }
+        }
+      }
+    },
     "Status" : {
       "localizations" : {
         "fr" : {
@@ -4859,6 +4990,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Passer aux mods de cette sauvegarde, puis lancer le jeu. Choisissez ensuite la ferme %@ dans « Charger »."
+          }
+        }
+      }
+    },
+    "System (%@)" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Système (%@)"
           }
         }
       }
@@ -4931,6 +5072,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Le jeu écraserait la sauvegarde restaurée lors de son prochain enregistrement. Quittez le jeu, puis restaurez."
+          }
+        }
+      }
+    },
+    "The new language applies after a restart." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La nouvelle langue s’applique après un redémarrage."
           }
         }
       }
@@ -5031,6 +5182,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cette sauvegarde utilise des mods que vous n’avez pas"
+          }
+        }
+      }
+    },
+    "This update isn't on Nexus: open its page" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cette mise à jour n’est pas sur Nexus : ouvrir sa page"
           }
         }
       }
@@ -5137,6 +5298,7 @@
       }
     },
     "Update available" : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
@@ -5303,6 +5465,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Voir sur Nexus Mods"
+          }
+        }
+      }
+    },
+    "Wait for downloads and checks to finish" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Attendez la fin des téléchargements et des vérifications"
+          }
+        }
+      }
+    },
+    "Waiting on Nexus" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En attente sur Nexus"
           }
         }
       }

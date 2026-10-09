@@ -16,11 +16,14 @@ final class DownloadItem: Identifiable {
 
     let id = UUID()
     var title: String
+    /// The Nexus mod being downloaded, to show progress on its row.
+    let modID: Int?
     var progress = 0.0
     var state = State.waiting
 
-    init(title: String) {
+    init(title: String, modID: Int? = nil) {
         self.title = title
+        self.modID = modID
     }
 
     var isFinished: Bool {
@@ -64,6 +67,7 @@ struct BrowserQueueItem: Identifiable, Equatable {
     let id = UUID()
     let title: String
     let url: URL
+    var modID: Int? = nil
 }
 
 struct DownloadRow: View {

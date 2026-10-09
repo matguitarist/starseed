@@ -83,7 +83,9 @@ private struct UpdateRow: View {
                 .foregroundStyle(.secondary)
             }
             Spacer()
-            if let nexusID = model.nexusID(for: mod) {
+            if model.activity(for: [mod]) != nil {
+                ActivityCell(mods: [mod]).frame(width: 180)
+            } else if let nexusID = model.nexusID(for: mod) {
                 Button("Files…") { model.nexusSheet = NexusSheetRequest(modID: nexusID) }
                     .help("Choose a specific file on Nexus")
                 Button("Update") {

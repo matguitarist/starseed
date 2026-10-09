@@ -19,9 +19,30 @@ private struct GeneralSettings: View {
     @AppStorage(Preferences.autoCheckUpdates) private var autoCheckUpdates = true
     @AppStorage(Preferences.notifyUpdates) private var notifyUpdates = true
     @AppStorage(Preferences.showMenuBarIcon) private var showMenuBarIcon = false
+    @State private var language = AppLanguage.current
 
     var body: some View {
         Form {
+            Section("Language") {
+                Picker("Language", selection: $language) {
+                    Text("System (\(AppLanguage.systemName))").tag(AppLanguage.system)
+                    // Language names stay in their own language.
+                    Text(verbatim: "English").tag(AppLanguage.english)
+                    Text(verbatim: "Français").tag(AppLanguage.french)
+                }
+                .onChange(of: language) { _, new in new.apply() }
+                if language != AppLanguage.atLaunch {
+                    HStack {
+                        Text("The new language applies after a restart.")
+                            .font(.callout)
+                            .foregroundStyle(.secondary)
+                        Spacer()
+                        Button("Restart Now") { AppLanguage.relaunch() }
+                            .disabled(model.activityStatus != nil)
+                            .help(model.activityStatus != nil ? "Wait for downloads and checks to finish" : "")
+                    }
+                }
+            }
             Section("Updates") {
                 Toggle("Check for mod updates every few hours", isOn: $autoCheckUpdates)
                 Toggle("Notify me about new updates", isOn: $notifyUpdates)
@@ -194,5 +215,45 @@ private struct NexusSettings: View {
             model.show("Couldn’t Change Default App", detail: error.localizedDescription)
         }
         refreshHandlerStatus()
+    }
+}
+
+/// The app's own language, independent of macOS's. Stored as the app's
+/// AppleLanguages default, which macOS reads at launch.
+enum AppLanguage: String, Hashable {
+    case system, english = "en", french = "fr"
+
+    private static let key = "AppleLanguages"
+
+    static var current: AppLanguage {
+        let domain = UserDefaults.standard.persistentDomain(forName: Bundle.main.bundleIdentifier ?? "")
+        guard let code = (domain?[key] as? [String])?.first else { return .system }
+        return AppLanguage(rawValue: String(code.prefix(2))) ?? .system
+    }
+
+    /// What this run of the app uses (the setting can change after launch).
+    static let atLaunch = current
+
+    /// The language macOS would pick for the app, by name ("Français").
+    static var systemName: String {
+        let global = UserDefaults(suiteName: UserDefaults.globalDomain)?.stringArray(forKey: key) ?? Locale.preferredLanguages
+        let code = Bundle.preferredLocalizations(from: ["en", "fr"], forPreferences: global).first ?? "en"
+        return Locale(identifier: code).localizedString(forLanguageCode: code)?.capitalized ?? code
+    }
+
+    func apply() {
+        if self == .system {
+            UserDefaults.standard.removeObject(forKey: Self.key)
+        } else {
+            UserDefaults.standard.set([rawValue], forKey: Self.key)
+        }
+    }
+
+    static func relaunch() {
+        let configuration = NSWorkspace.OpenConfiguration()
+        configuration.createsNewApplicationInstance = true
+        NSWorkspace.shared.openApplication(at: Bundle.main.bundleURL, configuration: configuration) { _, _ in
+            DispatchQueue.main.async { NSApp.terminate(nil) }
+        }
     }
 }

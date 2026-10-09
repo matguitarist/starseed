@@ -155,7 +155,7 @@ extension AppModel {
             return
         }
 
-        let item = DownloadItem(title: title)
+        let item = DownloadItem(title: title, modID: modID)
         downloads.insert(item, at: 0)
         let client = nexusClient
 
@@ -200,10 +200,14 @@ extension AppModel {
         let client = nexusClient
         let isPremium = nexusAccount.user?.isPremium == true
 
+        let ids = Set(requests.map(\.modID))
+        preparingNexusIDs.formUnion(ids)
         Task {
+            defer { preparingNexusIDs.subtract(ids) }
             var pages: [BrowserQueueItem] = []
             var failures: [String] = []
             for request in requests {
+                defer { preparingNexusIDs.remove(request.modID) }
                 do {
                     let fileID: Int
                     if let pinned = request.fileID {
@@ -219,7 +223,8 @@ extension AppModel {
                     } else {
                         pages.append(BrowserQueueItem(
                             title: request.title,
-                            url: NexusClient.modManagerDownloadPageURL(modID: request.modID, fileID: fileID)
+                            url: NexusClient.modManagerDownloadPageURL(modID: request.modID, fileID: fileID),
+                            modID: request.modID
                         ))
                     }
                 } catch {

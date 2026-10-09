@@ -34,6 +34,11 @@ struct RootView: View {
                 }
             }
         }
+        .safeAreaInset(edge: .bottom, spacing: 0) {
+            // Every page shows what's running (downloads, update checks...).
+            ActivityStatusBar()
+                .animation(.default, value: model.activityStatus?.text)
+        }
         .sheet(item: $model.nexusSheet) { request in
             NexusModSheet(request: request)
                 .opensWebLinksInApp()
