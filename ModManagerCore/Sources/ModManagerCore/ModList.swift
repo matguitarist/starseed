@@ -25,6 +25,7 @@ public struct ModListEntry: Codable, Hashable, Identifiable, Sendable {
 }
 
 public struct ModList: Codable, Hashable, Identifiable, Sendable {
+    // Kept from the app's former name so older exports still import.
     public static let formatName = "stardew-mod-manager/mod-list"
 
     public var format = ModList.formatName
@@ -77,7 +78,7 @@ public struct ModList: Codable, Hashable, Identifiable, Sendable {
         decoder.dateDecodingStrategy = .iso8601
         let list = try decoder.decode(ModList.self, from: data)
         guard list.format == formatName else {
-            throw ModManagerError("This file isn't a Stardew Mod Manager mod list.")
+            throw ModManagerError("This file isn't a Starseed mod list.")
         }
         return list
     }

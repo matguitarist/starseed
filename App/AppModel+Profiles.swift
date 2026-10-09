@@ -113,7 +113,7 @@ extension AppModel {
     func importModList() -> ModList? {
         let panel = NSOpenPanel()
         panel.allowedContentTypes = [.json]
-        panel.message = String(localized: "Choose a mod list exported from Stardew Mod Manager")
+        panel.message = String(localized: "Choose a mod list exported from Starseed")
         guard panel.runModal() == .OK, let url = panel.url else { return nil }
         do {
             var list = try ModList.decode(from: Data(contentsOf: url))

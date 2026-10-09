@@ -280,11 +280,22 @@
       }
     },
     "This file isn't a Stardew Mod Manager mod list." : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ce fichier n’est pas une liste de mods Stardew Mod Manager."
+          }
+        }
+      }
+    },
+    "This file isn't a Starseed mod list." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce fichier n’est pas une liste de mods Starseed."
           }
         }
       }

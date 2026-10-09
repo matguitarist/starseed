@@ -61,7 +61,7 @@ private struct GeneralSettings: View {
             }
             if AppUpdater.shared.isConfigured {
                 Section("App Updates") {
-                    Toggle("Check for new versions of Stardew Mod Manager", isOn: Binding(
+                    Toggle("Check for new versions of Starseed", isOn: Binding(
                         get: { AppUpdater.shared.automaticallyChecks },
                         set: { AppUpdater.shared.automaticallyChecks = $0 }
                     ))

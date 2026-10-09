@@ -1,4 +1,6 @@
-# Stardew Mod Manager
+# Starseed
+
+*A mod manager for Stardew Valley on macOS.* (Formerly "Stardew Mod Manager".)
 
 A native macOS (SwiftUI) mod manager for SMAPI mods, built because the
 official Nexus Mods app doesn't support macOS. Browse and install mods
@@ -154,8 +156,8 @@ Open `StardewModManager.xcodeproj` in Xcode and press ⌘R, or ⌘U to run the
 tests. From the terminal:
 
 ```bash
-./build_app.sh                          # -> dist/Stardew Mod Manager.app
-open "dist/Stardew Mod Manager.app"     # or drag it into /Applications
+./build_app.sh                          # -> dist/Starseed.app
+open "dist/Starseed.app"     # or drag it into /Applications
 ```
 
 The project file is generated from `project.yml` with
@@ -246,7 +248,7 @@ game, and in the same format as the old Python version.
 
 The app updates itself with [Sparkle](https://sparkle-project.org). It stays
 off until `SUFeedURL` and `SUPublicEDKey` are set in `project.yml`; then
-**Stardew Mod Manager → Check for App Updates…** and a Settings toggle appear.
+**Starseed → Check for App Updates…** and a Settings toggle appear.
 
 One-time setup:
 
@@ -269,7 +271,7 @@ Each release:
 3. Zip it and generate the appcast:
    ```bash
    mkdir -p releases
-   ditto -c -k --keepParent "dist/Stardew Mod Manager.app" "releases/StardewModManager-2.2.zip"
+   ditto -c -k --keepParent "dist/Starseed.app" "releases/Starseed-2.2.zip"
    ~/Library/Caches/StardewModManager/DerivedData/SourcePackages/artifacts/sparkle/Sparkle/bin/generate_appcast releases
    ```
 4. Upload the zip and `releases/appcast.xml` to the places from step 2.

@@ -42,7 +42,7 @@ targets:
     info:
       path: App/Info.plist
       properties:
-        CFBundleDisplayName: Stardew Mod Manager
+        CFBundleDisplayName: Starseed
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         CFBundleDevelopmentRegion: en
@@ -67,7 +67,7 @@ targets:
             LSItemContentTypes: [public.zip-archive, org.7-zip.7-zip-archive, com.rarlab.rar-archive]
     settings:
       base:
-        PRODUCT_NAME: Stardew Mod Manager
+        PRODUCT_NAME: Starseed
         PRODUCT_BUNDLE_IDENTIFIER: local.stardew-mod-manager
         PRODUCT_MODULE_NAME: StardewModManager
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon

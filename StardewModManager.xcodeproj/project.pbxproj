@@ -60,7 +60,7 @@
 		36BD33902DFD3EF0DAE6802F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		3751918581379943B9AB023D /* AppModel+Nexus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModel+Nexus.swift"; sourceTree = "<group>"; };
 		3A7745432F262C11C31A9634 /* StardewModManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StardewModManager.entitlements; sourceTree = "<group>"; };
-		466DFE1F2D8B06DF05695D18 /* StardewModManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = StardewModManager.app; path = "Stardew Mod Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		466DFE1F2D8B06DF05695D18 /* StardewModManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = StardewModManager.app; path = Starseed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48197B7BBE7EE15AB71D5108 /* UpdatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesView.swift; sourceTree = "<group>"; };
 		5B138698F0E21A1D71717833 /* ChangelogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangelogView.swift; sourceTree = "<group>"; };
 		5CEAACA199435D4A4282751F /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -310,7 +310,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "local.stardew-mod-manager";
 				PRODUCT_MODULE_NAME = StardewModManager;
-				PRODUCT_NAME = "Stardew Mod Manager";
+				PRODUCT_NAME = Starseed;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -460,7 +460,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "local.stardew-mod-manager";
 				PRODUCT_MODULE_NAME = StardewModManager;
-				PRODUCT_NAME = "Stardew Mod Manager";
+				PRODUCT_NAME = Starseed;
 				SDKROOT = macosx;
 			};
 			name = Debug;

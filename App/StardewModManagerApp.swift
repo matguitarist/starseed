@@ -35,7 +35,7 @@ struct StardewModManagerApp: App {
     @AppStorage(Preferences.showMenuBarIcon) private var showMenuBarIcon = false
 
     var body: some Scene {
-        Window("Stardew Mod Manager", id: "main") {
+        Window("Starseed", id: "main") {
             RootView()
                 .environment(model)
                 .frame(minWidth: 900, minHeight: 500)
@@ -53,7 +53,7 @@ struct StardewModManagerApp: App {
         .defaultSize(width: 1180, height: 700)
         .commands {
             CommandGroup(replacing: .appInfo) {
-                Button("About Stardew Mod Manager") { AboutPanel.show() }
+                Button("About Starseed") { AboutPanel.show() }
             }
             if appUpdater.isConfigured {
                 CommandGroup(after: .appInfo) {
@@ -88,7 +88,7 @@ struct StardewModManagerApp: App {
         }
         .defaultSize(width: 1180, height: 820)
 
-        MenuBarExtra("Stardew Mod Manager", systemImage: "leaf.fill", isInserted: $showMenuBarIcon) {
+        MenuBarExtra("Starseed", systemImage: "leaf.fill", isInserted: $showMenuBarIcon) {
             MenuBarContent()
                 .environment(model)
         }
@@ -106,7 +106,7 @@ struct StardewModManagerApp: App {
 enum AboutPanel {
     static func show() {
         let credits = NSMutableAttributedString(
-            string: String(localized: "Mod updates and info come from SMAPI's web API and Nexus Mods. Not affiliated with ConcernedApe, SMAPI or Nexus Mods."),
+            string: String(localized: "Mod manager for Stardew Valley.") + "\n\n" + String(localized: "Mod updates and info come from SMAPI's web API and Nexus Mods. Not affiliated with ConcernedApe, SMAPI or Nexus Mods."),
             attributes: [
                 .font: NSFont.systemFont(ofSize: NSFont.smallSystemFontSize),
                 .foregroundColor: NSColor.secondaryLabelColor,

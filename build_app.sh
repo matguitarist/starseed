@@ -1,5 +1,5 @@
 #!/bin/zsh
-# Builds a Release "dist/Stardew Mod Manager.app" with Xcode.
+# Builds a Release "dist/Starseed.app" with Xcode.
 #
 # Build products go to ~/Library/Caches (not next to the sources): this
 # folder may sync with iCloud Drive, whose extended attributes make
@@ -26,7 +26,7 @@ DERIVED="$HOME/Library/Caches/StardewModManager/DerivedData"
 xcodebuild -project StardewModManager.xcodeproj -scheme StardewModManager "${SIGNING[@]}" \
     -configuration Release -destination "generic/platform=macOS" -derivedDataPath "$DERIVED" build | grep -E "error:|BUILD" || true
 
-APP_NAME="Stardew Mod Manager.app"
+APP_NAME="Starseed.app"
 BUILT="$DERIVED/Build/Products/Release/$APP_NAME"
 [[ -d "$BUILT" ]] || { echo "Build failed"; exit 1; }
 

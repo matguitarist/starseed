@@ -29,7 +29,7 @@ enum Keychain {
         deleteNexusAPIKey()
         var item = baseQuery
         item[kSecValueData as String] = Data(key.utf8)
-        item[kSecAttrLabel as String] = "Stardew Mod Manager – Nexus Mods API key"
+        item[kSecAttrLabel as String] = "Starseed – Nexus Mods API key"
         let status = SecItemAdd(item as CFDictionary, nil)
         guard status == errSecSuccess else {
             throw NSError(domain: NSOSStatusErrorDomain, code: Int(status), userInfo: [

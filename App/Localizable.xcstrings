@@ -704,11 +704,22 @@
       }
     },
     "About Stardew Mod Manager" : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "À propos de Stardew Mod Manager"
+          }
+        }
+      }
+    },
+    "About Starseed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À propos de Starseed"
           }
         }
       }
@@ -1176,11 +1187,22 @@
       }
     },
     "Check for new versions of Stardew Mod Manager" : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rechercher les nouvelles versions de Stardew Mod Manager"
+          }
+        }
+      }
+    },
+    "Check for new versions of Starseed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher les nouvelles versions de Starseed"
           }
         }
       }
@@ -1312,11 +1334,22 @@
       }
     },
     "Choose a mod list exported from Stardew Mod Manager" : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Choisissez une liste de mods exportée depuis Stardew Mod Manager"
+          }
+        }
+      }
+    },
+    "Choose a mod list exported from Starseed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisissez une liste de mods exportée depuis Starseed"
           }
         }
       }
@@ -3250,6 +3283,16 @@
         }
       }
     },
+    "Mod manager for Stardew Valley." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gestionnaire de mods pour Stardew Valley."
+          }
+        }
+      }
+    },
     "Mod Settings…" : {
       "localizations" : {
         "fr" : {
@@ -3993,11 +4036,22 @@
       }
     },
     "Open Stardew Mod Manager" : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ouvrir Stardew Mod Manager"
+          }
+        }
+      }
+    },
+    "Open Starseed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir Starseed"
           }
         }
       }
@@ -5243,6 +5297,7 @@
       }
     },
     "Stardew Mod Manager" : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
@@ -5308,6 +5363,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Stardew Valley sur Nexus"
+          }
+        }
+      }
+    },
+    "Starseed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed"
           }
         }
       }

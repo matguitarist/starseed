@@ -358,9 +358,9 @@ public struct NexusClient: Sendable {
 
     /// Identifies this app to Nexus, as the API policy asks.
     private func addAppHeaders(to request: inout URLRequest) {
-        request.setValue("Stardew Mod Manager for macOS", forHTTPHeaderField: "Application-Name")
+        request.setValue("Starseed (Stardew Valley mod manager for macOS)", forHTTPHeaderField: "Application-Name")
         request.setValue(appVersion, forHTTPHeaderField: "Application-Version")
-        request.setValue("StardewModManager-macOS/\(appVersion)", forHTTPHeaderField: "User-Agent")
+        request.setValue("Starseed-macOS/\(appVersion)", forHTTPHeaderField: "User-Agent")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         if let apiKey { request.setValue(apiKey, forHTTPHeaderField: "apikey") }
     }

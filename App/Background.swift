@@ -83,7 +83,7 @@ struct MenuBarContent: View {
         }
         .disabled(model.isCheckingUpdates)
         Divider()
-        Button("Open Stardew Mod Manager") { showMainWindow() }
+        Button("Open Starseed") { showMainWindow() }
         Button("Quit") { NSApp.terminate(nil) }
             .keyboardShortcut("q")
     }
