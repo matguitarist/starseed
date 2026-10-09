@@ -3,12 +3,12 @@
     <channel>
         <title>Starseed</title>
         <item>
-            <title>2.1</title>
-            <pubDate>Fri, 09 Oct 2026 17:36:53 -0400</pubDate>
-            <sparkle:version>1</sparkle:version>
-            <sparkle:shortVersionString>2.1</sparkle:shortVersionString>
+            <title>2.1.1</title>
+            <pubDate>Fri, 09 Oct 2026 18:11:10 -0400</pubDate>
+            <sparkle:version>2</sparkle:version>
+            <sparkle:shortVersionString>2.1.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/matguitarist/starseed/releases/download/v2.1/Starseed-2.1.zip" length="5714207" type="application/octet-stream" sparkle:edSignature="OVV3KktIVY1CQR92Ia6r9kShQwVWDBEq6Kw04aEVkTvOkohJgnM7R7OXYvI0aclvziXUUR+H2iktCxu5Est6Ag=="/>
+            <enclosure url="https://github.com/matguitarist/starseed/releases/download/v2.1.1/Starseed-2.1.1.zip" length="5714209" type="application/octet-stream" sparkle:edSignature="pYOX77sQMfVdWSZ4QuG+fKlTxT9LFH0YtWc+Bi8v8bdR1aShLF3rHstkiKPB1cZGZt2mZ5mrfutgUXc1jWV2Dg=="/>
         </item>
     </channel>
 </rss>
