@@ -77,10 +77,11 @@ public struct ModInfo: Identifiable, Hashable, Sendable {
     /// UpdateKeys often look like "Nexus:2400" or "Nexus:2400@1.2.0".
     public var nexusModID: Int? {
         for key in updateKeys {
-            let trimmed = key.trimmingCharacters(in: .whitespaces)
-            if let match = trimmed.prefixMatch(of: /nexus\s*:\s*(\d+)/.ignoresCase()) {
-                return Int(match.1)
-            }
+            // "Nexus:2400@1.2.0" -> 2400 (plain parsing: called very often).
+            let parts = key.split(separator: ":", maxSplits: 1)
+            guard parts.count == 2, parts[0].trimmingCharacters(in: .whitespaces).lowercased() == "nexus" else { continue }
+            let digits = parts[1].drop { $0 == " " }.prefix { $0.isASCII && $0.isNumber }
+            if let id = Int(digits) { return id }
         }
         return nil
     }

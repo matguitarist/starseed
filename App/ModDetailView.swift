@@ -2,7 +2,7 @@ import ModManagerCore
 import SwiftUI
 
 struct ModDetailView: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     @State private var editingConfig: ModInfo?
 
     var body: some View {
@@ -241,7 +241,7 @@ struct ModDetailView: View {
 
 /// Details for a group of parts (a multi-folder mod, or a folder in Mods).
 private struct GroupDetailView: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     let group: ModGroup
 
     var body: some View {

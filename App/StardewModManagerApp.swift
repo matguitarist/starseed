@@ -30,7 +30,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
 @main
 struct StardewModManagerApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
-    @State private var model = AppModel()
+    @State private var model = AppModel.shared
     @AppStorage(Preferences.showMenuBarIcon) private var showMenuBarIcon = false
 
     var body: some Scene {

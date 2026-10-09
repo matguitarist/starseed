@@ -100,6 +100,21 @@ import Testing
         #expect(groups.contains { !$0.isFolder && $0.mods.count == 2 })
     }
 
+    @Test func groupsSameAuthorFamiliesButNotLookalikes() {
+        let mods = [
+            mod("East Scarp Core", id: "Lemurkat.EastScarp"),
+            mod("East Scarp NPCs", id: "Lemurkat.EastScarpNPCs"),
+            mod("East Scarp FTM", id: "Lemurkat.EastScarpe.FTM"),
+            mod("East Scarp C#", id: "Lemurkat.EastScarpCode"),
+            mod("ContentPatcher", id: "Pathoschild.ContentPatcher"),
+            mod("Content Patcher Animations", id: "spacechase0.ContentPatcherAnimations"),
+            mod("Automate", id: "Pathoschild.Automate"),
+        ]
+        let groups = ModGrouping.groups(mods, nexusID: { _ in nil })
+        #expect(groups.first { $0.mods.count == 4 }?.mods.allSatisfy { $0.uniqueID.hasPrefix("Lemurkat") } == true)
+        #expect(groups.filter { $0.mods.count == 1 }.count == 3)  // CP, CP Animations, Automate stay apart
+    }
+
     @Test func stripsFrameworkTags() {
         #expect(ModGrouping.strippedName("[CP] Stardew Valley Expanded") == "Stardew Valley Expanded")
         #expect(ModGrouping.strippedName("Stardew Valley Expanded Code") == "Stardew Valley Expanded")

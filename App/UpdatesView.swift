@@ -3,7 +3,7 @@ import SwiftUI
 
 /// Installed mods that have a newer version, according to SMAPI's update API.
 struct UpdatesView: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
 
     var body: some View {
         Group {
@@ -62,7 +62,7 @@ struct UpdatesView: View {
 }
 
 private struct UpdateRow: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     let mod: ModInfo
     let update: ModUpdate
 

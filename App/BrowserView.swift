@@ -9,7 +9,7 @@ import SwiftUI
 import WebKit
 
 struct BrowserView: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     @State private var browser = BrowserController()
 
     var body: some View {

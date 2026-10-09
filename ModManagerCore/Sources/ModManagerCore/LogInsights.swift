@@ -49,7 +49,7 @@ extension SMAPILog {
             let message = entry.message
 
             // "   - Better Crafting 1.2.0 because it requires mods which aren't installed (leclair.Common)."
-            if entry.source == "SMAPI", entry.level >= .warn,
+            if entry.source == "SMAPI", entry.level >= .warn, message.contains(" because "),
                let match = message.firstMatch(of: /^\s*-\s+(.+?)\s+because\s+(.+?)\.?\s*$/) {
                 let name = Self.stripVersion(String(match.1))
                 let reason = String(match.2)
@@ -65,7 +65,7 @@ extension SMAPILog {
             }
 
             // "You can update SMAPI to 4.6.0: https://smapi.io"
-            if let match = message.firstMatch(of: /^You can update SMAPI to (\S+?):?\s+(https?:\/\/\S+)/) {
+            if message.hasPrefix("You can update SMAPI"), let match = message.firstMatch(of: /^You can update SMAPI to (\S+?):?\s+(https?:\/\/\S+)/) {
                 smapiUpdate = LogInsight(kind: .smapiUpdate(version: String(match.1), url: URL(string: String(match.2))), level: entry.level)
                 continue
             }
@@ -87,7 +87,7 @@ extension SMAPILog {
             if entry.level >= .error, entry.source != "SMAPI", entry.source != "game" {
                 var current = errorsBySource[entry.source] ?? (0, [])
                 current.count += 1
-                if let event = message.firstMatch(of: /failed in the (\S+?) event/), !current.events.contains(String(event.1)) {
+                if message.contains("failed in the"), let event = message.firstMatch(of: /failed in the (\S+?) event/), !current.events.contains(String(event.1)) {
                     current.events.append(String(event.1))
                 }
                 errorsBySource[entry.source] = current

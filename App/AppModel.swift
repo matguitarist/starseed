@@ -9,6 +9,9 @@ import UniformTypeIdentifiers
 @MainActor
 @Observable
 final class AppModel {
+    /// The one model for the whole app (see `AppModelEnvironment`).
+    static let shared = AppModel()
+
     struct UserMessage: Identifiable {
         let id = UUID()
         let title: String
@@ -39,7 +42,9 @@ final class AppModel {
 
     private let store = ConfigStore()
     private(set) var manager: ModManager?
-    private(set) var mods: [ModInfo] = []
+    private(set) var mods: [ModInfo] = [] {
+        didSet { recomputeDerived() }
+    }
     private(set) var profiles: [String: [String]] = [:]
     private var pendingInstalls = 0
     private var installQueue: Task<Void, Never>?
@@ -52,10 +57,14 @@ final class AppModel {
     var nexusClient: NexusClient { NexusClient(apiKey: nexusAPIKey, appVersion: Self.appVersion) }
 
     /// Available updates keyed by lowercased UniqueID (see `update(for:)`).
-    private(set) var updates: [String: ModUpdate] = [:]
+    private(set) var updates: [String: ModUpdate] = [:] {
+        didSet { recomputeDerived() }
+    }
     /// What SMAPI's database knows about installed mods and missing
     /// dependencies (names, Nexus IDs), keyed by lowercased UniqueID.
-    private(set) var smapiRecords: [String: SMAPIModRecord] = [:]
+    private(set) var smapiRecords: [String: SMAPIModRecord] = [:] {
+        didSet { recomputeDerived() }
+    }
     /// Set after an install leaves mods with missing requirements.
     var requirementsPrompt: [MissingDependency]?
     private(set) var isCheckingUpdates = false
@@ -114,8 +123,18 @@ final class AppModel {
         return mods.first { selection.contains($0.id) }
     }
 
-    var enabledIDs: Set<String> {
-        Set(mods.filter { $0.isEnabled && !$0.uniqueID.isEmpty }.map { $0.uniqueID.lowercased() })
+    // Derived from `mods` (and update data), stored rather than computed:
+    // views read these many times per redraw. See `recomputeDerived()`.
+    private(set) var enabledIDs: Set<String> = []
+    private(set) var allGroups: [ModGroup] = []
+    private(set) var missingDependencies: [MissingDependency] = []
+    private(set) var duplicateGroups: [[ModInfo]] = []
+
+    private func recomputeDerived() {
+        enabledIDs = Set(mods.filter { $0.isEnabled && !$0.uniqueID.isEmpty }.map { $0.uniqueID.lowercased() })
+        allGroups = ModGrouping.groups(mods) { self.nexusID(for: $0) }
+        missingDependencies = MissingDependency.find(in: mods)
+        duplicateGroups = ModManager.duplicateGroups(in: mods)
     }
 
     var summary: String {
@@ -181,16 +200,18 @@ final class AppModel {
 
     func refresh() {
         guard let manager else { return }
+        var scanned: [ModInfo]
         do {
-            mods = try manager.scan()
+            scanned = try manager.scan()
         } catch {
-            mods = []
+            scanned = []
             show("Couldn't read Mods folder", error.localizedDescription)
         }
+        markModsNeedingNewerSMAPI(in: &scanned)
+        mods = scanned  // one assignment: one recompute of derived data
         // Keep selected groups too (their IDs aren't mod IDs).
         let ids = Set(mods.map(\.id)).union(allGroups.map(\.id))
         selection.formIntersection(ids)
-        markModsNeedingNewerSMAPI()
     }
 
     // MARK: SMAPI
@@ -199,7 +220,9 @@ final class AppModel {
     func detectSMAPI() {
         guard let manager else { return }
         smapi = SMAPIInstallation.detect(modsURL: manager.modsURL, bundledMods: mods)
-        markModsNeedingNewerSMAPI()
+        var updated = mods
+        markModsNeedingNewerSMAPI(in: &updated)
+        mods = updated
     }
 
     var isSMAPIOutdated: Bool {
@@ -211,11 +234,11 @@ final class AppModel {
         mods.filter { $0.needsNewerSMAPI && $0.isEnabled }
     }
 
-    private func markModsNeedingNewerSMAPI() {
+    private func markModsNeedingNewerSMAPI(in list: inout [ModInfo]) {
         let installed = smapi?.version
-        for index in mods.indices {
-            let required = mods[index].minimumApiVersion.flatMap(SemanticVersion.init)
-            mods[index].needsNewerSMAPI = if let required, let installed { installed < required } else { false }
+        for index in list.indices {
+            let required = list[index].minimumApiVersion.flatMap(SemanticVersion.init)
+            list[index].needsNewerSMAPI = if let required, let installed { installed < required } else { false }
         }
     }
 
@@ -456,13 +479,15 @@ final class AppModel {
 
     let modArchive = ModArchive()
 
-    /// Visible mods grouped: multi-part mods (and folders inside Mods) become one entry.
+    /// Groups with members matching the filter (whole groups when not filtering).
     var visibleGroups: [ModGroup] {
-        ModGrouping.groups(visibleMods) { self.nexusID(for: $0) }
-    }
-
-    var allGroups: [ModGroup] {
-        ModGrouping.groups(mods) { self.nexusID(for: $0) }
+        let query = searchText.trimmingCharacters(in: .whitespaces)
+        guard !query.isEmpty else { return allGroups }
+        return allGroups.compactMap { group in
+            let matching = group.mods.filter { "\($0.name) \($0.author) \($0.uniqueID)".localizedCaseInsensitiveContains(query) }
+            guard !matching.isEmpty else { return nil }
+            return ModGroup(id: group.id, name: group.name, mods: matching, isFolder: group.isFolder)
+        }
     }
 
     /// Mod IDs for a selection that may include group rows.
@@ -477,10 +502,6 @@ final class AppModel {
     var selectedGroup: ModGroup? {
         guard selection.count == 1, let id = selection.first else { return nil }
         return allGroups.first { $0.id == id && $0.isGroup }
-    }
-
-    var duplicateGroups: [[ModInfo]] {
-        ModManager.duplicateGroups(in: mods)
     }
 
     /// Keeps the newest copy of each duplicated mod and trashes the others.
@@ -567,10 +588,6 @@ final class AppModel {
     }
 
     // MARK: Dependencies
-
-    var missingDependencies: [MissingDependency] {
-        MissingDependency.find(in: mods)
-    }
 
     func record(forDependency uniqueID: String) -> SMAPIModRecord? {
         smapiRecords[uniqueID.lowercased()]

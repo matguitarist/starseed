@@ -15,7 +15,7 @@ struct SettingsView: View {
 }
 
 private struct GeneralSettings: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     @AppStorage(Preferences.autoCheckUpdates) private var autoCheckUpdates = true
     @AppStorage(Preferences.notifyUpdates) private var notifyUpdates = true
     @AppStorage(Preferences.showMenuBarIcon) private var showMenuBarIcon = false
@@ -61,7 +61,7 @@ private struct GeneralSettings: View {
 }
 
 private struct NexusSettings: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     @State private var keyDraft = ""
     @State private var revealKey = false
     @State private var isDefaultHandler = false

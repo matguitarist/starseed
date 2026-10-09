@@ -3,7 +3,7 @@ import SwiftUI
 
 /// A Nexus mod's details and files, with install/download actions.
 struct NexusModSheet: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     @Environment(\.dismiss) private var dismiss
     @Environment(\.openURL) private var openURL
 

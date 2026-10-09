@@ -4,7 +4,7 @@ import SwiftUI
 /// Saved lists of mods: snapshot what's installed, export/import as .json,
 /// install what's missing from Nexus, or switch to exactly that set.
 struct MyCollectionsView: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     @State private var selection: String?
     @State private var isNaming = false
     @State private var newName = ""
@@ -87,7 +87,7 @@ struct MyCollectionsView: View {
 }
 
 private struct ModListDetail: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     let list: ModList
     let onDelete: () -> Void
 

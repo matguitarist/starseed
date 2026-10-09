@@ -31,7 +31,7 @@ extension LogLevel {
 /// SMAPI's console log with colored levels, filters, search and a
 /// per-mod problem summary. Reloads automatically while the game runs.
 struct LogViewerView: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
 
     @State private var fileURL = SMAPILog.latestLogURL
     @State private var log: SMAPILog?
@@ -42,12 +42,9 @@ struct LogViewerView: View {
     @State private var searchText = ""
     @State private var followLive = true
 
-    /// The log minus anything before "Clear" (if cleared in this session).
-    private var visibleLog: SMAPILog? {
-        guard let log else { return nil }
-        guard let mark = activeClearMark(for: log) else { return log }
-        return log.droppingFirst(mark.entryCount)
-    }
+    /// What the view shows, computed off the main thread once per change of
+    /// the log (or of "Clear") instead of on every redraw.
+    @State private var summary: LogSummary?
 
     private func activeClearMark(for log: SMAPILog) -> AppModel.LogClearMark? {
         guard let mark = model.logClearMark, mark.file == fileURL, mark.session == log.sessionKey,
@@ -58,11 +55,12 @@ struct LogViewerView: View {
 
     var body: some View {
         Group {
-            if let log = visibleLog {
+            if let summary {
+                let log = summary.log
                 VStack(spacing: 0) {
-                    missingContentBanner(log)
-                    InsightsPanel(insights: log.insights, onShowSource: { sourceFilter = $0 })
-                    summaryHeader(log)
+                    missingContentBanner(summary)
+                    InsightsPanel(insights: summary.insights, onShowSource: { sourceFilter = $0 })
+                    summaryHeader(summary)
                     Divider()
                     entryList(log)
                 }
@@ -81,12 +79,13 @@ struct LogViewerView: View {
         .navigationSubtitle(fileURL.lastPathComponent)
         .searchable(text: $searchText, placement: .toolbar, prompt: "Search log")
         .toolbar { toolbar }
+        .onChange(of: model.logClearMark) { Task { await updateSummary() } }
         .task(id: fileURL) {
-            reload(force: true)
+            await reload(force: true)
             // Poll for changes so the log follows a running game.
             while !Task.isCancelled {
                 try? await Task.sleep(for: .seconds(2))
-                if followLive { reload(force: false) }
+                if followLive { await reload(force: false) }
             }
         }
     }
@@ -95,9 +94,9 @@ struct LogViewerView: View {
 
     /// Shown when the session loaded a save whose mods aren't installed.
     @ViewBuilder
-    private func missingContentBanner(_ log: SMAPILog) -> some View {
-        let unknown = log.unknownLocations
-        if !unknown.isEmpty, let saveID = log.loadedSaveID {
+    private func missingContentBanner(_ summary: LogSummary) -> some View {
+        let unknown = summary.unknownLocations
+        if !unknown.isEmpty, let saveID = summary.loadedSaveID {
             let npcCount = Set(unknown.flatMap(\.npcs)).count
             HStack(spacing: 10) {
                 Image(systemName: "puzzlepiece.extension.fill")
@@ -122,8 +121,9 @@ struct LogViewerView: View {
 
     // MARK: Header
 
-    private func summaryHeader(_ log: SMAPILog) -> some View {
-        VStack(alignment: .leading, spacing: 8) {
+    private func summaryHeader(_ summary: LogSummary) -> some View {
+        let log = summary.log
+        return VStack(alignment: .leading, spacing: 8) {
             HStack(spacing: 14) {
                 if let smapi = log.smapiVersion {
                     Label("SMAPI \(smapi)", systemImage: "gearshape.2")
@@ -150,7 +150,7 @@ struct LogViewerView: View {
             // Level toggles double as counts.
             HStack(spacing: 6) {
                 ForEach(LogLevel.allCases, id: \.self) { level in
-                    levelChip(level, count: log.count(of: level))
+                    levelChip(level, count: summary.counts[level, default: 0])
                 }
                 Spacer()
                 if let sourceFilter {
@@ -164,7 +164,7 @@ struct LogViewerView: View {
                 }
             }
 
-            let problems = log.problemsBySource
+            let problems = summary.problems
             if !problems.isEmpty {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 6) {
@@ -286,7 +286,7 @@ struct LogViewerView: View {
             .disabled(log == nil)
 
             Button {
-                reload(force: true)
+                Task { await reload(force: true) }
             } label: {
                 Label("Reload", systemImage: "arrow.clockwise")
             }
@@ -309,22 +309,31 @@ struct LogViewerView: View {
 
     // MARK: Loading
 
-    private func reload(force: Bool) {
-        let path = fileURL.path(percentEncoded: false)
-        guard let attributes = try? FileManager.default.attributesOfItem(atPath: path) else {
+    private func reload(force: Bool) async {
+        let url = fileURL
+        guard let attributes = try? FileManager.default.attributesOfItem(atPath: url.path(percentEncoded: false)) else {
             log = nil
+            summary = nil
             loadError = nil
             return
         }
         let modified = attributes[.modificationDate] as? Date
         guard force || modified != lastModified else { return }
         do {
-            log = try SMAPILog.load(from: fileURL)
+            log = try await Task.detached { try SMAPILog.load(from: url) }.value
             lastModified = modified
             loadError = nil
+            await updateSummary()
         } catch {
             loadError = error.localizedDescription
         }
+    }
+
+    /// Applies "Clear" and precomputes counts, problems and insights.
+    private func updateSummary() async {
+        guard let log else { summary = nil; return }
+        let mark = activeClearMark(for: log)
+        summary = await Task.detached { LogSummary(log: mark.map { log.droppingFirst($0.entryCount) } ?? log) }.value
     }
 
     private func chooseFile() {
@@ -384,7 +393,7 @@ private struct LogRow: View {
 /// "What SMAPI is telling you": skipped mods, crashing mods and updates in
 /// plain words, each with a way to fix it.
 private struct InsightsPanel: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     let insights: [LogInsight]
     let onShowSource: (String) -> Void
     @State private var expanded = true
@@ -487,5 +496,26 @@ private struct InsightsPanel: View {
         case .smapiUpdate:
             Button("Get SMAPI…") { model.getSMAPI() }
         }
+    }
+}
+
+/// Everything the log view derives from a log, computed once per change.
+struct LogSummary: Sendable {
+    let log: SMAPILog
+    let counts: [LogLevel: Int]
+    let problems: [(source: String, worst: LogLevel, count: Int)]
+    let insights: [LogInsight]
+    let unknownLocations: [UnknownLocation]
+    let loadedSaveID: String?
+
+    init(log: SMAPILog) {
+        self.log = log
+        var counts: [LogLevel: Int] = [:]
+        for entry in log.entries { counts[entry.level, default: 0] += 1 }
+        self.counts = counts
+        problems = log.problemsBySource
+        insights = log.insights
+        unknownLocations = log.unknownLocations
+        loadedSaveID = log.loadedSaveID
     }
 }

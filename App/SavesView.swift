@@ -4,7 +4,7 @@ import SwiftUI
 /// Save games: which mods each one needs (e.g. a save copied from another
 /// computer), and backups to restore all saves or just one.
 struct SavesView: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     @State private var saves: [SaveGame] = []
     @State private var tab = Tab.mods
 
@@ -131,7 +131,7 @@ struct SavesView: View {
 /// Backups containing one save (restore just that save) or all backups
 /// (restore everything in a backup, or pick one save from it).
 private struct BackupsView: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     let save: SaveGame?
     let saves: [SaveGame]
     let onRestore: () -> Void
@@ -294,7 +294,7 @@ private struct BackupsView: View {
 }
 
 private struct SaveAnalysisView: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     let save: SaveGame
 
     @State private var analysis: AppModel.SaveAnalysis?
@@ -611,7 +611,7 @@ private struct ConfidenceBadge: View {
 
 /// Picks the profile or collection a save is played with.
 private struct SaveModSetPicker: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     let save: SaveGame
 
     var body: some View {

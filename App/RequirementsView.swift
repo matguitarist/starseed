@@ -3,7 +3,7 @@ import SwiftUI
 
 /// Required dependencies that are missing or disabled, with one-click fixes.
 struct RequirementsView: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
 
     var body: some View {
         let missing = model.missingDependencies
@@ -38,7 +38,7 @@ struct RequirementsView: View {
 }
 
 private struct RequirementRow: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     let dependency: MissingDependency
 
     var body: some View {

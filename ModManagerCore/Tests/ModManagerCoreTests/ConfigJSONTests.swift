@@ -72,3 +72,14 @@ struct RealConfigTests {
         }
     }
 }
+
+/// Read-only: prints how a real Mods folder is grouped. REAL_MODS=/path/to/Mods
+@Suite(.enabled(if: ProcessInfo.processInfo.environment["REAL_MODS"] != nil))
+struct RealGroupingTests {
+    @Test func printGroups() throws {
+        let mods = try ModManager(modsURL: URL(filePath: ProcessInfo.processInfo.environment["REAL_MODS"]!)).scan()
+        for group in ModGrouping.groups(mods, nexusID: \.nexusModID) {
+            print("▸ \(group.name) [\(group.mods.count)]: " + group.mods.map(\.folderName).joined(separator: " · "))
+        }
+    }
+}

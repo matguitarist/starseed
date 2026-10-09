@@ -4,7 +4,7 @@ import SwiftUI
 /// A collection's pinned files compared against the Mods folder, with
 /// install and save-as-profile actions.
 struct CollectionSheet: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     @Environment(\.dismiss) private var dismiss
 
     let request: CollectionSheetRequest

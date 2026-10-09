@@ -8,7 +8,7 @@ enum SidebarItem: Hashable {
 /// Window content: sidebar + the selected section, plus the app-wide drop
 /// target, sheets and alerts.
 struct RootView: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     @Environment(\.openWindow) private var openWindow
     @State private var isDropTargeted = false
 
@@ -119,7 +119,7 @@ struct RootView: View {
 }
 
 private struct Sidebar: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     @Binding var selection: SidebarItem?
 
     var body: some View {
@@ -186,7 +186,7 @@ extension View {
 }
 
 private struct OpenWebLinksInApp: ViewModifier {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
 
     func body(content: Content) -> some View {
         content.environment(\.openURL, OpenURLAction { url in

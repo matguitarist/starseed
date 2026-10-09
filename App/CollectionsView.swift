@@ -3,7 +3,7 @@ import SwiftUI
 
 /// Browse and search Stardew Valley collections on Nexus.
 struct CollectionsView: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     @State private var query = ""
     @State private var submittedQuery = ""
     @State private var sort = CollectionSort.endorsements

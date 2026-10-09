@@ -13,6 +13,13 @@ public struct ModGroup: Identifiable, Hashable, Sendable {
     public let isFolder: Bool
 
     public var isGroup: Bool { mods.count > 1 || isFolder }
+
+    public init(id: String, name: String, mods: [ModInfo], isFolder: Bool) {
+        self.id = id
+        self.name = name
+        self.mods = mods
+        self.isFolder = isFolder
+    }
 }
 
 public enum ModGrouping {
@@ -44,6 +51,21 @@ public enum ModGrouping {
             }
         }
 
+        // Same author and one name starts the other ("Lemurkat.EastScarp" and
+        // "Lemurkat.EastScarpNPCs"; "East Scarp" and "East Scarp Core").
+        // Requiring the same author keeps "Content Patcher" and another
+        // author's "Content Patcher Animations" apart.
+        let candidates = mods.indices.filter { mods[$0].containerPath.isEmpty && !mods[$0].uniqueID.lowercased().hasPrefix("smapi.") && !mods[$0].uniqueID.isEmpty }
+        let keys = Dictionary(uniqueKeysWithValues: candidates.map { ($0, familyKeys(mods[$0])) })
+        for (position, a) in candidates.enumerated() {
+            for b in candidates[(position + 1)...] where find(a) != find(b) {
+                guard let ka = keys[a], let kb = keys[b], ka.author == kb.author else { continue }
+                if isNamePrefix(ka.idName, kb.idName) || isWordPrefix(ka.folderWords, kb.folderWords) {
+                    union(a, b)
+                }
+            }
+        }
+
         let clusters = Dictionary(grouping: mods.indices, by: find)
         return clusters.values.map { indices in
             let members = indices.map { mods[$0] }.sorted { $0.displayName.localizedStandardCompare($1.displayName) == .orderedAscending }
@@ -55,7 +77,10 @@ public enum ModGrouping {
                 return ModGroup(id: members[0].id, name: members[0].displayName, mods: members, isFolder: false)
             }
             // Name the group after its shortest tag-free folder name ("Stardew Valley Expanded").
-            let name = members.map { strippedName($0.bareFolderName) }.min { $0.count < $1.count } ?? members[0].displayName
+            // Prefer readable names ("Ridgeside Village" over "RidgesideVillage").
+            let names = members.map { strippedName($0.bareFolderName) }
+            let readable = names.filter { $0.contains(" ") }
+            let name = (readable.isEmpty ? names : readable).min { $0.count < $1.count } ?? members[0].displayName
             return ModGroup(id: "group:" + members.map(\.id).sorted().joined(separator: "|"), name: name, mods: members, isFolder: false)
         }
         .sorted { $0.name.localizedStandardCompare($1.name) == .orderedAscending }
@@ -64,9 +89,16 @@ public enum ModGrouping {
     /// Folder name without framework tags: "[CP] Stardew Valley Expanded",
     /// "Stardew Valley Expanded Code" -> "Stardew Valley Expanded".
     static func strippedName(_ folderName: String) -> String {
-        var name = folderName
-            .replacing(/^\s*[\[(][^\])]*[\])]\s*/, with: "")   // leading "[CP] " / "(FTM) "
-            .replacing(/\s*[\[(][^\])]*[\])]\s*$/, with: "")   // trailing " [CP]"
+        // Plain string handling, not Regex: this runs for every mod on every refresh.
+        var name = folderName.trimmingCharacters(in: .whitespaces)
+        if let first = name.first, first == "[" || first == "(",
+           let close = name.firstIndex(of: first == "[" ? "]" : ")") {
+            name = String(name[name.index(after: close)...]).trimmingCharacters(in: .whitespaces)  // "[CP] X"
+        }
+        if let last = name.last, last == "]" || last == ")",
+           let open = name.lastIndex(of: last == "]" ? "[" : "("), open != name.startIndex {
+            name = String(name[..<open]).trimmingCharacters(in: .whitespaces)  // "X [CP]"
+        }
         let suffixes = ["code", "cp", "ftm", "ja", "at", "mfm", "dga", "stf", "bfav", "assets", "content", "c#", "smapi"]
         var words = name.split(separator: " ")
         while words.count > 1, let last = words.last, suffixes.contains(last.lowercased().trimmingCharacters(in: CharacterSet(charactersIn: "-_"))) {
@@ -74,6 +106,32 @@ public enum ModGrouping {
         }
         name = words.joined(separator: " ")
         return name.trimmingCharacters(in: .whitespaces.union(CharacterSet(charactersIn: "-_")))
+    }
+
+    private struct FamilyKeys {
+        let author: String
+        let idName: String          // "eastscarpnpcs" from "Lemurkat.EastScarpNPCs"
+        let folderWords: [String]   // ["east", "scarp", "npcs"]
+    }
+
+    private static func familyKeys(_ mod: ModInfo) -> FamilyKeys {
+        let segments = mod.uniqueID.lowercased().split(separator: ".")
+        let idName = segments.dropFirst().joined().filter { $0.isLetter || $0.isNumber }
+        let words = strippedName(mod.bareFolderName).lowercased()
+            .split { !$0.isLetter && !$0.isNumber }.map(String.init)
+        return FamilyKeys(author: segments.first.map(String.init) ?? "", idName: idName, folderWords: words)
+    }
+
+    /// One ID name starts the other and is long enough to mean something.
+    private static func isNamePrefix(_ a: String, _ b: String) -> Bool {
+        let (short, long) = a.count <= b.count ? (a, b) : (b, a)
+        return short.count >= 6 && long.hasPrefix(short)
+    }
+
+    /// One folder name's words start the other's (at least two words).
+    private static func isWordPrefix(_ a: [String], _ b: [String]) -> Bool {
+        let (short, long) = a.count <= b.count ? (a, b) : (b, a)
+        return short.count >= 2 && Array(long.prefix(short.count)) == short
     }
 
     static func baseName(_ folderName: String) -> String {

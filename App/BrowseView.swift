@@ -3,7 +3,7 @@ import SwiftUI
 
 /// Search and browse Stardew Valley mods on Nexus (public API, no key needed).
 struct BrowseView: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     @State private var query = ""
     @State private var submittedQuery = ""
     @State private var sort = NexusSort.endorsements
@@ -126,7 +126,7 @@ struct BrowseView: View {
 }
 
 struct NexusModRow: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     let mod: NexusMod
 
     var body: some View {
@@ -177,7 +177,7 @@ struct NexusModRow: View {
 
 /// "Installed" / "Update" capsule for a Nexus mod that's already in the Mods folder.
 struct InstalledBadge: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     let nexusID: Int
 
     var body: some View {

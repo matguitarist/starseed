@@ -2,7 +2,7 @@ import SwiftUI
 
 /// Save/apply/delete named sets of "which mods are enabled".
 struct ProfilesView: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     @Environment(\.dismiss) private var dismiss
     @State private var selected: String?
     @State private var newName = ""

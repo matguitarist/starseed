@@ -82,13 +82,16 @@ public struct MissingContentGroup: Identifiable, Hashable, Sendable {
 extension SMAPILog {
     /// The save SMAPI loaded in this session ("Context: loaded save 'Mats_391030616'").
     public var loadedSaveID: String? {
-        entries.lazy.compactMap { $0.message.firstMatch(of: /^Context: loaded save '([^']+)'/) }.first.map { String($0.1) }
+        entries.lazy
+            .filter { $0.message.hasPrefix("Context: loaded save") }
+            .compactMap { $0.message.firstMatch(of: /^Context: loaded save '([^']+)'/) }
+            .first.map { String($0.1) }
     }
 
     /// "Ignored unknown location 'X' in save data[, including NPC(s) 'A', 'B']."
     public var unknownLocations: [UnknownLocation] {
         entries.compactMap { entry in
-            guard entry.source == "game",
+            guard entry.source == "game", entry.message.hasPrefix("Ignored unknown location"),
                   let match = entry.message.firstMatch(of: /^Ignored unknown location '([^']+)' in save data(?:, including NPCs? (.+?))?\.?$/)
             else { return nil }
             let npcs = match.2.map { list in

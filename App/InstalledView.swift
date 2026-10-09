@@ -14,7 +14,7 @@ extension ModStatus {
 }
 
 struct InstalledView: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     @State private var sortOrder = [KeyPathComparator(\ModRow.name, comparator: .localizedStandard)]
     @State private var showInspector = true
     @State private var showProfiles = false
@@ -230,7 +230,7 @@ struct InstalledView: View {
 
 /// Warns when SMAPI is missing or outdated, or mods need a newer SMAPI.
 struct SMAPIBanner: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
 
     var body: some View {
         if let message {
@@ -272,7 +272,7 @@ struct SMAPIBanner: View {
 }
 
 struct FolderSetupView: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
 
     var body: some View {
         ContentUnavailableView {
@@ -371,7 +371,7 @@ struct ModRow: Identifiable {
 
 /// Checkbox for a mod or a whole group (shows a dash when only some parts are on).
 private struct EnableCheckbox: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     let row: ModRow
 
     var body: some View {
@@ -394,7 +394,7 @@ private struct EnableCheckbox: View {
 
 /// Warns about mods installed twice (SMAPI skips both copies).
 struct DuplicatesBanner: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
 
     var body: some View {
         let groups = model.duplicateGroups

@@ -99,7 +99,7 @@ struct DownloadRow: View {
 /// "#7286": the Nexus mod number, matching the website's address
 /// (nexusmods.com/stardewvalley/mods/7286). Opens that page in the app's browser.
 struct NexusIDLink: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     let modID: Int
 
     var body: some View {
@@ -118,7 +118,7 @@ struct NexusIDLink: View {
 
 /// 👍 Endorse and Track buttons for a Nexus mod (needs a verified API key).
 struct EndorseTrackButtons: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     let modID: Int
     var version: String? = nil
 

@@ -55,7 +55,7 @@ extension AppModel {
 
 /// The optional menu bar icon: play, updates at a glance, open the app.
 struct MenuBarContent: View {
-    @Environment(AppModel.self) private var model
+    @AppModelEnvironment private var model
     @Environment(\.openWindow) private var openWindow
 
     var body: some View {
