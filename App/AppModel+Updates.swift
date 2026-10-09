@@ -267,10 +267,23 @@ extension AppModel {
         .joined(separator: "\n")
     }
 
-    /// A requirement we can name and point to: installed but disabled, or
-    /// identified on Nexus (SMAPI's database or the needing mod's Nexus page).
+    /// A requirement we can name and point to: installed but disabled,
+    /// identified on Nexus (SMAPI's database or the needing mod's Nexus
+    /// page), or hosted elsewhere per SMAPI (ModDrop, GitHub...).
     func isConfirmed(_ dependency: MissingDependency) -> Bool {
-        dependency.disabledCopy != nil || record(forDependency: dependency.uniqueID)?.nexusID != nil
+        dependency.disabledCopy != nil || isKnownRequirement(dependency.uniqueID)
+    }
+
+    func isKnownRequirement(_ uniqueID: String) -> Bool {
+        let record = record(forDependency: uniqueID)
+        return record?.nexusID != nil || record?.downloadPage != nil
+    }
+
+    /// Opens a non-Nexus mod's download page in the default browser (those
+    /// sites don't hand files to mod managers): the user drops the file here.
+    func openDownloadPage(_ url: URL) {
+        NSWorkspace.shared.open(url)
+        showStatusResult(String(localized: "Download the mod's file in your browser, then drop it on this window to install it."))
     }
 
     func resolve(uniqueIDs: [String]) async {
@@ -362,15 +375,19 @@ extension AppModel {
 
         var requests: [NexusInstallRequest] = []
         var unresolved: [String] = []
+        var elsewhere: [URL] = []
         for dependency in dependencies where dependency.disabledCopy == nil {
             let record = record(forDependency: dependency.uniqueID)
             if let nexusID = record?.nexusID {
                 requests.append(NexusInstallRequest(modID: nexusID, title: record?.name ?? dependency.uniqueID, version: nil))
+            } else if let page = record?.downloadPage {
+                elsewhere.append(page)
             } else {
                 unresolved.append(dependency.uniqueID)
             }
         }
         queueNexusInstalls(requests)
+        for page in Set(elsewhere) { openDownloadPage(page) }
         if !unresolved.isEmpty {
             show("Couldn't Find Some Requirements", "These aren't on Nexus (or SMAPI doesn't know where they are). Search for them by name:\n\n\(unresolved.joined(separator: "\n"))")
         }

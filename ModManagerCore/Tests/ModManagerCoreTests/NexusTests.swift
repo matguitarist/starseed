@@ -290,3 +290,20 @@ struct LiveCollectionTests {
         }
     }
 }
+
+@Suite struct DownloadPageTests {
+    @Test func prefersNexusThenSMAPIsReleasePage() {
+        #expect(SMAPIModRecord.downloadPage(nexusID: 1348, mainURL: nil, modDropID: 1, gitHubRepo: nil, curseForgeID: nil) == nil)
+        #expect(SMAPIModRecord.downloadPage(nexusID: nil, mainURL: "https://www.moddrop.com/stardew-valley/mod/5", modDropID: 9, gitHubRepo: nil, curseForgeID: nil)?.absoluteString
+                == "https://www.moddrop.com/stardew-valley/mod/5")
+    }
+
+    @Test func buildsPagesFromSiteIDs() {
+        #expect(SMAPIModRecord.downloadPage(nexusID: nil, mainURL: nil, modDropID: 793815, gitHubRepo: "a/b", curseForgeID: nil)?.absoluteString
+                == "https://www.moddrop.com/stardew-valley/mod/793815")
+        let gitHub = SMAPIModRecord.downloadPage(nexusID: nil, mainURL: nil, modDropID: nil, gitHubRepo: "Platonymous/Stardew-Valley-Mods", curseForgeID: nil)
+        #expect(gitHub?.absoluteString == "https://github.com/Platonymous/Stardew-Valley-Mods/releases")
+        #expect(SMAPIModRecord(uniqueID: "x", name: nil, nexusID: nil, downloadPage: gitHub).downloadSite == "GitHub")
+        #expect(SMAPIModRecord.downloadPage(nexusID: nil, mainURL: nil, modDropID: nil, gitHubRepo: nil, curseForgeID: nil) == nil)
+    }
+}

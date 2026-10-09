@@ -164,3 +164,22 @@ extension String {
         return text.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
+
+/// "Get on ModDrop ↗": for requirements that aren't on Nexus. Opens the
+/// page in the default browser; the file is then dropped on the window.
+struct DownloadPageButton: View {
+    @AppModelEnvironment private var model
+    let page: URL
+    let site: String?
+    var controlSize: ControlSize = .small
+
+    var body: some View {
+        Button {
+            model.openDownloadPage(page)
+        } label: {
+            Label(site.map { String(localized: "Get on \($0)") } ?? String(localized: "Download Page"), systemImage: "arrow.up.right.square")
+        }
+        .controlSize(controlSize)
+        .help(String(localized: "Not on Nexus. Opens \(page.absoluteString); download the file, then drop it on this window."))
+    }
+}

@@ -31,11 +31,37 @@ public struct SMAPIModRecord: Hashable, Sendable {
     public let uniqueID: String
     public let name: String?
     public let nexusID: Int?
+    /// Where to get a mod that isn't on Nexus (ModDrop, GitHub, CurseForge...).
+    public let downloadPage: URL?
 
-    public init(uniqueID: String, name: String?, nexusID: Int?) {
+    public init(uniqueID: String, name: String?, nexusID: Int?, downloadPage: URL? = nil) {
         self.uniqueID = uniqueID
         self.name = name
         self.nexusID = nexusID
+        self.downloadPage = downloadPage
+    }
+
+    /// "ModDrop", "GitHub", "CurseForge", or the page's host.
+    public var downloadSite: String? {
+        guard let host = downloadPage?.host()?.lowercased() else { return nil }
+        if host.hasSuffix("moddrop.com") { return "ModDrop" }
+        if host.hasSuffix("github.com") { return "GitHub" }
+        if host.hasSuffix("curseforge.com") { return "CurseForge" }
+        if host.hasSuffix("playstarbound.com") { return "Chucklefish" }
+        return host.replacingOccurrences(of: "www.", with: "")
+    }
+
+    /// The page for a mod that isn't on Nexus: SMAPI's suggested release
+    /// page when it isn't Nexus, else one built from the site IDs.
+    static func downloadPage(nexusID: Int?, mainURL: String?, modDropID: Int?, gitHubRepo: String?, curseForgeID: Int?) -> URL? {
+        guard nexusID == nil else { return nil }
+        if let mainURL, let url = URL(string: mainURL), url.host()?.hasSuffix("nexusmods.com") == false {
+            return url
+        }
+        if let modDropID { return URL(string: "https://www.moddrop.com/stardew-valley/mod/\(modDropID)") }
+        if let gitHubRepo, !gitHubRepo.isEmpty { return URL(string: "https://github.com/\(gitHubRepo)/releases") }
+        if let curseForgeID { return URL(string: "https://www.curseforge.com/projects/\(curseForgeID)") }
+        return nil
     }
 }
 
@@ -115,7 +141,15 @@ public struct UpdateChecker: Sendable {
         }
         struct Result: Decodable {
             struct Suggested: Decodable { let version: String; let url: String? }
-            struct Metadata: Decodable { let name: String?; let nexusID: Int? }
+            struct Metadata: Decodable {
+                struct Release: Decodable { let url: String? }
+                let name: String?
+                let nexusID: Int?
+                let modDropID: Int?
+                let gitHubRepo: String?
+                let curseForgeID: Int?
+                let main: Release?
+            }
             let id: String
             let suggestedUpdate: Suggested?
             let metadata: Metadata?
@@ -136,8 +170,14 @@ public struct UpdateChecker: Sendable {
         var results = SMAPIResults()
         for result in try JSONDecoder().decode([Result].self, from: data) {
             let id = result.id.lowercased()
-            if let metadata = result.metadata, metadata.name != nil || metadata.nexusID != nil {
-                results.records[id] = SMAPIModRecord(uniqueID: result.id, name: metadata.name, nexusID: metadata.nexusID)
+            if let metadata = result.metadata {
+                let page = SMAPIModRecord.downloadPage(
+                    nexusID: metadata.nexusID, mainURL: metadata.main?.url,
+                    modDropID: metadata.modDropID, gitHubRepo: metadata.gitHubRepo, curseForgeID: metadata.curseForgeID
+                )
+                if metadata.name != nil || metadata.nexusID != nil || page != nil {
+                    results.records[id] = SMAPIModRecord(uniqueID: result.id, name: metadata.name, nexusID: metadata.nexusID, downloadPage: page)
+                }
             }
             if let suggested = result.suggestedUpdate {
                 results.updates[id] = ModUpdate(

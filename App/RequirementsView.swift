@@ -96,6 +96,8 @@ private struct RequirementRow: View {
                     Button("Install") { model.installMissingDependencies([dependency]) }
                         .buttonStyle(.borderedProminent)
                 }
+            } else if let page = record?.downloadPage {
+                DownloadPageButton(page: page, site: record?.downloadSite, controlSize: .regular)
             }
         }
         .padding(.vertical, 4)

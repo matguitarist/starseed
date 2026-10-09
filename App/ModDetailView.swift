@@ -186,9 +186,13 @@ struct ModDetailView: View {
             }
             Spacer(minLength: 4)
             if !present {
-                Button(installedButOff ? "Enable" : "Install") { model.installDependency(uniqueID, of: mod) }
-                    .controlSize(.small)
-                    .help(installedButOff ? "It's installed but disabled" : "Download it from Nexus")
+                if !installedButOff, record?.nexusID == nil, let page = record?.downloadPage {
+                    DownloadPageButton(page: page, site: record?.downloadSite)
+                } else {
+                    Button(installedButOff ? "Enable" : "Install") { model.installDependency(uniqueID, of: mod) }
+                        .controlSize(.small)
+                        .help(installedButOff ? "It's installed but disabled" : "Download it from Nexus")
+                }
             }
         }
         .help(present ? "Installed and enabled" : (required ? "Missing or disabled" : "Not installed (optional)"))
@@ -258,7 +262,7 @@ private struct GroupDetailView: View {
         var seen = Set<String>()
         let missing = group.mods.flatMap { part in part.missingDependencies.map { (id: $0, part: part) } }
             .filter { seen.insert($0.id.lowercased()).inserted }
-        let confirmed = missing.filter { model.record(forDependency: $0.id)?.nexusID != nil }
+        let confirmed = missing.filter { model.isKnownRequirement($0.id) }
         let unlisted = missing.count - confirmed.count
         if !missing.isEmpty {
             VStack(alignment: .leading, spacing: 6) {
@@ -270,8 +274,12 @@ private struct GroupDetailView: View {
                         Text(record?.name ?? item.id)
                         if let nexusID = record?.nexusID { NexusIDLink(modID: nexusID) }
                         Spacer(minLength: 4)
-                        Button("Install") { model.installDependency(item.id, of: item.part) }
-                            .controlSize(.small)
+                        if record?.nexusID == nil, let page = record?.downloadPage {
+                            DownloadPageButton(page: page, site: record?.downloadSite)
+                        } else {
+                            Button("Install") { model.installDependency(item.id, of: item.part) }
+                                .controlSize(.small)
+                        }
                     }
                     .help(item.id)
                 }
