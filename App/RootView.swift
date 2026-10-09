@@ -19,12 +19,14 @@ struct RootView: View {
             Sidebar(selection: $model.sidebarSelection)
                 .navigationSplitViewColumnWidth(min: 190, ideal: 210, max: 280)
         } detail: {
-            detail
-                .safeAreaInset(edge: .bottom, spacing: 0) {
-                    // Every page shows what's running (downloads, update checks...).
-                    ActivityStatusBar()
-                        .animation(.default, value: model.activityStatus)
-                }
+            // Every page shows what's running (downloads, update checks...).
+            // Below the page rather than a safe-area inset: tables scroll
+            // under an inset, which would hide their last row.
+            VStack(spacing: 0) {
+                detail.frame(maxHeight: .infinity)
+                ActivityStatusBar()
+            }
+            .animation(.default, value: model.activityStatus)
         }
         .sheet(item: $model.nexusSheet) { request in
             NexusModSheet(request: request)

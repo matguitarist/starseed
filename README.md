@@ -44,6 +44,9 @@ downloaded yourself. Browsing and local installs need no account.
   version is backed up ("Before restore") and moved to the Trash, so a
   restore can be undone. Restoring is blocked while the game is running.
   Backups live in `~/Library/Application Support/StardewModManager/SaveBackups/`.
+  **Play** also backs up every save first when the enabled mods (or their
+  versions) changed since the last Play, keeping the last 5 of these
+  (Settings → General → Saves turns it off).
 - **My Collections**: save your installed mods (with versions and Nexus
   numbers) as a named list, then **Export** it as a `.json` file and
   **Import** it on another Mac or share it with a friend. A collection
@@ -66,6 +69,8 @@ downloaded yourself. Browsing and local installs need no account.
   list, badges in the mod table, and **Update All**. Premium accounts
   install every update in one go; free accounts get a guided queue that
   opens each mod's download page in turn.
+  **What's New** shows the Nexus changelog between your version and the
+  update (the mod page's changelog with an API key, else the files').
 - **Requirements**: lists missing framework mods (e.g. Content Patcher)
   and which mods need them. **Install All** enables disabled copies and
   downloads the rest. Nexus IDs come from SMAPI's mod database. After an

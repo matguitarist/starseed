@@ -968,12 +968,32 @@
         }
       }
     },
+    "Back up saves before playing when mods changed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copier les sauvegardes avant de jouer si les mods ont changé"
+          }
+        }
+      }
+    },
     "Back up this save to create a restore point." : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Copiez cette sauvegarde pour créer un point de restauration."
+          }
+        }
+      }
+    },
+    "Backing up your saves before playing…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copie de vos sauvegardes avant de jouer…"
           }
         }
       }
@@ -1005,6 +1025,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Copies de la ferme %@"
+          }
+        }
+      }
+    },
+    "Before playing with changed mods" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avant de jouer avec des mods modifiés"
           }
         }
       }
@@ -2854,6 +2884,16 @@
         }
       }
     },
+    "Loading changelog…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chargement du journal des modifications…"
+          }
+        }
+      }
+    },
     "Locations and NPCs the game dropped when loading this save, grouped by their probable mod. Matches come from a Nexus search, so check them before installing." : {
       "localizations" : {
         "fr" : {
@@ -3406,6 +3446,16 @@
         }
       }
     },
+    "No changelog for this version on Nexus." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun journal des modifications pour cette version sur Nexus."
+          }
+        }
+      }
+    },
     "No collections yet" : {
       "localizations" : {
         "fr" : {
@@ -3696,6 +3746,16 @@
         }
       }
     },
+    "Open Mod Page" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir la page du mod"
+          }
+        }
+      }
+    },
     "Open Mods Folder" : {
       "localizations" : {
         "fr" : {
@@ -3952,6 +4012,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Jouer à Stardew Valley"
+          }
+        }
+      }
+    },
+    "Play zips all your saves first if mods were added, removed, updated, or switched on or off since you last played. The last 5 of these backups are kept, under Saves." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jouer compresse d’abord toutes vos sauvegardes si des mods ont été ajoutés, supprimés, mis à jour, activés ou désactivés depuis la dernière partie. Les 5 dernières copies sont conservées, dans Sauvegardes."
           }
         }
       }
@@ -4536,6 +4606,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les sauvegardes se trouvent dans ~/.config/StardewValley/Saves."
+          }
+        }
+      }
+    },
+    "Saves Not Backed Up" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauvegardes non copiées"
           }
         }
       }
@@ -5138,6 +5218,16 @@
         }
       }
     },
+    "The game wasn't started, to keep your saves safe: %@\n\nTo play anyway, turn off “Back up saves before playing” in Settings." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le jeu n’a pas été lancé, pour protéger vos sauvegardes : %@\n\nPour jouer quand même, désactivez « Copier les sauvegardes avant de jouer » dans les Réglages."
+          }
+        }
+      }
+    },
     "The game would overwrite the restored save the next time it saves. Quit to the desktop, then restore." : {
       "localizations" : {
         "fr" : {
@@ -5612,6 +5702,16 @@
         }
       }
     },
+    "What's New" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nouveautés"
+          }
+        }
+      }
+    },
     "Which mods this save is played with. “Use Mods & Play” switches to them before launching." : {
       "localizations" : {
         "fr" : {
@@ -5698,6 +5798,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "votre choix"
+          }
+        }
+      }
+    },
+    "Your mods changed, so your saves were backed up before playing (Saves → Backups)" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vos mods ont changé : vos sauvegardes ont été copiées avant de jouer (Sauvegardes → Copies)"
           }
         }
       }

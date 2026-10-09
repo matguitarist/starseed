@@ -150,6 +150,10 @@ final class AppModel {
     // views read these many times per redraw. See `recomputeDerived()`.
     private(set) var enabledIDs: Set<String> = []
     private(set) var allGroups: [ModGroup] = []
+    /// A row the Installed table should scroll to (set by `reveal`).
+    var scrollTarget: String?
+    /// Multi-part groups by member mod ID, for `group(containing:)`.
+    private(set) var groupByModID: [ModInfo.ID: ModGroup] = [:]
     private(set) var missingDependencies: [MissingDependency] = []
     private(set) var duplicateGroups: [[ModInfo]] = []
 
@@ -172,6 +176,10 @@ final class AppModel {
     private func recomputeDerived() {
         enabledIDs = Set(mods.filter { $0.isEnabled && !$0.uniqueID.isEmpty }.map { $0.uniqueID.lowercased() })
         allGroups = ModGrouping.groups(mods) { self.nexusID(for: $0) }
+        groupByModID = [:]
+        for group in allGroups where group.isGroup {
+            for mod in group.mods { groupByModID[mod.id] = group }
+        }
         missingDependencies = MissingDependency.find(in: mods)
         duplicateGroups = ModManager.duplicateGroups(in: mods)
     }

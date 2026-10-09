@@ -1,3 +1,4 @@
+import AppKit
 import ModManagerCore
 import SwiftUI
 
@@ -22,6 +23,11 @@ struct InstalledView: View {
 
     var body: some View {
         modTable
+        .background {
+            TableScroller(index: model.scrollTarget.flatMap { target in rows.firstIndex { $0.id == target } }) {
+                model.scrollTarget = nil
+            }
+        }
         .safeAreaInset(edge: .top, spacing: 0) {
             VStack(spacing: 0) {
                 SMAPIBanner()
@@ -422,5 +428,58 @@ struct DuplicatesBanner: View {
             .background(.red.opacity(0.1))
             .overlay(alignment: .bottom) { Divider() }
         }
+    }
+}
+
+/// Scrolls the enclosing table to a top-level row when `index` is set.
+/// SwiftUI's scrollTo doesn't reach Table rows, and the AppKit table's
+/// selection can lag, so this counts top-level rows itself (groups may be
+/// expanded above the target).
+private struct TableScroller: NSViewRepresentable {
+    let index: Int?
+    let done: () -> Void
+
+    func makeNSView(context: Context) -> NSView { NSView() }
+
+    func updateNSView(_ view: NSView, context: Context) {
+        guard let index else { return }
+        // After this update reaches the table.
+        DispatchQueue.main.async {
+            if let table = Self.table(near: view), let row = Self.row(forTopLevel: index, in: table) {
+                table.scrollRowToVisible(row)
+            }
+            done()
+        }
+    }
+
+    private static func row(forTopLevel index: Int, in table: NSTableView) -> Int? {
+        guard let outline = table as? NSOutlineView else {
+            return index < table.numberOfRows ? index : nil
+        }
+        var topLevel = -1
+        for row in 0..<outline.numberOfRows where outline.level(forRow: row) == 0 {
+            topLevel += 1
+            if topLevel == index { return row }
+        }
+        return nil
+    }
+
+    /// The nearest table: the first ancestor that contains one (the
+    /// sidebar's list sits further up, in another column).
+    private static func table(near view: NSView) -> NSTableView? {
+        var ancestor = view.superview
+        while let current = ancestor {
+            if let table = firstTable(in: current) { return table }
+            ancestor = current.superview
+        }
+        return nil
+    }
+
+    private static func firstTable(in view: NSView) -> NSTableView? {
+        if let table = view as? NSTableView { return table }
+        for subview in view.subviews {
+            if let table = firstTable(in: subview) { return table }
+        }
+        return nil
     }
 }

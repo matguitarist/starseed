@@ -179,7 +179,7 @@ extension AppModel {
     }
 
     func group(containing mod: ModInfo) -> ModGroup? {
-        allGroups.first { $0.isGroup && $0.mods.contains { $0.id == mod.id } }
+        groupByModID[mod.id]
     }
 
     /// Installed mods that use one of `targets`, named as the Installed list
@@ -240,6 +240,7 @@ extension AppModel {
         }
         sidebarSelection = .installed
         selection = [rowID]
+        scrollTarget = rowID
     }
 
     /// The mods needing a requirement, as the Installed list shows them: a

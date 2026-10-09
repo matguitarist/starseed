@@ -46,6 +46,8 @@ extension AppModel {
     }
 
     func activity(for mods: [ModInfo]) -> ModActivity? {
+        // The usual case: nothing running, so skip the per-mod lookups.
+        guard !preparingNexusIDs.isEmpty || !browserQueue.isEmpty || downloads.contains(where: { !$0.isFinished }) else { return nil }
         for mod in mods {
             if let id = nexusID(for: mod), let activity = activity(forNexusID: id) { return activity }
         }
