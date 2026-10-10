@@ -383,19 +383,25 @@ public struct NexusClient: Sendable {
     // MARK: Plumbing
 
     /// Identifies this app to Nexus, as the API policy asks.
-    private func addAppHeaders(to request: inout URLRequest) {
-        request.setValue("Starseed (Stardew Valley mod manager for macOS)", forHTTPHeaderField: "Application-Name")
+    /// Nexus's API policy asks for a consistent Application-Name and the
+    /// current Application-Version on every request. The user's key is only
+    /// sent where it's needed (`withKey`): the public GraphQL queries
+    /// (search, files, pictures) don't use it.
+    static let applicationName = "Starseed"
+
+    private func addAppHeaders(to request: inout URLRequest, withKey: Bool) {
+        request.setValue(Self.applicationName, forHTTPHeaderField: "Application-Name")
         request.setValue(appVersion, forHTTPHeaderField: "Application-Version")
         request.setValue("Starseed-macOS/\(appVersion)", forHTTPHeaderField: "User-Agent")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        if let apiKey { request.setValue(apiKey, forHTTPHeaderField: "apikey") }
+        if withKey, let apiKey { request.setValue(apiKey, forHTTPHeaderField: "apikey") }
     }
 
     func graphQL<T: Decodable>(_ query: String, variables: [String: Any]) async throws -> T {
         var request = URLRequest(url: Self.graphQLURL)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        addAppHeaders(to: &request)
+        addAppHeaders(to: &request, withKey: false)
         request.httpBody = try JSONSerialization.data(withJSONObject: ["query": query, "variables": variables])
 
         let (data, response) = try await session.data(for: request)
@@ -435,7 +441,7 @@ public struct NexusClient: Sendable {
         if !query.isEmpty { url.append(queryItems: query) }
         var request = URLRequest(url: url)
         request.httpMethod = method
-        addAppHeaders(to: &request)
+        addAppHeaders(to: &request, withKey: true)
         if let form {
             var components = URLComponents()
             components.queryItems = form.map { URLQueryItem(name: $0.key, value: $0.value) }

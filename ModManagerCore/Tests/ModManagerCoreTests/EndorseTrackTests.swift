@@ -61,6 +61,18 @@ final class MockNexus: URLProtocol, @unchecked Sendable {
         #expect(MockNexus.requests.allSatisfy { $0.headers["apikey"] == "test-key" })
     }
 
+    @Test func identifiesTheAppAndSendsTheKeyOnlyWhereNeeded() async throws {
+        MockNexus.responses["POST /v2/graphql"] = (200, #"{"data":{"legacyModsByDomain":{"nodes":[]}}}"#)
+        MockNexus.responses["GET /v1/user/tracked_mods.json"] = (200, "[]")
+        let client = MockNexus.client()
+        _ = try await client.mods(ids: [1915])
+        _ = try await client.trackedMods()
+        // API policy: a consistent Application-Name and the current version on every request.
+        #expect(MockNexus.requests.allSatisfy { $0.headers["Application-Name"] == "Starseed" && $0.headers["Application-Version"] == "test" })
+        #expect(MockNexus.requests[0].headers["apikey"] == nil)  // public GraphQL query
+        #expect(MockNexus.requests[1].headers["apikey"] == "test-key")
+    }
+
     @Test func sendsEndorseAndTrackRequestsNexusExpects() async throws {
         MockNexus.responses["POST /v1/games/stardewvalley/mods/1915/endorse.json"] = (200, #"{"message":"Updated","status":"Endorsed"}"#)
         MockNexus.responses["POST /v1/user/tracked_mods.json"] = (201, #"{"message":"User is now Tracking Mod: 1915"}"#)
