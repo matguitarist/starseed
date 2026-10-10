@@ -23,7 +23,21 @@ extension AppModel {
                   Self.isGame(app)
             else { return }
             let launched = app.launchDate ?? Date(timeIntervalSinceNow: -24 * 60 * 60)
-            Task { @MainActor in await self?.reportOnSession(launchedAt: launched) }
+            Task { @MainActor in
+                self?.detectSMAPI()  // a game update may have disconnected it
+                await self?.reportOnSession(launchedAt: launched)
+            }
+        }
+        // Steam may have queued or installed a game update meanwhile.
+        NotificationCenter.default.addObserver(
+            forName: NSApplication.didBecomeActiveNotification,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            Task { @MainActor in
+                guard let self, let folder = self.gameFolder else { return }
+                self.steamGame = SteamGameState.read(gameFolder: folder)
+            }
         }
     }
 

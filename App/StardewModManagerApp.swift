@@ -1,4 +1,5 @@
 import AppKit
+import ModManagerCore
 import SwiftUI
 import UserNotifications
 

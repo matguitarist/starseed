@@ -11,9 +11,27 @@ extension AppModel {
     func detectSMAPI() {
         guard let manager else { return }
         smapi = SMAPIInstallation.detect(modsURL: manager.modsURL, bundledMods: mods)
+        steamGame = SteamGameState.read(gameFolder: gameFolder ?? manager.modsURL.deletingLastPathComponent())
         var updated = mods
         markModsNeedingNewerSMAPI(in: &updated)
         mods = updated
+    }
+
+    /// The game's folder (Contents/MacOS), if the Mods folder is inside it.
+    var gameFolder: URL? {
+        let folder = smapi?.gameFolder ?? manager?.modsURL.deletingLastPathComponent()
+        return folder.flatMap { SMAPIInstaller.isGameFolder($0) ? $0 : nil }
+    }
+
+    var gameVersion: SemanticVersion? {
+        smapi?.gameVersion ?? gameFolder.flatMap(SMAPIInstallation.gameVersion(in:))
+    }
+
+    /// Opens the game's page in Steam, where a waiting update can be started.
+    func openGameInSteam() {
+        if let url = URL(string: "steam://nav/games/details/\(SteamGameState.appID)") {
+            NSWorkspace.shared.open(url)
+        }
     }
 
     var isSMAPIOutdated: Bool {

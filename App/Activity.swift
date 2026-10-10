@@ -145,50 +145,183 @@ struct ActivityCell: View {
     }
 }
 
-/// A thin bar under every page showing what's running, then briefly how
-/// it went ("Checked 30 mods: all up to date").
+/// The bar under every page: the game's and SMAPI's state on the left
+/// (green: up to date, yellow: update waiting, red: missing), and what's
+/// running, then briefly how it went, on the right.
 struct ActivityStatusBar: View {
     @AppModelEnvironment private var model
 
     var body: some View {
-        if let status = model.activityStatus {
-            HStack(spacing: 10) {
-                if status.isResult {
-                    Image(systemName: status.isError ? "exclamationmark.triangle.fill" : "checkmark.circle.fill")
-                        .foregroundStyle(status.isError ? .orange : .green)
-                } else {
-                    Group {
-                        if let progress = status.progress {
-                            ProgressView(value: progress).progressViewStyle(.linear)
-                        } else {
-                            ProgressView().progressViewStyle(.linear)
-                        }
-                    }
-                    .frame(width: 140)
-                    .controlSize(.small)
-                }
-                Text(status.text).font(.callout).foregroundStyle(.secondary).lineLimit(1)
-                if !status.isResult, let progress = status.progress {
-                    Text(progress.formatted(.percent.precision(.fractionLength(0))))
-                        .font(.callout).monospacedDigit().foregroundStyle(.secondary)
-                }
-                Spacer()
-                if status.isResult {
-                    Button {
-                        model.statusResult = nil
-                    } label: {
-                        Image(systemName: "xmark").foregroundStyle(.secondary)
-                    }
-                    .buttonStyle(.plain)
-                    .help("Dismiss")
-                }
+        HStack(spacing: 12) {
+            if model.manager != nil {
+                GameIndicator()
+                SMAPIIndicator()
             }
-            .padding(.horizontal, 12)
-            .padding(.vertical, 6)
-            .frame(maxWidth: .infinity)
-            .background(.bar)
-            .overlay(alignment: .top) { Divider() }
-            .transition(.move(edge: .bottom).combined(with: .opacity))
+            if let status = model.activityStatus {
+                if model.manager != nil {
+                    Divider().frame(height: 14)
+                }
+                activity(status)
+                    .transition(.opacity)
+            }
+            Spacer(minLength: 0)
+            if model.activityStatus?.isResult == true {
+                Button {
+                    model.statusResult = nil
+                } label: {
+                    Image(systemName: "xmark").foregroundStyle(.secondary)
+                }
+                .buttonStyle(.plain)
+                .help("Dismiss")
+            }
+        }
+        .padding(.horizontal, 12)
+        .padding(.vertical, 5)
+        .frame(maxWidth: .infinity, minHeight: 30)
+        .background(.bar)
+        .overlay(alignment: .top) { Divider() }
+    }
+
+    @ViewBuilder
+    private func activity(_ status: ActivityStatus) -> some View {
+        HStack(spacing: 8) {
+            if status.isResult {
+                Image(systemName: status.isError ? "exclamationmark.triangle.fill" : "checkmark.circle.fill")
+                    .foregroundStyle(status.isError ? .orange : .green)
+            } else {
+                Group {
+                    if let progress = status.progress {
+                        ProgressView(value: progress).progressViewStyle(.linear)
+                    } else {
+                        ProgressView().progressViewStyle(.linear)
+                    }
+                }
+                .frame(width: 110)
+                .controlSize(.small)
+            }
+            Text(status.text).font(.callout).foregroundStyle(.secondary).lineLimit(1)
+            if !status.isResult, let progress = status.progress {
+                Text(progress.formatted(.percent.precision(.fractionLength(0))))
+                    .font(.callout).monospacedDigit().foregroundStyle(.secondary)
+            }
+        }
+    }
+}
+
+/// A colored dot, a name and version, and an optional action button.
+private struct VersionIndicator<Action: View>: View {
+    let color: Color
+    let text: String
+    let help: String
+    @ViewBuilder let action: Action
+
+    var body: some View {
+        HStack(spacing: 6) {
+            Circle()
+                .fill(color)
+                .frame(width: 8, height: 8)
+                .shadow(color: color.opacity(0.6), radius: 2)
+            Text(text)
+                .font(.callout)
+                .monospacedDigit()
+                .foregroundStyle(.secondary)
+                .lineLimit(1)
+                .fixedSize()
+            action
+        }
+        .help(help)
+    }
+}
+
+private struct GameIndicator: View {
+    @AppModelEnvironment private var model
+
+    var body: some View {
+        if model.gameFolder == nil {
+            VersionIndicator(
+                color: .red,
+                text: String(localized: "Stardew Valley not found"),
+                help: String(localized: "The Mods folder isn't inside the game, so its version and SMAPI can't be checked.")
+            ) { EmptyView() }
+        } else if model.steamGame?.updatePending == true {
+            VersionIndicator(
+                color: .yellow,
+                text: Self.name(model.gameVersion),
+                help: String(localized: "Steam has an update for the game. After it, SMAPI may need reinstalling; Starseed will tell you.")
+            ) {
+                Button("Update in Steam") { model.openGameInSteam() }
+                    .controlSize(.small)
+                    .tint(.yellow)
+                    .buttonStyle(.borderedProminent)
+            }
+        } else {
+            VersionIndicator(
+                color: .green,
+                text: Self.name(model.gameVersion),
+                help: model.steamGame == nil
+                    ? String(localized: "Installed. Updates come from the store you bought it from.")
+                    : String(localized: "Up to date in Steam.")
+            ) { EmptyView() }
+        }
+    }
+
+    static func name(_ version: SemanticVersion?) -> String {
+        version.map { String(localized: "Stardew Valley \($0.description)") } ?? String(localized: "Stardew Valley")
+    }
+}
+
+private struct SMAPIIndicator: View {
+    @AppModelEnvironment private var model
+
+    var body: some View {
+        if model.gameFolder == nil {
+            EmptyView()
+        } else if let smapi = model.smapi {
+            let name = smapi.version.map { "SMAPI \($0.description)" } ?? "SMAPI"
+            if !smapi.isLauncherHooked {
+                VersionIndicator(
+                    color: .yellow,
+                    text: String(localized: "\(name), disconnected"),
+                    help: String(localized: "A game update replaced SMAPI's launcher: the game starts without mods until SMAPI is reinstalled.")
+                ) { button(String(localized: "Reinstall")) }
+            } else if model.isSMAPIOutdated, let latest = model.latestSMAPIVersion {
+                VersionIndicator(
+                    color: .yellow,
+                    text: name,
+                    help: String(localized: "SMAPI \(latest.description) is available.")
+                ) { button(String(localized: "Update to \(latest.description)")) }
+            } else if !model.modsNeedingNewerSMAPI.isEmpty {
+                VersionIndicator(
+                    color: .yellow,
+                    text: name,
+                    help: String(localized: "Some mods need a newer SMAPI.")
+                ) { button(String(localized: "Update")) }
+            } else {
+                VersionIndicator(
+                    color: .green,
+                    text: name,
+                    help: model.latestSMAPIVersion == nil ? String(localized: "Installed.") : String(localized: "Up to date.")
+                ) { EmptyView() }
+            }
+        } else {
+            VersionIndicator(
+                color: .red,
+                text: String(localized: "SMAPI not installed"),
+                help: String(localized: "Mods only load through SMAPI.")
+            ) { button(String(localized: "Install")) }
+        }
+    }
+
+    @ViewBuilder
+    private func button(_ title: String) -> some View {
+        if model.smapiInstallPhase != nil {
+            ProgressView().controlSize(.mini)
+        } else {
+            Button(title) { model.installSMAPI() }
+                .controlSize(.small)
+                .tint(.yellow)
+                .buttonStyle(.borderedProminent)
+                .help("Downloads SMAPI's official installer from GitHub and runs it for your game. Quit the game first.")
         }
     }
 }

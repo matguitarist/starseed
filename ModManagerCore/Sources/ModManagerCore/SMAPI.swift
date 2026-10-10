@@ -88,7 +88,7 @@ public struct SMAPIInstallation: Sendable, Equatable {
     }
 
     /// "Stardew Valley/1.6.15.24356" in Stardew Valley.deps.json.
-    static func gameVersion(in folder: URL) -> SemanticVersion? {
+    public static func gameVersion(in folder: URL) -> SemanticVersion? {
         guard let text = try? String(contentsOf: folder.appending(path: "Stardew Valley.deps.json"), encoding: .utf8),
               let match = text.firstMatch(of: /"Stardew Valley\/(\d+\.\d+\.\d+)/)
         else { return nil }

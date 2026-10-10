@@ -82,6 +82,8 @@ final class AppModel {
     var lastPlayReport: PlayReport?
     /// A log the SMAPI Log section should open (e.g. the crash log).
     var requestedLogURL: URL?
+    /// Steam's view of the game (update waiting?), read with SMAPI's version.
+    var steamGame: SteamGameState?
     /// Set while SMAPI is being downloaded or installed.
     var smapiInstallPhase: SMAPIInstaller.Phase?
     var lastUpdateCheck: Date?

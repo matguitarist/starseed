@@ -422,6 +422,16 @@
         }
       }
     },
+    "%@, disconnected" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@, déconnecté"
+          }
+        }
+      }
+    },
     "%@: %@" : {
       "localizations" : {
         "en" : {
@@ -886,6 +896,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Une mise à jour du jeu a sans doute déconnecté SMAPI. Cliquez sur **Réinstaller SMAPI** dans le bandeau orange ; vos mods et vos réglages restent tels quels."
+          }
+        }
+      }
+    },
+    "A game update replaced SMAPI's launcher: the game starts without mods until SMAPI is reinstalled." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une mise à jour du jeu a remplacé le lanceur de SMAPI : le jeu démarre sans mods tant que SMAPI n’est pas réinstallé."
           }
         }
       }
@@ -3502,6 +3522,26 @@
         }
       }
     },
+    "Installed." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installé."
+          }
+        }
+      }
+    },
+    "Installed. Updates come from the store you bought it from." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installé. Les mises à jour viennent de la boutique où vous l’avez acheté."
+          }
+        }
+      }
+    },
     "Installed/updated: %@" : {
       "localizations" : {
         "fr" : {
@@ -4179,6 +4219,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les mods ne se chargent que via SMAPI, le chargeur de mods. Starseed peut l’installer pour vous."
+          }
+        }
+      }
+    },
+    "Mods only load through SMAPI." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les mods ne se chargent que via SMAPI."
           }
         }
       }
@@ -5473,6 +5523,16 @@
         }
       }
     },
+    "Reinstall" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réinstaller"
+          }
+        }
+      }
+    },
     "Reinstall SMAPI" : {
       "localizations" : {
         "fr" : {
@@ -6304,6 +6364,16 @@
         }
       }
     },
+    "SMAPI %@ is available." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI %@ est disponible."
+          }
+        }
+      }
+    },
     "SMAPI %@ is installed. Launch the game as usual to play with mods." : {
       "localizations" : {
         "fr" : {
@@ -6395,6 +6465,16 @@
         }
       }
     },
+    "SMAPI not installed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI non installé"
+          }
+        }
+      }
+    },
     "SMAPI says: %@." : {
       "localizations" : {
         "fr" : {
@@ -6461,6 +6541,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Des mods ont eu des problèmes"
+          }
+        }
+      }
+    },
+    "Some mods need a newer SMAPI." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Certains mods demandent un SMAPI plus récent."
           }
         }
       }
@@ -6596,6 +6686,16 @@
         }
       }
     },
+    "Stardew Valley not found" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stardew Valley introuvable"
+          }
+        }
+      }
+    },
     "Stardew Valley on Nexus" : {
       "localizations" : {
         "fr" : {
@@ -6692,6 +6792,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "État"
+          }
+        }
+      }
+    },
+    "Steam has an update for the game. After it, SMAPI may need reinstalling; Starseed will tell you." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Steam a une mise à jour pour le jeu. Ensuite, SMAPI devra peut-être être réinstallé ; Starseed vous le dira."
           }
         }
       }
@@ -6890,6 +7000,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La liste Installés"
+          }
+        }
+      }
+    },
+    "The Mods folder isn't inside the game, so its version and SMAPI can't be checked." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le dossier Mods n’est pas dans le jeu : impossible de vérifier sa version et SMAPI."
           }
         }
       }
@@ -7231,6 +7351,26 @@
         }
       }
     },
+    "Up to date in Steam." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À jour dans Steam."
+          }
+        }
+      }
+    },
+    "Up to date." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À jour."
+          }
+        }
+      }
+    },
     "Update" : {
       "localizations" : {
         "fr" : {
@@ -7268,6 +7408,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La recherche de mises à jour a échoué : %@"
+          }
+        }
+      }
+    },
+    "Update in Steam" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mettre à jour dans Steam"
           }
         }
       }
