@@ -1,5 +1,7 @@
 # Starseed
 
+[![Tests](https://github.com/matguitarist/starseed/actions/workflows/tests.yml/badge.svg)](https://github.com/matguitarist/starseed/actions/workflows/tests.yml)
+
 *A mod manager for Stardew Valley on macOS.* (Formerly "Stardew Mod Manager".)
 
 **[Download Starseed for Mac](https://github.com/matguitarist/starseed/releases/latest/download/Starseed.dmg)**
