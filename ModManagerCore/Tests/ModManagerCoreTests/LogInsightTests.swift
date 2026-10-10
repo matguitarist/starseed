@@ -59,3 +59,19 @@ import Testing
         #expect(SMAPILog.stripVersion("Stardew Valley Expanded") == "Stardew Valley Expanded")
     }
 }
+
+@Suite struct PlayReportTests {
+    @Test func summarizesProblemsButNotUpdates() {
+        let report = SMAPILog(text: LogInsightTests.log).playReport(crashed: false)
+        #expect(report.notLoaded == ["Better Crafting", "Fancy Mod", "Old Thing"])
+        #expect(report.withErrors == ["Lookup Anything"])
+        #expect(report.conflicts == 0)
+        #expect(!report.isEmpty)
+    }
+
+    @Test func aCleanSessionIsEmpty() {
+        let log = "[10:00:00 INFO  SMAPI] SMAPI 4.5.2 with Stardew Valley 1.6.15 build 24356 on macOS Unix 27.0.1\n[10:00:06 INFO  SMAPI] Type 'help' for help."
+        #expect(SMAPILog(text: log).playReport(crashed: false).isEmpty)
+        #expect(!SMAPILog(text: log).playReport(crashed: true).isEmpty)
+    }
+}

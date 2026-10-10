@@ -74,6 +74,10 @@ final class AppModel {
     /// shown briefly in the status bar.
     var statusResult: StatusResult?
     var isBackingUpBeforePlay = false
+    /// The problems from the last game session (see PlayReports.swift).
+    var lastPlayReport: PlayReport?
+    /// A log the SMAPI Log section should open (e.g. the crash log).
+    var requestedLogURL: URL?
     /// Set while SMAPI is being downloaded or installed.
     var smapiInstallPhase: SMAPIInstaller.Phase?
     var lastUpdateCheck: Date?

@@ -80,6 +80,12 @@ struct LogViewerView: View {
         .searchable(text: $searchText, placement: .toolbar, prompt: "Search log")
         .toolbar { toolbar }
         .onChange(of: model.logClearMark) { Task { await updateSummary() } }
+        .onChange(of: model.requestedLogURL, initial: true) { _, url in
+            // Opened from a notification after playing.
+            guard let url else { return }
+            fileURL = url
+            model.requestedLogURL = nil
+        }
         .task(id: fileURL) {
             await reload(force: true)
             // Poll for changes so the log follows a running game.

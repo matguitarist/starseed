@@ -4,8 +4,9 @@ import UserNotifications
 
 @MainActor
 final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate {
-    /// Set by the app once its model exists; opens the Updates section.
-    var showUpdates: (() -> Void)?
+    /// Set by the app once its model exists: opens what a notification is
+    /// about ("log", "crash-log", or the Updates section by default).
+    var openFromNotification: ((String?) -> Void)?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         UNUserNotificationCenter.current().delegate = self
@@ -19,7 +20,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
 
     // Clicking an update notification opens the Updates section.
     nonisolated func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
-        await MainActor.run { showUpdates?() }
+        let target = response.notification.request.content.userInfo["open"] as? String
+        await MainActor.run { openFromNotification?(target) }
     }
 
     nonisolated func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
@@ -42,9 +44,15 @@ struct StardewModManagerApp: App {
                 .task {
                     model.start()
                     model.startBackgroundChecks()
-                    appDelegate.showUpdates = { [model] in
-                        model.sidebarSelection = .updates
-                        NSApp.activate()
+                    model.startWatchingGame()
+                    appDelegate.openFromNotification = { [model] target in
+                        switch target {
+                        case "log": model.openLogFromNotification(crash: false)
+                        case "crash-log": model.openLogFromNotification(crash: true)
+                        default:
+                            model.sidebarSelection = .updates
+                            NSApp.activate()
+                        }
                     }
                 }
                 // nxm:// links from Nexus "Mod Manager Download", and archives opened with the app.

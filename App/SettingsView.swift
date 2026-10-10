@@ -20,6 +20,7 @@ private struct GeneralSettings: View {
     @AppStorage(Preferences.notifyUpdates) private var notifyUpdates = true
     @AppStorage(Preferences.showMenuBarIcon) private var showMenuBarIcon = false
     @AppStorage(Preferences.backupBeforePlay) private var backupBeforePlay = true
+    @AppStorage(Preferences.reportAfterPlaying) private var reportAfterPlaying = true
     @State private var language = AppLanguage.current
 
     var body: some View {
@@ -50,6 +51,12 @@ private struct GeneralSettings: View {
                 Toggle("Notify me about new updates", isOn: $notifyUpdates)
                 Toggle("Show icon in the menu bar", isOn: $showMenuBarIcon)
                 Text("With the menu bar icon, closing the window keeps the app running so it can keep checking. Quit from the icon's menu.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            Section("Playing") {
+                Toggle("Tell me about mod problems after playing", isOn: $reportAfterPlaying)
+                Text("When the game closes, SMAPI's log is checked for mods that didn't load, errors, conflicts and crashes.")
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
