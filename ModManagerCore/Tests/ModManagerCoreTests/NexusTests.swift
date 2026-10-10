@@ -307,3 +307,12 @@ struct LiveCollectionTests {
         #expect(SMAPIModRecord.downloadPage(nexusID: nil, mainURL: nil, modDropID: nil, gitHubRepo: nil, curseForgeID: nil) == nil)
     }
 }
+
+@Suite(.enabled(if: ProcessInfo.processInfo.environment["LIVE_API_TESTS"] == "1"))
+struct LiveBatchModTests {
+    @Test func looksUpSeveralModsAtOnce() async throws {
+        let mods = try await NexusClient(apiKey: nil, appVersion: "test").mods(ids: [1915, 3753, 999_999_999])
+        #expect(Set(mods.map(\.modId)) == [1915, 3753])
+        #expect(mods.allSatisfy { $0.thumbnailURL != nil })
+    }
+}

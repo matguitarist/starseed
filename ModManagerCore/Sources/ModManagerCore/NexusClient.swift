@@ -267,6 +267,32 @@ public struct NexusClient: Sendable {
         return response.mod
     }
 
+    /// Several mods in one request (for pictures of installed mods).
+    /// Unknown or hidden mods are simply missing from the result.
+    public func mods(ids: [Int]) async throws -> [NexusMod] {
+        guard !ids.isEmpty else { return [] }
+        struct Response: Decodable {
+            struct Page: Decodable { let nodes: [NexusMod] }
+            let legacyModsByDomain: Page
+        }
+        var result: [NexusMod] = []
+        for start in stride(from: 0, to: ids.count, by: 50) {
+            let chunk = ids[start..<min(start + 50, ids.count)]
+            let response: Response = try await graphQL(
+                """
+                query Mods($ids: [CompositeDomainWithIdInput!]!) {
+                  legacyModsByDomain(ids: $ids) {
+                    nodes { modId name summary author version downloads endorsements thumbnailUrl pictureUrl updatedAt }
+                  }
+                }
+                """,
+                variables: ["ids": chunk.map { ["gameDomain": Self.gameDomain, "modId": $0] }]
+            )
+            result += response.legacyModsByDomain.nodes
+        }
+        return result
+    }
+
     /// The mod's "Requirements" list from its Nexus page.
     public func requirements(forMod modID: Int) async throws -> [NexusRequirement] {
         struct Node: Decodable {

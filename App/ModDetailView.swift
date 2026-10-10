@@ -26,6 +26,7 @@ struct ModDetailView: View {
     private func details(for mod: ModInfo) -> some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 14) {
+                ModHeaderPicture(mods: [mod])
                 VStack(alignment: .leading, spacing: 4) {
                     Text(mod.displayName)
                         .font(.title2.bold())
@@ -304,6 +305,7 @@ private struct GroupDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 14) {
+                ModHeaderPicture(mods: group.mods)
                 VStack(alignment: .leading, spacing: 4) {
                     Label(group.name, systemImage: group.isFolder ? "folder.fill" : "square.stack.3d.up.fill")
                         .font(.title2.bold())

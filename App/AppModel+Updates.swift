@@ -145,6 +145,7 @@ extension AppModel {
         updateCheckStep = ProgressStep(text: String(localized: "Looking up requirements…"), fraction: 0.3)
         await resolveMissingDependencies()
         notifyAboutNewUpdates()
+        Task { await loadNexusModInfo() }
         await prefetchNexusFiles { done, total in
             self.updateCheckStep = ProgressStep(
                 text: String(localized: "Reading Nexus file lists (\(done) of \(total))…"),

@@ -119,6 +119,8 @@ final class AppModel {
     var browserQueue: [BrowserQueueItem] = []
     /// Asset conflicts SMAPI reported in the latest log (mods -> assets).
     var logConflicts: [LogConflict] = []
+    /// Nexus page info (pictures) of installed mods, by mod number.
+    var nexusModInfo: [Int: NexusMod] = [:]
     /// Nexus changelogs by mod number, fetched when first shown.
     var changelogs: [Int: [ChangelogEntry]] = [:]
     /// Nexus mods whose files are being looked up before download.
@@ -275,6 +277,7 @@ final class AppModel {
         // Keep selected groups too (their IDs aren't mod IDs).
         let ids = Set(mods.map(\.id)).union(allGroups.map(\.id))
         selection.formIntersection(ids)
+        Task { await loadNexusModInfo() }  // pictures of newly installed mods
     }
 
     // MARK: Enable / disable / trash

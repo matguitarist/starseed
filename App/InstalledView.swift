@@ -20,6 +20,7 @@ struct InstalledView: View {
     @State private var showInspector = true
     @State private var showProfiles = false
     @FocusState private var isFilterFocused: Bool
+    @AppStorage(Preferences.showModPictures) private var showModPictures = true
 
     var body: some View {
         modTable
@@ -105,6 +106,10 @@ struct InstalledView: View {
 
             TableColumn("Name", value: \.name, comparator: .localizedStandard) { row in
                 HStack(spacing: 6) {
+                    if showModPictures {
+                        ModPicture(url: model.nexusInfo(for: row.mods)?.thumbnailURL)
+                            .frame(width: 34, height: 20)
+                    }
                     Circle()
                         .fill(row.status.color)
                         .frame(width: 8, height: 8)
