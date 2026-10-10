@@ -90,6 +90,12 @@ private struct GeneralSettings: View {
                     Text("Not found next to the Mods folder").foregroundStyle(.secondary)
                 }
             }
+            if model.smapiNeedsInstall {
+                HStack {
+                    Spacer()
+                    SMAPIInstallButton()
+                }
+            }
             if let game = model.smapi?.gameVersion {
                 LabeledContent("Stardew Valley", value: game.description)
             }

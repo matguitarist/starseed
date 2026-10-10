@@ -74,6 +74,8 @@ final class AppModel {
     /// shown briefly in the status bar.
     var statusResult: StatusResult?
     var isBackingUpBeforePlay = false
+    /// Set while SMAPI is being downloaded or installed.
+    var smapiInstallPhase: SMAPIInstaller.Phase?
     var lastUpdateCheck: Date?
     var updateCheckError: String?
 

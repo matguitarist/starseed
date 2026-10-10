@@ -39,7 +39,44 @@ extension AppModel {
         }
     }
 
-    /// SMAPI has to be installed with its own installer: open its Nexus files.
+    /// Installs or updates SMAPI with its official installer (no Terminal
+    /// window), then rescans: the installer adds SMAPI's bundled mods.
+    func installSMAPI() {
+        guard smapiInstallPhase == nil, let manager else { return }
+        guard !isGameRunning else {
+            return show("Quit Stardew Valley First", "SMAPI can't be installed while the game is running.")
+        }
+        let gameFolder = smapi?.gameFolder ?? manager.modsURL.deletingLastPathComponent()
+        guard SMAPIInstaller.isGameFolder(gameFolder) else {
+            // A Mods folder outside the game: fall back to the manual installer.
+            show("Game Folder Not Found", "SMAPI goes next to the game, but your Mods folder isn't inside it. Opening SMAPI's download page instead.")
+            return getSMAPI()
+        }
+        smapiInstallPhase = .downloading(0)
+        Task {
+            defer { smapiInstallPhase = nil }
+            do {
+                let release = try await SMAPIInstaller.latestRelease()
+                try await SMAPIInstaller.install(release, gameFolder: gameFolder) { phase in
+                    Task { @MainActor in self.smapiInstallPhase = phase }
+                }
+                detectSMAPI()
+                refresh()
+                latestSMAPIVersion = max(latestSMAPIVersion ?? release.version, release.version)
+                showStatusResult(String(localized: "SMAPI \(release.version.description) is installed. Launch the game as usual to play with mods."))
+            } catch {
+                show("Couldn't Install SMAPI", detail: error.localizedDescription)
+            }
+        }
+    }
+
+    /// Whether SMAPI needs installing, updating, or reconnecting to the game.
+    var smapiNeedsInstall: Bool {
+        guard let smapi else { return manager != nil }
+        return isSMAPIOutdated || !smapi.isLauncherHooked || !modsNeedingNewerSMAPI.isEmpty
+    }
+
+    /// SMAPI's Nexus files page, for installing it by hand.
     func getSMAPI() {
         openInBrowser(URL(string: "https://www.nexusmods.com/\(NexusClient.gameDomain)/mods/\(NexusClient.smapiModID)?tab=files")!)
     }

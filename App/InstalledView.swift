@@ -251,8 +251,7 @@ struct SMAPIBanner: View {
                     }
                 }
                 Spacer()
-                Button("Get SMAPI…") { model.getSMAPI() }
-                    .help("Open SMAPI's download page. Its installer unpacks to your Downloads folder.")
+                SMAPIInstallButton(prominent: true)
             }
             .padding(.horizontal, 14)
             .padding(.vertical, 8)
@@ -264,7 +263,10 @@ struct SMAPIBanner: View {
     private var message: (title: String, detail: String?)? {
         guard model.manager != nil else { return nil }
         guard let smapi = model.smapi else {
-            return (String(localized: "SMAPI isn't installed"), String(localized: "Mods only load through SMAPI. Install it next to the game, then launch the game normally."))
+            return (String(localized: "SMAPI isn't installed"), String(localized: "Mods only load through SMAPI, the mod loader. Starseed can install it for you."))
+        }
+        if !smapi.isLauncherHooked {
+            return (String(localized: "The game will start without mods"), String(localized: "A game update replaced SMAPI's launcher. Reinstall SMAPI to connect it again; your mods and settings stay as they are."))
         }
         let needing = model.modsNeedingNewerSMAPI
         if model.isSMAPIOutdated, let installed = smapi.version, let latest = model.latestSMAPIVersion {
@@ -481,5 +483,44 @@ private struct TableScroller: NSViewRepresentable {
             if let table = firstTable(in: subview) { return table }
         }
         return nil
+    }
+}
+
+/// Installs, updates or reconnects SMAPI in one click, with "Download Page"
+/// for doing it by hand.
+struct SMAPIInstallButton: View {
+    @AppModelEnvironment private var model
+    var prominent = false
+
+    var body: some View {
+        HStack(spacing: 6) {
+            Group {
+                if model.smapiInstallPhase != nil {
+                    ProgressView().controlSize(.small)
+                } else if prominent {
+                    Button(title) { model.installSMAPI() }.buttonStyle(.borderedProminent)
+                } else {
+                    Button(title) { model.installSMAPI() }
+                }
+            }
+            .help("Downloads SMAPI's official installer from GitHub and runs it for your game. Quit the game first.")
+            Menu {
+                Button("Open SMAPI's Download Page") { model.getSMAPI() }
+            } label: {
+                Image(systemName: "ellipsis.circle")
+            }
+            .menuStyle(.borderlessButton)
+            .menuIndicator(.hidden)
+            .fixedSize()
+            .help("Install SMAPI yourself instead")
+        }
+        .disabled(model.smapiInstallPhase != nil)
+    }
+
+    private var title: String {
+        guard let smapi = model.smapi else { return String(localized: "Install SMAPI") }
+        if !smapi.isLauncherHooked { return String(localized: "Reinstall SMAPI") }
+        if let latest = model.latestSMAPIVersion, model.isSMAPIOutdated { return String(localized: "Update SMAPI to \(latest.description)") }
+        return String(localized: "Update SMAPI")
     }
 }

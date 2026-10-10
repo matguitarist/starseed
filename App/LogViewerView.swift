@@ -484,7 +484,7 @@ private struct InsightsPanel: View {
                 Button("Install Missing") { model.installMissing(uniqueIDs: missing, neededBy: name) }
                     .task { await model.resolve(uniqueIDs: missing) }
             } else if smapi != nil {
-                Button("Get SMAPI…") { model.getSMAPI() }
+                SMAPIInstallButton()
             } else if let mod = model.installedMod(named: name), let nexusID = model.nexusID(for: mod) {
                 Button("Check for Update…") { model.nexusSheet = NexusSheetRequest(modID: nexusID) }
             }
@@ -501,7 +501,7 @@ private struct InsightsPanel: View {
         case .updatesAvailable:
             Button("Open Updates") { model.sidebarSelection = .updates }
         case .smapiUpdate:
-            Button("Get SMAPI…") { model.getSMAPI() }
+            SMAPIInstallButton()
         case .assetConflict(let mods, _):
             let installed = mods.compactMap { model.installedMod(named: $0) }.filter(\.isEnabled)
             if installed.count > 1 {

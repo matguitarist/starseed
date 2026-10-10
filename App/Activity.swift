@@ -68,6 +68,12 @@ extension AppModel {
             }
             return ActivityStatus(text: String(localized: "Starting \(active.count) download(s)…"))
         }
+        if let phase = smapiInstallPhase {
+            switch phase {
+            case .downloading(let fraction): return ActivityStatus(text: String(localized: "Downloading SMAPI…"), progress: fraction)
+            case .installing: return ActivityStatus(text: String(localized: "Installing SMAPI…"))
+            }
+        }
         if isInstalling { return ActivityStatus(text: String(localized: "Installing…")) }
         if isBackingUpBeforePlay { return ActivityStatus(text: String(localized: "Backing up your saves before playing…")) }
         if !preparingNexusIDs.isEmpty { return ActivityStatus(text: String(localized: "Finding files on Nexus…")) }
