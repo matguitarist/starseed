@@ -15,6 +15,40 @@ official Nexus Mods app doesn't support macOS. Browse and install mods
 from Nexus Mods, get update notifications, or install archives you
 downloaded yourself. Browsing and local installs need no account.
 
+![Starseed's Installed list with mod pictures, and Stardew Valley Expanded's details](docs/screenshots/installed.png)
+
+## A quick tour
+
+**Your mods at a glance.** Every mod in your Mods folder with its picture,
+version and status. Multi-part mods like Stardew Valley Expanded show as one
+row. The details panel shows what a mod needs, which mods use it, and any
+conflicts. At the bottom, green, yellow or red dots tell you whether the game
+and SMAPI are up to date, with one-click updates.
+
+**Find and install mods from Nexus.** Search or browse the most popular mods,
+see their requirements, and install them along with what they need. Updates
+show up in the list; read what's new, then update in one click.
+
+![Browsing Stardew Valley mods on Nexus](docs/screenshots/browse.png)
+
+**Install whole collections.** Nexus collections (curated mod packs) install
+every mod at the versions they were made with.
+
+![Nexus collections in Starseed](docs/screenshots/collections.png)
+
+**When something breaks.** After you play, Starseed tells you if mods failed
+to load, had errors or conflicted, in plain words with a button to fix each
+one. If the log doesn't say which mod is to blame, **Find a Broken Mod**
+narrows it down in a few launches.
+
+**Keep your farms safe.** Saves are backed up before you play with changed
+mods, each farm can have its own set of mods, and earlier mod versions are kept
+so an update can be rolled back.
+
+**Help built in**, in English and French.
+
+![Starseed's Help window](docs/screenshots/help.png)
+
 ## Features
 
 Built-in help: **Help → Starseed Help** (⌘?), in English and French.
