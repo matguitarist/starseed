@@ -30,6 +30,7 @@
 		95C0C9AEA819D620A641CD00 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 5CEAACA199435D4A4282751F /* Localizable.xcstrings */; };
 		A6523D07ADA48F91AE9DA70A /* LogViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879299EC8FC1BC543B82D3E2 /* LogViewerView.swift */; };
 		A842122987F23B29355D563E /* RequirementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF9E3E65BEAE57ACD20611 /* RequirementsView.swift */; };
+		AC60A9D336F152A82D0F5AB6 /* StorageSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8246DC80097954E4E408614B /* StorageSettings.swift */; };
 		B1D6FB869B6F2E2986B87F9D /* PlayReports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341555E4992218C6A0DFB554 /* PlayReports.swift */; };
 		B38314289E9A310C62D0F339 /* NexusModSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2521CC450C378D7A7830C95E /* NexusModSheet.swift */; };
 		B47AEB3DBA2418F1EFA9B8F9 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0D50F734FDCE7EC1A89653 /* Localized.swift */; };
@@ -77,6 +78,7 @@
 		71A5C63340551AD5F955C117 /* ProfilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesView.swift; sourceTree = "<group>"; };
 		75577C052056FCD477A7DBDC /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		7EC65CDCCA389CF775E52F81 /* BrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserView.swift; sourceTree = "<group>"; };
+		8246DC80097954E4E408614B /* StorageSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageSettings.swift; sourceTree = "<group>"; };
 		83B72EE4ABCABDFF5EEC268D /* InstalledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstalledView.swift; sourceTree = "<group>"; };
 		847385174D1906D29421D1B4 /* AppModel+Installing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModel+Installing.swift"; sourceTree = "<group>"; };
 		8535F6BA5277F54A75AD419F /* Conflicts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conflicts.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				882D1E5D99EEAA8946E3990A /* SettingsView.swift */,
 				3A7745432F262C11C31A9634 /* StardewModManager.entitlements */,
 				060CBD6601F4146FAF75C704 /* StardewModManagerApp.swift */,
+				8246DC80097954E4E408614B /* StorageSettings.swift */,
 				95E44F54DC4269E345B7EE63 /* Thumbnails.swift */,
 				0825B0DCF8C284030913ADCA /* UnusedRequirementsSheet.swift */,
 				48197B7BBE7EE15AB71D5108 /* UpdatesView.swift */,
@@ -299,6 +302,7 @@
 				745E4ABF7E08EF53EAAEE6AA /* SavesView.swift in Sources */,
 				52EF3147302B8AF2DE40E91B /* SettingsView.swift in Sources */,
 				DF6863EC182FECE9BC603FB6 /* StardewModManagerApp.swift in Sources */,
+				AC60A9D336F152A82D0F5AB6 /* StorageSettings.swift in Sources */,
 				332C6B299600518B54646C0A /* Thumbnails.swift in Sources */,
 				5100D9135D68B0C05F95A0B8 /* UnusedRequirementsSheet.swift in Sources */,
 				DABC5A0FD5CE13412580753B /* UpdatesView.swift in Sources */,

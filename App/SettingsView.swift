@@ -9,6 +9,8 @@ struct SettingsView: View {
                 .tabItem { Label("General", systemImage: "gearshape") }
             NexusSettings()
                 .tabItem { Label("Nexus Mods", systemImage: "globe") }
+            StorageSettings()
+                .tabItem { Label("Storage", systemImage: "internaldrive") }
         }
         .frame(width: 540)
     }

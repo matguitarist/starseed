@@ -67,6 +67,10 @@ struct ModDetailView: View {
                     row("Author", mod.author)
                     if !mod.uniqueID.isEmpty { row("Unique ID", mod.uniqueID) }
                     if let minimum = mod.minimumApiVersion { row("Needs SMAPI", String(localized: "\(minimum) or later")) }
+                    GridRow {
+                        Text("Size").foregroundStyle(.secondary)
+                        ModSizeText(folder: mod.folderURL)
+                    }
                     if let nexusID = model.nexusID(for: mod) {
                         GridRow {
                             Text("Nexus").foregroundStyle(.secondary)

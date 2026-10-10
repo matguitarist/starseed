@@ -150,4 +150,22 @@ import Testing
         #expect(try String(contentsOf: reverted.folderURL.appending(path: "config.json"), encoding: .utf8) == #"{"key": "F2"}"#)
         #expect(archive.versions(of: "Pathoschild.LookupAnything").map(\.version) == ["2.0.0"])  // can switch back
     }
+
+    @Test func listsSizesAndRemovesKeptVersions() throws {
+        let tmp = try TempDir()
+        let archive = ModArchive(directory: tmp.url.appending(path: "Archive"), keep: 3, recycle: { try FileManager.default.removeItem(at: $0) })
+        for (id, version) in [("a.One", "1.0.0"), ("b.Two", "1.0.0")] {
+            let folder = try tmp.makeMod(id, manifest: manifest(id, version: version), in: tmp.url.appending(path: "staging"))
+            try Data(repeating: 7, count: 100_000).write(to: folder.appending(path: "big.bin"))
+            try archive.store(folder)
+        }
+        let versions = archive.allVersions()
+        #expect(Set(versions.map(\.version)) == ["1.0.0"])
+        #expect(versions.count == 2)
+        #expect(DiskUsage.size(of: archive.directory) >= 200_000)
+
+        try archive.remove(versions[0])
+        #expect(archive.allVersions().count == 1)
+        #expect(!FileManager.default.fileExists(atPath: versions[0].folder.deletingLastPathComponent().deletingLastPathComponent().path))
+    }
 }
