@@ -66,7 +66,7 @@
 		36BD33902DFD3EF0DAE6802F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		3751918581379943B9AB023D /* AppModel+Nexus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModel+Nexus.swift"; sourceTree = "<group>"; };
 		3A7745432F262C11C31A9634 /* StardewModManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StardewModManager.entitlements; sourceTree = "<group>"; };
-		466DFE1F2D8B06DF05695D18 /* StardewModManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = StardewModManager.app; path = Starseed.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		466DFE1F2D8B06DF05695D18 /* StardewModManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StardewModManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48197B7BBE7EE15AB71D5108 /* UpdatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesView.swift; sourceTree = "<group>"; };
 		5B138698F0E21A1D71717833 /* ChangelogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangelogView.swift; sourceTree = "<group>"; };
 		5CEAACA199435D4A4282751F /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 		B30552591D88F603A6043CFE /* AppModel+Saves.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModel+Saves.swift"; sourceTree = "<group>"; };
 		B5FF9E3E65BEAE57ACD20611 /* RequirementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementsView.swift; sourceTree = "<group>"; };
 		B795C47ECDFF10A726ECFDA0 /* BisectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BisectView.swift; sourceTree = "<group>"; };
-		B79A52FECDD87ED11901B6D1 /* ModManagerCore */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ModManagerCore; sourceTree = SOURCE_ROOT; };
+		B79A52FECDD87ED11901B6D1 /* ModManagerCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ModManagerCore; path = ModManagerCore; sourceTree = SOURCE_ROOT; };
 		BD2E122C00662959EB64731C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1D257F10B4C9483D2A26D32 /* AppModelEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModelEnvironment.swift; sourceTree = "<group>"; };
 		F0E46DB3F74731B560BF4385 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
@@ -373,7 +373,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -393,7 +393,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 2.2.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -440,7 +440,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -454,7 +454,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 2.2.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
