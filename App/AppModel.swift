@@ -74,6 +74,10 @@ final class AppModel {
     /// shown briefly in the status bar.
     var statusResult: StatusResult?
     var isBackingUpBeforePlay = false
+    /// The running "Find a Broken Mod" search (see BisectView.swift).
+    var bisection: Bisection?
+    var bisectionOriginal: Set<String>?
+    var showBisect = false
     /// The problems from the last game session (see PlayReports.swift).
     var lastPlayReport: PlayReport?
     /// A log the SMAPI Log section should open (e.g. the crash log).
@@ -218,6 +222,7 @@ final class AppModel {
             needsFolderSetup = true
         }
         Task { await loadLogConflicts() }
+        loadBisection()
         nexusAccount = .checking
         Task {
             nexusAPIKey = await Task.detached { Keychain.readNexusAPIKey() }.value

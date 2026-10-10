@@ -32,6 +32,9 @@ struct RootView: View {
             NexusModSheet(request: request)
                 .opensWebLinksInApp()
         }
+        .sheet(isPresented: $model.showBisect) {
+            BisectView()
+        }
         .sheet(item: $model.unusedRequirementsPrompt) { prompt in
             UnusedRequirementsSheet(prompt: prompt)
         }

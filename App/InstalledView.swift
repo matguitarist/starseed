@@ -30,6 +30,7 @@ struct InstalledView: View {
         }
         .safeAreaInset(edge: .top, spacing: 0) {
             VStack(spacing: 0) {
+                BisectBanner()
                 SMAPIBanner()
                 DuplicatesBanner()
                 filterBar

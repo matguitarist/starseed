@@ -89,6 +89,9 @@ struct StardewModManagerApp: App {
                 Divider()
                 Button("Launch Stardew Valley") { model.launchGame() }
                     .keyboardShortcut("l")
+                Divider()
+                Button("Find a Broken Mod…") { model.showBisect = true }
+                    .disabled(model.manager == nil)
             }
         }
 
