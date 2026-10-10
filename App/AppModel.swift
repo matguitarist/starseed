@@ -148,6 +148,10 @@ final class AppModel {
     // Nexus account data (AppModel+Nexus).
     var endorsements: [Int: NexusClient.EndorsementStatus] = [:]
     var trackedMods: Set<Int> = []
+    /// Endorsements and tracked mods are fetched the first time a mod's
+    /// Endorse/Track buttons are shown, not at every launch (Nexus's API
+    /// policy: use the key for things the user does).
+    var accountListsLoaded = false
     /// Nexus file lists by mod number, fetched once per session.
     var nexusFiles: [Int: [NexusFile]] = [:]
     /// True while missing requirements are being looked up (SMAPI, then Nexus pages).

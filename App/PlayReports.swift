@@ -20,7 +20,7 @@ extension AppModel {
             queue: .main
         ) { [weak self] note in
             guard let app = note.userInfo?[NSWorkspace.applicationUserInfoKey] as? NSRunningApplication,
-                  Self.isGame(app)
+                  MainActor.assumeIsolated({ Self.isGame(app) })  // queue: .main
             else { return }
             let launched = app.launchDate ?? Date(timeIntervalSinceNow: -24 * 60 * 60)
             Task { @MainActor in

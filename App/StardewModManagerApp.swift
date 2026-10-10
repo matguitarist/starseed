@@ -124,6 +124,7 @@ struct StardewModManagerApp: App {
 
 /// The standard About panel, with the icon passed in explicitly (macOS can
 /// show a stale generic icon for a rebuilt app) and a short credit line.
+@MainActor
 enum AboutPanel {
     static func show() {
         let credits = NSMutableAttributedString(

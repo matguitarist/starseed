@@ -33,7 +33,7 @@ extension AppModel {
         nexusAccount = .checking
         do {
             nexusAccount = .signedIn(try await nexusClient.validateKey())
-            await loadNexusAccountLists()
+            accountListsLoaded = false
         } catch {
             nexusAccount = .invalid(error.localizedDescription)
         }
@@ -42,9 +42,11 @@ extension AppModel {
     // MARK: Endorse & track
 
 
-    /// Loads your endorsements and tracked mods (after the API key is verified).
+    /// Loads your endorsements and tracked mods, once per key, when Endorse
+    /// and Track buttons first appear.
     func loadNexusAccountLists() async {
-        guard nexusAccount.user != nil else { return }
+        guard nexusAccount.user != nil, !accountListsLoaded else { return }
+        accountListsLoaded = true
         let client = nexusClient
         async let endorsed = try? client.endorsements()
         async let tracked = try? client.trackedMods()

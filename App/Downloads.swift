@@ -146,6 +146,7 @@ struct EndorseTrackButtons: View {
                 .help(tracked ? "Nexus notifies you about this mod. Click to stop." : "Get Nexus notifications when this mod is updated")
             }
             .controlSize(.small)
+            .task { await model.loadNexusAccountLists() }
         }
     }
 }
