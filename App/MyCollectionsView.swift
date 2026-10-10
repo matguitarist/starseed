@@ -68,7 +68,7 @@ struct MyCollectionsView: View {
             }
             Button("Cancel", role: .cancel) {}
         } message: {
-            Text("Saves the \(model.mods.filter { !$0.uniqueID.lowercased().hasPrefix("smapi.") && !$0.uniqueID.isEmpty }.count) installed mods, their versions and Nexus numbers. A collection with the same name is replaced.")
+            Text("Saves the \(model.mods.filter { !$0.uniqueID.lowercased().hasPrefix("smapi.") && !$0.uniqueID.isEmpty }.count) installed mods, their versions, Nexus numbers and settings. A collection with the same name is replaced.")
         }
         .onAppear {
             model.loadModLists()
@@ -93,6 +93,7 @@ private struct ModListDetail: View {
 
     @State private var confirmApply = false
     @State private var confirmDelete = false
+    @State private var confirmSettings = false
 
     var body: some View {
         let states = list.mods.map { ModListEntryState.of($0, in: model.mods) }
@@ -112,6 +113,20 @@ private struct ModListDetail: View {
                         if disabled > 0 { Label("\(disabled) disabled", systemImage: "power.circle").foregroundStyle(.secondary) }
                     }
                     .font(.callout)
+                    if list.settingsCount > 0 {
+                        let changed = list.settingsChanges(for: model.mods).count
+                        HStack(spacing: 8) {
+                            Label(changed == 0 ? String(localized: "Settings for \(list.settingsCount) mods, same as yours")
+                                  : String(localized: "Settings for \(list.settingsCount) mods, \(changed) different from yours"),
+                                  systemImage: "slider.horizontal.3")
+                                .foregroundStyle(.secondary)
+                            if changed > 0 {
+                                Button("Apply Settings…") { confirmSettings = true }
+                                    .controlSize(.small)
+                            }
+                        }
+                        .font(.callout)
+                    }
                 }
                 Spacer()
                 VStack(alignment: .trailing, spacing: 8) {
@@ -141,6 +156,11 @@ private struct ModListDetail: View {
             Button("Enable These Mods") { model.apply(list) }
         } message: {
             Text("Mods this collection had enabled are turned on and every other mod is turned off. Nothing is deleted.")
+        }
+        .confirmationDialog("Use this collection's mod settings?", isPresented: $confirmSettings, titleVisibility: .visible) {
+            Button("Apply Settings") { model.applySettings(from: list) }
+        } message: {
+            Text("The settings of \(list.settingsChanges(for: model.mods).map(\.mod.displayName).formatted(.list(type: .and))) are replaced by the ones saved in “\(list.name)”. Each mod's current settings are kept as config.json.bak.")
         }
         .confirmationDialog("Delete “\(list.name)”?", isPresented: $confirmDelete, titleVisibility: .visible) {
             Button("Move to Trash", role: .destructive) {

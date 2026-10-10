@@ -11,16 +11,20 @@ public struct ModListEntry: Codable, Hashable, Identifiable, Sendable {
     public var author: String?
     public var nexusID: Int?
     public var enabled: Bool
+    /// The mod's config.json, as written (comments included). Absent in
+    /// lists made before settings were saved, and for mods without one.
+    public var settings: String?
 
     public var id: String { uniqueID.lowercased() }
 
-    public init(name: String, uniqueID: String, version: String, author: String?, nexusID: Int?, enabled: Bool) {
+    public init(name: String, uniqueID: String, version: String, author: String?, nexusID: Int?, enabled: Bool, settings: String? = nil) {
         self.name = name
         self.uniqueID = uniqueID
         self.version = version
         self.author = author
         self.nexusID = nexusID
         self.enabled = enabled
+        self.settings = settings
     }
 }
 
@@ -53,7 +57,8 @@ public struct ModList: Codable, Hashable, Identifiable, Sendable {
         of mods: [ModInfo],
         nexusID: (ModInfo) -> Int?,
         gameVersion: String?,
-        smapiVersion: String?
+        smapiVersion: String?,
+        includeSettings: Bool = true
     ) -> ModList {
         let entries = mods
             .filter { !$0.uniqueID.isEmpty && $0.parseError == nil && !$0.uniqueID.lowercased().hasPrefix("smapi.") }
@@ -64,7 +69,8 @@ public struct ModList: Codable, Hashable, Identifiable, Sendable {
                     version: mod.version,
                     author: mod.author == "?" ? nil : mod.author,
                     nexusID: nexusID(mod),
-                    enabled: mod.isEnabled
+                    enabled: mod.isEnabled,
+                    settings: includeSettings ? Self.settings(of: mod) : nil
                 )
             }
             .sorted { $0.name.localizedStandardCompare($1.name) == .orderedAscending }
@@ -144,5 +150,43 @@ public struct ModListStore: Sendable {
         if FileManager.default.fileExists(atPath: file.path(percentEncoded: false)) {
             try FileManager.default.trashItem(at: file, resultingItemURL: nil)
         }
+    }
+}
+
+// MARK: Mod settings
+
+extension ModList {
+    /// A mod's config.json text, if it has a reasonably sized one.
+    static func settings(of mod: ModInfo) -> String? {
+        let url = mod.folderURL.appending(path: "config.json")
+        guard let size = (try? url.resourceValues(forKeys: [.fileSizeKey]))?.fileSize, size <= 512 * 1024,
+              let text = try? String(contentsOf: url, encoding: .utf8)
+        else { return nil }
+        return text
+    }
+
+    /// Installed mods whose settings differ from the list's, with the
+    /// settings to write. Only mods the list has settings for count.
+    public func settingsChanges(for installed: [ModInfo]) -> [(mod: ModInfo, settings: String)] {
+        let byID = Dictionary(mods.compactMap { entry in entry.settings.map { (entry.id, $0) } }, uniquingKeysWith: { first, _ in first })
+        return installed.compactMap { mod in
+            guard let wanted = byID[mod.uniqueID.lowercased()] else { return nil }
+            let current = Self.settings(of: mod)
+            return current?.trimmingCharacters(in: .whitespacesAndNewlines) == wanted.trimmingCharacters(in: .whitespacesAndNewlines)
+                ? nil : (mod, wanted)
+        }
+    }
+
+    public var settingsCount: Int { mods.filter { $0.settings != nil }.count }
+
+    /// Writes settings to a mod's config.json, keeping the old file as
+    /// config.json.bak. Settings that don't parse are refused.
+    public static func apply(settings: String, to mod: ModInfo) throws {
+        _ = try ConfigJSON.parse(Data(settings.utf8))
+        let url = mod.folderURL.appending(path: "config.json")
+        if let previous = try? Data(contentsOf: url) {
+            try? previous.write(to: mod.folderURL.appending(path: "config.json.bak"))
+        }
+        try Data(settings.utf8).write(to: url, options: .atomic)
     }
 }

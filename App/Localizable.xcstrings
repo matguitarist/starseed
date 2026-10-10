@@ -336,6 +336,16 @@
         }
       }
     },
+    "%@ didn't load." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ ne s’est pas chargé."
+          }
+        }
+      }
+    },
     "%@ Farm" : {
       "localizations" : {
         "fr" : {
@@ -368,6 +378,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ a eu une erreur pendant que vous jouiez"
+          }
+        }
+      }
+    },
+    "%@ had errors." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ a eu des erreurs."
           }
         }
       }
@@ -498,6 +518,16 @@
         }
       }
     },
+    "%lld mod conflicts." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld conflits entre mods."
+          }
+        }
+      }
+    },
     "%lld mod updates available" : {
       "localizations" : {
         "fr" : {
@@ -612,6 +642,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$lld sur %2$lld activés"
+          }
+        }
+      }
+    },
+    "%lld of %lld mods are on. Play, try what went wrong before, then come back here." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld of %2$lld mods are on. Play, try what went wrong before, then come back here."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld mods sur %2$lld sont activés. Jouez, refaites ce qui posait problème, puis revenez ici."
           }
         }
       }
@@ -753,6 +799,16 @@
         }
       }
     },
+    "2 mods conflict." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2 mods sont en conflit."
+          }
+        }
+      }
+    },
     "2. Choose your Mods folder" : {
       "localizations" : {
         "fr" : {
@@ -784,11 +840,22 @@
       }
     },
     "A collection is a list of your mods with their versions and Nexus pages. **Export…** it to share your setup, or keep it as a backup; **Import…** reads one back and offers to install whatever's missing." : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Une collection est la liste de vos mods avec leurs versions et leurs pages Nexus. **Exportez-la** pour partager votre configuration ou la garder en sécurité ; **Importer…** la relit et propose d’installer ce qui manque."
+          }
+        }
+      }
+    },
+    "A collection is a list of your mods with their versions, Nexus pages and settings. **Export…** it to share your setup, or keep it as a backup; **Import…** reads one back and offers to install whatever's missing. **Apply Settings…** then copies the collection's mod settings over yours." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une collection est la liste de vos mods avec leurs versions, leurs pages Nexus et leurs réglages. **Exportez-la** pour partager votre configuration ou la garder en sécurité ; **Importer…** la relit et propose d’installer ce qui manque. **Appliquer les réglages…** copie ensuite les réglages des mods de la collection sur les vôtres."
           }
         }
       }
@@ -809,6 +876,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Un dossier dans Mods contenant %lld mods. SMAPI charge tous les mods qu’il contient."
+          }
+        }
+      }
+    },
+    "A game update probably disconnected SMAPI. Click **Reinstall SMAPI** in the orange banner; your mods and settings stay as they are." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une mise à jour du jeu a sans doute déconnecté SMAPI. Cliquez sur **Réinstaller SMAPI** dans le bandeau orange ; vos mods et vos réglages restent tels quels."
+          }
+        }
+      }
+    },
+    "A game update replaced SMAPI's launcher. Reinstall SMAPI to connect it again; your mods and settings stay as they are." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une mise à jour du jeu a remplacé le lanceur de SMAPI. Réinstallez SMAPI pour le reconnecter ; vos mods et vos réglages restent tels quels."
           }
         }
       }
@@ -1085,6 +1172,16 @@
         }
       }
     },
+    "Applied the collection's settings to %lld mod(s). The previous ones are kept as config.json.bak." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réglages de la collection appliqués à %lld mod(s). Les précédents sont conservés dans config.json.bak."
+          }
+        }
+      }
+    },
     "Apply" : {
       "localizations" : {
         "fr" : {
@@ -1101,6 +1198,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Appliquer %@"
+          }
+        }
+      }
+    },
+    "Apply Settings" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appliquer les réglages"
+          }
+        }
+      }
+    },
+    "Apply Settings…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appliquer les réglages…"
           }
         }
       }
@@ -1332,6 +1449,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les modifications s’appliquent au prochain lancement du jeu."
+          }
+        }
+      }
+    },
+    "Check for an update or a known issue on its page, or keep it off for now. It might also clash with another mod; the SMAPI log usually tells." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cherchez une mise à jour ou un problème connu sur sa page, ou laissez-le désactivé pour l’instant. Il entre peut-être aussi en conflit avec un autre mod ; le journal SMAPI l’indique en général."
           }
         }
       }
@@ -1650,12 +1777,32 @@
         }
       }
     },
+    "Click **Install SMAPI** in the orange banner: Starseed downloads SMAPI's official installer and runs it for your game. When a new SMAPI comes out, or a game update disconnects it, the same banner offers to update or reinstall it." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cliquez sur **Installer SMAPI** dans le bandeau orange : Starseed télécharge l’installateur officiel de SMAPI et le lance pour votre jeu. Quand une nouvelle version de SMAPI sort, ou qu’une mise à jour du jeu le déconnecte, le même bandeau propose de le mettre à jour ou de le réinstaller."
+          }
+        }
+      }
+    },
     "Click **Slow download** below. The next mod opens automatically after each download starts." : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cliquez sur **Slow download** ci-dessous. Le mod suivant s’ouvre automatiquement dès que chaque téléchargement commence."
+          }
+        }
+      }
+    },
+    "Click to see what SMAPI says." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cliquez pour voir ce que dit SMAPI."
           }
         }
       }
@@ -1726,6 +1873,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "pack de contenu pour"
+          }
+        }
+      }
+    },
+    "Continue" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuer"
+          }
+        }
+      }
+    },
+    "Continue Later" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuer plus tard"
           }
         }
       }
@@ -1816,6 +1983,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certains prérequis sont introuvables"
+          }
+        }
+      }
+    },
+    "Couldn't Install SMAPI" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d’installer SMAPI"
           }
         }
       }
@@ -2061,6 +2238,16 @@
         }
       }
     },
+    "Did the problem happen?" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le problème est-il apparu ?"
+          }
+        }
+      }
+    },
     "Disable" : {
       "localizations" : {
         "fr" : {
@@ -2171,6 +2358,16 @@
         }
       }
     },
+    "Don't go to bed in the game during tests: Stardew Valley saves overnight, and saving with mods off can lose their content. Quit to the title screen instead." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "N’allez pas vous coucher dans le jeu pendant les tests : Stardew Valley sauvegarde la nuit, et sauvegarder avec des mods désactivés peut faire perdre leur contenu. Revenez plutôt à l’écran titre."
+          }
+        }
+      }
+    },
     "Download and install every Nexus update" : {
       "localizations" : {
         "fr" : {
@@ -2242,6 +2439,7 @@
       }
     },
     "Download SMAPI from its Nexus page (**Get SMAPI…** in the orange banner opens it) and run its installer. Starseed shows the installed SMAPI version in **Settings → General** and warns when a newer one is out." : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
@@ -2291,12 +2489,32 @@
         }
       }
     },
+    "Downloading SMAPI…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Téléchargement de SMAPI…"
+          }
+        }
+      }
+    },
     "Downloads" : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Téléchargements"
+          }
+        }
+      }
+    },
+    "Downloads SMAPI's official installer from GitHub and runs it for your game. Quit the game first." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Télécharge l’installateur officiel de SMAPI depuis GitHub et le lance pour votre jeu. Quittez d’abord le jeu."
           }
         }
       }
@@ -2632,12 +2850,42 @@
         }
       }
     },
+    "Find a Broken Mod" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trouver un mod défectueux"
+          }
+        }
+      }
+    },
+    "Find a Broken Mod…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trouver un mod défectueux…"
+          }
+        }
+      }
+    },
     "Find Missing Mods" : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Trouver les mods manquants"
+          }
+        }
+      }
+    },
+    "Finding a broken mod: test %lld. Some mods are off for now." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recherche d’un mod défectueux : test %lld. Certains mods sont désactivés pour l’instant."
           }
         }
       }
@@ -2722,6 +2970,16 @@
         }
       }
     },
+    "Found it: %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trouvé : %@"
+          }
+        }
+      }
+    },
     "Free account: **Download…** opens Nexus in the app's browser (sign in there the first time). Click **Slow download** and the mod installs automatically." : {
       "localizations" : {
         "fr" : {
@@ -2802,6 +3060,16 @@
         }
       }
     },
+    "Game Folder Not Found" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dossier du jeu introuvable"
+          }
+        }
+      }
+    },
     "General" : {
       "localizations" : {
         "fr" : {
@@ -2843,6 +3111,7 @@
       }
     },
     "Get SMAPI…" : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
@@ -2898,6 +3167,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Masquer la clé"
+          }
+        }
+      }
+    },
+    "How do I know if a mod failed while I played?" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comment savoir si un mod a planté pendant la partie ?"
           }
         }
       }
@@ -3143,6 +3422,26 @@
         }
       }
     },
+    "Install SMAPI" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installer SMAPI"
+          }
+        }
+      }
+    },
+    "Install SMAPI yourself instead" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installer SMAPI vous-même"
+          }
+        }
+      }
+    },
     "Installed" : {
       "localizations" : {
         "fr" : {
@@ -3233,6 +3532,16 @@
         }
       }
     },
+    "Installing SMAPI…" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installation de SMAPI…"
+          }
+        }
+      }
+    },
     "Installing updates" : {
       "localizations" : {
         "fr" : {
@@ -3289,6 +3598,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Élément %lld"
+          }
+        }
+      }
+    },
+    "Keep %@ Off" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laisser %@ désactivé"
           }
         }
       }
@@ -3844,12 +4163,43 @@
         }
       }
     },
+    "Mods on for this test" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods activés pour ce test"
+          }
+        }
+      }
+    },
+    "Mods only load through SMAPI, the mod loader. Starseed can install it for you." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les mods ne se chargent que via SMAPI, le chargeur de mods. Starseed peut l’installer pour vous."
+          }
+        }
+      }
+    },
     "Mods only load through SMAPI. Install it next to the game, then launch the game normally." : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les mods ne se chargent qu’avec SMAPI. Installez-le à côté du jeu, puis lancez le jeu normalement."
+          }
+        }
+      }
+    },
+    "Mods read their settings when the game starts, and the game may overwrite them while it runs." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les mods lisent leurs réglages au lancement du jeu, et le jeu peut les écraser pendant qu’il tourne."
           }
         }
       }
@@ -4295,12 +4645,32 @@
         }
       }
     },
+    "No single mod causes it" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun mod seul n’en est la cause"
+          }
+        }
+      }
+    },
     "No SMAPI Log Yet" : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pas encore de journal SMAPI"
+          }
+        }
+      }
+    },
+    "No, everything was fine" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non, tout allait bien"
           }
         }
       }
@@ -4535,6 +4905,16 @@
         }
       }
     },
+    "Open Its Nexus Page" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir sa page Nexus"
+          }
+        }
+      }
+    },
     "Open Log File…" : {
       "localizations" : {
         "fr" : {
@@ -4595,7 +4975,18 @@
         }
       }
     },
+    "Open SMAPI's Download Page" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir la page de téléchargement de SMAPI"
+          }
+        }
+      }
+    },
     "Open SMAPI's download page. Its installer unpacks to your Downloads folder." : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
@@ -4846,6 +5237,16 @@
         }
       }
     },
+    "Playing" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En jeu"
+          }
+        }
+      }
+    },
     "Plays with “%@”" : {
       "localizations" : {
         "fr" : {
@@ -5072,6 +5473,16 @@
         }
       }
     },
+    "Reinstall SMAPI" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réinstaller SMAPI"
+          }
+        }
+      }
+    },
     "Reload" : {
       "localizations" : {
         "fr" : {
@@ -5274,12 +5685,32 @@
         }
       }
     },
+    "Restore Everything" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tout restaurer"
+          }
+        }
+      }
+    },
     "Restore Failed" : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Échec de la restauration"
+          }
+        }
+      }
+    },
+    "Restore My Mods" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restaurer mes mods"
           }
         }
       }
@@ -5491,11 +5922,22 @@
       }
     },
     "Saves the %lld installed mods, their versions and Nexus numbers. A collection with the same name is replaced." : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enregistre les %lld mods installés, leurs versions et leurs numéros Nexus. Une collection du même nom est remplacée."
+          }
+        }
+      }
+    },
+    "Saves the %lld installed mods, their versions, Nexus numbers and settings. A collection with the same name is replaced." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistre les %lld mods installés, leurs versions, leurs numéros Nexus et leurs réglages. Une collection du même nom est remplacée."
           }
         }
       }
@@ -5546,6 +5988,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rechercher, ou coller un lien Nexus ou un nº de mod"
+          }
+        }
+      }
+    },
+    "See Result" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voir le résultat"
           }
         }
       }
@@ -5616,6 +6068,32 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réglages"
+          }
+        }
+      }
+    },
+    "Settings for %lld mods, %lld different from yours" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Settings for %1$lld mods, %2$lld different from yours"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réglages de %1$lld mods, dont %2$lld différents des vôtres"
+          }
+        }
+      }
+    },
+    "Settings for %lld mods, same as yours" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réglages de %lld mods, identiques aux vôtres"
           }
         }
       }
@@ -5826,6 +6304,16 @@
         }
       }
     },
+    "SMAPI %@ is installed. Launch the game as usual to play with mods." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI %@ est installé. Lancez le jeu comme d’habitude pour jouer avec vos mods."
+          }
+        }
+      }
+    },
     "SMAPI can only use one, so it used the game's original files and neither change shows. Disable one of the mods to fix it." : {
       "localizations" : {
         "fr" : {
@@ -5836,12 +6324,32 @@
         }
       }
     },
+    "SMAPI can't be installed while the game is running." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI ne peut pas être installé pendant que le jeu tourne."
+          }
+        }
+      }
+    },
     "SMAPI database" : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "base SMAPI"
+          }
+        }
+      }
+    },
+    "SMAPI goes next to the game, but your Mods folder isn't inside it. Opening SMAPI's download page instead." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI s’installe à côté du jeu, mais votre dossier Mods n’est pas dedans. Ouverture de la page de téléchargement de SMAPI à la place."
           }
         }
       }
@@ -5857,6 +6365,7 @@
       }
     },
     "SMAPI is probably missing or was removed by a game update. Run SMAPI's installer again (**Get SMAPI…**)." : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
@@ -5946,6 +6455,36 @@
         }
       }
     },
+    "Some mods had problems" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Des mods ont eu des problèmes"
+          }
+        }
+      }
+    },
+    "Some Settings Weren't Applied" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Certains réglages n’ont pas été appliqués"
+          }
+        }
+      }
+    },
+    "Something breaks, but the log doesn't say which mod." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quelque chose ne marche pas, mais le journal ne dit pas quel mod."
+          }
+        }
+      }
+    },
     "Something else went wrong." : {
       "localizations" : {
         "fr" : {
@@ -6003,6 +6542,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Stardew Valley %@"
+          }
+        }
+      }
+    },
+    "Stardew Valley crashed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stardew Valley a planté"
           }
         }
       }
@@ -6107,6 +6656,26 @@
         }
       }
     },
+    "Starseed turns some mods off." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed désactive une partie des mods."
+          }
+        }
+      }
+    },
+    "Start" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Commencer"
+          }
+        }
+      }
+    },
     "Starting %lld download(s)…" : {
       "localizations" : {
         "fr" : {
@@ -6137,6 +6706,16 @@
         }
       }
     },
+    "Stop and Restore My Mods" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arrêter et restaurer mes mods"
+          }
+        }
+      }
+    },
     "Switch to this save's mods, then launch the game. Then pick %@ Farm in Load Game." : {
       "localizations" : {
         "fr" : {
@@ -6157,6 +6736,32 @@
         }
       }
     },
+    "Tell me about mod problems after playing" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Me signaler les problèmes de mods après une partie"
+          }
+        }
+      }
+    },
+    "Test %lld of about %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Test %1$lld of about %2$lld"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Test %1$lld sur environ %2$lld"
+          }
+        }
+      }
+    },
     "Thank the author by endorsing this mod on Nexus" : {
       "localizations" : {
         "fr" : {
@@ -6173,6 +6778,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ce n’est pas un lien ni un numéro de mod Stardew Valley."
+          }
+        }
+      }
+    },
+    "The broken-mod search is done." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La recherche du mod défectueux est terminée."
           }
         }
       }
@@ -6249,6 +6864,16 @@
         }
       }
     },
+    "The game will start without mods" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le jeu démarrera sans mods"
+          }
+        }
+      }
+    },
     "The game would overwrite the restored save the next time it saves. Quit to the desktop, then restore." : {
       "localizations" : {
         "fr" : {
@@ -6279,12 +6904,68 @@
         }
       }
     },
+    "The next test changes which mods are on, and mods are only loaded when the game starts." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le test suivant change les mods activés, et les mods ne sont chargés qu’au lancement du jeu."
+          }
+        }
+      }
+    },
     "The Nexus API key is stored in your Keychain. Choose **Always Allow**; a rebuilt or updated copy of the app may ask once more." : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "La clé d’API Nexus est rangée dans votre trousseau. Choisissez **Toujours autoriser** ; une copie de l’app mise à jour ou recompilée peut redemander une fois."
+          }
+        }
+      }
+    },
+    "The problem didn't happen with any half of your mods. It may need two mods together, come from the game itself, or not show up every time." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le problème n’est apparu avec aucune moitié de vos mods. Il faut peut-être deux mods ensemble, il vient peut-être du jeu lui-même, ou il n’apparaît pas à chaque fois."
+          }
+        }
+      }
+    },
+    "The problem happened whenever %@ was on, and not without it." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le problème est apparu chaque fois que %@ était activé, et jamais sans lui."
+          }
+        }
+      }
+    },
+    "The settings of %@ are replaced by the ones saved in “%@”. Each mod's current settings are kept as config.json.bak." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The settings of %1$@ are replaced by the ones saved in “%2$@”. Each mod's current settings are kept as config.json.bak."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les réglages de %1$@ sont remplacés par ceux enregistrés dans « %2$@ ». Les réglages actuels de chaque mod sont conservés dans config.json.bak."
+          }
+        }
+      }
+    },
+    "The SMAPI log after the problem happens is the best clue; sharing it on smapi.io lets others help." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le journal SMAPI juste après le problème est le meilleur indice ; le partager sur smapi.io permet à d’autres de vous aider."
           }
         }
       }
@@ -6591,6 +7272,26 @@
         }
       }
     },
+    "Update SMAPI" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mettre à jour SMAPI"
+          }
+        }
+      }
+    },
+    "Update SMAPI to %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mettre à jour SMAPI vers %@"
+          }
+        }
+      }
+    },
     "Update to %@" : {
       "localizations" : {
         "fr" : {
@@ -6662,6 +7363,16 @@
         }
       }
     },
+    "Use **Mods → Find a Broken Mod…**. Starseed turns off half of your mods, you play and say whether the problem happened, and after a few tests it names the mod. Your mods are put back at the end." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utilisez **Mods → Trouver un mod défectueux…**. Starseed désactive la moitié de vos mods, vous jouez et dites si le problème est apparu, et après quelques tests il nomme le mod. Vos mods sont remis en place à la fin."
+          }
+        }
+      }
+    },
     "Use Mods & Play" : {
       "localizations" : {
         "fr" : {
@@ -6678,6 +7389,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Utiliser cette app"
+          }
+        }
+      }
+    },
+    "Use this collection's mod settings?" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utiliser les réglages des mods de cette collection ?"
           }
         }
       }
@@ -6853,6 +7574,36 @@
         }
       }
     },
+    "When something goes wrong but the log doesn't say which mod is to blame, Starseed can find it by testing half of your mods at a time." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quand quelque chose ne marche pas mais que le journal ne dit pas quel mod est en cause, Starseed peut le trouver en testant la moitié de vos mods à la fois."
+          }
+        }
+      }
+    },
+    "When the game closes, SMAPI's log is checked for mods that didn't load, errors, conflicts and crashes." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À la fermeture du jeu, le journal de SMAPI est vérifié : mods non chargés, erreurs, conflits et plantages."
+          }
+        }
+      }
+    },
+    "When the game closes, Starseed reads SMAPI's log and sends a notification if mods didn't load, had errors, conflicted or crashed the game. Click it to see SMAPI's advice." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À la fermeture du jeu, Starseed lit le journal de SMAPI et envoie une notification si des mods ne se sont pas chargés, ont eu des erreurs, sont en conflit ou ont fait planter le jeu. Cliquez dessus pour voir les conseils de SMAPI."
+          }
+        }
+      }
+    },
     "When your mods changed since you last played, **Play** backs up every save before starting the game; the last 5 of these are kept. You can turn this off in **Settings → General**." : {
       "localizations" : {
         "fr" : {
@@ -6889,6 +7640,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Avec l’icône dans la barre des menus, fermer la fenêtre laisse l’app ouverte pour continuer à vérifier. Quittez depuis le menu de l’icône."
+          }
+        }
+      }
+    },
+    "Yes, it happened" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oui, il est apparu"
           }
         }
       }
@@ -6943,6 +7704,42 @@
         }
       }
     },
+    "You play until you can tell whether the problem happens." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous jouez jusqu’à savoir si le problème apparaît."
+          }
+        }
+      }
+    },
+    "You tell Starseed, and it picks the next half." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous le dites à Starseed, qui choisit la moitié suivante."
+          }
+        }
+      }
+    },
+    "Your %lld enabled mods make %lld groups to test (parts of one mod, and mods with what they need, stay together): about %lld tests. At the end, your mods are put back as they were." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Your %1$lld enabled mods make %2$lld groups to test (parts of one mod, and mods with what they need, stay together): about %3$lld tests. At the end, your mods are put back as they were."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vos %1$lld mods activés forment %2$lld groupes à tester (les parties d’un même mod, et les mods avec ce dont ils ont besoin, restent ensemble) : environ %3$lld tests. À la fin, vos mods sont remis comme avant."
+          }
+        }
+      }
+    },
     "your choice" : {
       "localizations" : {
         "fr" : {
@@ -6953,12 +7750,32 @@
         }
       }
     },
+    "Your mods can't be put back while the game is running." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vos mods ne peuvent pas être remis en place pendant que le jeu tourne."
+          }
+        }
+      }
+    },
     "Your mods changed, so your saves were backed up before playing (Saves → Backups)" : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vos mods ont changé : vos sauvegardes ont été copiées avant de jouer (Sauvegardes → Copies)"
+          }
+        }
+      }
+    },
+    "Your progress is kept; the Installed list has a button to come back" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Votre progression est conservée ; la liste Installés a un bouton pour reprendre"
           }
         }
       }

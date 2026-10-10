@@ -17,6 +17,17 @@ downloaded yourself. Browsing and local installs need no account.
 
 Built-in help: **Help → Starseed Help** (⌘?), in English and French.
 
+New in this version:
+
+- **One-click SMAPI**: installs, updates and reconnects SMAPI (after a game
+  update) with SMAPI's official installer, no Terminal needed.
+- **After-game report**: when the game closes, a notification lists mods
+  that didn't load, had errors, conflicted or crashed the game.
+- **Find a Broken Mod**: a guided search that tests half of your mods at a
+  time and names the culprit in a few launches.
+- **Mod settings in collections**: collections carry each mod's
+  `config.json`, and **Apply Settings…** copies them over yours.
+
 - **Browse & search Nexus Mods** inside the app (thumbnails, endorsements,
   downloads, files per mod). No account needed to browse.
 - **Install from Nexus**:

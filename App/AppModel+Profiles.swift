@@ -163,6 +163,30 @@ extension AppModel {
         }
     }
 
+    /// Writes the list's mod settings (config.json) over the installed ones
+    /// that differ. The previous files are kept as config.json.bak.
+    func applySettings(from list: ModList) {
+        guard !isGameRunning else {
+            return show("Quit Stardew Valley First", "Mods read their settings when the game starts, and the game may overwrite them while it runs.")
+        }
+        var applied = 0
+        var failures: [String] = []
+        for change in list.settingsChanges(for: mods) {
+            do {
+                try ModList.apply(settings: change.settings, to: change.mod)
+                applied += 1
+            } catch {
+                failures.append("\(change.mod.displayName): \(error.localizedDescription)")
+            }
+        }
+        if !failures.isEmpty {
+            show("Some Settings Weren't Applied", detail: failures.joined(separator: "\n"))
+        }
+        if applied > 0 {
+            showStatusResult(String(localized: "Applied the collection's settings to \(applied) mod(s). The previous ones are kept as config.json.bak."))
+        }
+    }
+
     /// Enables exactly the mods the list had enabled, like a profile.
     func apply(_ list: ModList) {
         applyEnabledSet(list.mods.filter(\.enabled).map(\.uniqueID), title: String(localized: "collection “\(list.name)”"))

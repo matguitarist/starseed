@@ -114,6 +114,51 @@ import Testing
         #expect(throws: ModManagerError.self) { try ModList.decode(from: Data(#"{"format":"other","formatVersion":1,"name":"x","createdAt":"2026-01-01T00:00:00Z","mods":[]}"#.utf8)) }
     }
 
+    @Test func carriesAndAppliesModSettings() throws {
+        let tmp = try TempDir()
+        func installed(_ id: String, config: String?) throws -> ModInfo {
+            let folder = tmp.url.appending(path: id, directoryHint: .isDirectory)
+            try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
+            if let config { try Data(config.utf8).write(to: folder.appending(path: "config.json")) }
+            var mod = ModInfo(folderURL: folder)
+            mod.uniqueID = id
+            mod.name = id
+            mod.version = "1.0"
+            return mod
+        }
+        let here = [try installed("a.Mod", config: "{ \"Speed\": 2 } // fast"), try installed("b.NoConfig", config: nil)]
+        let list = ModList.snapshot(name: "Setup", of: here, nexusID: { _ in nil }, gameVersion: nil, smapiVersion: nil)
+        #expect(list.mods.first { $0.uniqueID == "a.Mod" }?.settings == "{ \"Speed\": 2 } // fast")
+        #expect(list.settingsCount == 1)
+        #expect(try ModList.decode(from: list.encoded()).mods == list.mods)
+
+        // Another computer: same mods, different speed.
+        let elsewhere = tmp.url.appending(path: "elsewhere", directoryHint: .isDirectory)
+        try FileManager.default.createDirectory(at: elsewhere, withIntermediateDirectories: true)
+        let other = try { () throws -> ModInfo in
+            let folder = elsewhere.appending(path: "a.Mod", directoryHint: .isDirectory)
+            try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
+            try Data("{ \"Speed\": 5 }".utf8).write(to: folder.appending(path: "config.json"))
+            var mod = ModInfo(folderURL: folder)
+            mod.uniqueID = "A.MOD"
+            return mod
+        }()
+        let changes = list.settingsChanges(for: [other])
+        #expect(changes.count == 1)
+        try ModList.apply(settings: changes[0].settings, to: other)
+        #expect(try String(contentsOf: other.folderURL.appending(path: "config.json"), encoding: .utf8) == "{ \"Speed\": 2 } // fast")
+        #expect(try String(contentsOf: other.folderURL.appending(path: "config.json.bak"), encoding: .utf8) == "{ \"Speed\": 5 }")
+        #expect(list.settingsChanges(for: [other]).isEmpty)
+        #expect(throws: (any Error).self) { try ModList.apply(settings: "{ broken", to: other) }
+    }
+
+    @Test func readsListsSavedWithoutSettings() throws {
+        let old = #"{"format":"stardew-mod-manager/mod-list","formatVersion":1,"name":"Old","createdAt":"2026-01-01T00:00:00Z","mods":[{"name":"A","uniqueID":"a.A","version":"1.0","enabled":true}]}"#
+        let list = try ModList.decode(from: Data(old.utf8))
+        #expect(list.mods.first?.settings == nil)
+        #expect(list.settingsCount == 0)
+    }
+
     @Test func comparesEntriesWithInstalledMods() {
         let installed = [mod("a.Same", "1.0"), mod("b.Old", "1.0"), mod("c.New", "3.0"), mod("d.Off", "1.0", enabled: false)]
         func entry(_ id: String, _ version: String) -> ModListEntry {

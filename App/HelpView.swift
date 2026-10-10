@@ -76,7 +76,7 @@ struct HelpView: View {
         case .gettingStarted:
             HelpText("Starseed installs, updates and organizes Stardew Valley mods. Mods run through **SMAPI**, the mod loader for Stardew Valley, so SMAPI needs to be installed first.")
             HelpSection("1. Install SMAPI") {
-                HelpText("Download SMAPI from its Nexus page (**Get SMAPI…** in the orange banner opens it) and run its installer. Starseed shows the installed SMAPI version in **Settings → General** and warns when a newer one is out.")
+                HelpText("Click **Install SMAPI** in the orange banner: Starseed downloads SMAPI's official installer and runs it for your game. When a new SMAPI comes out, or a game update disconnects it, the same banner offers to update or reinstall it.")
             }
             HelpSection("2. Choose your Mods folder") {
                 HelpText("On first launch, pick the game's **Mods** folder. For the Steam version it's inside the game: *Stardew Valley.app/Contents/MacOS/Mods*. You can change it later in **Settings → General**.")
@@ -144,7 +144,7 @@ struct HelpView: View {
                 HelpText("A profile remembers which mods are enabled. Save one for each way you play (a big expansion run, a vanilla-plus game…) and switch between them with **Profiles** in the toolbar. Applying a profile can be undone with ⌘Z.")
             }
             HelpSection("My Collections") {
-                HelpText("A collection is a list of your mods with their versions and Nexus pages. **Export…** it to share your setup, or keep it as a backup; **Import…** reads one back and offers to install whatever's missing.")
+                HelpText("A collection is a list of your mods with their versions, Nexus pages and settings. **Export…** it to share your setup, or keep it as a backup; **Import…** reads one back and offers to install whatever's missing. **Apply Settings…** then copies the collection's mod settings over yours.")
             }
             HelpSection("Mods for each save") {
                 HelpText("In **Saves**, choose which profile or collection a save is played with. **Use Mods & Play** switches to those mods before launching, so each farm always gets its own set.")
@@ -185,7 +185,13 @@ struct HelpView: View {
                 HelpText("Check its status in **Installed** and the **SMAPI Log** after starting the game: it may be disabled, missing a requirement, need a newer SMAPI, or conflict with another mod.")
             }
             HelpQuestion("The game starts without mods.") {
-                HelpText("SMAPI is probably missing or was removed by a game update. Run SMAPI's installer again (**Get SMAPI…**).")
+                HelpText("A game update probably disconnected SMAPI. Click **Reinstall SMAPI** in the orange banner; your mods and settings stay as they are.")
+            }
+            HelpQuestion("Something breaks, but the log doesn't say which mod.") {
+                HelpText("Use **Mods → Find a Broken Mod…**. Starseed turns off half of your mods, you play and say whether the problem happened, and after a few tests it names the mod. Your mods are put back at the end.")
+            }
+            HelpQuestion("How do I know if a mod failed while I played?") {
+                HelpText("When the game closes, Starseed reads SMAPI's log and sends a notification if mods didn't load, had errors, conflicted or crashed the game. Click it to see SMAPI's advice.")
             }
             HelpQuestion("Something else went wrong.") {
                 HelpText("Most problems show up in the **SMAPI Log**. The Stardew Valley modding community can help with it on the official forums and Discord.")

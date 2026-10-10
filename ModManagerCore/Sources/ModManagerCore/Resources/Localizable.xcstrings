@@ -73,6 +73,16 @@
         }
       }
     },
+    "Couldn't reach SMAPI's releases on GitHub (HTTP %lld)." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d’accéder aux versions de SMAPI sur GitHub (HTTP %lld)."
+          }
+        }
+      }
+    },
     "Download failed (HTTP %lld)." : {
       "localizations" : {
         "fr" : {
@@ -239,6 +249,26 @@
         }
       }
     },
+    "SMAPI's installer needs Rosetta. Install it by running “softwareupdate --install-rosetta” in Terminal, then try again." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’installateur de SMAPI a besoin de Rosetta. Installez-le en lançant « softwareupdate --install-rosetta » dans le Terminal, puis réessayez."
+          }
+        }
+      }
+    },
+    "SMAPI's latest release has no installer for this app to run." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La dernière version de SMAPI ne contient pas d’installateur que cette app puisse lancer."
+          }
+        }
+      }
+    },
     "SMAPI's own backups are managed by its Save Backup mod." : {
       "localizations" : {
         "fr" : {
@@ -269,12 +299,32 @@
         }
       }
     },
+    "The SMAPI download doesn't contain its macOS installer." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le téléchargement de SMAPI ne contient pas son installateur macOS."
+          }
+        }
+      }
+    },
     "There are no saves to back up." : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aucune sauvegarde à copier."
+          }
+        }
+      }
+    },
+    "This doesn't look like the game's folder: %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce dossier ne ressemble pas à celui du jeu : %@"
           }
         }
       }
