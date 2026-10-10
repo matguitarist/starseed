@@ -1,0 +1,50 @@
+name: Bug report
+description: Something in Starseed doesn't work as expected.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! English or French is fine. / L'anglais ou le français, c'est parfait.
+        If the game itself crashes or a mod misbehaves, the mod's author is usually the right person to ask; Starseed's **SMAPI Log** section helps you find which mod.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, and what happened instead.
+      placeholder: "I clicked Update All and…"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open Installed
+        2. …
+  - type: input
+    id: version
+    attributes:
+      label: Starseed version
+      description: Starseed → About Starseed.
+      placeholder: "2.1.1 (2)"
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+      placeholder: "macOS 26.1"
+    validations:
+      required: true
+  - type: input
+    id: log
+    attributes:
+      label: SMAPI log (if it's about the game or mods)
+      description: In Starseed, SMAPI Log → Upload to smapi.io, then paste the link.
+      placeholder: "https://smapi.io/log/…"
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else?
+      description: Screenshots, the number of mods you have, whether you use a free or Premium Nexus account…

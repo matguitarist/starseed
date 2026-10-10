@@ -1,0 +1,27 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: macos-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Xcode version
+        run: xcodebuild -version
+
+      - name: Core tests
+        run: swift test --package-path ModManagerCore
+
+      - name: Build the app
+        run: |
+          xcodebuild -project StardewModManager.xcodeproj -scheme StardewModManager \
+            -configuration Debug -destination 'generic/platform=macOS' \
+            CODE_SIGNING_ALLOWED=NO build | tail -n 25
