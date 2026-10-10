@@ -45,13 +45,15 @@ narrows it down in a few launches.
 mods, each farm can have its own set of mods, and earlier mod versions are kept
 so an update can be rolled back.
 
-**Help built in**, in English and French.
+**Help built in**, and the whole app in English, French, German, Spanish, Brazilian Portuguese and Simplified Chinese.
 
 ![Starseed's Help window](docs/screenshots/help.png)
 
 ## Features
 
-Built-in help: **Help → Starseed Help** (⌘?), in English and French.
+Built-in help: **Help → Starseed Help** (⌘?).
+
+Available in English, French, German, Spanish, Brazilian Portuguese and Simplified Chinese (Settings → General → Language).
 
 New in this version:
 
@@ -325,7 +327,7 @@ again.
 
 ## Languages
 
-English and French. Strings live in String Catalogs
+English, French, German, Spanish, Brazilian Portuguese and Simplified Chinese. Strings live in String Catalogs
 (`App/Localizable.xcstrings`, `App/InfoPlist.xcstrings`, and
 `ModManagerCore/Sources/ModManagerCore/Resources/Localizable.xcstrings`).
 To update translations after changing text:

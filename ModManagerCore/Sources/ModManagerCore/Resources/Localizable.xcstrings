@@ -3,10 +3,22 @@
   "strings" : {
     "%@ exited with status %d" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ wurde mit Status %2$d beendet"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%1$@ exited with status %2$d"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ terminó con el estado %2$d"
           }
         },
         "fr" : {
@@ -14,15 +26,39 @@
             "state" : "translated",
             "value" : "%1$@ s’est arrêté avec le code %2$d"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ terminou com status %2$d"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ 已退出，状态码 %2$d"
+          }
         }
       }
     },
     "%@ failed (status %d)." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ fehlgeschlagen (Status %2$d)."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%1$@ failed (status %2$d)."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ falló (estado %2$d)."
           }
         },
         "fr" : {
@@ -30,135 +66,447 @@
             "state" : "translated",
             "value" : "Échec de %1$@ (code %2$d)."
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ falhou (status %2$d)."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ 失败（状态码 %2$d）。"
+          }
         }
       }
     },
     "%@ is not a valid archive (or is damaged)." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ ist kein gültiges Archiv (oder beschädigt)."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ no es un archivo válido (o está dañado)."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ n’est pas une archive valide (ou elle est endommagée)."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ não é um arquivo válido (ou está danificado)."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 不是有效的压缩包（或已损坏）。"
           }
         }
       }
     },
     "Add your Nexus Mods API key in Settings to download mods." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Füge in den Einstellungen deinen Nexus-Mods-API-Schlüssel hinzu, um Mods herunterzuladen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añade tu clave de API de Nexus Mods en Ajustes para descargar mods."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ajoutez votre clé d’API Nexus Mods dans les Réglages pour télécharger des mods."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adicione sua chave de API do Nexus Mods nos Ajustes para baixar mods."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请在设置中添加 Nexus Mods API 密钥以下载模组。"
           }
         }
       }
     },
     "Bad \\u escape" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ungültiges \\u-Escape"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escape \\u incorrecto"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Séquence \\u invalide"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escape \\u inválido"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无效的 \\u 转义"
           }
         }
       }
     },
     "Can't rename — a folder named '%@' already exists." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Umbenennen nicht möglich – ein Ordner namens „%@“ existiert bereits."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se puede renombrar: ya existe una carpeta llamada «%@»."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible de renommer : un dossier nommé « %@ » existe déjà."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não é possível renomear — já existe uma pasta chamada “%@”."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法重命名——已存在名为“%@”的文件夹。"
           }
         }
       }
     },
     "Couldn't reach SMAPI's releases on GitHub (HTTP %lld)." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI-Versionen auf GitHub nicht erreichbar (HTTP %lld)."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo acceder a las versiones de SMAPI en GitHub (HTTP %lld)."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible d’accéder aux versions de SMAPI sur GitHub (HTTP %lld)."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível acessar as versões do SMAPI no GitHub (HTTP %lld)."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法访问 GitHub 上的 SMAPI 版本（HTTP %lld）。"
           }
         }
       }
     },
     "Download failed (HTTP %lld)." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Download fehlgeschlagen (HTTP %lld)."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error en la descarga (HTTP %lld)."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Échec du téléchargement (HTTP %lld)."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Falha no download (HTTP %lld)."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下载失败（HTTP %lld）。"
           }
         }
       }
     },
     "Download finished without a response." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Download ohne Antwort beendet."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La descarga terminó sin respuesta."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Téléchargement terminé sans réponse."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O download terminou sem resposta."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下载结束但没有响应。"
           }
         }
       }
     },
     "Expected , or ]" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ", oder ] erwartet"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se esperaba , o ]"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "« , » ou « ] » attendu"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esperado , ou ]"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "应为 , 或 ]"
           }
         }
       }
     },
     "Expected , or } after \"%@\"" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ", oder } nach „%@“ erwartet"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se esperaba , o } después de «%@»"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "« , » ou « } » attendu après « %@ »"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esperado , ou } depois de “%@”"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“%@”之后应为 , 或 }"
           }
         }
       }
     },
     "Expected : after \"%@\"" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ": nach „%@“ erwartet"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se esperaba : después de «%@»"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "« : » attendu après « %@ »"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esperado : depois de “%@”"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“%@”之后应为 :"
           }
         }
       }
     },
     "Expected %@" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ erwartet"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se esperaba %@"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ attendu"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esperado %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "应为 %@"
           }
         }
       }
     },
     "Expected a key" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schlüssel erwartet"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se esperaba una clave"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Clé attendue"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esperada uma chave"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "应为键名"
           }
         }
       }
     },
     "Line %lld: %@" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeile %1$lld: %2$@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Line %1$lld: %2$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Línea %1$lld: %2$@"
           }
         },
         "fr" : {
@@ -166,165 +514,561 @@
             "state" : "translated",
             "value" : "Ligne %1$lld : %2$@"
           }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Linha %1$lld: %2$@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "第 %1$lld 行：%2$@"
+          }
         }
       }
     },
     "Mods folder does not exist:\n%@" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods-Ordner existiert nicht:\n%@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La carpeta Mods no existe:\n%@"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Le dossier Mods n’existe pas :\n%@"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A pasta Mods não existe:\n%@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods 文件夹不存在：\n%@"
           }
         }
       }
     },
     "Nexus didn't return a download link for this file." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus hat keinen Downloadlink für diese Datei geliefert."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus no devolvió un enlace de descarga para este archivo."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nexus n’a renvoyé aucun lien de téléchargement pour ce fichier."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Nexus não forneceu um link de download para este arquivo."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus 没有返回此文件的下载链接。"
           }
         }
       }
     },
     "Nexus only allows direct downloads for Premium members. Use “Mod Manager Download” on the website instead." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus erlaubt direkte Downloads nur für Premium-Mitglieder. Nutze stattdessen „Mod Manager Download“ auf der Website."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus solo permite descargas directas a los miembros Premium. Usa «Mod Manager Download» en la web."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nexus ne permet les téléchargements directs qu’aux membres Premium. Utilisez plutôt « Mod Manager Download » sur le site."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Nexus só permite downloads diretos para membros Premium. Use “Mod Manager Download” no site."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus 只允许高级会员直接下载。请改用网站上的“Mod Manager Download”。"
           }
         }
       }
     },
     "Nexus rate limit reached. Try again in a little while." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus-Anfragelimit erreicht. Versuche es gleich noch einmal."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se alcanzó el límite de solicitudes de Nexus. Inténtalo dentro de un rato."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Limite de requêtes Nexus atteinte. Réessayez dans un moment."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limite de solicitações do Nexus atingido. Tente de novo daqui a pouco."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已达到 Nexus 请求上限。请稍后再试。"
           }
         }
       }
     },
     "Nexus request failed (HTTP %lld)." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus-Anfrage fehlgeschlagen (HTTP %lld)."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error en la solicitud a Nexus (HTTP %lld)."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Échec de la requête Nexus (HTTP %lld)."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Falha na solicitação ao Nexus (HTTP %lld)."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus 请求失败（HTTP %lld）。"
           }
         }
       }
     },
     "Nexus returned no data." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus hat keine Daten geliefert."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus no devolvió datos."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nexus n’a renvoyé aucune donnée."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Nexus não retornou dados."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus 没有返回数据。"
           }
         }
       }
     },
     "No manifest.json found anywhere inside %@. It may not be a SMAPI mod (it could be an XNB/content-only mod)." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nirgends in %@ wurde eine manifest.json gefunden. Es ist vielleicht kein SMAPI-Mod (eventuell ein reiner XNB-/Inhalts-Mod)."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se encontró ningún manifest.json dentro de %@. Puede que no sea un mod de SMAPI (podría ser un mod solo de XNB o contenido)."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aucun manifest.json trouvé dans %@. Ce n’est peut-être pas un mod SMAPI (il peut s’agir d’un mod XNB ou de contenu seul)."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nenhum manifest.json encontrado dentro de %@. Talvez não seja um mod do SMAPI (pode ser um mod só de XNB ou de conteúdo)."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在 %@ 内找不到任何 manifest.json。它可能不是 SMAPI 模组（可能是 XNB 或纯内容模组）。"
           }
         }
       }
     },
     "SMAPI mod lookup failed (HTTP %lld)." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI-Mod-Abfrage fehlgeschlagen (HTTP %lld)."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error al consultar mods en SMAPI (HTTP %lld)."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Échec de la recherche de mods SMAPI (HTTP %lld)."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Falha na consulta de mods do SMAPI (HTTP %lld)."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI 模组查询失败（HTTP %lld）。"
           }
         }
       }
     },
     "SMAPI's installer needs Rosetta. Install it by running “softwareupdate --install-rosetta” in Terminal, then try again." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der SMAPI-Installer braucht Rosetta. Installiere es mit „softwareupdate --install-rosetta“ im Terminal und versuche es dann erneut."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El instalador de SMAPI necesita Rosetta. Instálalo con «softwareupdate --install-rosetta» en Terminal y vuelve a intentarlo."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "L’installateur de SMAPI a besoin de Rosetta. Installez-le en lançant « softwareupdate --install-rosetta » dans le Terminal, puis réessayez."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O instalador do SMAPI precisa do Rosetta. Instale-o com “softwareupdate --install-rosetta” no Terminal e tente de novo."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI 安装程序需要 Rosetta。请在终端中运行“softwareupdate --install-rosetta”进行安装，然后重试。"
           }
         }
       }
     },
     "SMAPI's latest release has no installer for this app to run." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die neueste SMAPI-Version enthält keinen Installer, den diese App ausführen kann."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La última versión de SMAPI no tiene un instalador que esta app pueda ejecutar."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "La dernière version de SMAPI ne contient pas d’installateur que cette app puisse lancer."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A versão mais recente do SMAPI não tem um instalador que este app consiga executar."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最新版 SMAPI 中没有此应用可以运行的安装程序。"
           }
         }
       }
     },
     "SMAPI's own backups are managed by its Save Backup mod." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die eigenen Sicherungen von SMAPI verwaltet seine Mod „Save Backup“."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las copias propias de SMAPI las gestiona su mod Save Backup."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les copies propres à SMAPI sont gérées par son mod Save Backup."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Os backups do próprio SMAPI são gerenciados pelo mod Save Backup dele."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI 自己的备份由其 Save Backup 模组管理。"
           }
         }
       }
     },
     "That backup doesn't contain the selected save." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese Sicherung enthält den gewählten Spielstand nicht."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esa copia no contiene la partida seleccionada."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cette copie ne contient pas la sauvegarde sélectionnée."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esse backup não contém o save selecionado."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "该备份不包含所选存档。"
           }
         }
       }
     },
     "The backup was created but couldn't be read back." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Sicherung wurde erstellt, konnte aber nicht wieder gelesen werden."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La copia se creó, pero no se pudo volver a leer."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "La copie a été créée mais n’a pas pu être relue."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O backup foi criado, mas não pôde ser lido de volta."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "备份已创建，但无法读回。"
           }
         }
       }
     },
     "The SMAPI download doesn't contain its macOS installer." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der SMAPI-Download enthält keinen macOS-Installer."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La descarga de SMAPI no contiene su instalador para macOS."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Le téléchargement de SMAPI ne contient pas son installateur macOS."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O download do SMAPI não contém o instalador para macOS."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI 下载内容中没有其 macOS 安装程序。"
           }
         }
       }
     },
     "There are no saves to back up." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es gibt keine Spielstände zum Sichern."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hay partidas que copiar."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aucune sauvegarde à copier."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não há saves para fazer backup."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有可备份的存档。"
           }
         }
       }
     },
     "This doesn't look like the game's folder: %@" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das sieht nicht nach dem Spielordner aus: %@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta no parece la carpeta del juego: %@"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ce dossier ne ressemble pas à celui du jeu : %@"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta não parece ser a pasta do jogo: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这似乎不是游戏文件夹：%@"
           }
         }
       }
@@ -332,100 +1076,340 @@
     "This file isn't a Stardew Mod Manager mod list." : {
       "extractionState" : "stale",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese Datei ist keine Mod-Liste von Stardew Mod Manager."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este archivo no es una lista de mods de Stardew Mod Manager."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ce fichier n’est pas une liste de mods Stardew Mod Manager."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este arquivo não é uma lista de mods do Stardew Mod Manager."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此文件不是 Stardew Mod Manager 的模组列表。"
           }
         }
       }
     },
     "This file isn't a Starseed mod list." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese Datei ist keine Mod-Liste von Starseed."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este archivo no es una lista de mods de Starseed."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ce fichier n’est pas une liste de mods Starseed."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este arquivo não é uma lista de mods do Starseed."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此文件不是 Starseed 的模组列表。"
           }
         }
       }
     },
     "This is the SMAPI installer, not a mod. It's been unpacked to your Downloads folder: double-click “%@” (or right-click → Open) and follow the steps. Quit the game first if it's running." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das ist der SMAPI-Installer, kein Mod. Er wurde in deinen Downloads-Ordner entpackt: Doppelklicke auf „%@“ (oder Rechtsklick → Öffnen) und folge den Schritten. Beende vorher das Spiel, falls es läuft."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esto es el instalador de SMAPI, no un mod. Se descomprimió en tu carpeta Descargas: haz doble clic en «%@» (o clic derecho → Abrir) y sigue los pasos. Cierra el juego antes si está abierto."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Il s’agit de l’installateur de SMAPI, pas d’un mod. Il a été décompressé dans votre dossier Téléchargements : double-cliquez sur « %@ » (ou clic droit → Ouvrir) et suivez les étapes. Quittez d’abord le jeu s’il est lancé."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este é o instalador do SMAPI, não um mod. Ele foi extraído na sua pasta Downloads: clique duas vezes em “%@” (ou clique com o botão direito → Abrir) e siga os passos. Feche o jogo antes, se estiver aberto."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这是 SMAPI 安装程序，不是模组。它已解压到你的“下载”文件夹：双击“%@”（或右键 → 打开）并按步骤操作。如果游戏正在运行，请先退出。"
           }
         }
       }
     },
     "Unclosed [" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[ nicht geschlossen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[ sin cerrar"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "« [ » non fermé"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[ não fechado"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[ 未闭合"
           }
         }
       }
     },
     "Unclosed {" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "{ nicht geschlossen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "{ sin cerrar"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "« { » non fermé"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "{ não fechado"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "{ 未闭合"
           }
         }
       }
     },
     "Unclosed string" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeichenkette nicht geschlossen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cadena sin cerrar"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Chaîne non fermée"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Texto não fechado"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "字符串未闭合"
           }
         }
       }
     },
     "Unexpected end of file" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unerwartetes Dateiende"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fin de archivo inesperado"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fin de fichier inattendue"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fim de arquivo inesperado"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "文件意外结束"
           }
         }
       }
     },
     "Unexpected text after the end of the file" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unerwarteter Text nach dem Dateiende"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Texto inesperado después del final del archivo"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Texte inattendu après la fin du fichier"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Texto inesperado depois do fim do arquivo"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "文件结尾后有意外的文本"
           }
         }
       }
     },
     "Unexpected value “%@”" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unerwarteter Wert „%@“"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Valor inesperado «%@»"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Valeur inattendue « %@ »"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Valor inesperado “%@”"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "意外的值“%@”"
           }
         }
       }
     },
     "Your Nexus Mods API key was rejected. Check it in Settings." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dein Nexus-Mods-API-Schlüssel wurde abgelehnt. Prüfe ihn in den Einstellungen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se rechazó tu clave de API de Nexus Mods. Revísala en Ajustes."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Votre clé d’API Nexus Mods a été refusée. Vérifiez-la dans les Réglages."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sua chave de API do Nexus Mods foi recusada. Verifique-a nos Ajustes."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的 Nexus Mods API 密钥被拒绝了。请在设置中检查。"
           }
         }
       }

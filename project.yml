@@ -46,7 +46,7 @@ targets:
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         CFBundleDevelopmentRegion: en
-        CFBundleLocalizations: [en, fr]
+        CFBundleLocalizations: [en, fr, de, es, pt-BR, zh-Hans]
         LSApplicationCategoryType: public.app-category.games
         # App updates (Sparkle): release.sh publishes the zip on GitHub
         # Releases and the feed (appcast.xml) on the main branch. The key
