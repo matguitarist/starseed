@@ -2,20 +2,40 @@
 
 [![Tests](https://github.com/matguitarist/starseed/actions/workflows/tests.yml/badge.svg)](https://github.com/matguitarist/starseed/actions/workflows/tests.yml)
 
-*A mod manager for Stardew Valley on macOS.* (Formerly "Stardew Mod Manager".)
+*A mod manager for Stardew Valley on macOS.*
+
+Install, update and organize your Stardew Valley mods on a Mac: browse
+Nexus Mods, install mods and whole collections, keep everything up to date,
+and find out quickly what's wrong when the game misbehaves.
 
 **[Download Starseed for Mac](https://github.com/matguitarist/starseed/releases/latest/download/Starseed.dmg)**
-(macOS 14 or later). Open the disk image and drag Starseed onto Applications.
-The app isn't signed with an Apple Developer ID, so the first time, macOS
-asks you to confirm in **System Settings → Privacy & Security → Open Anyway**.
-After that, Starseed updates itself.
-
-A native macOS (SwiftUI) mod manager for SMAPI mods, built because the
-official Nexus Mods app doesn't support macOS. Browse and install mods
-from Nexus Mods, get update notifications, or install archives you
-downloaded yourself. Browsing and local installs need no account.
+(macOS 14 Sonoma or later)
 
 ![Starseed's Installed list with mod pictures, and Stardew Valley Expanded's details](docs/screenshots/installed.png)
+
+## Install
+
+1. Open the disk image and drag **Starseed** onto **Applications**.
+2. The first time, macOS says it can't check Starseed, because it isn't
+   signed with a paid Apple Developer ID. Open **System Settings → Privacy &
+   Security**, scroll down, and click **Open Anyway**. This is needed only once:
+   Starseed updates itself after that.
+
+## Getting started
+
+1. **Mods folder:** for the Steam version, Starseed offers the game's `Mods`
+   folder on first launch. For other installs, choose it yourself.
+2. **SMAPI:** mods run through SMAPI, the Stardew Valley mod loader. If it's
+   missing, click **Install SMAPI** in the orange banner.
+3. **Nexus Mods:** to download mods in the app, paste your personal API key in
+   **Settings → Nexus Mods** (the **Open the Nexus API Keys page…** button
+   takes you there). Browsing works without it.
+   - *Premium* accounts download directly.
+   - *Free* accounts click **Slow download** once per mod on the Nexus page
+     that opens in Starseed, and the mod installs itself.
+4. Press **Play**.
+
+Everything else is explained in **Help → Starseed Help** (⌘?).
 
 ## A quick tour
 
@@ -42,320 +62,70 @@ one. If the log doesn't say which mod is to blame, **Find a Broken Mod**
 narrows it down in a few launches.
 
 **Keep your farms safe.** Saves are backed up before you play with changed
-mods, each farm can have its own set of mods, and earlier mod versions are kept
-so an update can be rolled back.
-
-**Help built in**, and the whole app in English, French, German, Spanish, Brazilian Portuguese and Simplified Chinese.
+mods, each farm can have its own set of mods, and earlier mod versions are
+kept so an update can be rolled back.
 
 ![Starseed's Help window](docs/screenshots/help.png)
 
-## Features
+## Everything it does
 
-Built-in help: **Help → Starseed Help** (⌘?).
+**Installing**
+- Browse and search Nexus Mods, see each mod's files and requirements, and
+  install with what it needs.
+- Install Nexus collections, or your own mod archives (.zip, .7z, .rar) by
+  dropping them on the window.
+- Install, update and reconnect SMAPI in one click.
+- Mods that aren't on Nexus (ModDrop, GitHub…) get a button to their page.
 
-Available in English, French, German, Spanish, Brazilian Portuguese and Simplified Chinese (Settings → General → Language).
+**Keeping up to date**
+- Checks every mod for updates at launch and every few hours, with
+  notifications and an optional menu bar icon.
+- Read what's new before updating, update one mod or all of them.
+- Every update keeps the previous version, so you can roll back.
+- Tells you when Steam has a game update waiting.
 
-New in this version:
+**Organizing**
+- Turn mods on and off (⌘Z undoes it), with multi-part mods kept together.
+- Profiles for different ways of playing, and a set of mods for each farm.
+- My Collections: save your mod list with versions and settings, export it,
+  and import it on another Mac or share it with a friend.
+- Edit a mod's settings in a simple form.
+- Spots mods installed twice, missing requirements, and requirements nothing
+  uses anymore after you remove a mod.
+- Settings → Storage shows what takes space and cleans up old versions and
+  backups.
 
-- **One-click SMAPI**: installs, updates and reconnects SMAPI (after a game
-  update) with SMAPI's official installer, no Terminal needed.
-- **After-game report**: when the game closes, a notification lists mods
-  that didn't load, had errors, conflicted or crashed the game.
-- **Find a Broken Mod**: a guided search that tests half of your mods at a
-  time and names the culprit in a few launches.
-- **Mod settings in collections**: collections carry each mod's
-  `config.json`, and **Apply Settings…** copies them over yours.
+**When something goes wrong**
+- A readable SMAPI log with colors, filters and plain-language advice.
+- A report after each game session: mods that didn't load, had errors,
+  conflicted or crashed the game.
+- Find a Broken Mod: a guided search that names the culprit in a few tests.
+- Finds which mods a save needs, for example a farm copied from another
+  computer, and installs the missing ones.
+- Save backups: back up and restore one farm or all of them; Play backs up
+  your saves when your mods changed.
 
-- **Browse & search Nexus Mods** inside the app (thumbnails, endorsements,
-  downloads, files per mod). No account needed to browse.
-- **Install from Nexus**:
-  - *Premium* accounts: click **Install** on any file.
-  - *Free* accounts: click **Download…** and the Nexus page opens in the
-    app's own browser. Click "Slow download" and the mod installs
-    automatically. Sign in to Nexus once in that browser; the login is
-    remembered.
-- **Collections**: browse and search Stardew Valley collections on Nexus.
-  Each collection shows which of its mods you already have, which are
-  older than the collection's version, and which are missing. Install the
-  exact files it pins (optional mods are opt-in; newer versions you
-  already have are kept unless you choose otherwise), and save it as a
-  profile. "Add to Vortex"/mod-manager collection links (`nxm://…/collections/…`)
-  open here too.
-- **SMAPI log viewer**: reads `~/.config/StardewValley/ErrorLogs/SMAPI-latest.txt`
-  (or the crash log, or any log file). Levels are color-coded (trace,
-  debug, info, warning, error, alert) and can be toggled with chips that
-  show their counts. A "Problems" bar groups warnings and errors by mod,
-  with search and live follow while the game runs. "Upload to smapi.io"
-  copies the log and opens smapi.io/log.
-- **Saves → missing mods**: pick a save (e.g. one copied from another
-  computer) to see which mods it needs. Mod IDs stored in the save are
-  matched through SMAPI's mod database, or on Nexus by author and name. If
-  your last game session loaded that save, the locations and NPCs the game
-  dropped ("Ignored unknown location…" in the SMAPI log) are grouped by
-  mod (Ridgeside, East Scarp…) and matched on Nexus too. Tick and install.
-  The SMAPI Log view links here when it sees dropped content. Each match
-  shows its Nexus mod number (e.g. **#7286** = nexusmods.com/stardewvalley/mods/7286,
-  Ridgeside Village). If a match is wrong, **Change…** lets you paste the
-  right Nexus link or number.
-- **Save backups**: back up one save or all of them, and restore a whole
-  backup or a single save from it. SMAPI's automatic daily backups (from
-  its Save Backup mod) are listed too. Before a restore, the current
-  version is backed up ("Before restore") and moved to the Trash, so a
-  restore can be undone. Restoring is blocked while the game is running.
-  Backups live in `~/Library/Application Support/StardewModManager/SaveBackups/`.
-  **Play** also backs up every save first when the enabled mods (or their
-  versions) changed since the last Play, keeping the last 5 of these
-  (Settings → General → Saves turns it off).
-- **My Collections**: save your installed mods (with versions and Nexus
-  numbers) as a named list, then **Export** it as a `.json` file and
-  **Import** it on another Mac or share it with a friend. A collection
-  shows what's installed, older or missing here, **Install** fetches the
-  missing ones from Nexus, and **Use This Set** enables exactly those mods
-  like a profile.
-- **Nexus mod numbers everywhere**: mods show their `#ID`, matching the
-  website's address. Paste a Nexus link, `#7286` or `7286` into Browse's
-  search to open that mod directly.
-- **SMAPI version check**: reads the installed SMAPI and game versions
-  from the game folder, compares SMAPI with the latest release on Nexus,
-  and flags mods whose `MinimumApiVersion` is newer than your SMAPI. A
-  downloaded SMAPI installer is unpacked to Downloads and shown in Finder
-  (SMAPI must be installed with its own installer).
-- **Built-in Nexus browser**: every web link opens inside the app. It
-  catches "Mod Manager Download" (`nxm://`) links and direct archive
-  downloads and installs them.
-- **Update checks** for every installed mod through SMAPI's own update API
-  (Nexus, GitHub, ModDrop, CurseForge, Chucklefish), with an **Updates**
-  list, badges in the mod table, and **Update All**. Premium accounts
-  install every update in one go; free accounts get a guided queue that
-  opens each mod's download page in turn.
-  **What's New** shows the Nexus changelog between your version and the
-  update (the mod page's changelog with an API key, else the files').
-- **Requirements**: lists missing framework mods (e.g. Content Patcher)
-  and which mods need them. **Install All** enables disabled copies and
-  downloads the rest. Nexus IDs come from SMAPI's mod database. After an
-  install, the app offers to fetch any new requirements. Each Nexus mod
-  page also shows its requirements, with installed/missing status.
-- **Mods in subfolders**: like SMAPI, folders without a manifest are
-  searched for mods (`Mods/Expansions/SVE`), and a dot-prefixed folder
-  disables everything inside it. Updates replace a mod where it is, even
-  in a subfolder, instead of adding a second copy.
-- **Multi-part mods as one entry**: parts in the same folder, with the same
-  Nexus number, or with the same name once tags are removed ("[CP] X",
-  "X Code") are grouped. Expand to see the parts; one checkbox turns the
-  whole mod on or off.
-- **Clean up after deleting**: when you remove a mod, the app lists its
-  requirements that nothing else uses anymore (e.g. tilesheet packs left
-  behind by an expansion) and offers to move them to the Trash too. Only
-  required dependencies count, a requirement still needed by any other
-  mod (even a disabled one) is kept, and SMAPI's bundled mods are never
-  suggested.
-- **Duplicate detection**: two enabled copies of one mod (SMAPI skips both)
-  are flagged, and **Keep Newest** trashes the older copy.
-- **Rollback**: updates keep the replaced version (last 3 per mod in
-  `~/Library/Application Support/StardewModManager/ModArchive/`). **Revert**
-  in the details panel puts it back, with your current settings.
-- **Mod settings editor**: edit a mod's `config.json` as a form (switches,
-  number and text fields, nested sections) or as raw JSON. Key order and
-  number formatting are kept, and the previous file is saved as
-  `config.json.bak`.
-- **Mods per save**: link a profile or collection to a save; **Use Mods &
-  Play** switches to it and launches the game.
-- **Log insights**: the SMAPI log explains skipped mods (missing
-  requirements, SMAPI too old), mods that keep erroring, and available
-  updates in plain words, with buttons to fix them.
-- **Background update checks**: every few hours, with a macOS notification
-  for new updates, and an optional menu bar icon (Play, updates, missing
-  requirements). Configure in Settings → General.
-- **Endorse & track** mods on Nexus from the app (needs your API key; Nexus
-  only accepts endorsements for mods you've downloaded).
-- Sortable table with checkboxes to enable/disable mods (multi-select +
-  right-click to toggle many at once). Uses SMAPI's leading-dot convention
-  (`ModName` ↔ `.ModName`), so no files are moved out of the Mods folder.
-- Flags mods with a missing/invalid `manifest.json` or a missing required
-  dependency (including a content pack's framework)
-- Install from local `.zip`, `.7z` or `.rar` files: toolbar button, drag
-  and drop onto the window, or open them with the app. Handles zips that
-  wrap the real mod folder in an extra directory.
-- Updating a mod keeps its `config.json` and enabled/disabled state; old
-  versions and deleted mods go to the Trash.
-- Profiles: save named sets of enabled mods and switch between them
-- Open Mods folder in Finder, launch the game via Steam
+**Languages:** English, French, German, Spanish, Brazilian Portuguese and
+Simplified Chinese (Settings → General → Language).
 
-## Downloading from Nexus: setup
+## Good to know
 
-1. Open **Settings → Nexus Mods** (⌘,). Click **Open the Nexus API Keys
-   page…**, sign in, copy your **Personal API Key**, then click **Paste**
-   and **Save & Verify**. The key is stored in the macOS Keychain.
-   (Locally built apps are re-signed on every build, so macOS asks for
-   Keychain access again after each rebuild. Choose "Always Allow". To stop
-   this, add your Apple ID in Xcode → Settings → Accounts and build with
-   `DEVELOPMENT_TEAM=<your team ID> ./build_app.sh`.)
-2. Optional: make the app the default handler for "Mod Manager Download"
-   (`nxm://`) links, so clicks in Safari or Chrome also land here.
+- Free Nexus accounts need one click per mod ("Slow download"): Nexus only
+  allows direct downloads in apps for Premium members.
+- Signing in to Nexus with Google or Apple inside Starseed's browser may be
+  blocked by those services. Use your Nexus email and password, or set
+  Starseed as the handler for "Mod Manager Download" links (Settings → Nexus
+  Mods) and click them in your usual browser.
+- Removed mods and old versions go to the Trash, so they can be recovered.
+- Starseed keeps its settings, collections, kept versions and save backups in
+  `~/Library/Application Support/StardewModManager/`.
 
-> **Why Nexus and not CurseForge?** Nearly all Stardew Valley mods are
-> published on Nexus, and SMAPI's update keys point there. CurseForge's
-> API requires each app developer to apply for a private API key, so
-> it isn't supported for now.
->
-> **API policy:** Nexus allows personal API keys for personal and testing
-> use. To publish this app for other people, register it with Nexus
-> (support → app registration) to get an SSO application slug.
+## Help and feedback
 
-## Requirements
+- In the app: **Help → Starseed Help** (⌘?).
+- Found a bug or have an idea? [Open an issue](https://github.com/matguitarist/starseed/issues/new/choose)
+  (English or French is fine).
+- Building it yourself or contributing: see [DEVELOPMENT.md](DEVELOPMENT.md).
 
-- macOS 14 (Sonoma) or later
-- Xcode 16 or later (tested with Xcode 27)
-
-## Build & run
-
-Open `StardewModManager.xcodeproj` in Xcode and press ⌘R, or ⌘U to run the
-tests. From the terminal:
-
-```bash
-./build_app.sh                          # -> dist/Starseed.app
-open "dist/Starseed.app"     # or drag it into /Applications
-```
-
-The project file is generated from `project.yml` with
-[XcodeGen](https://github.com/yonaskolb/XcodeGen) (`brew install xcodegen`,
-then `xcodegen generate`). You only need to regenerate it after adding
-files or changing build settings. Edit `project.yml`, not the `.xcodeproj`.
-
-> **iCloud Drive note:** if this folder syncs with iCloud (e.g. it's on the
-> Desktop), build products must live outside it, or `codesign` fails with
-> "resource fork, Finder information, or similar detritus not allowed".
-> Xcode's DerivedData and `build_app.sh` already build in `~/Library`. For
-> `swift test` in `ModManagerCore/`, pass
-> `--scratch-path ~/Library/Caches/StardewModManager/core-build`.
->
-> Live API tests (real Nexus/SMAPI requests) are skipped unless you set
-> `LIVE_API_TESTS=1`.
-
-On first launch, the app checks for the default Steam install location:
-
-```
-~/Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/MacOS/Mods
-```
-
-If found, it offers to use it. Otherwise (GOG install, custom Steam
-library location, etc.) choose your `Mods` folder manually. You can change
-it later in Settings or via **Mods → Change Mods Folder…**.
-
-> **Tip:** if you're not sure where your Mods folder is, launch the game
-> through SMAPI once and check its terminal output — it prints a line
-> like `[SMAPI] Mods go here: /Users/you/Library/.../Mods`.
-
-## Project layout
-
-```
-stardew_mod_manager/
-├── project.yml                   # XcodeGen spec -> StardewModManager.xcodeproj
-├── StardewModManager.xcodeproj
-├── build_app.sh                  # Release build -> dist/
-├── App/                          # SwiftUI app target
-│   ├── StardewModManagerApp.swift
-│   ├── AppModel.swift            # app state + actions (install queue, downloads, updates)
-│   ├── RootView.swift            # sidebar, drop target, alerts
-│   ├── InstalledView.swift       # mod table + toolbar
-│   ├── ModDetailView.swift       # inspector pane
-│   ├── UpdatesView.swift         # updates + Update All
-│   ├── RequirementsView.swift    # missing dependencies
-│   ├── BrowserView.swift         # in-app Nexus browser (WKWebView)
-│   ├── CollectionsView.swift / CollectionSheet.swift
-│   ├── LogViewerView.swift       # SMAPI log viewer
-│   ├── SavesView.swift           # saves: missing-mod analysis, backups/restore
-│   ├── MyCollectionsView.swift   # saved/exported mod lists
-│   ├── ConfigEditorView.swift    # config.json form editor
-│   ├── Background.swift          # background checks, notifications, menu bar
-│   ├── BrowseView.swift          # Nexus search
-│   ├── NexusModSheet.swift       # mod details + file list
-│   ├── SettingsView.swift        # Mods folder, Nexus API key, nxm handler
-│   ├── ProfilesView.swift
-│   ├── Downloads.swift / Keychain.swift
-│   └── Info.plist                # generated by XcodeGen (registers nxm://)
-├── ModManagerCore/               # local Swift package, no UI
-│   ├── Sources/ModManagerCore/
-│   │   ├── Models.swift          # ModInfo + manifest parsing
-│   │   ├── ModManager.swift      # scan/enable/disable/install/trash
-│   │   ├── ConfigStore.swift     # settings + profiles
-│   │   ├── NexusClient.swift     # Nexus GraphQL (browse) + REST (downloads)
-│   │   ├── UpdateChecker.swift   # SMAPI update API + UniqueID → Nexus lookup
-│   │   ├── Dependencies.swift    # missing-dependency grouping, file picking
-│   │   ├── Collections.swift     # Nexus collections (GraphQL)
-│   │   ├── SMAPI.swift           # semantic versions, installed SMAPI/game version
-│   │   ├── SMAPILog.swift        # SMAPI log parser
-│   │   ├── Saves.swift           # save list, mod IDs in saves, missing-content matching
-│   │   ├── SaveBackups.swift     # save backup/restore (zip, SMAPI-compatible)
-│   │   ├── ModList.swift         # My Collections: snapshot, export/import, compare
-│   │   ├── ModGrouping.swift     # multi-part mod grouping
-│   │   ├── ModArchive.swift      # previous versions for rollback
-│   │   ├── ConfigJSON.swift      # order-preserving JSON5-lite reader/writer
-│   │   ├── LogInsights.swift     # plain-language findings from SMAPI logs
-│   │   └── FileDownloader.swift
-│   └── Tests/ModManagerCoreTests/
-└── legacy-python/               # original PySide6 version, kept for reference
-```
-
-App settings and profiles are stored at
-`~/Library/Application Support/StardewModManager/` — separate from the
-game, and in the same format as the old Python version.
-
-## Releasing updates (Sparkle)
-
-The app updates itself with [Sparkle](https://sparkle-project.org): it reads
-`appcast.xml` from this repo's main branch, downloads the zip from GitHub
-Releases, and checks its signature against `SUPublicEDKey`. The private key
-lives in the maintainer's login Keychain (account `starseed`); back it up with
-`generate_keys --account starseed -x starseed-key.txt` and keep that file
-private. Without it, existing users can't receive updates.
-
-To publish a release:
-
-1. Bump `MARKETING_VERSION` **and** `CURRENT_PROJECT_VERSION` in
-   `project.yml` (Sparkle compares the build number), run
-   `xcodegen generate`, and commit.
-2. Run `./release.sh`. It builds the app, makes the zip (signed for
-   Sparkle) and the disk image (`make_dmg.sh`), pushes, creates the GitHub
-   release with both, and then publishes the new `appcast.xml`. Running copies of Starseed see the update within a day,
-   or right away with **Starseed → Check for App Updates…**.
-
-The app is signed ad hoc (no Apple Developer ID), so on first launch macOS
-says it can't verify the developer: open **System Settings → Privacy &
-Security** and click **Open Anyway**. Updates installed by Sparkle don't ask
-again.
-
-## Languages
-
-English, French, German, Spanish, Brazilian Portuguese and Simplified Chinese. Strings live in String Catalogs
-(`App/Localizable.xcstrings`, `App/InfoPlist.xcstrings`, and
-`ModManagerCore/Sources/ModManagerCore/Resources/Localizable.xcstrings`).
-To update translations after changing text:
-
-```bash
-xcodebuild -exportLocalizations -project StardewModManager.xcodeproj -localizationPath l10n -exportLanguage fr
-# edit l10n/fr.xcloc/Localized Contents/fr.xliff (or open the .xcloc in Xcode)
-xcodebuild -importLocalizations -project StardewModManager.xcodeproj -localizationPath l10n/fr.xcloc
-```
-
-To add a language (German, say): add `de` to `CFBundleLocalizations` in
-`project.yml`, run `xcodegen generate`, then export with `-exportLanguage de`,
-translate, and import. Settings → General → Language lists every
-translation in the app automatically, named in its own language.
-
-## Notes / known limitations
-
-- Free Nexus accounts need one click per mod ("Slow download" in the
-  built-in browser): Nexus only gives direct API downloads to Premium
-  members.
-- Dependency checks don't compare minimum versions from manifests yet,
-  only whether the dependency is installed and enabled.
-- Update All picks the main file whose version matches the update (else
-  the newest main file). For mods with several main variants, use
-  **Files…** to choose one.
-- Signing in with Google or Apple inside the built-in browser may be
-  blocked by those providers. Use Nexus email/password login, or click
-  "Mod Manager Download" in your normal browser with the app set as the
-  `nxm://` handler.
-- Deleting a mod moves its folder to the Trash. Updating a mod also sends
-  the old version to the Trash, keeping its `config.json` settings.
+Starseed is free and open source (MIT license). It isn't affiliated with
+ConcernedApe, SMAPI or Nexus Mods.

@@ -133,6 +133,12 @@ enum AboutPanel {
                 .foregroundColor: NSColor.secondaryLabelColor,
             ]
         )
+        // The project page, as a link (not translated: it's an address).
+        credits.append(NSAttributedString(string: "\n\n", attributes: [.font: NSFont.systemFont(ofSize: NSFont.smallSystemFontSize)]))
+        credits.append(NSAttributedString(string: "github.com/matguitarist/starseed", attributes: [
+            .font: NSFont.systemFont(ofSize: NSFont.smallSystemFontSize),
+            .link: AppLinks.repository,
+        ]))
         let style = NSMutableParagraphStyle()
         style.alignment = .center
         credits.addAttribute(.paragraphStyle, value: style, range: NSRange(location: 0, length: credits.length))
@@ -143,4 +149,9 @@ enum AboutPanel {
         NSApp.orderFrontStandardAboutPanel(options: options)
         NSApp.activate()
     }
+}
+
+enum AppLinks {
+    static let repository = URL(string: "https://github.com/matguitarist/starseed")!
+    static let newIssue = URL(string: "https://github.com/matguitarist/starseed/issues/new/choose")!
 }

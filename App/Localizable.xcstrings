@@ -19333,6 +19333,40 @@
         }
       }
     },
+    "Report a Problem or Suggest an Idea…" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Problem melden oder Idee vorschlagen …"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informar de un problema o sugerir una idea…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signaler un problème ou proposer une idée…"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Relatar um problema ou sugerir uma ideia…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "报告问题或提出建议…"
+          }
+        }
+      }
+    },
     "Required By" : {
       "localizations" : {
         "de" : {
@@ -23272,6 +23306,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Starseed 用来安装、更新和整理星露谷物语模组。模组通过星露谷物语的模组加载器 **SMAPI** 运行，因此需要先安装 SMAPI。"
+          }
+        }
+      }
+    },
+    "Starseed on GitHub" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed auf GitHub"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed en GitHub"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed sur GitHub"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed no GitHub"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub 上的 Starseed"
           }
         }
       }

@@ -305,5 +305,8 @@ struct HelpCommands: View {
         Divider()
         Link("Stardew Valley Wiki: Getting started with mods", destination: URL(string: "https://stardewvalleywiki.com/Modding:Player_Guide/Getting_Started")!)
         Link("SMAPI website and log parser", destination: URL(string: "https://smapi.io")!)
+        Divider()
+        Link("Starseed on GitHub", destination: AppLinks.repository)
+        Link("Report a Problem or Suggest an Idea…", destination: AppLinks.newIssue)
     }
 }
