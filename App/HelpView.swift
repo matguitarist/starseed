@@ -193,7 +193,7 @@ struct HelpView: View {
             HelpSection("Find a Broken Mod") {
                 HelpText("When something goes wrong but nothing says which mod is to blame, use **Game → Find a Broken Mod…**:")
                 HelpBullets([
-                    "Starseed turns off half of your mods. Mods that need each other, and the parts of one mod, stay together.",
+                    "Starseed turns off half of your mods. Mods that need each other, and the parts of one mod, stay together. SMAPI's own mods (Console Commands, Save Backup) stay on.",
                     "Play until you can tell whether the problem happens, quit the game, then answer **Yes** or **No**.",
                     "After a few tests, Starseed names the mod. Keep it off, or put everything back as it was.",
                 ])

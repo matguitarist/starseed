@@ -56,6 +56,15 @@ struct ModDetailView: View {
                         .padding(8)
                         .background(.orange.opacity(0.1), in: RoundedRectangle(cornerRadius: 6))
                     }
+                    if mod.isBundledWithSMAPI {
+                        Label(mod.uniqueID.lowercased() == "smapi.savebackup"
+                              ? "Included with SMAPI. Optional: other mods don't need it, but it makes SMAPI's daily save backups."
+                              : "Included with SMAPI. Optional: other mods don't need it. It adds commands to SMAPI's console.",
+                              systemImage: "info.circle")
+                            .font(.callout)
+                            .foregroundStyle(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
                     if let error = mod.parseError {
                         Text(error)
                             .font(.callout)

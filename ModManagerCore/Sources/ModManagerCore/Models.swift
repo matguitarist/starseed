@@ -193,3 +193,11 @@ private struct CaseInsensitiveJSON {
         (self[key] as? [String: Any]).map(CaseInsensitiveJSON.init)
     }
 }
+
+extension ModInfo {
+    /// Console Commands or Save Backup: optional mods SMAPI installs with
+    /// itself. Other mods don't need them.
+    public var isBundledWithSMAPI: Bool {
+        ["smapi.consolecommands", "smapi.savebackup"].contains(uniqueID.lowercased())
+    }
+}

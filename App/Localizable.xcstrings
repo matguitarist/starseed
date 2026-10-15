@@ -14133,6 +14133,74 @@
         }
       }
     },
+    "Included with SMAPI. Optional: other mods don't need it, but it makes SMAPI's daily save backups." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wird mit SMAPI geliefert. Optional: Andere Mods brauchen ihn nicht, aber er erstellt die täglichen Spielstand-Sicherungen von SMAPI."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Incluido con SMAPI. Opcional: los demás mods no lo necesitan, pero hace las copias diarias de las partidas de SMAPI."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fourni avec SMAPI. Facultatif : les autres mods n’en ont pas besoin, mais il crée les copies quotidiennes des sauvegardes de SMAPI."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Incluído com o SMAPI. Opcional: os outros mods não precisam dele, mas ele faz os backups diários dos saves do SMAPI."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "随 SMAPI 一起提供。可选：其他模组不需要它，但它会生成 SMAPI 的每日存档备份。"
+          }
+        }
+      }
+    },
+    "Included with SMAPI. Optional: other mods don't need it. It adds commands to SMAPI's console." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wird mit SMAPI geliefert. Optional: Andere Mods brauchen ihn nicht. Er fügt der SMAPI-Konsole Befehle hinzu."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Incluido con SMAPI. Opcional: los demás mods no lo necesitan. Añade comandos a la consola de SMAPI."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fourni avec SMAPI. Facultatif : les autres mods n’en ont pas besoin. Il ajoute des commandes à la console de SMAPI."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Incluído com o SMAPI. Opcional: os outros mods não precisam dele. Ele adiciona comandos ao console do SMAPI."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "随 SMAPI 一起提供。可选：其他模组不需要它。它为 SMAPI 控制台添加命令。"
+          }
+        }
+      }
+    },
     "Includes SMAPI's automatic daily backups." : {
       "localizations" : {
         "de" : {
@@ -30308,6 +30376,7 @@
       }
     },
     "Starseed turns off half of your mods. Mods that need each other, and the parts of one mod, stay together." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -30337,6 +30406,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Starseed 会关闭一半模组。互相依赖的模组以及同一模组的各个部分会放在一起。"
+          }
+        }
+      }
+    },
+    "Starseed turns off half of your mods. Mods that need each other, and the parts of one mod, stay together. SMAPI's own mods (Console Commands, Save Backup) stay on." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed schaltet die Hälfte deiner Mods aus. Mods, die einander brauchen, und die Teile eines Mods bleiben zusammen. Die Mods von SMAPI (Console Commands, Save Backup) bleiben eingeschaltet."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed desactiva la mitad de tus mods. Los mods que se necesitan entre sí y las partes de un mismo mod van juntos. Los mods propios de SMAPI (Console Commands, Save Backup) siguen activados."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed désactive la moitié de vos mods. Les mods qui ont besoin les uns des autres, et les parties d’un même mod, restent ensemble. Les mods de SMAPI (Console Commands, Save Backup) restent activés."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Starseed desativa metade dos seus mods. Mods que dependem uns dos outros e as partes de um mesmo mod ficam juntos. Os mods do próprio SMAPI (Console Commands, Save Backup) continuam ativados."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed 会关闭一半模组。互相依赖的模组以及同一模组的各个部分会放在一起。SMAPI 自带的模组（Console Commands、Save Backup）保持开启。"
           }
         }
       }

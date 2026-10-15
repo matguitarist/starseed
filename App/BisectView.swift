@@ -18,7 +18,8 @@ extension AppModel {
     /// units it requires.
     func bisectionUnits() -> [Bisection.Unit] {
         let groups = allGroups.compactMap { group -> (ModGroup, [ModInfo])? in
-            let enabled = group.mods.filter(\.isEnabled)
+            // SMAPI's own mods are never the cause: they stay on (see bundledKeys).
+            let enabled = group.mods.filter { $0.isEnabled && !$0.isBundledWithSMAPI }
             return enabled.isEmpty ? nil : (group, enabled)
         }
         var unitByUniqueID: [String: String] = [:]
@@ -64,7 +65,13 @@ extension AppModel {
         let ids = Set(current.startNextTest())
         bisection = current
         saveBisection()
-        restoreEnabled(Set(current.units.filter { ids.contains($0.id) }.flatMap(\.modKeys)))
+        restoreEnabled(Set(current.units.filter { ids.contains($0.id) }.flatMap(\.modKeys)).union(bundledKeys))
+    }
+
+    /// SMAPI's own mods that were on when the search started: on in every test.
+    private var bundledKeys: Set<String> {
+        let original = bisectionOriginal ?? []
+        return Set(mods.filter(\.isBundledWithSMAPI).map(Self.stableKey)).intersection(original)
     }
 
     func recordBisection(problemHappened: Bool) {
