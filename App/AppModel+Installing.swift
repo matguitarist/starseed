@@ -159,6 +159,9 @@ extension AppModel {
         downloads.insert(item, at: 0)
         let client = nexusClient
 
+        // The profile this download is for (it may not be in use when it finishes).
+        let profile = downloadProfiles.removeValue(forKey: modID) ?? activeProfile
+
         Task {
             if title.hasPrefix("Nexus mod "), let mod = try? await client.mod(id: modID) {
                 item.title = mod.name
@@ -175,7 +178,10 @@ extension AppModel {
                 }
                 folder = file.deletingLastPathComponent()
                 item.state = .installing
+                // What the profile in use had before the install (the rescan after it adds new mods).
+                let inUseBefore = profiles[activeProfile ?? ""] ?? []
                 let result = await install([file], replaceExisting: true, quiet: true).value
+                assignInstalled(result.installedFolders, to: profile, inUseBefore: inUseBefore)
                 item.state = result.errors.isEmpty ? .installed : .failed(result.errors.joined(separator: "\n"))
             } catch {
                 item.state = .failed(error.localizedDescription)
@@ -202,6 +208,9 @@ extension AppModel {
 
         let ids = Set(requests.map(\.modID))
         preparingNexusIDs.formUnion(ids)
+        if let activeProfile {
+            for id in ids { downloadProfiles[id] = activeProfile }
+        }
         Task {
             defer { preparingNexusIDs.subtract(ids) }
             var pages: [BrowserQueueItem] = []
@@ -277,5 +286,22 @@ extension AppModel {
             item.state = result.errors.isEmpty ? .installed : .failed(result.errors.joined(separator: "\n"))
             try? FileManager.default.removeItem(at: file.deletingLastPathComponent())
         }
+    }
+
+    /// Mods that downloaded for a profile that's no longer in use: add them
+    /// to that profile, and keep them off in the profile in use (unless it
+    /// already had them).
+    func assignInstalled(_ folders: [URL], to profile: String?, inUseBefore: [String]) {
+        guard let profile, profile != activeProfile, let saved = profiles[profile] else { return }
+        let ids = folders.map { ManifestParser.parse(modFolder: $0).uniqueID }.filter { !$0.isEmpty }
+        guard !ids.isEmpty else { return }
+        profiles[profile] = ProfileRules.merged(saved, adding: ids)
+        persistProfiles()
+        let wanted = Set(ids.map { $0.lowercased() })
+        let inUse = Set(inUseBefore.map { $0.lowercased() })
+        let toTurnOff = mods.filter { $0.isEnabled && wanted.contains($0.uniqueID.lowercased()) && !inUse.contains($0.uniqueID.lowercased()) }
+        guard !toTurnOff.isEmpty else { return }
+        _ = toggle(toTurnOff, to: false)
+        refresh()
     }
 }

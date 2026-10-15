@@ -149,6 +149,9 @@ final class AppModel {
     var nexusModInfo: [Int: NexusMod] = [:]
     /// Nexus changelogs by mod number, fetched when first shown.
     var changelogs: [Int: [ChangelogEntry]] = [:]
+    /// The profile that asked for each queued Nexus download (by mod number),
+    /// so a download that finishes after a profile switch still joins it.
+    var downloadProfiles: [Int: String] = [:]
     /// Nexus mods whose files are being looked up before download.
     var preparingNexusIDs: Set<Int> = []
 
