@@ -93,10 +93,14 @@ struct CollectionSheet: View {
     }
 
     private func summaryBar(_ revision: CollectionRevision) -> some View {
-        let states = revision.mods.map { model.state(of: $0) }
-        let installed = states.filter { $0 == .installed }.count
+        // Counts cover the mods that would be used: required ones and the
+        // optional ones you ticked. A newer version you have counts as installed.
+        let used = revision.mods.filter { !$0.isOptional || selectedOptional.contains($0.fileID) }
+        let states = used.map { model.state(of: $0) }
+        let newerStates = used.filter { $0.modID != NexusClient.smapiModID }.map { model.state(of: $0) }
+        let installed = states.filter { if case .installed = $0 { true } else if case .newerInstalled = $0 { true } else { false } }.count
         let older = states.filter { if case .olderInstalled = $0 { true } else { false } }.count
-        let newer = states.filter { if case .newerInstalled = $0 { true } else { false } }.count
+        let newer = newerStates.filter { if case .newerInstalled = $0 { true } else { false } }.count
         let missing = states.filter { $0 == .missing }.count
         return HStack(spacing: 14) {
             Label("\(installed) installed", systemImage: "checkmark.circle.fill").foregroundStyle(.green)
@@ -172,6 +176,7 @@ struct CollectionSheet: View {
         guard let revision else { return [] }
         return revision.mods.filter { mod in
             guard !mod.isOptional || selectedOptional.contains(mod.fileID) else { return false }
+            if mod.modID == NexusClient.smapiModID { return false }  // installed with its own installer
             switch model.state(of: mod) {
             case .installed: return false
             case .olderInstalled, .missing: return true
@@ -194,7 +199,7 @@ struct CollectionSheet: View {
                 }
                 let totalKB = modsToInstall.compactMap(\.sizeKB).reduce(0, +)
                 if totalKB > 0 {
-                    Text("\(modsToInstall.count) mods · \((Int64(totalKB) * 1024).formatted(.byteCount(style: .file)))")
+                    Text(modsToInstall.count == 1 ? String(localized: "1 mod · \((Int64(totalKB) * 1024).formatted(.byteCount(style: .file)))") : String(localized: "\(modsToInstall.count) mods · \((Int64(totalKB) * 1024).formatted(.byteCount(style: .file)))"))
                         .foregroundStyle(.secondary)
                 }
             }
@@ -206,13 +211,13 @@ struct CollectionSheet: View {
                 if intoNewProfile, let revision {
                     model.useCollectionProfile(revision, mods: includedMods)
                 }
-                model.installCollection(modsToInstall)
+                model.installCollection(modsToInstall + (smapiRowNeedingInstall.map { [$0] } ?? []))
                 dismiss()
             }
             .keyboardShortcut(.defaultAction)
             .buttonStyle(.borderedProminent)
             .disabled(revision == nil
-                      || (modsToInstall.isEmpty && !intoNewProfile)
+                      || (modsToInstall.isEmpty && smapiRowNeedingInstall == nil && !intoNewProfile)
                       || (!modsToInstall.isEmpty && model.nexusAccount.user == nil))
         }
     }
@@ -239,11 +244,22 @@ struct CollectionSheet: View {
         (revision?.mods ?? []).filter { !$0.isOptional || selectedOptional.contains($0.fileID) }
     }
 
+    /// The collection's SMAPI entry when SMAPI is missing or older than it
+    /// wants (installed with SMAPI's own installer, not as a mod).
+    private var smapiRowNeedingInstall: CollectionMod? {
+        guard let row = revision?.mods.first(where: { $0.modID == NexusClient.smapiModID }) else { return nil }
+        switch model.state(of: row) {
+        case .missing, .olderInstalled: return row
+        case .installed, .newerInstalled: return nil
+        }
+    }
+
     private var installTitle: String {
         if modsToInstall.isEmpty {
+            if smapiRowNeedingInstall != nil { return model.smapi == nil ? String(localized: "Install SMAPI") : String(localized: "Update SMAPI") }
             return intoNewProfile ? String(localized: "Use as Profile") : String(localized: "Up to Date")
         }
-        return String(localized: "Install \(modsToInstall.count) Mods")
+        return modsToInstall.count == 1 ? String(localized: "Install 1 Mod") : String(localized: "Install \(modsToInstall.count) Mods")
     }
 
     private func load() async {

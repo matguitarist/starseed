@@ -110,6 +110,13 @@ extension AppModel {
     }
 
     func state(of collectionMod: CollectionMod) -> CollectionModState {
+        // SMAPI (#2400) lives in the game folder, not Mods: compare with the
+        // installed SMAPI itself.
+        if collectionMod.modID == NexusClient.smapiModID {
+            guard let smapi else { return .missing }
+            guard let have = smapi.version, let wanted = collectionMod.version.flatMap(SemanticVersion.init), have != wanted else { return .installed }
+            return have < wanted ? .olderInstalled(have.description) : .newerInstalled(have.description)
+        }
         guard let installed = installedMod(nexusID: collectionMod.modID) else { return .missing }
         guard let wanted = collectionMod.version.flatMap(SemanticVersion.init),
               let have = SemanticVersion(installed.version), have != wanted
@@ -117,8 +124,17 @@ extension AppModel {
         return have < wanted ? .olderInstalled(installed.version) : .newerInstalled(installed.version)
     }
 
+    /// Downloads a collection's mods. SMAPI isn't downloaded as a mod: when
+    /// it's missing or older than the collection's, it's installed (latest
+    /// version) with its own installer instead.
     func installCollection(_ mods: [CollectionMod]) {
-        queueNexusInstalls(mods.map {
+        if let smapiMod = mods.first(where: { $0.modID == NexusClient.smapiModID }) {
+            switch state(of: smapiMod) {
+            case .missing, .olderInstalled: installSMAPI()
+            case .installed, .newerInstalled: break
+            }
+        }
+        queueNexusInstalls(mods.filter { $0.modID != NexusClient.smapiModID }.map {
             NexusInstallRequest(modID: $0.modID, title: $0.modName, version: $0.version, fileID: $0.fileID)
         })
     }
