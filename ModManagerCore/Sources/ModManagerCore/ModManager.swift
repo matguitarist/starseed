@@ -30,6 +30,8 @@ public struct ModManagerError: LocalizedError, Sendable {
 
 public struct InstallResult: Sendable {
     public var installed: [String] = []   // mod names installed/updated
+    /// Where each installed mod now is (to read its UniqueID).
+    public var installedFolders: [URL] = []
     public var skipped: [String] = []     // mod names the user chose not to overwrite
     public var errors: [String] = []      // human-readable error messages
 
@@ -39,6 +41,7 @@ public struct InstallResult: Sendable {
 
     public mutating func merge(_ other: InstallResult) {
         installed += other.installed
+        installedFolders += other.installedFolders
         skipped += other.skipped
         errors += other.errors
     }
@@ -324,6 +327,7 @@ public struct ModManager: Sendable {
                     try savedConfig.write(to: configURL)
                 }
                 result.installed.append(mod.name)
+                result.installedFolders.append(destination)
             } catch {
                 result.errors.append("\(mod.name): \(error.localizedDescription)")
             }

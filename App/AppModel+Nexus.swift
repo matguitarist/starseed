@@ -162,12 +162,8 @@ extension AppModel {
             return show("Stardew Valley Is Running", "Quit the game first: mods are only loaded when it starts.")
         }
         let name = revision.collection.name
-        let smapiMods = mods.filter { $0.uniqueID.lowercased().hasPrefix("smapi.") }.map(\.uniqueID)
-        var ids = profiles[name] ?? []
-        for id in smapiMods + installedUniqueIDs(for: collectionMods)
-        where !ids.contains(where: { $0.caseInsensitiveCompare(id) == .orderedSame }) {
-            ids.append(id)
-        }
+        let ids = ProfileRules.merged(profiles[name] ?? [],
+                                      adding: ProfileRules.smapiBundled(mods.map(\.uniqueID)) + installedUniqueIDs(for: collectionMods))
         profiles[name] = ids
         profileCollections[name] = ProfileCollection(slug: revision.collection.slug, name: revision.collection.name)
         persistProfiles()

@@ -26,17 +26,12 @@ extension AppModel {
     func ensureActiveProfile() {
         guard manager != nil else { return }
         if let activeProfile, profiles[activeProfile] != nil { return }
-        let current = Set(enabledUniqueIDs.map { $0.lowercased() })
-        if let match = profileNames.first(where: { Set((profiles[$0] ?? []).map { $0.lowercased() }) == current }) {
+        if let match = ProfileRules.matching(profiles, enabled: enabledUniqueIDs) {
             activeProfile = match
             return
         }
-        var name = String(localized: "Default")
-        var counter = 2
-        while profiles[name] != nil {
-            name = String(localized: "Default \(counter)")
-            counter += 1
-        }
+        let name = ProfileRules.uniqueName(String(localized: "Default"), taken: { self.profiles[$0] != nil },
+                                           numbered: { String(localized: "Default \($0)") })
         profiles[name] = enabledUniqueIDs
         persistProfiles()
         activeProfile = name
@@ -46,11 +41,9 @@ extension AppModel {
     /// lists that aren't installed stay in it; a broken-mod search's
     /// temporary changes aren't recorded.
     func trackActiveProfile() {
-        guard manager != nil, bisection == nil, let name = activeProfile, let saved = profiles[name] else { return }
-        let installed = Set(mods.map { $0.uniqueID.lowercased() })
-        let notInstalled = saved.filter { !installed.contains($0.lowercased()) }
-        let updated = enabledUniqueIDs + notInstalled
-        guard Set(updated.map { $0.lowercased() }) != Set(saved.map { $0.lowercased() }) else { return }
+        guard manager != nil, bisection == nil, let name = activeProfile, let saved = profiles[name],
+              let updated = ProfileRules.tracked(saved: saved, enabled: enabledUniqueIDs, installed: Set(mods.map(\.uniqueID)))
+        else { return }
         profiles[name] = updated
         persistProfiles()
     }
@@ -76,7 +69,7 @@ extension AppModel {
             guard !isGameRunning else {
                 return show("Stardew Valley Is Running", "Quit the game first: mods are only loaded when it starts.")
             }
-            let smapiMods = mods.filter { $0.uniqueID.lowercased().hasPrefix("smapi.") }.map(\.uniqueID)
+            let smapiMods = ProfileRules.smapiBundled(mods.map(\.uniqueID))
             profiles[name] = smapiMods
             persistProfiles()
             activeProfile = name
