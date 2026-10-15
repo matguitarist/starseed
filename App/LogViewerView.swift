@@ -142,11 +142,16 @@ struct LogViewerView: View {
                     Label("SMAPI \(smapi)", systemImage: "gearshape.2")
                 }
                 if let game = log.gameVersion {
-                    Label("Stardew Valley \(game)", systemImage: "leaf")
+                    if let store = model.gameStore?.displayName {
+                        Label("Stardew Valley \(game) · \(store)", systemImage: "leaf")
+                    } else {
+                        Label("Stardew Valley \(game)", systemImage: "leaf")
+                    }
                 }
                 if let platform = log.platform {
                     Label(platform, systemImage: "desktopcomputer").lineLimit(1)
                 }
+                ProfileIndicator()
                 Spacer()
                 if let full = self.log, let mark = activeClearMark(for: full) {
                     Text("Cleared at \(mark.date.formatted(date: .omitted, time: .standard)) · \(mark.entryCount) earlier messages hidden")

@@ -109,8 +109,8 @@ private struct GeneralSettings: View {
                     SMAPIInstallButton()
                 }
             }
-            if let game = model.smapi?.gameVersion {
-                LabeledContent("Stardew Valley", value: game.description)
+            if let game = model.gameVersion {
+                LabeledContent("Stardew Valley", value: model.gameStore?.displayName.map { "\(game.description) (\($0))" } ?? game.description)
             }
         }
         .formStyle(.grouped)

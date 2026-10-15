@@ -105,6 +105,8 @@ final class AppModel {
     var requestedLogURL: URL?
     /// Steam's view of the game (update waiting?), read with SMAPI's version.
     var steamGame: SteamGameState?
+    /// Where the game was bought (Steam, GOG, Mac App Store).
+    var gameStore: GameStore?
     /// Set while SMAPI is being downloaded or installed.
     var smapiInstallPhase: SMAPIInstaller.Phase?
     var lastUpdateCheck: Date?

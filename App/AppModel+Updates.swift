@@ -12,6 +12,7 @@ extension AppModel {
         guard let manager else { return }
         smapi = SMAPIInstallation.detect(modsURL: manager.modsURL, bundledMods: mods)
         steamGame = SteamGameState.read(gameFolder: gameFolder ?? manager.modsURL.deletingLastPathComponent())
+        gameStore = gameFolder.map(GameStore.detect)
         var updated = mods
         markModsNeedingNewerSMAPI(in: &updated)
         mods = updated

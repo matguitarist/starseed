@@ -156,7 +156,6 @@ struct ActivityStatusBar: View {
             if model.manager != nil {
                 GameIndicator()
                 SMAPIIndicator()
-                ProfileIndicator()
             }
             if let status = model.activityStatus {
                 if model.manager != nil {
@@ -327,8 +326,8 @@ private struct SMAPIIndicator: View {
     }
 }
 
-/// The profile in use, in the bottom bar; click to switch.
-private struct ProfileIndicator: View {
+/// The profile in use (SMAPI Log header); click to switch.
+struct ProfileIndicator: View {
     @AppModelEnvironment private var model
 
     var body: some View {
