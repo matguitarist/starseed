@@ -150,7 +150,7 @@ struct ProfilesView: View {
     }
 }
 
-/// The toolbar's profile switcher: shows the profile in use.
+/// The profile switcher in the Installed filter bar: shows the profile in use.
 struct ProfileMenu: View {
     @AppModelEnvironment private var model
 
@@ -168,6 +168,10 @@ struct ProfileMenu: View {
                 }
             }
             Divider()
+            Button("Show Profile Details") {
+                model.selection = []
+                model.showInspector = true
+            }
             if let active = model.activeProfile, let collection = model.profileCollections[active] {
                 Button("Show Collection “\(collection.name)”…") { model.showCollection(forProfile: active) }
             }
@@ -176,7 +180,103 @@ struct ProfileMenu: View {
             Label(model.activeProfile ?? String(localized: "Profiles"), systemImage: "person.2")
                 .labelStyle(.titleAndIcon)
         }
+        .menuStyle(.button)
+        .fixedSize()
         .help("Profile in use. Choose another to switch which mods are on.")
         .disabled(model.manager == nil)
+    }
+}
+
+/// The details panel when no mod is selected: the profile in use, and the
+/// Nexus collection it came from (with a way back to its optional mods).
+struct ProfileOverview: View {
+    @AppModelEnvironment private var model
+
+    var body: some View {
+        let name = model.activeProfile ?? ""
+        let count = model.profiles[name]?.count ?? 0
+        ScrollView {
+            VStack(alignment: .leading, spacing: 14) {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Profile in use").font(.caption).foregroundStyle(.secondary)
+                    Label(name, systemImage: "person.2.fill").font(.title2.bold())
+                    Text("\(model.mods.filter(\.isEnabled).count) of \(model.mods.count) installed mods are on")
+                        .foregroundStyle(.secondary)
+                    if count > model.mods.filter(\.isEnabled).count {
+                        Text("Some mods in this profile aren't installed.")
+                            .font(.caption)
+                            .foregroundStyle(.orange)
+                    }
+                }
+
+                if let link = model.profileCollections[name] {
+                    collectionCard(link)
+                }
+
+                HStack {
+                    Button("Manage Profiles…") { model.showProfiles = true }
+                }
+                Text("Select a mod to see its details.")
+                    .font(.callout)
+                    .foregroundStyle(.secondary)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding()
+        }
+        .task(id: model.profileCollections[name]?.slug) {
+            guard let slug = model.profileCollections[name]?.slug, model.collectionRevisions[slug] == nil,
+                  let revision = try? await model.nexusClient.collectionRevision(slug: slug)
+            else { return }
+            model.collectionRevisions[slug] = revision
+        }
+    }
+
+    @ViewBuilder
+    private func collectionCard(_ link: ProfileCollection) -> some View {
+        let revision = model.collectionRevisions[link.slug]
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Made from the collection").font(.caption).foregroundStyle(.secondary)
+            if let url = revision?.collection.tileImageURL {
+                ModPicture(url: url, cornerRadius: 8)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 150)
+            }
+            Text(link.name).font(.headline)
+            if let author = revision?.collection.author {
+                Text("by \(author)").font(.callout).foregroundStyle(.secondary)
+            }
+            if let summary = revision?.collection.summary, !summary.isEmpty {
+                Text(summary.strippingNexusMarkup)
+                    .font(.callout)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            if let revision {
+                let required = revision.mods.filter { !$0.isOptional }
+                let optional = revision.mods.filter(\.isOptional)
+                let have = required.filter { model.state(of: $0) != .missing }.count
+                let haveOptional = optional.filter { model.state(of: $0) != .missing }.count
+                VStack(alignment: .leading, spacing: 2) {
+                    Label("\(have) of \(required.count) mods installed", systemImage: have == required.count ? "checkmark.circle.fill" : "arrow.down.circle")
+                        .foregroundStyle(have == required.count ? .green : .blue)
+                    if !optional.isEmpty {
+                        Label("\(haveOptional) of \(optional.count) optional mods installed", systemImage: "plus.circle")
+                            .foregroundStyle(.secondary)
+                    }
+                }
+                .font(.callout)
+            } else {
+                ProgressView().controlSize(.small)
+            }
+            HStack {
+                Button("Show Collection…") { model.showCollection(forProfile: model.activeProfile ?? "") }
+                    .buttonStyle(.borderedProminent)
+                    .help("Install missing or optional mods from this collection")
+                if let page = revision?.collection.pageURL {
+                    Button("View on Nexus") { model.openInBrowser(page) }
+                }
+            }
+        }
+        .padding(10)
+        .background(.quaternary.opacity(0.4), in: RoundedRectangle(cornerRadius: 10))
     }
 }

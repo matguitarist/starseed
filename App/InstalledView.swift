@@ -75,10 +75,11 @@ struct InstalledView: View {
             .background(.quaternary.opacity(0.6), in: RoundedRectangle(cornerRadius: 8))
             .frame(maxWidth: 360)
             Spacer()
+            ProfileMenu()
             // All installed mods, or only the profile in use (its enabled mods).
             Picker("Show", selection: $model.showProfileModsOnly) {
                 Text("All Mods").tag(false)
-                Text("In “\(model.activeProfile ?? "")”").tag(true)
+                Text("This Profile").tag(true)
             }
             .labelsHidden()
             .pickerStyle(.segmented)
@@ -216,7 +217,6 @@ struct InstalledView: View {
                 .help("Rescan the Mods folder and check for updates")
             }
 
-            ProfileMenu()
 
             Button {
                 model.openModsFolder()

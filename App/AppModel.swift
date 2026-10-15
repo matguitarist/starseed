@@ -46,6 +46,8 @@ final class AppModel {
         didSet { recomputeDerived() }
     }
     var profiles: [String: [String]] = [:]
+    /// Collections fetched for the details panel's profile overview, by slug.
+    var collectionRevisions: [String: CollectionRevision] = [:]
     /// Profiles made from a Nexus collection, by profile name, so the
     /// collection (and its optional mods) can be opened again.
     var profileCollections: [String: ProfileCollection] = {

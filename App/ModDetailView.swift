@@ -11,6 +11,8 @@ struct ModDetailView: View {
                 details(for: mod)
             } else if let group = model.selectedGroup {
                 GroupDetailView(group: group)
+            } else if model.selection.isEmpty, model.activeProfile != nil {
+                ProfileOverview()
             } else {
                 ContentUnavailableView(
                     model.selection.isEmpty ? "No Mod Selected" : "\(model.selection.count) Mods Selected",
