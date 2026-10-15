@@ -334,15 +334,7 @@ struct ProfileIndicator: View {
         if let name = model.activeProfile {
             Menu {
                 ForEach(model.profileNames, id: \.self) { profile in
-                    Button {
-                        model.switchProfile(to: profile)
-                    } label: {
-                        if profile == name {
-                            Label(profile, systemImage: "checkmark")
-                        } else {
-                            Text(profile)
-                        }
-                    }
+                    CheckedMenuItem(title: profile, isChecked: profile == name) { model.switchProfile(to: profile) }
                 }
                 Divider()
                 Button("Show Profile Details") {

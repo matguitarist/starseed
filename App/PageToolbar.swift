@@ -65,3 +65,17 @@ struct PanelToolbarButton: View {
         .help(help)
     }
 }
+
+/// A menu item with macOS's own checkmark when it's the current choice
+/// (a checkmark icon in a label isn't shown in every menu).
+struct CheckedMenuItem: View {
+    let title: String
+    let isChecked: Bool
+    let action: () -> Void
+
+    var body: some View {
+        Toggle(isOn: Binding(get: { isChecked }, set: { _ in if !isChecked { action() } })) {
+            Text(verbatim: title)
+        }
+    }
+}

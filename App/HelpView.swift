@@ -164,7 +164,7 @@ struct HelpView: View {
         case .profiles:
             HelpSection("Profiles") {
                 HelpText("A profile remembers which mods are on. One is always in use; its name shows in the filter bar of **Installed**, and turning mods on or off updates it. Starseed starts with a **Default** profile.")
-                HelpText("The profile menu at the right of the filter bar switches profiles. Next to it, **This Profile** shows only the mods in the profile in use; **All Mods** shows everything installed.")
+                HelpText("The profile menu at the right of the filter bar shows the profile in use and switches profiles; in the list, the one in use is checked. Next to it, **This Profile** shows only the mods in the profile in use; **All Mods** shows everything installed. The SMAPI Log header and the menu bar icon's menu show it too.")
                 HelpText("Make one for each way you play (a big expansion run, a vanilla-plus game…): **Manage Profiles…** in the profile menu creates, renames and deletes them, starting from the mods on now or from no mods. Choosing another profile switches which mods are on; switching back brings yours back exactly as they were.")
             }
             HelpSection("Sharing a profile") {
@@ -219,7 +219,7 @@ struct HelpView: View {
                 HelpText("Checking mods for updates every few hours and notifications about them, and checking for new versions of Starseed. Each has **Check Now**.")
             }
             HelpSection("The menu bar icon") {
-                HelpText("The icon is on unless you turn it off. With it, closing the window keeps Starseed running, so it keeps checking for updates. Its menu shows the game's and SMAPI's state, the number of updates and the last session's problems. From it you can play, play a farm with its profile (**Play a Farm**), switch or manage profiles, and open a profile's collection, without opening the window.")
+                HelpText("The icon is on unless you turn it off. With it, closing the window keeps Starseed running, so it keeps checking for updates. Its menu shows the game's and SMAPI's state, the number of updates and the last session's problems. From it you can play, switch profiles (the one in use is checked), manage them, and open a profile's collection, without opening the window.")
             }
             HelpSection("Nexus Mods") {
                 HelpText("Your personal API key and your account (free or Premium): **Change Key…** or **Remove** it. **Use This App** makes Starseed catch **Mod Manager Download** links clicked in Safari or Chrome.")

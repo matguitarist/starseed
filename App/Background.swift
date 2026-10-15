@@ -81,24 +81,6 @@ struct MenuBarContent: View {
             .disabled(model.smapiInstallPhase != nil)
         }
         Button("Play Stardew Valley") { model.launchGame() }
-        // Each farm with the profile it's played with: switches, then launches.
-        let saves = SaveGame.list()
-        if !saves.isEmpty {
-            Menu("Play a Farm") {
-                ForEach(saves) { save in
-                    Button {
-                        model.play(save)
-                    } label: {
-                        if let profile = model.profile(forSave: save.id) {
-                            Text("\(save.displayName) · \(profile)")
-                        } else {
-                            Text(save.displayName)
-                        }
-                    }
-                }
-            }
-            .disabled(model.manager == nil)
-        }
         Divider()
 
         let updates = model.modsWithUpdates.count
@@ -133,15 +115,7 @@ struct MenuBarContent: View {
         if !model.profileNames.isEmpty {
             Menu(model.activeProfile.map { String(localized: "Profile: \($0)") } ?? String(localized: "Use Profile")) {
                 ForEach(model.profileNames, id: \.self) { name in
-                    Button {
-                        model.switchProfile(to: name)
-                    } label: {
-                        if name == model.activeProfile {
-                            Label(name, systemImage: "checkmark")
-                        } else {
-                            Text(name)
-                        }
-                    }
+                    CheckedMenuItem(title: name, isChecked: name == model.activeProfile) { model.switchProfile(to: name) }
                 }
                 Divider()
                 if let active = model.activeProfile, let collection = model.profileCollections[active] {

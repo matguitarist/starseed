@@ -105,7 +105,9 @@ Everything is explained in the built-in help.
 
 **Keeping up to date**
 - Checks every mod for updates at launch and every few hours, with
-  notifications and an optional menu bar icon.
+  notifications.
+- A menu bar icon (you can turn it off) to play, switch profiles and see
+  updates without opening the window.
 - Read what's new before updating, update one mod or all of them.
 - Every update keeps the previous version, so you can roll back.
 - Tells you when Steam has a game update waiting.

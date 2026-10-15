@@ -23481,6 +23481,7 @@
       }
     },
     "Play a Farm" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -32382,6 +32383,7 @@
       }
     },
     "The icon is on unless you turn it off. With it, closing the window keeps Starseed running, so it keeps checking for updates. Its menu shows the game's and SMAPI's state, the number of updates and the last session's problems. From it you can play, play a farm with its profile (**Play a Farm**), switch or manage profiles, and open a profile's collection, without opening the window." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -32411,6 +32413,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "除非你关闭，否则会显示该图标。显示时，关闭窗口后 Starseed 仍会运行并继续检查更新。它的菜单显示游戏和 SMAPI 的状态、更新数量和上次游戏的问题。你可以在不打开窗口的情况下从这里开始游戏、使用农场对应的配置方案游玩（**游玩农场**）、切换或管理配置方案，以及打开配置方案的合集。"
+          }
+        }
+      }
+    },
+    "The icon is on unless you turn it off. With it, closing the window keeps Starseed running, so it keeps checking for updates. Its menu shows the game's and SMAPI's state, the number of updates and the last session's problems. From it you can play, switch profiles (the one in use is checked), manage them, and open a profile's collection, without opening the window." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Symbol ist eingeschaltet, solange du es nicht ausschaltest. Damit läuft Starseed nach dem Schließen des Fensters weiter und sucht weiter nach Updates. Sein Menü zeigt den Zustand von Spiel und SMAPI, die Zahl der Updates und die Probleme der letzten Sitzung. Darüber kannst du spielen, Profile wechseln (das aktive ist abgehakt), sie verwalten und die Sammlung eines Profils öffnen, ohne das Fenster zu öffnen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El icono está activado salvo que lo desactives. Con él, al cerrar la ventana Starseed sigue abierto y buscando actualizaciones. Su menú muestra el estado del juego y de SMAPI, el número de actualizaciones y los problemas de la última sesión. Desde él puedes jugar, cambiar de perfil (el que está en uso aparece marcado), gestionarlos y abrir la colección de un perfil, sin abrir la ventana."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’icône est affichée sauf si vous la désactivez. Avec elle, fermer la fenêtre laisse Starseed ouvert, qui continue de rechercher les mises à jour. Son menu montre l’état du jeu et de SMAPI, le nombre de mises à jour et les problèmes de la dernière partie. Il permet de jouer, de changer de profil (celui utilisé est coché), de les gérer et d’ouvrir la collection d’un profil, sans ouvrir la fenêtre."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O ícone fica ativado a menos que você o desative. Com ele, fechar a janela mantém o Starseed aberto, procurando atualizações. O menu dele mostra o estado do jogo e do SMAPI, o número de atualizações e os problemas da última sessão. Por ele você pode jogar, trocar de perfil (o que está em uso aparece marcado), gerenciá-los e abrir a coleção de um perfil, sem abrir a janela."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "除非你关闭，否则会显示该图标。显示时，关闭窗口后 Starseed 仍会运行并继续检查更新。它的菜单显示游戏和 SMAPI 的状态、更新数量和上次游戏的问题。你可以在不打开窗口的情况下从这里开始游戏、切换配置方案（使用中的会打勾）、管理配置方案，以及打开配置方案的合集。"
           }
         }
       }
@@ -32721,7 +32757,42 @@
         }
       }
     },
+    "The profile menu at the right of the filter bar shows the profile in use and switches profiles; in the list, the one in use is checked. Next to it, **This Profile** shows only the mods in the profile in use; **All Mods** shows everything installed. The SMAPI Log header and the menu bar icon's menu show it too." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Profilmenü rechts in der Filterleiste zeigt das aktive Profil und wechselt Profile; in der Liste ist das aktive abgehakt. Daneben zeigt **Dieses Profil** nur die Mods des aktiven Profils; **Alle Mods** zeigt alles Installierte. Der Kopf des SMAPI-Protokolls und das Menü des Menüleistensymbols zeigen es ebenfalls."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El menú de perfiles, a la derecha de la barra de filtro, muestra el perfil en uso y permite cambiarlo; en la lista, el que está en uso aparece marcado. Al lado, **Este perfil** muestra solo los mods del perfil en uso; **Todos los mods** muestra todo lo instalado. La cabecera del registro de SMAPI y el menú del icono de la barra de menús también lo muestran."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le menu des profils, à droite de la barre de filtre, montre le profil utilisé et permet d’en changer ; dans la liste, celui utilisé est coché. À côté, **Ce profil** n’affiche que les mods du profil utilisé ; **Tous les mods** affiche tout ce qui est installé. L’en-tête du journal SMAPI et le menu de l’icône dans la barre des menus l’indiquent aussi."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O menu de perfis, à direita da barra de filtro, mostra o perfil em uso e permite trocá-lo; na lista, o que está em uso aparece marcado. Ao lado, **Este perfil** mostra só os mods do perfil em uso; **Todos os mods** mostra tudo o que está instalado. O cabeçalho do registro do SMAPI e o menu do ícone na barra de menus também o mostram."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "筛选栏右侧的配置方案菜单显示使用中的配置方案，并可切换；列表中使用中的会打勾。旁边的**此配置方案**只显示使用中配置方案的模组；**所有模组**显示所有已安装的模组。SMAPI 日志的标题栏和菜单栏图标的菜单也会显示它。"
+          }
+        }
+      }
+    },
     "The profile menu at the right of the filter bar switches profiles. Next to it, **This Profile** shows only the mods in the profile in use; **All Mods** shows everything installed." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {

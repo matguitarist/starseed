@@ -672,10 +672,8 @@ private struct SaveModSetPicker: View {
         Menu {
             Section("Profiles") {
                 ForEach(model.profileNames, id: \.self) { name in
-                    Button {
+                    CheckedMenuItem(title: name, isChecked: current?.name == name) {
                         model.link(saveID: save.id, to: SaveModSet(kind: .profile, name: name))
-                    } label: {
-                        if current?.name == name { Label(name, systemImage: "checkmark") } else { Text(name) }
                     }
                 }
             }
