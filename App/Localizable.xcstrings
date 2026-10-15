@@ -16370,7 +16370,42 @@
         }
       }
     },
+    "New profile" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neues Profil"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nuevo perfil"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nouveau profil"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Novo perfil"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新建配置方案"
+          }
+        }
+      }
+    },
     "New profile from the mods on now" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -16910,6 +16945,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "未选择模组"
+          }
+        }
+      }
+    },
+    "No mods" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Mods"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ningún mod"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun mod"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nenhum mod"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不含模组"
           }
         }
       }
@@ -17761,6 +17830,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "首次启动时，选择游戏的 **Mods** 文件夹。Steam 版位于游戏内：*Stardew Valley.app/Contents/MacOS/Mods*。之后可在**设置 → 通用**中更改。"
+          }
+        }
+      }
+    },
+    "Only SMAPI's own mods (Console Commands, Save Backup) stay on. Every other mod is turned off, not deleted." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nur die eigenen Mods von SMAPI (Console Commands, Save Backup) bleiben an. Alle anderen Mods werden ausgeschaltet, nicht gelöscht."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Solo siguen activados los mods propios de SMAPI (Console Commands, Save Backup). Todos los demás se desactivan, no se eliminan."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seuls les mods de SMAPI (Console Commands, Save Backup) restent activés. Tous les autres mods sont désactivés, pas supprimés."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Só os mods do próprio SMAPI (Console Commands, Save Backup) continuam ativados. Todos os outros são desativados, não apagados."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "只保留 SMAPI 自带的模组（Console Commands、Save Backup）开启。其他模组都会关闭，而不是删除。"
           }
         }
       }
@@ -25119,6 +25222,40 @@
         }
       }
     },
+    "Start with" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beginnen mit"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Empezar con"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Commencer avec"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Começar com"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "起始内容"
+          }
+        }
+      }
+    },
     "Starting %lld download(s)…" : {
       "localizations" : {
         "de" : {
@@ -26051,6 +26188,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mods 文件夹不在游戏内，因此无法检查游戏版本和 SMAPI。"
+          }
+        }
+      }
+    },
+    "The mods on now" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Den eingeschalteten Mods"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los mods activados ahora"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les mods activés"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Os mods ativados agora"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前开启的模组"
           }
         }
       }

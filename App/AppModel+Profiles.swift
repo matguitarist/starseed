@@ -60,13 +60,26 @@ extension AppModel {
         applyEnabledSet(ids, title: String(localized: "profile “\(name)”"), undoable: false)
     }
 
-    /// A new profile with the mods enabled now, put in use.
-    func createProfile(named rawName: String) {
+    /// A new profile, put in use: with the mods enabled now, or with none
+    /// but SMAPI's own (Console Commands, Save Backup), which then turns
+    /// every other mod off.
+    func createProfile(named rawName: String, empty: Bool = false) {
         let name = rawName.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !name.isEmpty, profiles[name] == nil else { return }
-        profiles[name] = enabledUniqueIDs
-        persistProfiles()
-        activeProfile = name
+        if empty {
+            guard !isGameRunning else {
+                return show("Stardew Valley Is Running", "Quit the game first: mods are only loaded when it starts.")
+            }
+            let smapiMods = mods.filter { $0.uniqueID.lowercased().hasPrefix("smapi.") }.map(\.uniqueID)
+            profiles[name] = smapiMods
+            persistProfiles()
+            activeProfile = name
+            applyEnabledSet(smapiMods, title: String(localized: "profile “\(name)”"), undoable: false)
+        } else {
+            profiles[name] = enabledUniqueIDs
+            persistProfiles()
+            activeProfile = name
+        }
     }
 
     func renameProfile(_ old: String, to rawName: String) {

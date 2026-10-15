@@ -10,6 +10,7 @@ struct ProfilesView: View {
     @State private var renaming: String?
     @State private var renameText = ""
     @State private var confirmDelete = false
+    @State private var startEmpty = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -66,7 +67,18 @@ struct ProfilesView: View {
             Divider()
 
             VStack(alignment: .leading, spacing: 6) {
-                Text("New profile from the mods on now").font(.headline)
+                Text("New profile").font(.headline)
+                Picker("Start with", selection: $startEmpty) {
+                    Text("The mods on now").tag(false)
+                    Text("No mods").tag(true)
+                }
+                .pickerStyle(.segmented)
+                if startEmpty {
+                    Text("Only SMAPI's own mods (Console Commands, Save Backup) stay on. Every other mod is turned off, not deleted.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
                 HStack {
                     TextField("Profile name", text: $newName)
                         .onSubmit(create)
@@ -110,7 +122,7 @@ struct ProfilesView: View {
 
     private func create() {
         guard !trimmedName.isEmpty, model.profiles[trimmedName] == nil else { return }
-        model.createProfile(named: trimmedName)
+        model.createProfile(named: trimmedName, empty: startEmpty)
         selected = trimmedName
         newName = ""
     }
