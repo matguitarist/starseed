@@ -3,24 +3,21 @@
     <channel>
         <title>Starseed</title>
         <item>
-            <title>2.5</title>
-            <pubDate>Thu, 15 Oct 2026 13:48:35 -0400</pubDate>
-            <sparkle:version>9</sparkle:version>
-            <sparkle:shortVersionString>2.5</sparkle:shortVersionString>
+            <title>2.6</title>
+            <pubDate>Thu, 15 Oct 2026 15:07:36 -0400</pubDate>
+            <sparkle:version>10</sparkle:version>
+            <sparkle:shortVersionString>2.6</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <description sparkle:format="markdown"><![CDATA[## New
 
-- **Light or dark.** Settings → General → Theme: follow macOS, or always light or always dark.
-- **Settings, reorganized.** General, Game, Updates, Nexus Mods and Storage tabs. The Game tab gathers your game, SMAPI, the Mods folder and the options around playing; Updates has Check Now for mods and for Starseed. Settings reopens on the tab you used last.
+- **Menu bar icon, on by default.** Play, switch profiles and see mod updates without opening the window. Its Profile menu now also has Manage Profiles… and, for a profile made from a collection, Show Collection…. You can turn the icon off in Settings → General.
 
 ## Improved
 
-- Mod and collection pictures keep their shape in the details panel: portrait pictures are shown whole instead of cropped.
-- The Nexus Mods settings show your account, with Change Key… and Remove, instead of an empty key field.
-- Console Commands and Save Backup, the two mods that come with SMAPI, explain that they're optional.
-- Find a Broken Mod keeps SMAPI's own mods on and leaves them out of the search, so it needs one test fewer.
+- The profile in use is checked in every profile menu (menu bar, Installed, SMAPI Log, Saves).
+- Collection pictures are shown whole in the Collections list and the collection window, instead of cropped to a square.
 ]]></description>
-            <enclosure url="https://github.com/matguitarist/starseed/releases/download/v2.5/Starseed-2.5.zip" length="7119355" type="application/octet-stream" sparkle:edSignature="p9oW7ahs4Paik+U0EsL/edFhWDf5yKgeP9BYwMjA7SZJ4miEnRGWKpXj0FabxHo4HgW2n4bZ36ckxN0OOMDFAQ=="/>
+            <enclosure url="https://github.com/matguitarist/starseed/releases/download/v2.6/Starseed-2.6.zip" length="7129523" type="application/octet-stream" sparkle:edSignature="BQ3pBvvqekhLCcfcLkjwjeanD/KfBDq2aRcLAqvJNubs0EbqwLGGi1l9bks4vToIOliJEymJxUXs8gzxzvP/DQ=="/>
         </item>
     </channel>
 </rss>
