@@ -3,21 +3,16 @@
     <channel>
         <title>Starseed</title>
         <item>
-            <title>2.6</title>
-            <pubDate>Thu, 15 Oct 2026 15:07:36 -0400</pubDate>
-            <sparkle:version>10</sparkle:version>
-            <sparkle:shortVersionString>2.6</sparkle:shortVersionString>
+            <title>2.6.1</title>
+            <pubDate>Thu, 15 Oct 2026 15:46:30 -0400</pubDate>
+            <sparkle:version>11</sparkle:version>
+            <sparkle:shortVersionString>2.6.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[## New
+            <description sparkle:format="markdown"><![CDATA[## Improved
 
-- **Menu bar icon, on by default.** Play, switch profiles and see mod updates without opening the window. Its Profile menu now also has Manage Profiles… and, for a profile made from a collection, Show Collection…. You can turn the icon off in Settings → General.
-
-## Improved
-
-- The profile in use is checked in every profile menu (menu bar, Installed, SMAPI Log, Saves).
-- Collection pictures are shown whole in the Collections list and the collection window, instead of cropped to a square.
+- **Fewer Keychain questions.** Starseed is now signed with its own certificate, so macOS recognizes it from one version to the next. After this update, macOS asks one last time whether Starseed may use your Nexus API key: click **Always Allow**, and future updates won't ask again.
 ]]></description>
-            <enclosure url="https://github.com/matguitarist/starseed/releases/download/v2.6/Starseed-2.6.zip" length="7129523" type="application/octet-stream" sparkle:edSignature="BQ3pBvvqekhLCcfcLkjwjeanD/KfBDq2aRcLAqvJNubs0EbqwLGGi1l9bks4vToIOliJEymJxUXs8gzxzvP/DQ=="/>
+            <enclosure url="https://github.com/matguitarist/starseed/releases/download/v2.6.1/Starseed-2.6.1.zip" length="7086827" type="application/octet-stream" sparkle:edSignature="hzq/vF2Ee7kcmC2+g1WxMbIQmf7cQqnXGUL4RSrkv0Ko4iZSzTzUs8PwRNTp+E9kyNzcDA1xD2xIqFIb2h4ACQ=="/>
         </item>
     </channel>
 </rss>
