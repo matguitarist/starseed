@@ -75,47 +75,57 @@ struct ModPicture: View {
     }
 }
 
-/// The large picture at the top of the details panel, in its own shape:
-/// landscape pictures fill the width; portrait ones are shown whole (up to
-/// 4:5), over a blurred copy of themselves.
+/// The large picture at the top of the details panel.
 struct ModHeaderPicture: View {
     @AppModelEnvironment private var model
     @AppStorage(Preferences.showModPictures) private var showModPictures = true
     let mods: [ModInfo]
+
+    var body: some View {
+        if showModPictures, let info = model.nexusInfo(for: mods), let url = info.pictureURL ?? info.thumbnailURL {
+            ShapedPicture(url: url)
+        }
+    }
+}
+
+/// A picture as wide as its container, in its own shape: landscape pictures
+/// fill the width; portrait ones are shown whole (up to 4:5), over a blurred
+/// copy of themselves.
+struct ShapedPicture: View {
+    let url: URL
+    var cornerRadius: CGFloat = 8
     @State private var image: NSImage?
 
     /// Tallest box for portrait pictures (width / height).
     private static let tallestAspect: CGFloat = 0.8
 
     var body: some View {
-        if showModPictures, let info = model.nexusInfo(for: mods), let url = info.pictureURL ?? info.thumbnailURL {
-            Group {
-                if let image, image.size.width > 0, image.size.height > 0 {
-                    let aspect = image.size.width / image.size.height
-                    ZStack {
-                        Image(nsImage: image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .blur(radius: 24)
-                            .opacity(0.6)
-                        Image(nsImage: image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                    }
-                    .frame(maxWidth: .infinity)
-                    .aspectRatio(max(aspect, Self.tallestAspect), contentMode: .fit)
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                } else {
-                    RoundedRectangle(cornerRadius: 8)
-                        .fill(.quaternary.opacity(0.5))
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 150)
+        Group {
+            if let image, image.size.width > 0, image.size.height > 0 {
+                let aspect = image.size.width / image.size.height
+                ZStack {
+                    Image(nsImage: image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .blur(radius: 24)
+                        .opacity(0.6)
+                    Image(nsImage: image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
                 }
+                .frame(maxWidth: .infinity)
+                .aspectRatio(max(aspect, Self.tallestAspect), contentMode: .fit)
+                .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+            } else {
+                RoundedRectangle(cornerRadius: cornerRadius)
+                    .fill(.quaternary.opacity(0.5))
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 150)
             }
-            .task(id: url) {
-                image = ImageCache.shared.cached(url)
-                if image == nil { image = await ImageCache.shared.image(for: url) }
-            }
+        }
+        .task(id: url) {
+            image = ImageCache.shared.cached(url)
+            if image == nil { image = await ImageCache.shared.image(for: url) }
         }
     }
 }

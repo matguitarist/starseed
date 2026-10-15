@@ -274,9 +274,7 @@ struct ProfileOverview: View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Made from the collection").font(.caption).foregroundStyle(.secondary)
             if let url = revision?.collection.tileImageURL {
-                ModPicture(url: url, cornerRadius: 8)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 150)
+                ShapedPicture(url: url)
             }
             Text(link.name).font(.headline)
             if let author = revision?.collection.author {
