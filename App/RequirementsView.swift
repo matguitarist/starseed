@@ -46,7 +46,7 @@ struct RequirementsView: View {
             }
         }
         .navigationTitle("Requirements")
-        .navigationSubtitle(confirmed.isEmpty ? String(localized: "Nothing missing") : String(localized: "\(confirmed.count) missing"))
+        .navigationSubtitle(!confirmed.isEmpty ? String(localized: "\(confirmed.count) missing") : (model.isResolvingRequirements ? "" : String(localized: "Nothing missing")))
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button {

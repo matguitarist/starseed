@@ -201,6 +201,8 @@ struct ProfileMenu: View {
 /// Nexus collection it came from (with a way back to its optional mods).
 struct ProfileOverview: View {
     @AppModelEnvironment private var model
+    /// Read once, and again after a session links saves (not on every redraw).
+    @State private var saves: [SaveGame] = []
 
     var body: some View {
         let name = model.activeProfile ?? ""
@@ -235,6 +237,9 @@ struct ProfileOverview: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
         }
+        .task(id: model.savesRevision) {
+            saves = await Task.detached { SaveGame.list() }.value
+        }
         .task(id: model.profileCollections[name]?.slug) {
             guard let slug = model.profileCollections[name]?.slug, model.collectionRevisions[slug] == nil,
                   let revision = try? await model.nexusClient.collectionRevision(slug: slug)
@@ -246,8 +251,7 @@ struct ProfileOverview: View {
     /// The farms played with this profile; clicking one opens it in Saves.
     @ViewBuilder
     private func savesCard(profile: String) -> some View {
-        let _ = model.savesRevision  // re-read after a session links new saves
-        let saves = SaveGame.list().filter { model.profile(forSave: $0.id) == profile }
+        let saves = saves.filter { model.profile(forSave: $0.id) == profile }
         if !saves.isEmpty {
             VStack(alignment: .leading, spacing: 6) {
                 Text("Saves").font(.caption).foregroundStyle(.secondary)
