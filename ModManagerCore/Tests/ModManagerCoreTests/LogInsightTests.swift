@@ -75,3 +75,34 @@ import Testing
         #expect(!SMAPILog(text: log).playReport(crashed: true).isEmpty)
     }
 }
+
+@Suite struct LoadedModsTests {
+    static let log = """
+    [10:00:00 INFO  SMAPI] SMAPI 4.5.2 with Stardew Valley 1.6.15 build 24356 on macOS Unix 27.0.1
+    [10:00:02 INFO  SMAPI] Loaded 3 mods:
+    [10:00:02 INFO  SMAPI]    Automate 2.6.1 by Pathoschild | Lets you automate crafting machines, fruit trees, and more by connecting them to chests.
+    [10:00:02 INFO  SMAPI]    Console Commands 4.5.2 by SMAPI | Adds SMAPI console commands that let you manipulate the game.
+    [10:00:02 INFO  SMAPI]    Stardew Valley Expanded 1.15.11 by FlashShifter, Esca, and kittycatcasey | Adds coded elements to the game
+    [10:00:02 INFO  SMAPI]
+    [10:00:02 INFO  SMAPI] Loaded 2 content packs:
+    [10:00:02 INFO  SMAPI]    Stardew Valley Expanded 1.15.11 by FlashShifter | for Content Patcher | An expansive fanmade mod for ConcernedApe's Stardew Valley.
+    [10:00:02 INFO  SMAPI]    Stardew Valley Expanded Farm Type Manager 1.15.11 by FlashShifter | for Farm Type Manager (FTM) | This FTM pack is for SVE!
+    [10:00:02 WARN  SMAPI]    Changed save serializer
+    [10:00:02 WARN  SMAPI]    --------------------------------------------------
+    [10:00:02 WARN  SMAPI]       These mods change the save serializer.
+    [10:00:03 INFO  SMAPI] Type 'help' for help.
+    """
+
+    @Test func listsLoadedModsAndContentPacks() {
+        let loaded = SMAPILog(text: Self.log).loadedMods
+        #expect(loaded.count == 5)
+        #expect(loaded[0] == LoadedMod(name: "Automate", version: "2.6.1", author: "Pathoschild",
+                                       description: "Lets you automate crafting machines, fruit trees, and more by connecting them to chests.", contentPackFor: nil))
+        #expect(loaded[2].name == "Stardew Valley Expanded")
+        #expect(loaded[2].author == "FlashShifter, Esca, and kittycatcasey")
+        let packs = loaded.filter(\.isContentPack)
+        #expect(packs.map(\.contentPackFor) == ["Content Patcher", "Farm Type Manager (FTM)"])
+        #expect(packs[1].name == "Stardew Valley Expanded Farm Type Manager")
+        #expect(packs[1].version == "1.15.11")
+    }
+}

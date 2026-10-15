@@ -60,6 +60,7 @@ struct LogViewerView: View {
                 VStack(spacing: 0) {
                     missingContentBanner(summary)
                     InsightsPanel(insights: summary.insights, onShowSource: { sourceFilter = $0 })
+                    LoadedModsPanel(loaded: summary.loadedMods)
                     summaryHeader(summary)
                     Divider()
                     entryList(log)
@@ -533,6 +534,7 @@ struct LogSummary: Sendable {
     let insights: [LogInsight]
     let unknownLocations: [UnknownLocation]
     let loadedSaveID: String?
+    let loadedMods: [LoadedMod]
 
     init(log: SMAPILog) {
         self.log = log
@@ -543,5 +545,74 @@ struct LogSummary: Sendable {
         insights = log.insights
         unknownLocations = log.unknownLocations
         loadedSaveID = log.loadedSaveID
+        loadedMods = log.loadedMods
+    }
+}
+
+/// "Loaded: 7 mods · 2 content packs": what SMAPI actually loaded, folded
+/// by default. Names jump to the mod in the Installed list.
+private struct LoadedModsPanel: View {
+    @AppModelEnvironment private var model
+    let loaded: [LoadedMod]
+    @State private var expanded = false
+
+    var body: some View {
+        if !loaded.isEmpty {
+            let mods = loaded.filter { !$0.isContentPack }
+            let packs = loaded.filter(\.isContentPack)
+            VStack(alignment: .leading, spacing: 0) {
+                DisclosureGroup(isExpanded: $expanded) {
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: 10) {
+                            section(String(localized: "Mods (\(mods.count))"), mods)
+                            if !packs.isEmpty {
+                                section(String(localized: "Content packs (\(packs.count))"), packs)
+                            }
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.top, 6)
+                    }
+                    .frame(maxHeight: 260)
+                } label: {
+                    Label(packs.isEmpty ? String(localized: "Loaded \(mods.count) mods")
+                          : String(localized: "Loaded \(mods.count) mods and \(packs.count) content packs"),
+                          systemImage: "checklist")
+                        .font(.headline)
+                }
+            }
+            .padding(.horizontal, 14)
+            .padding(.vertical, 10)
+            .background(.bar)
+            Divider()
+        }
+    }
+
+    private func section(_ title: String, _ items: [LoadedMod]) -> some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text(title).font(.subheadline.bold()).foregroundStyle(.secondary)
+            ForEach(items) { item in
+                HStack(alignment: .firstTextBaseline, spacing: 6) {
+                    Image(systemName: "checkmark.circle.fill").foregroundStyle(.green).imageScale(.small)
+                    if let installed = model.installedMod(named: item.name) {
+                        Button(item.name) {
+                            model.reveal(rowID: model.group(containing: installed)?.id ?? installed.id)
+                        }
+                        .buttonStyle(.link)
+                        .help("Show \(item.name) in the list")
+                    } else {
+                        Text(item.name)
+                    }
+                    Text(verbatim: item.version).monospacedDigit().foregroundStyle(.secondary)
+                    if let author = item.author {
+                        Text("by \(author)").foregroundStyle(.secondary).lineLimit(1)
+                    }
+                    if let framework = item.contentPackFor, !framework.isEmpty {
+                        Text("for \(framework)").font(.caption).foregroundStyle(.tertiary).lineLimit(1)
+                    }
+                }
+                .font(.callout)
+                .help(item.description ?? "")
+            }
+        }
     }
 }
