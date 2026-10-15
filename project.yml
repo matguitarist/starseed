@@ -15,8 +15,8 @@ settings:
     # are extracted into App/Localizable.xcstrings (English + French).
     LOCALIZATION_PREFERS_STRING_CATALOGS: YES
     SWIFT_EMIT_LOC_STRINGS: YES
-    MARKETING_VERSION: "2.3"
-    CURRENT_PROJECT_VERSION: "6"
+    MARKETING_VERSION: "2.4"
+    CURRENT_PROJECT_VERSION: "7"
 packages:
   ModManagerCore:
     path: ModManagerCore
