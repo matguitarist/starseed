@@ -255,10 +255,10 @@ struct ProfileOverview: View {
                     Button {
                         model.showSave(id: save.id)
                     } label: {
-                        Label(save.farmName.isEmpty ? save.id : String(localized: "\(save.farmName) Farm"), systemImage: "house")
+                        Label(save.displayName, systemImage: "house")
                     }
                     .buttonStyle(.link)
-                    .help(save.dateText.map { String(localized: "\(save.farmerName) · \($0)") } ?? save.farmerName)
+                    .help(save.localizedDate.map { String(localized: "\(save.farmerName) · \($0)") } ?? save.farmerName)
                 }
             }
         }

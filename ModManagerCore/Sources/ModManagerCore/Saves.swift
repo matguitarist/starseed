@@ -17,7 +17,18 @@ public struct SaveGame: Identifiable, Hashable, Sendable {
     public let farmName: String
     public let gameVersion: String?
     public let dateText: String?      // "Spring 1, Year 1"
+    /// The in-game date: season 0–3 (spring to winter), day, year.
+    public let gameDate: (season: Int, day: Int, year: Int)?
     public let lastSaved: Date?
+
+    public static func == (a: SaveGame, b: SaveGame) -> Bool {
+        a.folder == b.folder && a.lastSaved == b.lastSaved && a.dateText == b.dateText
+    }
+
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(folder)
+        hasher.combine(lastSaved)
+    }
 
     public var id: String { folder.lastPathComponent }
     public var saveFile: URL { folder.appending(path: folder.lastPathComponent) }
@@ -42,9 +53,11 @@ public struct SaveGame: Identifiable, Hashable, Sendable {
         }
         let seasons = ["Spring", "Summer", "Fall", "Winter"]
         var dateText: String?
+        var gameDate: (season: Int, day: Int, year: Int)?
         if let day = tag("dayOfMonthForSaveGame"), let year = tag("yearForSaveGame"),
            let season = tag("seasonForSaveGame").flatMap(Int.init), seasons.indices.contains(season) {
             dateText = "\(seasons[season]) \(day), Year \(year)"
+            if let day = Int(day), let year = Int(year) { gameDate = (season, day, year) }
         }
         let modified = try? folder.appending(path: folder.lastPathComponent)
             .resourceValues(forKeys: [.contentModificationDateKey]).contentModificationDate
@@ -54,6 +67,7 @@ public struct SaveGame: Identifiable, Hashable, Sendable {
             farmName: tag("farmName") ?? "",
             gameVersion: tag("gameVersion"),
             dateText: dateText,
+            gameDate: gameDate,
             lastSaved: modified
         )
     }

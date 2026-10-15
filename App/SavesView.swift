@@ -124,9 +124,9 @@ struct SavesView: View {
 
     private func saveRow(_ save: SaveGame) -> some View {
         VStack(alignment: .leading, spacing: 2) {
-            Text(save.farmName.isEmpty ? save.id : "\(save.farmName) Farm").font(.headline)
+            Text(save.displayName).font(.headline)
             Text(save.farmerName).foregroundStyle(.secondary)
-            Text([save.dateText, save.gameVersion.map { "v\($0)" }].compactMap { $0 }.joined(separator: " · "))
+            Text([save.localizedDate, save.gameVersion.map { "v\($0)" }].compactMap { $0 }.joined(separator: " · "))
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }
@@ -237,7 +237,7 @@ private struct BackupsView: View {
     private var header: some View {
         HStack(spacing: 12) {
             VStack(alignment: .leading, spacing: 2) {
-                Text(save.map { "Backups of \($0.farmName) Farm" } ?? "All Saves & Backups").font(.title2.bold())
+                Text(save.map { String(localized: "Backups of \($0.displayName)") } ?? String(localized: "All Saves & Backups")).font(.title2.bold())
                 if let restoredMessage {
                     Label(restoredMessage, systemImage: "checkmark.circle.fill").foregroundStyle(.green)
                 } else if model.isGameRunning {
@@ -254,7 +254,7 @@ private struct BackupsView: View {
                     isWorking = true
                     defer { isWorking = false }
                     let ids = save.map { [$0.id] } ?? saves.map(\.id)
-                    let label = save.map { "\($0.farmName) Farm" } ?? "All saves"
+                    let label = save?.displayName ?? String(localized: "All saves")
                     if await model.backUpSaves(ids, label: label) != nil { await reload() }
                 }
             }
@@ -437,8 +437,8 @@ private struct SaveAnalysisView: View {
     private func header(_ analysis: AppModel.SaveAnalysis, missingCount: Int) -> some View {
         HStack(alignment: .center, spacing: 12) {
             VStack(alignment: .leading, spacing: 2) {
-                Text("\(save.farmName) Farm").font(.title2.bold())
-                Text([save.farmerName, save.dateText, save.lastSaved.map { "saved \($0.formatted(date: .abbreviated, time: .shortened))" }]
+                Text(save.displayName).font(.title2.bold())
+                Text([save.farmerName, save.localizedDate, save.lastSaved.map { String(localized: "saved \($0.formatted(date: .abbreviated, time: .shortened))") }]
                     .compactMap { $0 }.joined(separator: " · "))
                     .foregroundStyle(.secondary)
             }
@@ -691,5 +691,24 @@ private struct SaveModSetPicker: View {
         }
         .fixedSize()
         .help("The profile this save is played with. Play switches to it before launching. Saves you play join the profile in use.")
+    }
+}
+
+extension SaveGame {
+    /// "Mat's Farm", in the app's language (the folder name when unnamed).
+    var displayName: String {
+        farmName.isEmpty ? id : String(localized: "\(farmName) Farm")
+    }
+
+    /// "Spring 1, Year 1", in the app's language.
+    var localizedDate: String? {
+        guard let date = gameDate else { return dateText }
+        let season = switch date.season {
+        case 0: String(localized: "Spring", comment: "Stardew season")
+        case 1: String(localized: "Summer", comment: "Stardew season")
+        case 2: String(localized: "Fall", comment: "Stardew season")
+        default: String(localized: "Winter", comment: "Stardew season")
+        }
+        return String(localized: "\(season) \(date.day), Year \(date.year)", comment: "In-game date: season, day, year")
     }
 }

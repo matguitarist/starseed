@@ -21,7 +21,7 @@ struct PlayToolbarButton: View {
 
     private var helpText: String {
         guard let save else { return String(localized: "Launch Stardew Valley with the mods that are on") }
-        let farm = save.farmName.isEmpty ? save.id : String(localized: "\(save.farmName) Farm")
+        let farm = save.displayName
         if let profile = model.profile(forSave: save.id) {
             return String(localized: "Switch to the profile “\(profile)”, then launch the game. Then pick \(farm) in Load Game.")
         }

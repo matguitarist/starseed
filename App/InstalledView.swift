@@ -291,6 +291,8 @@ struct FolderSetupView: View {
                     .buttonStyle(.borderedProminent)
             }
             Button("Choose Folder…") { model.chooseModsFolder() }
+            Button("Open Setup Assistant") { model.showSetupAssistant = true }
+                .buttonStyle(.link)
         }
     }
 }

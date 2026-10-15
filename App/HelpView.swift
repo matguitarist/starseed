@@ -79,18 +79,25 @@ struct HelpView: View {
         switch topic {
         case .gettingStarted:
             HelpText("Starseed installs, updates and organizes Stardew Valley mods. Mods run through **SMAPI**, the mod loader for Stardew Valley, so SMAPI needs to be installed first.")
-            HelpSection("1. Install SMAPI") {
-                HelpText("Click **Install SMAPI** in the orange banner: Starseed downloads SMAPI's official installer and runs it for your game. When a new SMAPI comes out, or a game update disconnects it, the same banner offers to update or reinstall it.")
+            HelpSection("The setup assistant") {
+                HelpText("The first time you open Starseed, the setup assistant gets your game ready in a minute. You can run it again at any time from **Help → Setup Assistant…**")
+                HelpBullets([
+                    "**Your Game**: Starseed finds Stardew Valley from Steam (every Steam library), GOG or the Mac App Store. If yours is somewhere else, **Choose Game…**",
+                    "**SMAPI**: **Install SMAPI** downloads SMAPI's official installer and runs it for your game.",
+                    "**Mods Folder**: the Mods folder next to the game. Mods you already have are kept.",
+                    "**Nexus Mods**: your personal API key, to download mods in the app (optional).",
+                    "**A Few Choices**: backups before playing, the report after playing, update checks and page tips.",
+                ])
+                HelpText("Know Starseed already (a reinstall, a new Mac)? **Skip setup** on the first page uses the game it finds and turns the page tips off.")
             }
-            HelpSection("2. Choose your Mods folder") {
-                HelpText("On first launch, pick the game's **Mods** folder. For the Steam version it's inside the game: *Stardew Valley.app/Contents/MacOS/Mods*. You can change it later in **Settings → General**.")
+            HelpSection("Page tips") {
+                HelpText("A short tip at the top of each page explains what it's for. **Got It** hides that page's tip; **Hide All Tips** turns them off. **Help → Show Page Tips Again** brings them back.")
             }
-            HelpSection("3. Add your Nexus Mods API key") {
-                HelpText("To download from Nexus Mods inside the app, paste your personal API key in **Settings → Nexus Mods** (**Open the Nexus API Keys page…** takes you there). The key is kept in your Keychain.")
-                HelpText("Free Nexus accounts download through Nexus's own page: click **Slow download** once per mod, and Starseed installs the file when it arrives. Premium accounts download directly.")
+            HelpSection("Nexus Mods accounts") {
+                HelpText("Free Nexus accounts download through Nexus's own page: click **Slow download** once per mod, and Starseed installs the file when it arrives. Premium accounts download directly. Your key is kept in your Keychain; change it in **Settings → Nexus Mods**.")
             }
-            HelpSection("4. Play") {
-                HelpText("**Play** in the toolbar starts the game through Steam, with SMAPI. If your mods changed since you last played, your saves are backed up first.")
+            HelpSection("Play") {
+                HelpText("**Play**, in every page's toolbar, starts the game with SMAPI: through Steam for the Steam version, directly for GOG and App Store copies. If your mods changed since you last played, your saves are backed up first.")
             }
 
         case .installing:
@@ -100,7 +107,7 @@ struct HelpView: View {
             HelpSection("From Nexus Mods") {
                 HelpText("**Browse Nexus** searches Stardew Valley mods. Open one to see its files and requirements, then **Install**. Requirements that are missing can be installed in the same step.")
                 HelpText("**Collections** lists curated mod packs from Nexus. A collection installs every mod it lists, at the versions it was made with.")
-                HelpText("Install a collection into a **new profile** named after it: only the collection's mods are on there, so it doesn't mix with your other mods, and mods you already have aren't downloaded again. Your usual profile is still one click away in the toolbar.")
+                HelpText("Install a collection into a **new profile** named after it: only the collection's mods are on there, so it doesn't mix with your other mods, and mods you already have aren't downloaded again. Your usual profile is still one click away in the profile menu.")
                 HelpText("Links in Starseed open in its own Nexus browser, which catches **Mod Manager Download** buttons. To catch them in Safari or Chrome too, click **Use This App** in **Settings → Nexus Mods**.")
             }
             HelpSection("Optional files") {
@@ -156,7 +163,7 @@ struct HelpView: View {
 
         case .profiles:
             HelpSection("Profiles") {
-                HelpText("A profile remembers which mods are on. One is always in use; its name shows in the toolbar, and turning mods on or off updates it. Starseed starts with a **Default** profile.")
+                HelpText("A profile remembers which mods are on. One is always in use; its name shows in the filter bar of **Installed**, and turning mods on or off updates it. Starseed starts with a **Default** profile.")
                 HelpText("The profile menu at the right of the filter bar switches profiles. Next to it, **This Profile** shows only the mods in the profile in use; **All Mods** shows everything installed.")
                 HelpText("Make one for each way you play (a big expansion run, a vanilla-plus game…): **Manage Profiles…** in the profile menu creates, renames and deletes them, starting from the mods on now or from no mods. Choosing another profile switches which mods are on; switching back brings yours back exactly as they were.")
             }
@@ -169,7 +176,7 @@ struct HelpView: View {
 
         case .saves:
             HelpSection("Missing mods") {
-                HelpText("**Saves** lists your farms. Select one to see the mods it was played with and which are missing or older here, then **Find Missing Mods** to install them from Nexus.")
+                HelpText("**Saves** lists your farms. Select one to see the mods it was played with and which are missing or turned off here: **Enable** turns one back on, and missing ones can be found and installed from Nexus.")
             }
             HelpSection("Backups") {
                 HelpText("**Back Up All Saves**, or **Back Up Now** on a single farm, makes a zip you can restore later, all at once or one save at a time. Restoring first backs up the current saves, so it can be undone. Backups made by SMAPI's own Save Backup mod are listed too.")
@@ -233,6 +240,9 @@ struct HelpView: View {
             }
 
         case .troubleshooting:
+            HelpQuestion("Starseed didn't find my game.") {
+                HelpText("Open **Help → Setup Assistant…** and click **Choose Game…**, then pick *Stardew Valley.app* (or the folder it's in). Run the game once first if you just installed it. If your Mods folder is somewhere else, choose **My Mods folder is somewhere else…**")
+            }
             HelpQuestion("macOS asks for Keychain access at launch.") {
                 HelpText("The Nexus API key is stored in your Keychain. Choose **Always Allow**; a rebuilt or updated copy of the app may ask once more.")
             }
@@ -364,11 +374,20 @@ private struct HelpQuestion<Content: View>: View {
 
 /// Help menu items. A view, so it can open the Help window.
 struct HelpCommands: View {
+    let model: AppModel
     @Environment(\.openWindow) private var openWindow
 
     var body: some View {
         Button("Starseed Help") { openWindow(id: HelpView.windowID) }
             .keyboardShortcut("?", modifiers: .command)
+        Button("Setup Assistant…") {
+            openWindow(id: "main")
+            model.showSetupAssistant = true
+        }
+        Button("Show Page Tips Again") {
+            PageTip.showAgain()
+            openWindow(id: "main")
+        }
         Divider()
         Link("Stardew Valley Wiki: Getting started with mods", destination: URL(string: "https://stardewvalleywiki.com/Modding:Player_Guide/Getting_Started")!)
         Link("SMAPI website and log parser", destination: URL(string: "https://smapi.io")!)

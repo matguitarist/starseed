@@ -18,7 +18,7 @@ struct AppCommands: Commands {
             }
         }
         CommandGroup(replacing: .help) {
-            HelpCommands()
+            HelpCommands(model: model)
         }
         // The items are views: unlike a Commands body, a view body is
         // re-evaluated when the model changes, so titles and enabled states

@@ -58,7 +58,7 @@ extension AppModel {
         } catch {
             return show("Couldn't Save Link", detail: error.localizedDescription)
         }
-        let farms = saves.filter { ids.contains($0.id) }.map { $0.farmName.isEmpty ? $0.id : String(localized: "\($0.farmName) Farm") }
+        let farms = saves.filter { ids.contains($0.id) }.map(\.displayName)
         showStatusResult(String(localized: "\(farms.formatted(.list(type: .and))) now plays with the profile “\(profile)”. Change it in Saves."))
     }
 

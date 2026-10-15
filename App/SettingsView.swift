@@ -213,24 +213,8 @@ private struct NexusSettings: View {
         .onAppear(perform: refreshHandlerStatus)
     }
 
-    @ViewBuilder
     private var accountStatus: some View {
-        switch model.nexusAccount {
-        case .none:
-            Text("Not connected").foregroundStyle(.secondary)
-        case .checking:
-            ProgressView().controlSize(.small)
-        case .signedIn(let user):
-            Label(
-                user.isPremium ? String(localized: "\(user.name) · Premium") : String(localized: "\(user.name) · Free account"),
-                systemImage: "person.crop.circle.badge.checkmark"
-            )
-            .foregroundStyle(.green)
-        case .invalid(let message):
-            Label(message, systemImage: "exclamationmark.triangle.fill")
-                .foregroundStyle(.red)
-                .lineLimit(2)
-        }
+        NexusAccountStatus()
     }
 
     private func save() {
@@ -310,6 +294,30 @@ struct AppLanguage: Hashable {
         configuration.createsNewApplicationInstance = true
         NSWorkspace.shared.openApplication(at: Bundle.main.bundleURL, configuration: configuration) { _, _ in
             DispatchQueue.main.async { NSApp.terminate(nil) }
+        }
+    }
+}
+
+/// The Nexus account the API key belongs to (Settings, setup assistant).
+struct NexusAccountStatus: View {
+    @AppModelEnvironment private var model
+
+    var body: some View {
+        switch model.nexusAccount {
+        case .none:
+            Text("Not connected").foregroundStyle(.secondary)
+        case .checking:
+            ProgressView().controlSize(.small)
+        case .signedIn(let user):
+            Label(
+                user.isPremium ? String(localized: "\(user.name) · Premium") : String(localized: "\(user.name) · Free account"),
+                systemImage: "person.crop.circle.badge.checkmark"
+            )
+            .foregroundStyle(.green)
+        case .invalid(let message):
+            Label(message, systemImage: "exclamationmark.triangle.fill")
+                .foregroundStyle(.red)
+                .lineLimit(2)
         }
     }
 }

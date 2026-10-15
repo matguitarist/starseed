@@ -23,19 +23,27 @@ and find out quickly what's wrong when the game misbehaves.
 
 ## Getting started
 
-1. **Mods folder:** for the Steam version, Starseed offers the game's `Mods`
-   folder on first launch. For other installs, choose it yourself.
-2. **SMAPI:** mods run through SMAPI, the Stardew Valley mod loader. If it's
-   missing, click **Install SMAPI** in the orange banner.
-3. **Nexus Mods:** to download mods in the app, paste your personal API key in
-   **Settings → Nexus Mods** (the **Open the Nexus API Keys page…** button
-   takes you there). Browsing works without it.
+The first time you open Starseed, a setup assistant gets you ready in about
+a minute:
+
+1. **Your game:** Starseed finds Stardew Valley from Steam (in any Steam
+   library), GOG or the Mac App Store. If yours is somewhere else, choose it.
+2. **SMAPI:** mods run through SMAPI, the Stardew Valley mod loader. One
+   click installs it with SMAPI's official installer.
+3. **Mods folder:** the `Mods` folder next to the game. Mods you already have
+   are kept.
+4. **Nexus Mods** (optional): to download mods in the app, paste your personal
+   API key; the assistant links to the page where you find it. Browsing works
+   without it.
    - *Premium* accounts download directly.
    - *Free* accounts click **Slow download** once per mod on the Nexus page
      that opens in Starseed, and the mod installs itself.
-4. Press **Play**.
+5. Press **Play**.
 
-Everything else is explained in **Help → Starseed Help** (⌘?).
+Each page shows a short tip the first time you open it. Already know
+Starseed, on a new Mac or after a reinstall? Click **Skip setup** on the first
+page. You can run the assistant again from **Help → Setup Assistant…**, and
+everything else is explained in **Help → Starseed Help** (⌘?).
 
 ## A quick tour
 
@@ -62,8 +70,8 @@ one. If the log doesn't say which mod is to blame, **Find a Broken Mod**
 narrows it down in a few launches.
 
 **Keep your farms safe.** Saves are backed up before you play with changed
-mods, each farm can have its own set of mods, and earlier mod versions are
-kept so an update can be rolled back.
+mods, each farm remembers the profile it's played with, and earlier mod
+versions are kept so an update can be rolled back.
 
 ![Starseed's Help window](docs/screenshots/help.png)
 
@@ -112,6 +120,8 @@ Simplified Chinese (Settings → General → Language).
 
 ## Good to know
 
+- Works with the Steam, GOG and Mac App Store versions of the game. Play
+  launches Steam's copy through Steam and opens the others directly.
 - Free Nexus accounts need one click per mod ("Slow download"): Nexus only
   allows direct downloads in apps for Premium members.
 - Signing in to Nexus with Google or Apple inside Starseed's browser may be
@@ -119,7 +129,7 @@ Simplified Chinese (Settings → General → Language).
   Starseed as the handler for "Mod Manager Download" links (Settings → Nexus
   Mods) and click them in your usual browser.
 - Removed mods and old versions go to the Trash, so they can be recovered.
-- Starseed keeps its settings, collections, kept versions and save backups in
+- Starseed keeps its settings, profiles, kept versions and save backups in
   `~/Library/Application Support/StardewModManager/`.
 
 ## Help and feedback

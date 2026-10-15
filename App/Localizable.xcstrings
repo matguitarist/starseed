@@ -277,6 +277,40 @@
         }
       }
     },
+    "**A Few Choices**: backups before playing, the report after playing, update checks and page tips." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Ein paar Entscheidungen**: Sicherungen vor dem Spielen, der Bericht nach dem Spielen, Update-Suche und Seitentipps."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Algunas opciones**: copias antes de jugar, el informe después de jugar, búsqueda de actualizaciones y consejos de página."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Quelques choix** : copies avant de jouer, rapport après une partie, recherche de mises à jour et astuces des pages."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Algumas escolhas**: backups antes de jogar, o relatório depois de jogar, busca por atualizações e dicas das páginas."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**几个选择**：游戏前备份、游戏后的报告、检查更新和页面提示。"
+          }
+        }
+      }
+    },
     "**Appearance**: show or hide mod pictures from Nexus." : {
       "localizations" : {
         "de" : {
@@ -550,6 +584,40 @@
         }
       }
     },
+    "**Mods Folder**: the Mods folder next to the game. Mods you already have are kept." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Mods-Ordner**: der Mods-Ordner neben dem Spiel. Mods, die du schon hast, bleiben erhalten."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Carpeta Mods**: la carpeta Mods junto al juego. Los mods que ya tienes se conservan."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Dossier Mods** : le dossier Mods à côté du jeu. Les mods que vous avez déjà sont conservés."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Pasta Mods**: a pasta Mods ao lado do jogo. Os mods que você já tem são mantidos."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Mods 文件夹**：游戏旁边的 Mods 文件夹。你已有的模组会保留。"
+          }
+        }
+      }
+    },
     "**Move to Trash…** (or the Delete key) puts mods in the Trash, so they can be restored from Finder. If a mod is used by others, you're warned first; afterwards, Starseed offers to remove requirements nothing uses anymore." : {
       "localizations" : {
         "de" : {
@@ -580,6 +648,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**移到废纸篓…**（或按 Delete 键）会把模组放进废纸篓，可在访达中找回。如果有其他模组依赖它，会先提醒你；之后，Starseed 会建议移除不再被使用的前置。"
+          }
+        }
+      }
+    },
+    "**Nexus Mods**: your personal API key, to download mods in the app (optional)." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Nexus Mods**: dein persönlicher API-Schlüssel, um Mods in der App herunterzuladen (optional)."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Nexus Mods**: tu clave personal de API, para descargar mods en la app (opcional)."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Nexus Mods** : votre clé d’API personnelle, pour télécharger des mods dans l’app (facultatif)."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Nexus Mods**: sua chave pessoal de API, para baixar mods no app (opcional)."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Nexus Mods**：你的个人 API 密钥，用于在应用中下载模组（可选）。"
           }
         }
       }
@@ -619,6 +721,7 @@
       }
     },
     "**Play** in the toolbar starts the game through Steam, with SMAPI. If your mods changed since you last played, your saves are backed up first." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -648,6 +751,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "工具栏中的**开始游戏**会通过 Steam 启动带 SMAPI 的游戏。如果自上次游戏以来模组有变化，会先备份你的存档。"
+          }
+        }
+      }
+    },
+    "**Play**, in every page's toolbar, starts the game with SMAPI: through Steam for the Steam version, directly for GOG and App Store copies. If your mods changed since you last played, your saves are backed up first." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Spielen** in der Symbolleiste jeder Seite startet das Spiel mit SMAPI: über Steam bei der Steam-Version, direkt bei GOG- und App-Store-Kopien. Wenn sich deine Mods seit dem letzten Spielen geändert haben, werden zuerst deine Spielstände gesichert."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Jugar**, en la barra de herramientas de cada página, inicia el juego con SMAPI: a través de Steam en la versión de Steam, directamente en las copias de GOG y de la App Store. Si tus mods cambiaron desde la última vez que jugaste, primero se copian tus partidas."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Jouer**, dans la barre d’outils de chaque page, lance le jeu avec SMAPI : via Steam pour la version Steam, directement pour les copies GOG et App Store. Si vos mods ont changé depuis la dernière partie, vos sauvegardes sont d’abord copiées."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Jogar**, na barra de ferramentas de cada página, abre o jogo com o SMAPI: pela Steam na versão da Steam, diretamente nas cópias da GOG e da App Store. Se seus mods mudaram desde a última vez que você jogou, seus saves recebem um backup antes."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每个页面工具栏中的**开始游戏**会通过 SMAPI 启动游戏：Steam 版通过 Steam 启动，GOG 和 App Store 版直接启动。如果自上次游戏后模组有变化，会先备份你的存档。"
           }
         }
       }
@@ -687,6 +824,7 @@
       }
     },
     "**Saves** lists your farms. Select one to see the mods it was played with and which are missing or older here, then **Find Missing Mods** to install them from Nexus." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -716,6 +854,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**存档**列出你的农场。选择一个即可查看它使用过哪些模组、哪些在此缺少或较旧，然后点击**查找缺少的模组**从 Nexus 安装。"
+          }
+        }
+      }
+    },
+    "**Saves** lists your farms. Select one to see the mods it was played with and which are missing or turned off here: **Enable** turns one back on, and missing ones can be found and installed from Nexus." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Spielstände** listet deine Höfe auf. Wähle einen aus, um zu sehen, mit welchen Mods er gespielt wurde und welche hier fehlen oder ausgeschaltet sind: **Aktivieren** schaltet einen wieder ein, und fehlende lassen sich auf Nexus finden und installieren."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Partidas** muestra tus granjas. Selecciona una para ver los mods con los que se jugó y cuáles faltan o están desactivados aquí: **Activar** vuelve a activar uno, y los que faltan se pueden buscar e instalar desde Nexus."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Sauvegardes** liste vos fermes. Sélectionnez-en une pour voir les mods avec lesquels elle a été jouée, et ceux qui manquent ou sont désactivés ici : **Activer** en réactive un, et les mods manquants peuvent être trouvés et installés depuis Nexus."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Saves** lista suas fazendas. Selecione uma para ver com quais mods ela foi jogada e quais estão faltando ou desativados aqui: **Ativar** liga um de novo, e os que faltam podem ser encontrados e instalados pelo Nexus."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**存档**列出你的农场。选择一个可以查看它使用过的模组，以及哪些在这里缺失或已关闭：**启用**可重新开启，缺失的可以在 Nexus 上查找并安装。"
           }
         }
       }
@@ -754,6 +926,40 @@
         }
       }
     },
+    "**SMAPI**: **Install SMAPI** downloads SMAPI's official installer and runs it for your game." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**SMAPI**: **SMAPI installieren** lädt den offiziellen Installer von SMAPI herunter und führt ihn für dein Spiel aus."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**SMAPI**: **Instalar SMAPI** descarga el instalador oficial de SMAPI y lo ejecuta para tu juego."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**SMAPI** : **Installer SMAPI** télécharge l’installeur officiel de SMAPI et le lance pour votre jeu."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**SMAPI**: **Instalar o SMAPI** baixa o instalador oficial do SMAPI e o executa para o seu jogo."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**SMAPI**：**安装 SMAPI** 会下载 SMAPI 的官方安装程序并为你的游戏运行它。"
+          }
+        }
+      }
+    },
     "**Updates**: checking mods every few hours, notifications, and the menu bar icon." : {
       "localizations" : {
         "de" : {
@@ -784,6 +990,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**更新**：每隔几小时检查模组、通知以及菜单栏图标。"
+          }
+        }
+      }
+    },
+    "**Your Game**: Starseed finds Stardew Valley from Steam (every Steam library), GOG or the Mac App Store. If yours is somewhere else, **Choose Game…**" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Dein Spiel**: Starseed findet Stardew Valley aus Steam (jede Steam-Bibliothek), GOG oder dem Mac App Store. Wenn deins woanders liegt: **Spiel wählen …**"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Tu juego**: Starseed encuentra Stardew Valley de Steam (todas las bibliotecas de Steam), GOG o la Mac App Store. Si el tuyo está en otro sitio, **Elegir juego…**"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Votre jeu** : Starseed trouve Stardew Valley installé via Steam (toutes les bibliothèques Steam), GOG ou le Mac App Store. S’il est ailleurs, **Choisir le jeu…**"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Seu jogo**: o Starseed encontra o Stardew Valley da Steam (todas as bibliotecas da Steam), da GOG ou da Mac App Store. Se o seu estiver em outro lugar, **Escolher jogo…**"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**你的游戏**：Starseed 会在 Steam（所有 Steam 库）、GOG 或 Mac App Store 中查找星露谷物语。如果你的游戏在别处，请**选择游戏…**"
           }
         }
       }
@@ -1092,6 +1332,47 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ %2$lld"
+          }
+        }
+      }
+    },
+    "%@ %lld, Year %lld" : {
+      "comment" : "In-game date: season, day, year",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ %2$lld, Jahr %3$lld"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$lld, Year %3$lld"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ %2$lld, año %3$lld"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ %2$lld, année %3$lld"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ %2$lld, ano %3$lld"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "第 %3$lld 年%1$@ %2$lld 日"
           }
         }
       }
@@ -2295,6 +2576,40 @@
         }
       }
     },
+    "%lld mods found." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld Mods gefunden."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se encontraron %lld mods."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld mods trouvés."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld mods encontrados."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "找到 %lld 个模组。"
+          }
+        }
+      }
+    },
     "%lld mods need a newer SMAPI" : {
       "localizations" : {
         "de" : {
@@ -3013,6 +3328,40 @@
         }
       }
     },
+    "1 mod found." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 Mod gefunden."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se encontró 1 mod."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 mod trouvé."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 mod encontrado."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "找到 1 个模组。"
+          }
+        }
+      }
+    },
     "1 mod update available" : {
       "localizations" : {
         "de" : {
@@ -3150,6 +3499,7 @@
       }
     },
     "1. Install SMAPI" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -3179,6 +3529,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "1. 安装 SMAPI"
+          }
+        }
+      }
+    },
+    "1. Sign in at nexusmods.com (a free account works)." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. Melde dich auf nexusmods.com an (ein kostenloses Konto reicht)."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. Inicia sesión en nexusmods.com (sirve una cuenta gratuita)."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. Connectez-vous sur nexusmods.com (un compte gratuit suffit)."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. Entre em nexusmods.com (uma conta gratuita serve)."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. 登录 nexusmods.com（免费账户即可）。"
           }
         }
       }
@@ -3218,6 +3602,7 @@
       }
     },
     "2. Choose your Mods folder" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -3251,7 +3636,42 @@
         }
       }
     },
+    "2. Open the API Keys page and copy your **Personal API Key** at the bottom." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. Öffne die Seite mit den API-Schlüsseln und kopiere unten deinen **Personal API Key**."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. Abre la página de claves de API y copia tu **Personal API Key** al final."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. Ouvrez la page des clés d’API et copiez votre **Personal API Key** en bas."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. Abra a página de chaves de API e copie sua **Personal API Key** no final."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. 打开 API 密钥页面，复制页面底部的 **Personal API Key**。"
+          }
+        }
+      }
+    },
     "3. Add your Nexus Mods API key" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -3285,7 +3705,42 @@
         }
       }
     },
+    "3. Paste it above. It's kept in your Keychain." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3. Setze ihn oben ein. Er wird in deinem Schlüsselbund aufbewahrt."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3. Pégala arriba. Se guarda en tu llavero."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3. Collez-la ci-dessus. Elle est conservée dans votre trousseau."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3. Cole acima. Ela fica guardada nas suas Chaves."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3. 粘贴到上方。它会保存在你的钥匙串中。"
+          }
+        }
+      }
+    },
     "4. Play" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -3419,6 +3874,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "下载一直停在“正在 Nexus 等待”。"
+          }
+        }
+      }
+    },
+    "A Few Choices" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein paar Entscheidungen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Algunas opciones"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quelques choix"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Algumas escolhas"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "几个选择"
           }
         }
       }
@@ -3765,7 +4254,42 @@
         }
       }
     },
+    "A profile remembers which mods are on. One is always in use; its name shows in the filter bar of **Installed**, and turning mods on or off updates it. Starseed starts with a **Default** profile." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein Profil merkt sich, welche Mods eingeschaltet sind. Eines ist immer aktiv; sein Name steht in der Filterleiste von **Installiert**, und das Ein- oder Ausschalten von Mods aktualisiert es. Starseed beginnt mit einem Profil **Default**."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un perfil recuerda qué mods están activados. Siempre hay uno en uso; su nombre aparece en la barra de filtro de **Instalados**, y activar o desactivar mods lo actualiza. Starseed empieza con un perfil **Default**."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un profil retient quels mods sont activés. Il y en a toujours un en cours d’utilisation ; son nom s’affiche dans la barre de filtre des **Installés**, et activer ou désactiver des mods le met à jour. Starseed commence avec un profil **Default**."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Um perfil lembra quais mods estão ativados. Sempre há um em uso; o nome dele aparece na barra de filtro de **Instalados**, e ativar ou desativar mods o atualiza. O Starseed começa com um perfil **Default**."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "配置方案会记住哪些模组已开启。始终有一个在使用中；它的名称显示在**已安装**的筛选栏中，开启或关闭模组都会更新它。Starseed 一开始有一个 **Default** 配置方案。"
+          }
+        }
+      }
+    },
     "A profile remembers which mods are on. One is always in use; its name shows in the toolbar, and turning mods on or off updates it. Starseed starts with a **Default** profile." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -3829,6 +4353,74 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "已有同名的配置方案。"
+          }
+        }
+      }
+    },
+    "A short explanation the first time you open each page. Dismiss each one, or turn them all off." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eine kurze Erklärung, wenn du eine Seite zum ersten Mal öffnest. Blende sie einzeln aus oder schalte alle ab."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Una breve explicación la primera vez que abres cada página. Ciérralas una a una o desactívalas todas."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une courte explication la première fois que vous ouvrez chaque page. Masquez-les une à une, ou toutes d’un coup."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uma breve explicação na primeira vez que você abre cada página. Feche uma por uma ou desative todas."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "第一次打开每个页面时显示简短说明。可以逐个关闭，也可以全部关闭。"
+          }
+        }
+      }
+    },
+    "A short tip at the top of each page explains what it's for. **Got It** hides that page's tip; **Hide All Tips** turns them off. **Help → Show Page Tips Again** brings them back." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein kurzer Tipp oben auf jeder Seite erklärt, wofür sie da ist. **Verstanden** blendet den Tipp dieser Seite aus; **Alle Tipps ausblenden** schaltet sie ab. **Hilfe → Seitentipps wieder anzeigen** holt sie zurück."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un breve consejo en la parte superior de cada página explica para qué sirve. **Entendido** oculta el consejo de esa página; **Ocultar todos los consejos** los desactiva. **Ayuda → Volver a mostrar los consejos** los recupera."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une courte astuce en haut de chaque page explique à quoi elle sert. **Compris** masque l’astuce de cette page ; **Masquer les astuces** les désactive toutes. **Aide → Réafficher les astuces** les fait revenir."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uma breve dica no topo de cada página explica para que ela serve. **Entendi** oculta a dica daquela página; **Ocultar todas as dicas** desativa todas. **Ajuda → Mostrar as dicas de novo** as traz de volta."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每个页面顶部的简短提示会说明该页面的用途。**知道了**隐藏该页面的提示；**隐藏所有提示**关闭全部提示。**帮助 → 再次显示页面提示**可以让它们重新出现。"
           }
         }
       }
@@ -4546,6 +5138,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "已安装"
+          }
+        }
+      }
+    },
+    "Already know Starseed? Skip setup" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kennst du Starseed schon? Einrichtung überspringen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Ya conoces Starseed? Omitir la configuración"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous connaissez déjà Starseed ? Passer la configuration"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Já conhece o Starseed? Pular a configuração"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已经熟悉 Starseed？跳过设置"
           }
         }
       }
@@ -5508,7 +6134,42 @@
         }
       }
     },
+    "Backups of %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sicherungen von %@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copias de %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copies de %@"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Backups de %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@的备份"
+          }
+        }
+      }
+    },
     "Backups of %@ Farm" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -6639,6 +7300,74 @@
         }
       }
     },
+    "Choose Game…" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spiel wählen …"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elegir juego…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisir le jeu…"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escolher jogo…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择游戏…"
+          }
+        }
+      }
+    },
+    "Choose Stardew Valley (the app, or the folder it's in)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wähle Stardew Valley (die App oder den Ordner, in dem sie liegt)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elige Stardew Valley (la app o la carpeta que la contiene)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisissez Stardew Valley (l’app, ou le dossier qui la contient)"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escolha o Stardew Valley (o app ou a pasta em que ele está)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择星露谷物语（应用本身，或包含它的文件夹）"
+          }
+        }
+      }
+    },
     "Choose which log to show" : {
       "localizations" : {
         "de" : {
@@ -6669,6 +7398,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "选择要显示的日志"
+          }
+        }
+      }
+    },
+    "Choose your game or your Mods folder." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wähle dein Spiel oder deinen Mods-Ordner."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elige tu juego o tu carpeta Mods."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisissez votre jeu ou votre dossier Mods."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escolha seu jogo ou sua pasta Mods."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请选择你的游戏或 Mods 文件夹。"
           }
         }
       }
@@ -6952,6 +7715,7 @@
       }
     },
     "Click **Install SMAPI** in the orange banner: Starseed downloads SMAPI's official installer and runs it for your game. When a new SMAPI comes out, or a game update disconnects it, the same banner offers to update or reinstall it." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -7083,6 +7847,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "关闭"
+          }
+        }
+      }
+    },
+    "Close the assistant and keep what's set up so far" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Den Assistenten schließen und behalten, was schon eingerichtet ist"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerrar el asistente y conservar lo configurado hasta ahora"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fermer l’assistant en gardant ce qui est déjà configuré"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fechar o assistente e manter o que já foi configurado"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关闭助手，并保留目前已完成的设置"
           }
         }
       }
@@ -7289,6 +8087,74 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "冲突"
+          }
+        }
+      }
+    },
+    "Connect" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verbinden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conectar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connecter"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conectar"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "连接"
+          }
+        }
+      }
+    },
+    "Connect your Nexus Mods account to download mods" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dein Nexus-Mods-Konto verbinden, um Mods herunterzuladen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conectar tu cuenta de Nexus Mods para descargar mods"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connecter votre compte Nexus Mods pour télécharger des mods"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conectar sua conta do Nexus Mods para baixar mods"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "连接你的 Nexus Mods 账户以下载模组"
           }
         }
       }
@@ -7595,6 +8461,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法更改追踪状态"
+          }
+        }
+      }
+    },
+    "Couldn't Create the Mods Folder" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods-Ordner konnte nicht erstellt werden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo crear la carpeta Mods"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de créer le dossier Mods"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível criar a pasta Mods"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法创建 Mods 文件夹"
           }
         }
       }
@@ -8310,6 +9210,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法保存设置"
+          }
+        }
+      }
+    },
+    "Couldn't Start the Game" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spiel konnte nicht gestartet werden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo iniciar el juego"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de lancer le jeu"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível abrir o jogo"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法启动游戏"
           }
         }
       }
@@ -10912,6 +11846,41 @@
         }
       }
     },
+    "Fall" : {
+      "comment" : "Stardew season",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Herbst"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otoño"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automne"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Outono"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "秋季"
+          }
+        }
+      }
+    },
     "Files…" : {
       "localizations" : {
         "de" : {
@@ -11146,6 +12115,74 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "查找缺少的模组"
+          }
+        }
+      }
+    },
+    "Find mods in **Browse Nexus**, or a whole modpack in **Collections**." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finde Mods unter **Nexus durchsuchen** oder ein ganzes Modpaket unter **Sammlungen**."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Busca mods en **Explorar Nexus**, o un modpack completo en **Colecciones**."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trouvez des mods dans **Parcourir Nexus**, ou tout un pack de mods dans **Collections**."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Encontre mods em **Explorar o Nexus**, ou um modpack inteiro em **Coleções**."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在**浏览 Nexus**中查找模组，或在**合集**中查找整套模组包。"
+          }
+        }
+      }
+    },
+    "Find your game and its Mods folder" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dein Spiel und seinen Mods-Ordner finden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Encontrar tu juego y su carpeta Mods"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trouver votre jeu et son dossier Mods"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Encontrar seu jogo e a pasta Mods dele"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "找到你的游戏及其 Mods 文件夹"
           }
         }
       }
@@ -11661,6 +12698,40 @@
         }
       }
     },
+    "Free accounts download with one click on **Slow download** in Starseed's Nexus browser; Premium accounts download directly. You can do this later in Settings." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kostenlose Konten laden mit einem Klick auf **Slow download** im Nexus-Browser von Starseed herunter; Premium-Konten laden direkt. Du kannst das auch später in den Einstellungen erledigen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las cuentas gratuitas descargan con un clic en **Slow download** en el navegador de Nexus de Starseed; las cuentas Premium descargan directamente. Puedes hacerlo más tarde en Ajustes."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les comptes gratuits téléchargent d’un clic sur **Slow download** dans le navigateur Nexus de Starseed ; les comptes Premium téléchargent directement. Vous pouvez faire cela plus tard dans les Réglages."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contas gratuitas baixam com um clique em **Slow download** no navegador do Nexus do Starseed; contas Premium baixam diretamente. Você pode fazer isso depois nos Ajustes."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "免费账户在 Starseed 的 Nexus 浏览器中点击一次 **Slow download** 即可下载；Premium 账户直接下载。你也可以稍后在设置中完成。"
+          }
+        }
+      }
+    },
     "Free accounts have to click **Slow download** on the Nexus page in Starseed's browser window. Click **Waiting on Nexus** to bring that page back." : {
       "localizations" : {
         "de" : {
@@ -11696,6 +12767,7 @@
       }
     },
     "Free Nexus accounts download through Nexus's own page: click **Slow download** once per mod, and Starseed installs the file when it arrives. Premium accounts download directly." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -11725,6 +12797,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nexus 免费账户通过 Nexus 自己的页面下载：每个模组点击一次 **Slow download**，文件到达后 Starseed 会自动安装。高级会员可直接下载。"
+          }
+        }
+      }
+    },
+    "Free Nexus accounts download through Nexus's own page: click **Slow download** once per mod, and Starseed installs the file when it arrives. Premium accounts download directly. Your key is kept in your Keychain; change it in **Settings → Nexus Mods**." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kostenlose Nexus-Konten laden über die Nexus-Seite herunter: Klicke pro Mod einmal auf **Slow download**, und Starseed installiert die Datei, sobald sie ankommt. Premium-Konten laden direkt herunter. Dein Schlüssel liegt in deinem Schlüsselbund; ändere ihn unter **Einstellungen → Nexus Mods**."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las cuentas gratuitas de Nexus descargan a través de la página de Nexus: haz clic una vez en **Slow download** por mod y Starseed instala el archivo cuando llega. Las cuentas Premium descargan directamente. Tu clave se guarda en tu llavero; cámbiala en **Ajustes → Nexus Mods**."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les comptes Nexus gratuits téléchargent via la page de Nexus : cliquez une fois sur **Slow download** par mod, et Starseed installe le fichier dès qu’il arrive. Les comptes Premium téléchargent directement. Votre clé est conservée dans votre trousseau ; modifiez-la dans **Réglages → Nexus Mods**."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contas gratuitas do Nexus baixam pela página do próprio Nexus: clique uma vez em **Slow download** por mod, e o Starseed instala o arquivo quando ele chega. Contas Premium baixam diretamente. Sua chave fica guardada nas suas Chaves; altere em **Ajustes → Nexus Mods**."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus 免费账户通过 Nexus 自己的页面下载：每个模组点击一次 **Slow download**，文件到达后 Starseed 会自动安装。Premium 账户可直接下载。你的密钥保存在钥匙串中；可在**设置 → Nexus Mods**中更改。"
           }
         }
       }
@@ -11861,6 +12967,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "找不到游戏文件夹"
+          }
+        }
+      }
+    },
+    "Game not found" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spiel nicht gefunden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Juego no encontrado"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jeu introuvable"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jogo não encontrado"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未找到游戏"
           }
         }
       }
@@ -12036,6 +13176,40 @@
         }
       }
     },
+    "Get Started" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los geht’s"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Empezar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Commencer"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Começar"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开始"
+          }
+        }
+      }
+    },
     "Getting Started" : {
       "localizations" : {
         "de" : {
@@ -12138,6 +13312,40 @@
         }
       }
     },
+    "Got It" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verstanden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entendido"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Compris"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entendi"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "知道了"
+          }
+        }
+      }
+    },
     "Has optional content: see Optional Files or optional requirements in the details panel" : {
       "localizations" : {
         "de" : {
@@ -12172,6 +13380,40 @@
         }
       }
     },
+    "Here's your setup. You can change any of it in Settings, or run this assistant again from the Help menu." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das ist deine Einrichtung. Du kannst alles in den Einstellungen ändern oder diesen Assistenten über das Menü „Hilfe“ erneut starten."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta es tu configuración. Puedes cambiar todo en Ajustes o volver a abrir este asistente desde el menú Ayuda."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voici votre configuration. Vous pouvez tout modifier dans les Réglages, ou relancer cet assistant depuis le menu Aide."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta é a sua configuração. Você pode mudar tudo nos Ajustes ou abrir este assistente de novo pelo menu Ajuda."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这是你的设置。你可以在设置中更改任何一项，或从帮助菜单再次运行此助手。"
+          }
+        }
+      }
+    },
     "Hide %@ messages" : {
       "localizations" : {
         "de" : {
@@ -12202,6 +13444,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "隐藏 %@ 的消息"
+          }
+        }
+      }
+    },
+    "Hide All Tips" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle Tipps ausblenden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ocultar todos los consejos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masquer les astuces"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ocultar todas as dicas"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隐藏所有提示"
           }
         }
       }
@@ -13096,7 +14372,42 @@
         }
       }
     },
+    "Install a collection into a **new profile** named after it: only the collection's mods are on there, so it doesn't mix with your other mods, and mods you already have aren't downloaded again. Your usual profile is still one click away in the profile menu." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installiere eine Sammlung in ein **neues Profil** mit ihrem Namen: Dort sind nur die Mods der Sammlung eingeschaltet, sie vermischt sich also nicht mit deinen anderen Mods, und Mods, die du schon hast, werden nicht erneut heruntergeladen. Dein übliches Profil ist im Profilmenü weiterhin nur einen Klick entfernt."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instala una colección en un **perfil nuevo** con su nombre: allí solo están activados los mods de la colección, así no se mezcla con tus otros mods, y los mods que ya tienes no se vuelven a descargar. Tu perfil habitual sigue a un clic en el menú de perfiles."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installez une collection dans un **nouveau profil** portant son nom : seuls les mods de la collection y sont activés, elle ne se mélange donc pas à vos autres mods, et les mods que vous avez déjà ne sont pas retéléchargés. Votre profil habituel reste à un clic dans le menu des profils."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instale uma coleção em um **novo perfil** com o nome dela: só os mods da coleção ficam ativados ali, então ela não se mistura com seus outros mods, e os mods que você já tem não são baixados de novo. Seu perfil de sempre continua a um clique no menu de perfis."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将合集安装到以它命名的**新配置方案**中：那里只开启合集的模组，因此不会和你的其他模组混在一起，已有的模组也不会重复下载。你平时用的配置方案仍然在配置方案菜单中一键可达。"
+          }
+        }
+      }
+    },
     "Install a collection into a **new profile** named after it: only the collection's mods are on there, so it doesn't mix with your other mods, and mods you already have aren't downloaded again. Your usual profile is still one click away in the toolbar." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -13262,6 +14573,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "安装到"
+          }
+        }
+      }
+    },
+    "Install it from Steam, GOG or the App Store, then choose Look Again. If it's somewhere else, choose it." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installiere es über Steam, GOG oder den App Store und wähle dann „Erneut suchen“. Wenn es woanders liegt, wähle es aus."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instálalo desde Steam, GOG o la App Store y luego elige Buscar de nuevo. Si está en otro sitio, elígelo."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installez-le depuis Steam, GOG ou l’App Store, puis choisissez Chercher à nouveau. S’il est ailleurs, choisissez-le."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instale pela Steam, GOG ou App Store e depois escolha Procurar de novo. Se ele estiver em outro lugar, escolha-o."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请从 Steam、GOG 或 App Store 安装它，然后选择“重新查找”。如果它在别处，请选择它。"
           }
         }
       }
@@ -13568,6 +14913,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "改为自行安装 SMAPI"
+          }
+        }
+      }
+    },
+    "Install SMAPI, the mod loader every mod needs" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI installieren, den Mod-Loader, den jeder Mod braucht"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalar SMAPI, el cargador que necesita cada mod"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installer SMAPI, le chargeur dont chaque mod a besoin"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalar o SMAPI, o carregador de que todo mod precisa"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "安装 SMAPI，每个模组都需要的模组加载器"
           }
         }
       }
@@ -14593,6 +15972,40 @@
         }
       }
     },
+    "Know Starseed already (a reinstall, a new Mac)? **Skip setup** on the first page uses the game it finds and turns the page tips off." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kennst du Starseed schon (Neuinstallation, neuer Mac)? **Einrichtung überspringen** auf der ersten Seite verwendet das gefundene Spiel und schaltet die Seitentipps ab."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Ya conoces Starseed (una reinstalación, un Mac nuevo)? **Omitir la configuración** en la primera página usa el juego que encuentra y desactiva los consejos de página."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous connaissez déjà Starseed (réinstallation, nouveau Mac) ? **Passer la configuration** sur la première page utilise le jeu trouvé et désactive les astuces des pages."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Já conhece o Starseed (reinstalação, Mac novo)? **Pular a configuração** na primeira página usa o jogo encontrado e desativa as dicas das páginas."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已经熟悉 Starseed（重新安装、换了新 Mac）？在第一页点击**跳过设置**会使用找到的游戏并关闭页面提示。"
+          }
+        }
+      }
+    },
     "Language" : {
       "localizations" : {
         "de" : {
@@ -15345,6 +16758,74 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "日志文件"
+          }
+        }
+      }
+    },
+    "Look Again" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erneut suchen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar de nuevo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chercher à nouveau"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Procurar de novo"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新查找"
+          }
+        }
+      }
+    },
+    "Looking for Stardew Valley…" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suche nach Stardew Valley …"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscando Stardew Valley…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recherche de Stardew Valley…"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Procurando o Stardew Valley…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在查找星露谷物语…"
           }
         }
       }
@@ -16609,6 +18090,74 @@
         }
       }
     },
+    "Mods Folder" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods-Ordner"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carpeta Mods"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dossier Mods"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pasta Mods"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods 文件夹"
+          }
+        }
+      }
+    },
+    "Mods folder: %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods-Ordner: %@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carpeta Mods: %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dossier Mods : %@"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pasta Mods: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods 文件夹：%@"
+          }
+        }
+      }
+    },
     "Mods for each save" : {
       "localizations" : {
         "de" : {
@@ -16673,6 +18222,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "托管在其他地方（ModDrop、GitHub…）的模组会有一个**在…上获取**按钮，用于打开其页面：在那里下载文件，然后拖到窗口中。"
+          }
+        }
+      }
+    },
+    "Mods live in a folder named Mods next to the game. Starseed manages what's in it; nothing is uploaded anywhere." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods liegen in einem Ordner namens Mods neben dem Spiel. Starseed verwaltet seinen Inhalt; nichts wird irgendwohin hochgeladen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los mods están en una carpeta llamada Mods junto al juego. Starseed gestiona su contenido; no se sube nada a ningún sitio."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les mods se trouvent dans un dossier nommé Mods, à côté du jeu. Starseed gère son contenu ; rien n’est envoyé nulle part."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Os mods ficam em uma pasta chamada Mods ao lado do jogo. O Starseed cuida do conteúdo dela; nada é enviado para lugar nenhum."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "模组放在游戏旁边一个名为 Mods 的文件夹中。Starseed 管理其中的内容；不会上传任何东西。"
           }
         }
       }
@@ -16984,6 +18567,40 @@
         }
       }
     },
+    "Mods that your mods need but that are missing or turned off. Install All turns on or downloads every one of them." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods, die deine Mods brauchen, die aber fehlen oder ausgeschaltet sind. „Alle installieren“ schaltet sie alle ein oder lädt sie herunter."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods que tus mods necesitan pero que faltan o están desactivados. Instalar todo los activa o los descarga todos."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les mods dont vos mods ont besoin mais qui manquent ou sont désactivés. Tout installer les active ou les télécharge tous."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods de que seus mods precisam, mas que estão faltando ou desativados. Instalar tudo ativa ou baixa todos eles."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的模组需要、但缺失或已关闭的模组。“全部安装”会开启或下载所有这些模组。"
+          }
+        }
+      }
+    },
     "Mods this collection had enabled are turned on and every other mod is turned off. Nothing is deleted." : {
       "extractionState" : "stale",
       "localizations" : {
@@ -17053,6 +18670,40 @@
         }
       }
     },
+    "Mods with a newer version on Nexus or elsewhere. Update one at a time, or all at once. The version you had is kept, so you can go back from the mod's details." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods mit einer neueren Version auf Nexus oder anderswo. Aktualisiere einzeln oder alle auf einmal. Die bisherige Version bleibt erhalten, du kannst also über die Details des Mods zurückwechseln."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods con una versión más nueva en Nexus u otro sitio. Actualízalos uno a uno o todos a la vez. La versión que tenías se conserva, así que puedes volver a ella desde los detalles del mod."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les mods ayant une version plus récente sur Nexus ou ailleurs. Mettez-les à jour un par un, ou tous d’un coup. La version que vous aviez est conservée : vous pouvez y revenir depuis les détails du mod."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods com uma versão mais nova no Nexus ou em outro lugar. Atualize um por vez ou todos de uma vez. A versão que você tinha é mantida, então dá para voltar a ela pelos detalhes do mod."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在 Nexus 或其他地方有新版本的模组。可以逐个更新，也可以一次全部更新。原来的版本会保留，你可以在模组详情中退回。"
+          }
+        }
+      }
+    },
     "Mods with an update show an **Update to…** button in the **Activity** column. The **Updates** section lists them all, with **Update All**. While a mod downloads and installs, its progress shows in the same column." : {
       "localizations" : {
         "de" : {
@@ -17117,6 +18768,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在 Nexus 上有额外文件（附加内容、兼容补丁）的模组会在列表中显示一个小徽章。详细信息面板会在 **Nexus 上的可选文件**下列出它们，各自带有**安装**按钮。"
+          }
+        }
+      }
+    },
+    "Mods you already have stay as they are. Starseed keeps them in profiles: the first one, “Default”, starts with the mods that are on." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods, die du schon hast, bleiben, wie sie sind. Starseed ordnet sie in Profilen: Das erste, „Default“, beginnt mit den eingeschalteten Mods."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los mods que ya tienes se quedan como están. Starseed los organiza en perfiles: el primero, «Default», empieza con los mods activados."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les mods que vous avez déjà restent tels quels. Starseed les range dans des profils : le premier, « Default », commence avec les mods activés."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Os mods que você já tem ficam como estão. O Starseed os organiza em perfis: o primeiro, “Default”, começa com os mods ativados."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你已有的模组保持不变。Starseed 用配置方案来整理它们：第一个配置方案“Default”包含当前已开启的模组。"
           }
         }
       }
@@ -17254,6 +18939,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "推荐最多"
+          }
+        }
+      }
+    },
+    "Most mods come from Nexus Mods. With your account, Starseed can browse and download mods, install collections, and check for updates." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die meisten Mods kommen von Nexus Mods. Mit deinem Konto kann Starseed Mods durchsuchen und herunterladen, Sammlungen installieren und nach Updates suchen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La mayoría de los mods vienen de Nexus Mods. Con tu cuenta, Starseed puede explorar y descargar mods, instalar colecciones y buscar actualizaciones."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La plupart des mods viennent de Nexus Mods. Avec votre compte, Starseed peut parcourir et télécharger des mods, installer des collections et rechercher les mises à jour."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A maioria dos mods vem do Nexus Mods. Com sua conta, o Starseed pode explorar e baixar mods, instalar coleções e procurar atualizações."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "大多数模组来自 Nexus Mods。连接账户后，Starseed 可以浏览和下载模组、安装合集并检查更新。"
           }
         }
       }
@@ -17634,6 +19353,40 @@
         }
       }
     },
+    "My Mods folder is somewhere else…" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mein Mods-Ordner liegt woanders …"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mi carpeta Mods está en otro sitio…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mon dossier Mods est ailleurs…"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minha pasta Mods está em outro lugar…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我的 Mods 文件夹在别处…"
+          }
+        }
+      }
+    },
     "Name" : {
       "comment" : "Sort by name",
       "localizations" : {
@@ -18010,6 +19763,40 @@
         }
       }
     },
+    "Next steps" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wie es weitergeht"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Próximos pasos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pour la suite"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Próximos passos"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "接下来"
+          }
+        }
+      }
+    },
     "Nexus" : {
       "localizations" : {
         "de" : {
@@ -18142,6 +19929,142 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nexus Mods"
+          }
+        }
+      }
+    },
+    "Nexus Mods (Optional)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus Mods (optional)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus Mods (opcional)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus Mods (facultatif)"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus Mods (opcional)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus Mods（可选）"
+          }
+        }
+      }
+    },
+    "Nexus Mods accounts" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus-Mods-Konten"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuentas de Nexus Mods"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comptes Nexus Mods"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contas do Nexus Mods"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus Mods 账户"
+          }
+        }
+      }
+    },
+    "Nexus Mods not connected (optional)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus Mods nicht verbunden (optional)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus Mods no conectado (opcional)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus Mods non connecté (facultatif)"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus Mods não conectado (opcional)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未连接 Nexus Mods（可选）"
+          }
+        }
+      }
+    },
+    "Nexus Mods: %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus Mods: %@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus Mods: %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus Mods : %@"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus Mods: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nexus Mods：%@"
           }
         }
       }
@@ -18517,6 +20440,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "不含模组"
+          }
+        }
+      }
+    },
+    "No mods yet." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Noch keine Mods."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todavía no hay mods."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun mod pour l’instant."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nenhum mod ainda."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "还没有模组。"
           }
         }
       }
@@ -19509,6 +21466,7 @@
       }
     },
     "On first launch, pick the game's **Mods** folder. For the Steam version it's inside the game: *Stardew Valley.app/Contents/MacOS/Mods*. You can change it later in **Settings → General**." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -19641,6 +21599,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "只删除配置方案，不删除模组。"
+          }
+        }
+      }
+    },
+    "Open **Help → Setup Assistant…** and click **Choose Game…**, then pick *Stardew Valley.app* (or the folder it's in). Run the game once first if you just installed it. If your Mods folder is somewhere else, choose **My Mods folder is somewhere else…**" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öffne **Hilfe → Einrichtungsassistent …** und klicke auf **Spiel wählen …**, dann wähle *Stardew Valley.app* (oder den Ordner, in dem sie liegt). Starte das Spiel vorher einmal, wenn du es gerade installiert hast. Wenn dein Mods-Ordner woanders liegt, wähle **Mein Mods-Ordner liegt woanders …**"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abre **Ayuda → Asistente de configuración…** y haz clic en **Elegir juego…**, luego elige *Stardew Valley.app* (o la carpeta que la contiene). Si acabas de instalar el juego, ábrelo una vez antes. Si tu carpeta Mods está en otro sitio, elige **Mi carpeta Mods está en otro sitio…**"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrez **Aide → Assistant de configuration…** et cliquez sur **Choisir le jeu…**, puis choisissez *Stardew Valley.app* (ou le dossier qui la contient). Lancez d’abord le jeu une fois si vous venez de l’installer. Si votre dossier Mods est ailleurs, choisissez **Mon dossier Mods est ailleurs…**"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abra **Ajuda → Assistente de configuração…** e clique em **Escolher jogo…**, depois escolha *Stardew Valley.app* (ou a pasta em que ele está). Se você acabou de instalar o jogo, abra-o uma vez antes. Se sua pasta Mods estiver em outro lugar, escolha **Minha pasta Mods está em outro lugar…**"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开**帮助 → 设置助手…**并点击**选择游戏…**，然后选择 *Stardew Valley.app*（或包含它的文件夹）。如果你刚安装游戏，请先运行一次。如果你的 Mods 文件夹在别处，请选择**我的 Mods 文件夹在别处…**"
           }
         }
       }
@@ -20015,6 +22007,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "打开设置…"
+          }
+        }
+      }
+    },
+    "Open Setup Assistant" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einrichtungsassistent öffnen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir el asistente de configuración"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir l’assistant de configuration"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir o assistente de configuração"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开设置助手"
           }
         }
       }
@@ -20667,6 +22693,40 @@
         }
       }
     },
+    "Or drop downloaded mod archives (.zip) on the window." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oder ziehe heruntergeladene Mod-Archive (.zip) auf das Fenster."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O arrastra archivos de mods descargados (.zip) a la ventana."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ou déposez des archives de mods téléchargées (.zip) sur la fenêtre."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ou arraste arquivos de mods baixados (.zip) para a janela."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "或者把下载的模组压缩包（.zip）拖到窗口上。"
+          }
+        }
+      }
+    },
     "Other installed mods that use this one. Removing or disabling it affects them." : {
       "localizations" : {
         "de" : {
@@ -20697,6 +22757,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "使用此模组的其他已安装模组。移除或停用它会影响它们。"
+          }
+        }
+      }
+    },
+    "Page tips" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seitentipps"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Consejos de página"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Astuces des pages"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dicas das páginas"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "页面提示"
           }
         }
       }
@@ -21174,6 +23268,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "高级会员：模组会直接在应用内下载和安装。"
+          }
+        }
+      }
+    },
+    "Press **Play** to launch the game with your mods." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Drücke **Spielen**, um das Spiel mit deinen Mods zu starten."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pulsa **Jugar** para iniciar el juego con tus mods."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appuyez sur **Jouer** pour lancer le jeu avec vos mods."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clique em **Jogar** para abrir o jogo com seus mods."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击**开始游戏**即可带着你的模组启动游戏。"
           }
         }
       }
@@ -21927,6 +24055,40 @@
         }
       }
     },
+    "Quit the game first. The installer is downloaded from SMAPI's GitHub page." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beende zuerst das Spiel. Der Installer wird von der GitHub-Seite von SMAPI geladen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cierra primero el juego. El instalador se descarga de la página de GitHub de SMAPI."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quittez d’abord le jeu. L’installeur est téléchargé depuis la page GitHub de SMAPI."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feche o jogo antes. O instalador é baixado da página do SMAPI no GitHub."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请先退出游戏。安装程序从 SMAPI 的 GitHub 页面下载。"
+          }
+        }
+      }
+    },
     "Raw JSON" : {
       "localizations" : {
         "de" : {
@@ -22099,6 +24261,74 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "正在读取存档…"
+          }
+        }
+      }
+    },
+    "Reads SMAPI's log when the game closes and points out mods that failed or crashed." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liest beim Beenden des Spiels das Protokoll von SMAPI und weist auf Mods hin, die fehlgeschlagen oder abgestürzt sind."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lee el registro de SMAPI al cerrar el juego y señala los mods que fallaron o se bloquearon."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lit le journal de SMAPI à la fermeture du jeu et signale les mods qui ont échoué ou planté."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lê o registro do SMAPI quando o jogo fecha e aponta mods que falharam ou travaram."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "游戏关闭时读取 SMAPI 日志，指出失败或崩溃的模组。"
+          }
+        }
+      }
+    },
+    "Ready-made modpacks from Nexus. Installing one makes a profile with just its mods, so your other setups stay as they are." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fertige Modpakete von Nexus. Eines zu installieren erstellt ein Profil nur mit seinen Mods, deine anderen Zusammenstellungen bleiben also, wie sie sind."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modpacks ya preparados de Nexus. Instalar uno crea un perfil solo con sus mods, así tus otras configuraciones se quedan como están."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Des packs de mods tout prêts, venant de Nexus. En installer un crée un profil avec seulement ses mods : vos autres configurations restent telles quelles."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modpacks prontos do Nexus. Instalar um cria um perfil só com os mods dele, então suas outras configurações ficam como estão."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "来自 Nexus 的现成模组包。安装后会创建一个只包含其模组的配置方案，你的其他设置保持不变。"
           }
         }
       }
@@ -23790,7 +26020,6 @@
       }
     },
     "saved %@" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -24237,6 +26466,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "搜索 Nexus"
+          }
+        }
+      }
+    },
+    "Search Nexus Mods, or paste a Nexus link or mod number. Click a mod to read about it and install it, with what it requires." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Durchsuche Nexus Mods oder füge einen Nexus-Link oder eine Mod-Nummer ein. Klicke auf einen Mod, um mehr zu erfahren und ihn mit seinen Voraussetzungen zu installieren."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Busca en Nexus Mods, o pega un enlace de Nexus o un número de mod. Haz clic en un mod para conocerlo e instalarlo con lo que necesita."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cherchez sur Nexus Mods, ou collez un lien Nexus ou un numéro de mod. Cliquez sur un mod pour le découvrir et l’installer, avec ce dont il a besoin."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pesquise no Nexus Mods, ou cole um link do Nexus ou um número de mod. Clique em um mod para conhecê-lo e instalá-lo com o que ele precisa."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜索 Nexus Mods，或粘贴 Nexus 链接或模组编号。点击模组即可查看介绍，并连同其前置一起安装。"
           }
         }
       }
@@ -24759,6 +27022,40 @@
         }
       }
     },
+    "Setup Assistant…" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einrichtungsassistent …"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asistente de configuración…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Assistant de configuration…"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Assistente de configuração…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置助手…"
+          }
+        }
+      }
+    },
     "Share" : {
       "localizations" : {
         "de" : {
@@ -24925,6 +27222,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "显示 %@ 的消息"
+          }
+        }
+      }
+    },
+    "Show a tip at the top of each page" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oben auf jeder Seite einen Tipp anzeigen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar un consejo en la parte superior de cada página"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher une astuce en haut de chaque page"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar uma dica no topo de cada página"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在每个页面顶部显示提示"
           }
         }
       }
@@ -25507,6 +27838,40 @@
         }
       }
     },
+    "Show Page Tips Again" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seitentipps wieder anzeigen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volver a mostrar los consejos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réafficher les astuces"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar as dicas de novo"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "再次显示页面提示"
+          }
+        }
+      }
+    },
     "Show Profile Details" : {
       "localizations" : {
         "de" : {
@@ -25745,6 +28110,74 @@
         }
       }
     },
+    "Skip for Now" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jetzt überspringen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Omitir por ahora"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plus tard"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pular por enquanto"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂时跳过"
+          }
+        }
+      }
+    },
+    "Skip Setup" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einrichtung überspringen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Omitir la configuración"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passer la configuration"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pular a configuração"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "跳过设置"
+          }
+        }
+      }
+    },
     "Skipped: %@" : {
       "localizations" : {
         "de" : {
@@ -25955,6 +28388,80 @@
         }
       }
     },
+    "SMAPI %@ is installed; %@ is available." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI %1$@ ist installiert; %2$@ ist verfügbar."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "SMAPI %1$@ is installed; %2$@ is available."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI %1$@ está instalado; %2$@ está disponible."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI %1$@ est installé ; la version %2$@ est disponible."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O SMAPI %1$@ está instalado; o %2$@ está disponível."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已安装 SMAPI %1$@；%2$@ 已可用。"
+          }
+        }
+      }
+    },
+    "SMAPI %@ is installed." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI %@ ist installiert."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI %@ está instalado."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI %@ est installé."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O SMAPI %@ está instalado."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已安装 SMAPI %@。"
+          }
+        }
+      }
+    },
     "SMAPI %@ is installed. Launch the game as usual to play with mods." : {
       "localizations" : {
         "de" : {
@@ -26159,6 +28666,40 @@
         }
       }
     },
+    "SMAPI is installed." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI ist installiert."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI está instalado."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI est installé."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O SMAPI está instalado."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已安装 SMAPI。"
+          }
+        }
+      }
+    },
     "SMAPI is probably missing or was removed by a game update. Run SMAPI's installer again (**Get SMAPI…**)." : {
       "extractionState" : "stale",
       "localizations" : {
@@ -26194,6 +28735,40 @@
         }
       }
     },
+    "SMAPI is the mod loader: the game only loads mods when it starts through SMAPI. Starseed installs it with SMAPI's official installer." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI ist der Mod-Loader: Das Spiel lädt Mods nur, wenn es über SMAPI startet. Starseed installiert es mit dem offiziellen Installer von SMAPI."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI es el cargador de mods: el juego solo carga mods cuando se inicia a través de SMAPI. Starseed lo instala con el instalador oficial de SMAPI."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI est le chargeur de mods : le jeu ne charge les mods que s’il démarre via SMAPI. Starseed l’installe avec l’installeur officiel de SMAPI."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O SMAPI é o carregador de mods: o jogo só carrega mods quando abre pelo SMAPI. O Starseed o instala com o instalador oficial do SMAPI."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI 是模组加载器：只有通过 SMAPI 启动时，游戏才会加载模组。Starseed 使用 SMAPI 的官方安装程序来安装它。"
+          }
+        }
+      }
+    },
     "SMAPI isn't installed" : {
       "localizations" : {
         "de" : {
@@ -26224,6 +28799,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "SMAPI 未安装"
+          }
+        }
+      }
+    },
+    "SMAPI isn't installed yet." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI ist noch nicht installiert."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI aún no está instalado."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI n’est pas encore installé."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O SMAPI ainda não está instalado."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "尚未安装 SMAPI。"
           }
         }
       }
@@ -26326,6 +28935,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "SMAPI 未安装"
+          }
+        }
+      }
+    },
+    "SMAPI not installed: install it from the status bar before playing with mods" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI nicht installiert: Installiere es über die Statusleiste, bevor du mit Mods spielst"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI no está instalado: instálalo desde la barra de estado antes de jugar con mods"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI non installé : installez-le depuis la barre d’état avant de jouer avec des mods"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI não instalado: instale pela barra de status antes de jogar com mods"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未安装 SMAPI：在使用模组游戏前，请从状态栏安装它"
           }
         }
       }
@@ -26462,6 +29105,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "每次运行游戏时 SMAPI 都会写入日志。**SMAPI 日志**部分会以不同颜色显示最新日志的各个级别（错误、警告、信息…），并可按级别、模组或文本过滤。"
+          }
+        }
+      }
+    },
+    "SMAPI's installer needs Rosetta. If macOS offers to install it, accept." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Installer von SMAPI braucht Rosetta. Wenn macOS anbietet, es zu installieren, stimme zu."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El instalador de SMAPI necesita Rosetta. Si macOS ofrece instalarlo, acepta."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’installeur de SMAPI a besoin de Rosetta. Si macOS propose de l’installer, acceptez."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O instalador do SMAPI precisa do Rosetta. Se o macOS oferecer instalá-lo, aceite."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI 的安装程序需要 Rosetta。如果 macOS 提示安装，请接受。"
           }
         }
       }
@@ -26836,6 +29513,41 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "来源：%@"
+          }
+        }
+      }
+    },
+    "Spring" : {
+      "comment" : "Stardew season",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frühling"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Primavera"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Printemps"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Primavera"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "春季"
           }
         }
       }
@@ -27221,6 +29933,40 @@
         }
       }
     },
+    "Stardew Valley wasn't found in Steam, GOG Games or Applications." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stardew Valley wurde weder in Steam noch in „GOG Games“ oder „Programme“ gefunden."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se encontró Stardew Valley en Steam, GOG Games ni Aplicaciones."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stardew Valley est introuvable dans Steam, GOG Games et Applications."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Stardew Valley não foi encontrado na Steam, em GOG Games nem em Aplicativos."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在 Steam、GOG Games 和“应用程序”中都没有找到星露谷物语。"
+          }
+        }
+      }
+    },
     "Stardew Valley Wiki: Getting started with mods" : {
       "localizations" : {
         "de" : {
@@ -27323,6 +30069,40 @@
         }
       }
     },
+    "Starseed didn't find my game." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed hat mein Spiel nicht gefunden."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed no encontró mi juego."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed n’a pas trouvé mon jeu."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Starseed não encontrou meu jogo."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed 没有找到我的游戏。"
+          }
+        }
+      }
+    },
     "Starseed Help" : {
       "localizations" : {
         "de" : {
@@ -27391,6 +30171,40 @@
         }
       }
     },
+    "Starseed installs, updates and organizes your Stardew Valley mods. Let's get your game ready for mods: it takes about a minute." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed installiert, aktualisiert und ordnet deine Stardew-Valley-Mods. Machen wir dein Spiel bereit für Mods: Das dauert etwa eine Minute."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed instala, actualiza y organiza tus mods de Stardew Valley. Preparemos tu juego para los mods: tarda alrededor de un minuto."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed installe, met à jour et organise vos mods Stardew Valley. Préparons votre jeu pour les mods : cela prend environ une minute."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Starseed instala, atualiza e organiza seus mods do Stardew Valley. Vamos preparar seu jogo para mods: leva cerca de um minuto."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed 可以安装、更新和整理你的星露谷物语模组。让我们为游戏做好使用模组的准备：大约只需一分钟。"
+          }
+        }
+      }
+    },
     "Starseed isn't signed with a paid Apple Developer ID. Open **System Settings → Privacy & Security** and click **Open Anyway**. It's needed only once; updates don't ask again." : {
       "localizations" : {
         "de" : {
@@ -27455,6 +30269,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "GitHub 上的 Starseed"
+          }
+        }
+      }
+    },
+    "Starseed puts mods next to the game. Pick the copy you play." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed legt Mods neben das Spiel. Wähle die Kopie, mit der du spielst."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed coloca los mods junto al juego. Elige la copia con la que juegas."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed place les mods à côté du jeu. Choisissez la copie avec laquelle vous jouez."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Starseed coloca os mods ao lado do jogo. Escolha a cópia com que você joga."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed 会把模组放在游戏旁边。请选择你玩的那一份游戏。"
           }
         }
       }
@@ -27625,6 +30473,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "开始"
+          }
+        }
+      }
+    },
+    "Start Using Starseed" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed verwenden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Empezar a usar Starseed"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Commencer à utiliser Starseed"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Começar a usar o Starseed"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开始使用 Starseed"
           }
         }
       }
@@ -27863,6 +30745,41 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "存储空间"
+          }
+        }
+      }
+    },
+    "Summer" : {
+      "comment" : "Stardew season",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sommer"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verano"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Été"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verão"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "夏季"
           }
         }
       }
@@ -28152,6 +31069,40 @@
         }
       }
     },
+    "That isn't Stardew Valley. Choose “Stardew Valley.app”, or the folder that holds it." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das ist nicht Stardew Valley. Wähle „Stardew Valley.app“ oder den Ordner, in dem sie liegt."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eso no es Stardew Valley. Elige «Stardew Valley.app» o la carpeta que la contiene."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce n’est pas Stardew Valley. Choisissez « Stardew Valley.app », ou le dossier qui la contient."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Isso não é o Stardew Valley. Escolha “Stardew Valley.app” ou a pasta em que ele está."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这不是星露谷物语。请选择“Stardew Valley.app”或包含它的文件夹。"
+          }
+        }
+      }
+    },
     "The bar at the bottom of the window shows Stardew Valley's and SMAPI's versions, each with a colored dot: **green** when up to date, **yellow** when an update is waiting, **red** when missing. Point at a dot to see why." : {
       "localizations" : {
         "de" : {
@@ -28284,6 +31235,74 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "详细信息面板"
+          }
+        }
+      }
+    },
+    "The first time you open Starseed, the setup assistant gets your game ready in a minute. You can run it again at any time from **Help → Setup Assistant…**" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wenn du Starseed zum ersten Mal öffnest, macht der Einrichtungsassistent dein Spiel in einer Minute bereit. Du kannst ihn jederzeit über **Hilfe → Einrichtungsassistent …** erneut starten."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La primera vez que abres Starseed, el asistente de configuración prepara tu juego en un minuto. Puedes volver a abrirlo cuando quieras desde **Ayuda → Asistente de configuración…**"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La première fois que vous ouvrez Starseed, l’assistant de configuration prépare votre jeu en une minute. Vous pouvez le relancer à tout moment depuis **Aide → Assistant de configuration…**"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Na primeira vez que você abre o Starseed, o assistente de configuração prepara seu jogo em um minuto. Você pode abri-lo de novo quando quiser em **Ajuda → Assistente de configuração…**"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "第一次打开 Starseed 时，设置助手会在一分钟内为你的游戏做好准备。你可以随时从**帮助 → 设置助手…**再次运行它。"
+          }
+        }
+      }
+    },
+    "The folder will be created." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Ordner wird erstellt."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se creará la carpeta."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le dossier sera créé."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A pasta será criada."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将创建该文件夹。"
           }
         }
       }
@@ -28953,6 +31972,40 @@
         }
       }
     },
+    "The setup assistant" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Einrichtungsassistent"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El asistente de configuración"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’assistant de configuration"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O assistente de configuração"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置助手"
+          }
+        }
+      }
+    },
     "The SMAPI log after the problem happens is the best clue; sharing it on smapi.io lets others help." : {
       "localizations" : {
         "de" : {
@@ -29153,6 +32206,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "这些 ID 来自模组自身的文件，但在其 Nexus 页面上找不到对应项。它们通常已由上方的前置以其他名称涵盖；如果 SMAPI 日志仍提示缺少，请搜索它们。"
+          }
+        }
+      }
+    },
+    "These keep your farms safe and your mods current. The defaults suit most players." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sie schützen deine Höfe und halten deine Mods aktuell. Die Standardwerte passen für die meisten Spieler."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Protegen tus granjas y mantienen tus mods al día. Los valores predeterminados sirven a la mayoría de los jugadores."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ils protègent vos fermes et gardent vos mods à jour. Les réglages par défaut conviennent à la plupart des joueurs."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elas protegem suas fazendas e mantêm seus mods atualizados. Os padrões servem para a maioria dos jogadores."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "它们可以保护你的农场并让模组保持最新。默认设置适合大多数玩家。"
           }
         }
       }
@@ -29633,7 +32720,42 @@
         }
       }
     },
+    "Tick a mod's box to turn it on or off; nothing is deleted. Changes are saved to the profile in use (menu at the right of the filter bar). Drop downloaded .zip files on the window to install them." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Setze oder entferne das Häkchen eines Mods, um ihn ein- oder auszuschalten; nichts wird gelöscht. Änderungen werden im aktiven Profil gespeichert (Menü rechts in der Filterleiste). Ziehe heruntergeladene .zip-Dateien auf das Fenster, um sie zu installieren."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Marca o desmarca la casilla de un mod para activarlo o desactivarlo; no se borra nada. Los cambios se guardan en el perfil en uso (menú a la derecha de la barra de filtro). Arrastra archivos .zip descargados a la ventana para instalarlos."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cochez la case d’un mod pour l’activer ou le désactiver ; rien n’est supprimé. Les changements sont enregistrés dans le profil utilisé (menu à droite de la barre de filtre). Déposez des fichiers .zip téléchargés sur la fenêtre pour les installer."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Marque ou desmarque a caixa de um mod para ativá-lo ou desativá-lo; nada é apagado. As mudanças são salvas no perfil em uso (menu à direita da barra de filtro). Arraste arquivos .zip baixados para a janela para instalá-los."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "勾选或取消勾选模组的复选框即可开启或关闭它；不会删除任何东西。更改会保存到使用中的配置方案（筛选栏右侧的菜单）。把下载的 .zip 文件拖到窗口上即可安装。"
+          }
+        }
+      }
+    },
     "To download from Nexus Mods inside the app, paste your personal API key in **Settings → Nexus Mods** (**Open the Nexus API Keys page…** takes you there). The key is kept in your Keychain." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -30862,6 +33984,40 @@
         }
       }
     },
+    "Use a Different Folder…" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anderen Ordner verwenden …"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usar otra carpeta…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utiliser un autre dossier…"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usar outra pasta…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用其他文件夹…"
+          }
+        }
+      }
+    },
     "Use as Profile" : {
       "localizations" : {
         "de" : {
@@ -30961,6 +34117,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "使用配置方案"
+          }
+        }
+      }
+    },
+    "Use the game found on this Mac and skip the page tips" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das auf diesem Mac gefundene Spiel verwenden und die Seitentipps überspringen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usar el juego encontrado en este Mac y omitir los consejos de página"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utiliser le jeu trouvé sur ce Mac et passer les astuces des pages"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usar o jogo encontrado neste Mac e pular as dicas das páginas"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用在这台 Mac 上找到的游戏，并跳过页面提示"
           }
         }
       }
@@ -31512,6 +34702,40 @@
         }
       }
     },
+    "Welcome to Starseed" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Willkommen bei Starseed"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Te damos la bienvenida a Starseed"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bienvenue dans Starseed"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Boas-vindas ao Starseed"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "欢迎使用 Starseed"
+          }
+        }
+      }
+    },
     "What SMAPI is telling you" : {
       "localizations" : {
         "de" : {
@@ -31576,6 +34800,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "SMAPI 的提示（%lld）"
+          }
+        }
+      }
+    },
+    "What SMAPI wrote while the game ran, with problems explained in plain words. After you play, Starseed tells you if a mod failed." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Was SMAPI während des Spiels geschrieben hat, mit Problemen in einfachen Worten erklärt. Nach dem Spielen sagt dir Starseed, wenn ein Mod fehlgeschlagen ist."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lo que SMAPI escribió mientras se ejecutaba el juego, con los problemas explicados en palabras sencillas. Después de jugar, Starseed te avisa si un mod falló."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce que SMAPI a écrit pendant la partie, avec les problèmes expliqués simplement. Après une partie, Starseed vous dit si un mod a échoué."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O que o SMAPI escreveu enquanto o jogo rodava, com os problemas explicados em palavras simples. Depois que você joga, o Starseed avisa se um mod falhou."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "游戏运行时 SMAPI 写下的内容，问题都用浅显的语言解释。游戏结束后，如果有模组失败，Starseed 会告诉你。"
           }
         }
       }
@@ -32023,6 +35281,41 @@
         }
       }
     },
+    "Winter" : {
+      "comment" : "Stardew season",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Winter"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invierno"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hiver"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inverno"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "冬季"
+          }
+        }
+      }
+    },
     "With the icon on, closing the window keeps Starseed running, so it keeps checking for updates. Its menu shows the game's and SMAPI's state, the number of updates, the last session's problems, and lets you play or switch profiles without opening the window." : {
       "localizations" : {
         "de" : {
@@ -32155,6 +35448,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "你可以在访达中从废纸篓恢复它。"
+          }
+        }
+      }
+    },
+    "You can skip this and install SMAPI later from the status bar at the bottom of the window." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du kannst diesen Schritt überspringen und SMAPI später über die Statusleiste unten im Fenster installieren."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puedes omitir este paso e instalar SMAPI más tarde desde la barra de estado, en la parte inferior de la ventana."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous pouvez passer cette étape et installer SMAPI plus tard depuis la barre d’état en bas de la fenêtre."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Você pode pular esta etapa e instalar o SMAPI depois pela barra de status, na parte de baixo da janela."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你可以跳过这一步，稍后从窗口底部的状态栏安装 SMAPI。"
           }
         }
       }
@@ -32363,6 +35690,74 @@
         }
       }
     },
+    "You're All Set" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alles bereit"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todo listo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tout est prêt"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tudo pronto"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一切就绪"
+          }
+        }
+      }
+    },
+    "You're ready for mods. Launch the game as usual; Starseed's Play button does it for you." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du bist bereit für Mods. Starte das Spiel wie gewohnt; der Spielen-Knopf von Starseed erledigt das für dich."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estás listo para los mods. Inicia el juego como siempre; el botón Jugar de Starseed lo hace por ti."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous êtes prêt pour les mods. Lancez le jeu comme d’habitude ; le bouton Jouer de Starseed le fait pour vous."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Você está pronto para os mods. Abra o jogo como sempre; o botão Jogar do Starseed faz isso por você."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你已经可以使用模组了。像平常一样启动游戏即可；Starseed 的“开始游戏”按钮会帮你完成。"
+          }
+        }
+      }
+    },
     "Your **Mods folder**, and the SMAPI and game versions found next to it." : {
       "localizations" : {
         "de" : {
@@ -32471,6 +35866,108 @@
         }
       }
     },
+    "Your farms, grouped by the profile they're played with. See which mods a save needs, back saves up and restore them. Play switches to the save's profile first." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deine Höfe, nach dem Profil gruppiert, mit dem sie gespielt werden. Sieh nach, welche Mods ein Spielstand braucht, sichere Spielstände und stelle sie wieder her. „Spielen“ wechselt zuerst zum Profil des Spielstands."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tus granjas, agrupadas por el perfil con el que se juegan. Mira qué mods necesita una partida, haz copias y restáuralas. Jugar cambia primero al perfil de la partida."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vos fermes, classées par profil de jeu. Voyez de quels mods une sauvegarde a besoin, copiez et restaurez vos sauvegardes. Jouer passe d’abord au profil de la sauvegarde."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suas fazendas, agrupadas pelo perfil com que são jogadas. Veja de quais mods um save precisa, faça backup dos saves e restaure-os. Jogar troca antes para o perfil do save."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的农场，按游玩时使用的配置方案分组。查看存档需要哪些模组，备份和恢复存档。开始游戏会先切换到该存档的配置方案。"
+          }
+        }
+      }
+    },
+    "Your Game" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dein Spiel"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu juego"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Votre jeu"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seu jogo"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的游戏"
+          }
+        }
+      }
+    },
+    "Your Mods" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deine Mods"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tus mods"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vos mods"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seus mods"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的模组"
+          }
+        }
+      }
+    },
     "Your mods can't be put back while the game is running." : {
       "localizations" : {
         "de" : {
@@ -32539,6 +36036,40 @@
         }
       }
     },
+    "Your Mods folder isn't inside a game Starseed found, so it can't install SMAPI for you." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dein Mods-Ordner liegt nicht in einem Spiel, das Starseed gefunden hat, daher kann es SMAPI nicht für dich installieren."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu carpeta Mods no está dentro de un juego que Starseed haya encontrado, así que no puede instalar SMAPI por ti."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Votre dossier Mods n’est pas dans un jeu trouvé par Starseed : il ne peut donc pas installer SMAPI pour vous."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sua pasta Mods não está dentro de um jogo que o Starseed encontrou, então ele não pode instalar o SMAPI para você."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的 Mods 文件夹不在 Starseed 找到的游戏中，因此无法为你安装 SMAPI。"
+          }
+        }
+      }
+    },
     "Your personal API key, your account (free or Premium), and **Use This App**, which makes Starseed catch **Mod Manager Download** links clicked in Safari or Chrome." : {
       "localizations" : {
         "de" : {
@@ -32603,6 +36134,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "进度会保留；已安装列表中有返回此处的按钮"
+          }
+        }
+      }
+    },
+    "Zips your saves first, so a mod update can't ruin a farm. The last 5 are kept." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zippt deine Spielstände vorher, damit ein Mod-Update keinen Hof ruinieren kann. Die letzten 5 werden behalten."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comprime tus partidas antes, para que una actualización de un mod no pueda arruinar una granja. Se conservan las 5 últimas."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copie vos sauvegardes avant, pour qu’une mise à jour de mod ne puisse pas abîmer une ferme. Les 5 dernières copies sont conservées."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Compacta seus saves antes, para que uma atualização de mod não estrague uma fazenda. Os 5 últimos são mantidos."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先把存档打包备份，避免模组更新毁掉农场。保留最近 5 份。"
           }
         }
       }

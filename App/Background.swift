@@ -16,6 +16,9 @@ enum Preferences {
     static let profileCollections = "profileCollections"    // profile name -> Nexus collection it came from
     static let showProfileModsOnly = "showProfileModsOnly"  // Installed list: hide mods outside the profile
     static let lastPlayedModSet = "lastPlayedModSet"        // fingerprint of enabled mods at last Play
+    static let setupCompleted = "setupCompleted"            // the setup assistant was finished or skipped
+    static let showPageTips = "showPageTips"                // default on: a tip at the top of each page
+    static let seenPageTips = "seenPageTips"                // [page] whose tip was dismissed
 
     static func bool(_ key: String, default value: Bool) -> Bool {
         UserDefaults.standard.object(forKey: key) as? Bool ?? value

@@ -60,12 +60,12 @@ extension AppModel {
 
     /// Installs or updates SMAPI with its official installer (no Terminal
     /// window), then rescans: the installer adds SMAPI's bundled mods.
-    func installSMAPI() {
-        guard smapiInstallPhase == nil, let manager else { return }
+    /// `folder` is the game folder when there's no Mods folder yet (setup assistant).
+    func installSMAPI(into folder: URL? = nil) {
+        guard smapiInstallPhase == nil, let gameFolder = folder ?? smapi?.gameFolder ?? manager?.modsURL.deletingLastPathComponent() else { return }
         guard !isGameRunning else {
             return show("Quit Stardew Valley First", "SMAPI can't be installed while the game is running.")
         }
-        let gameFolder = smapi?.gameFolder ?? manager.modsURL.deletingLastPathComponent()
         guard SMAPIInstaller.isGameFolder(gameFolder) else {
             // A Mods folder outside the game: fall back to the manual installer.
             show("Game Folder Not Found", "SMAPI goes next to the game, but your Mods folder isn't inside it. Opening SMAPI's download page instead.")
@@ -81,6 +81,7 @@ extension AppModel {
                 }
                 detectSMAPI()
                 refresh()
+                smapiInstallCount += 1
                 latestSMAPIVersion = max(latestSMAPIVersion ?? release.version, release.version)
                 showStatusResult(String(localized: "SMAPI \(release.version.description) is installed. Launch the game as usual to play with mods."))
             } catch {

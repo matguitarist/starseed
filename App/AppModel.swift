@@ -109,6 +109,8 @@ final class AppModel {
     var gameStore: GameStore?
     /// Set while SMAPI is being downloaded or installed.
     var smapiInstallPhase: SMAPIInstaller.Phase?
+    /// Bumped after each SMAPI install, for views that re-read it from disk.
+    var smapiInstallCount = 0
     var lastUpdateCheck: Date?
     var updateCheckError: String?
 
@@ -158,6 +160,8 @@ final class AppModel {
     var searchText = ""
     var selection: Set<ModInfo.ID> = []
     var needsFolderSetup = false
+    /// The first-run setup assistant (SetupAssistant.swift).
+    var showSetupAssistant = false
     var message: UserMessage?
     var conflictPrompt: ConflictPrompt?
     var pendingTrash: [ModInfo] = []
@@ -257,10 +261,20 @@ final class AppModel {
         profiles = configStore.loadProfiles()
         saveLinks = configStore.loadSaveLinks()
         migrateModListsToProfiles()  // the old My Collections become profiles
-        if let saved = configStore.modsURL(), FileManager.default.fileExists(atPath: saved.path(percentEncoded: false)) {
+        let saved = configStore.modsURL()
+        if let saved, FileManager.default.fileExists(atPath: saved.path(percentEncoded: false)) {
             use(modsFolder: saved, remember: false)
         } else {
             needsFolderSetup = true
+        }
+        if !UserDefaults.standard.bool(forKey: Preferences.setupCompleted) {
+            if saved != nil {
+                // Set up before the assistant existed: they know the app.
+                UserDefaults.standard.set(true, forKey: Preferences.setupCompleted)
+                UserDefaults.standard.set(false, forKey: Preferences.showPageTips)
+            } else {
+                showSetupAssistant = true
+            }
         }
         Task { await loadLogConflicts() }
         nexusAccount = .checking
@@ -543,13 +557,24 @@ final class AppModel {
     }
 
     /// On macOS, SMAPI's installer replaces the game's own launcher, so a
-    /// normal Steam launch already runs through SMAPI.
-    /// Starts the game through Steam, first backing up the saves when the
-    /// mods changed since the last Play (see `backUpSavesIfModsChanged`).
+    /// normal launch already runs through SMAPI.
+    /// Starts the game (through Steam for the Steam copy), first backing up
+    /// the saves when the mods changed since the last Play (see
+    /// `backUpSavesIfModsChanged`).
+    /// GOG and App Store copies are opened directly: SMAPI's installer
+    /// replaced their launcher too.
     func launchGame() {
         Task {
             guard await backUpSavesIfModsChanged() else { return }
-            if let url = URL(string: "steam://rungameid/\(AppConstants.steamAppID)") {
+            if gameStore != .steam, let folder = gameFolder {
+                // .../Stardew Valley.app/Contents/MacOS -> the app
+                let app = folder.deletingLastPathComponent().deletingLastPathComponent()
+                do {
+                    _ = try await NSWorkspace.shared.openApplication(at: app, configuration: NSWorkspace.OpenConfiguration())
+                } catch {
+                    show("Couldn't Start the Game", detail: error.localizedDescription)
+                }
+            } else if let url = URL(string: "steam://rungameid/\(AppConstants.steamAppID)") {
                 NSWorkspace.shared.open(url)
             }
         }

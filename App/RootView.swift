@@ -23,6 +23,9 @@ struct RootView: View {
             // Below the page rather than a safe-area inset: tables scroll
             // under an inset, which would hide their last row.
             VStack(spacing: 0) {
+                if !model.needsFolderSetup {
+                    PageTip(page: model.sidebarSelection ?? .installed)
+                }
                 detail.frame(maxHeight: .infinity)
                 ActivityStatusBar()
             }
@@ -31,6 +34,9 @@ struct RootView: View {
         .sheet(item: $model.nexusSheet) { request in
             NexusModSheet(request: request)
                 .opensWebLinksInApp()
+        }
+        .sheet(isPresented: $model.showSetupAssistant) {
+            SetupAssistant()
         }
         .sheet(isPresented: $model.showBisect) {
             BisectView()
