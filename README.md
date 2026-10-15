@@ -87,8 +87,8 @@ kept so an update can be rolled back.
 **Organizing**
 - Turn mods on and off (⌘Z undoes it), with multi-part mods kept together.
 - Profiles for different ways of playing, and a set of mods for each farm.
-- My Collections: save your mod list with versions and settings, export it,
-  and import it on another Mac or share it with a friend.
+- Export a profile (mods, versions and settings) and import it on another Mac
+  or share it with a friend; missing mods download into it.
 - Edit a mod's settings in a simple form.
 - Spots mods installed twice, missing requirements, and requirements nothing
   uses anymore after you remove a mod.

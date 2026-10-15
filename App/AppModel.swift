@@ -193,7 +193,6 @@ final class AppModel {
 
     // My Collections (AppModel+Profiles).
     let modListStore = ModListStore()
-    var modLists: [ModList] = []
 
     // Derived from `mods` (and update data), stored rather than computed:
     // views read these many times per redraw. See `recomputeDerived()`.
@@ -255,7 +254,7 @@ final class AppModel {
         loadBisection()
         profiles = configStore.loadProfiles()
         saveLinks = configStore.loadSaveLinks()
-        loadModLists()
+        migrateModListsToProfiles()  // the old My Collections become profiles
         if let saved = configStore.modsURL(), FileManager.default.fileExists(atPath: saved.path(percentEncoded: false)) {
             use(modsFolder: saved, remember: false)
         } else {

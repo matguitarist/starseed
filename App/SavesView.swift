@@ -637,16 +637,9 @@ private struct SaveModSetPicker: View {
                     }
                 }
             }
-            if !model.modLists.isEmpty {
-                Section("My Collections") {
-                    ForEach(model.modLists) { list in
-                        Button(list.name) { model.link(saveID: save.id, to: SaveModSet(kind: .collection, name: list.name)) }
-                    }
-                }
-            }
         } label: {
             if let current {
-                Label(current.name, systemImage: current.kind == .profile ? "person.2" : "list.bullet.rectangle")
+                Label(current.name, systemImage: "person.2")
                     .foregroundStyle(model.exists(current) ? Color.primary : Color.red)
             } else {
                 Label("Mods: any", systemImage: "square.stack.3d.up")

@@ -35,7 +35,6 @@
 		B1D6FB869B6F2E2986B87F9D /* PlayReports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341555E4992218C6A0DFB554 /* PlayReports.swift */; };
 		B38314289E9A310C62D0F339 /* NexusModSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2521CC450C378D7A7830C95E /* NexusModSheet.swift */; };
 		B47AEB3DBA2418F1EFA9B8F9 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0D50F734FDCE7EC1A89653 /* Localized.swift */; };
-		B7BC09C6E4CDE420460E976A /* MyCollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD0D9CCAE1F0AEA843B0611 /* MyCollectionsView.swift */; };
 		C5881F7B25C85A5AC3105737 /* AppModelEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D257F10B4C9483D2A26D32 /* AppModelEnvironment.swift */; };
 		CB12AA661CCD6EB0118DDF64 /* AppModel+Saves.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30552591D88F603A6043CFE /* AppModel+Saves.swift */; };
 		CBFA0F99DCC419C8F691217E /* AppModel+Nexus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3751918581379943B9AB023D /* AppModel+Nexus.swift */; };
@@ -89,7 +88,6 @@
 		9603579CCCD6BA0E539392AF /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		98B379ABC7330965D2DBC833 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		AA3A369DA706FAB88E595F89 /* BrowseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
-		AFD0D9CCAE1F0AEA843B0611 /* MyCollectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionsView.swift; sourceTree = "<group>"; };
 		B30552591D88F603A6043CFE /* AppModel+Saves.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModel+Saves.swift"; sourceTree = "<group>"; };
 		B5FF9E3E65BEAE57ACD20611 /* RequirementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementsView.swift; sourceTree = "<group>"; };
 		B795C47ECDFF10A726ECFDA0 /* BisectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BisectView.swift; sourceTree = "<group>"; };
@@ -165,7 +163,6 @@
 				FB0D50F734FDCE7EC1A89653 /* Localized.swift */,
 				879299EC8FC1BC543B82D3E2 /* LogViewerView.swift */,
 				700FCC9D677E0197700F1C10 /* ModDetailView.swift */,
-				AFD0D9CCAE1F0AEA843B0611 /* MyCollectionsView.swift */,
 				2521CC450C378D7A7830C95E /* NexusModSheet.swift */,
 				341555E4992218C6A0DFB554 /* PlayReports.swift */,
 				71A5C63340551AD5F955C117 /* ProfilesView.swift */,
@@ -301,7 +298,6 @@
 				B47AEB3DBA2418F1EFA9B8F9 /* Localized.swift in Sources */,
 				A6523D07ADA48F91AE9DA70A /* LogViewerView.swift in Sources */,
 				0F75249C1D10234D3DEA361F /* ModDetailView.swift in Sources */,
-				B7BC09C6E4CDE420460E976A /* MyCollectionsView.swift in Sources */,
 				B38314289E9A310C62D0F339 /* NexusModSheet.swift in Sources */,
 				B1D6FB869B6F2E2986B87F9D /* PlayReports.swift in Sources */,
 				353A05FA3748E05DD877DF29 /* ProfilesView.swift in Sources */,

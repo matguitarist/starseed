@@ -55,7 +55,7 @@ private struct ViewMenuItems: View {
 
     private static let pages: [(item: SidebarItem, title: LocalizedStringKey)] = [
         (.installed, "Installed"), (.updates, "Updates"), (.requirements, "Requirements"),
-        (.myCollections, "My Collections"), (.browse, "Browse Nexus"), (.collections, "Collections"),
+        (.browse, "Browse Nexus"), (.collections, "Collections"),
         (.saves, "Saves"), (.log, "SMAPI Log"),
     ]
 

@@ -2,7 +2,7 @@ import ModManagerCore
 import SwiftUI
 
 enum SidebarItem: Hashable {
-    case installed, updates, requirements, myCollections, browse, collections, saves, log
+    case installed, updates, requirements, browse, collections, saves, log
 }
 
 /// Window content: sidebar + the selected section, plus the app-wide drop
@@ -127,7 +127,6 @@ struct RootView: View {
             case .installed: InstalledView()
             case .updates: UpdatesView()
             case .requirements: RequirementsView()
-            case .myCollections: MyCollectionsView()
             case .browse: BrowseView()
             case .collections: CollectionsView()
             case .saves: SavesView()
@@ -158,9 +157,6 @@ private struct Sidebar: View {
                 Label("Requirements", systemImage: "puzzlepiece.extension")
                     .badge(model.missingDependencies.count)
                     .tag(SidebarItem.requirements)
-                Label("My Collections", systemImage: "list.bullet.rectangle")
-                    .badge(model.modLists.count)
-                    .tag(SidebarItem.myCollections)
             }
             Section("Get Mods") {
                 Label("Browse Nexus", systemImage: "globe")

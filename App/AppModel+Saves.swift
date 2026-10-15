@@ -47,7 +47,7 @@ extension AppModel {
     func exists(_ modSet: SaveModSet) -> Bool {
         switch modSet.kind {
         case .profile: profiles[modSet.name] != nil
-        case .collection: modLists.contains { $0.name == modSet.name }
+        case .collection: false  // My Collections lists became profiles
         }
     }
 
@@ -63,8 +63,9 @@ extension AppModel {
                 guard profiles[modSet.name] != nil else { return show("Profile Not Found", "“\(modSet.name)” no longer exists. Pick another one for this save.") }
                 switchProfile(to: modSet.name)
             case .collection:
-                guard let list = modLists.first(where: { $0.name == modSet.name }) else { return show("Collection Not Found", "“\(modSet.name)” no longer exists. Pick another one for this save.") }
-                apply(list)
+                // Lists from My Collections became profiles of the same name.
+                guard profiles[modSet.name] != nil else { return show("Profile Not Found", "“\(modSet.name)” no longer exists. Pick another one for this save.") }
+                switchProfile(to: modSet.name)
             }
         }
         launchGame()

@@ -56,7 +56,8 @@ struct ProfilesView: View {
                             .padding(.vertical, 2)
                             .background(.green.opacity(0.2), in: Capsule())
                     }
-                    Text("\(model.profiles[name]?.count ?? 0) mods")
+                    let count = model.profiles[name]?.count ?? 0
+                    Text(count == 1 ? String(localized: "1 mod") : String(localized: "\(count) mods"))
                         .foregroundStyle(.secondary)
                         .monospacedDigit()
                 }
@@ -73,6 +74,14 @@ struct ProfilesView: View {
                 .disabled(selected == nil)
                 Button("Delete…", role: .destructive) { confirmDelete = true }
                     .disabled(selected == nil)
+                Button("Export…") { if let selected { model.exportProfile(named: selected) } }
+                    .disabled(selected == nil)
+                    .help("Save this profile to a file (mods, versions, settings) to share it or use it on another Mac")
+                Button("Import…") {
+                    model.importProfile()
+                    selected = model.activeProfile
+                }
+                .help("Add a profile from a file exported from Starseed; missing mods download into it")
                 Spacer()
                 Button("Switch To") { if let selected { switchTo(selected) } }
                     .disabled(selected == nil || selected == model.activeProfile)

@@ -243,6 +243,7 @@
       }
     },
     "(imported)" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -412,7 +413,42 @@
         }
       }
     },
+    "**Export…** in the Profiles window saves a profile to a file: its mods, their versions and Nexus numbers, and their settings. **Import…** on another Mac, or a friend's, creates the profile, downloads the missing mods into it and applies the settings (the previous ones are kept as config.json.bak)." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Exportieren …** im Profilfenster speichert ein Profil in eine Datei: seine Mods, ihre Versionen und Nexus-Nummern sowie ihre Einstellungen. **Importieren …** auf einem anderen Mac oder bei Freunden erstellt das Profil, lädt die fehlenden Mods hinein und übernimmt die Einstellungen (die vorherigen bleiben als config.json.bak erhalten)."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Exportar…** en la ventana Perfiles guarda un perfil en un archivo: sus mods, sus versiones y números de Nexus, y sus ajustes. **Importar…** en otro Mac, o en el de un amigo, crea el perfil, descarga en él los mods que faltan y aplica los ajustes (los anteriores se guardan como config.json.bak)."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Exporter…** dans la fenêtre Profils enregistre un profil dans un fichier : ses mods, leurs versions et numéros Nexus, et leurs réglages. **Importer…** sur un autre Mac, ou celui d’un ami, crée le profil, y télécharge les mods manquants et applique les réglages (les précédents sont conservés dans config.json.bak)."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Exportar…** na janela Perfis salva um perfil em um arquivo: os mods, as versões e números do Nexus, e os ajustes deles. **Importar…** em outro Mac, ou no de um amigo, cria o perfil, baixa nele os mods faltando e aplica os ajustes (os anteriores ficam em config.json.bak)."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在“配置方案”窗口中点击**导出…**可将配置方案保存为文件：包括其模组、版本、Nexus 编号和设置。在另一台 Mac（或朋友的 Mac）上点击**导入…**会创建该配置方案，下载缺少的模组并应用设置（之前的设置保存在 config.json.bak 中）。"
+          }
+        }
+      }
+    },
     "**In “…”** at the right of the filter bar shows only the mods in the profile in use; **All Mods** shows everything installed." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1725,6 +1761,7 @@
       }
     },
     "%lld disabled" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -2481,6 +2518,7 @@
       }
     },
     "%lld older here" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -2789,6 +2827,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "缺少 1 个前置…"
+          }
+        }
+      }
+    },
+    "1 mod" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 Mod"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 mod"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 mod"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 mod"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 个模组"
           }
         }
       }
@@ -3135,6 +3207,7 @@
       }
     },
     "A collection is a list of your mods with their versions, Nexus pages and settings. **Export…** it to share your setup, or keep it as a backup; **Import…** reads one back and offers to install whatever's missing. **Apply Settings…** then copies the collection's mod settings over yours." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -3715,6 +3788,40 @@
         }
       }
     },
+    "Add a profile from a file exported from Starseed; missing mods download into it" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein Profil aus einer von Starseed exportierten Datei hinzufügen; fehlende Mods werden hineingeladen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añadir un perfil desde un archivo exportado por Starseed; los mods que faltan se descargan en él"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajouter un profil depuis un fichier exporté par Starseed ; les mods manquants y sont téléchargés"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adicionar um perfil de um arquivo exportado pelo Starseed; os mods faltando são baixados nele"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从 Starseed 导出的文件添加配置方案；缺少的模组会下载到其中"
+          }
+        }
+      }
+    },
     "Add your Nexus API key in Settings first" : {
       "localizations" : {
         "de" : {
@@ -3955,6 +4062,7 @@
       }
     },
     "All Installed" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -4499,6 +4607,7 @@
       }
     },
     "Applied the collection's settings to %lld mod(s). The previous ones are kept as config.json.bak." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -4528,6 +4637,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "已将合集的设置应用到 %lld 个模组。之前的设置保存在 config.json.bak 中。"
+          }
+        }
+      }
+    },
+    "Applied the profile's settings to %lld mod(s). The previous ones are kept as config.json.bak." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen des Profils auf %lld Mod(s) angewendet. Die vorherigen bleiben als config.json.bak erhalten."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajustes del perfil aplicados a %lld mod(s). Los anteriores se guardan como config.json.bak."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réglages du profil appliqués à %lld mod(s). Les précédents sont conservés dans config.json.bak."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajustes do perfil aplicados a %lld mod(s). Os anteriores ficam em config.json.bak."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已将配置方案的设置应用到 %lld 个模组。之前的设置保存在 config.json.bak 中。"
           }
         }
       }
@@ -4602,6 +4745,7 @@
       }
     },
     "Apply Settings" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -4636,6 +4780,7 @@
       }
     },
     "Apply Settings…" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -6175,6 +6320,7 @@
       }
     },
     "Choose a mod list exported from Starseed" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -6204,6 +6350,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "选择从 Starseed 导出的模组列表"
+          }
+        }
+      }
+    },
+    "Choose a profile exported from Starseed" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wähle ein aus Starseed exportiertes Profil"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elige un perfil exportado desde Starseed"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisissez un profil exporté depuis Starseed"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escolha um perfil exportado do Starseed"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择从 Starseed 导出的配置方案"
           }
         }
       }
@@ -6759,6 +6939,7 @@
       }
     },
     "collection “%@”" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -6793,6 +6974,7 @@
       }
     },
     "Collection Not Found" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -7813,6 +7995,7 @@
       }
     },
     "Couldn't Save Collection" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -8698,6 +8881,7 @@
       }
     },
     "disabled in collection" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -9072,6 +9256,7 @@
       }
     },
     "Download missing and older mods from Nexus" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -9855,6 +10040,7 @@
       }
     },
     "Enable exactly the mods this collection had enabled, and disable the rest" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -9923,6 +10109,7 @@
       }
     },
     "Enable These Mods" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -10298,6 +10485,7 @@
       }
     },
     "Export “%@” to share it or use it on another computer" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -10327,6 +10515,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "导出“%@”以分享或在另一台电脑上使用"
+          }
+        }
+      }
+    },
+    "Export “%@” to share it or use it on another Mac" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "„%@“ exportieren, um es zu teilen oder auf einem anderen Mac zu nutzen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exporta «%@» para compartirlo o usarlo en otro Mac"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exporter « %@ » pour le partager ou l’utiliser sur un autre Mac"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exportar “%@” para compartilhar ou usar em outro Mac"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出“%@”以分享或在另一台 Mac 上使用"
           }
         }
       }
@@ -10395,6 +10617,46 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "导出…"
+          }
+        }
+      }
+    },
+    "Exported “%@” (%lld mods)." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "„%1$@“ exportiert (%2$lld Mods)."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Exported “%1$@” (%2$lld mods)."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«%1$@» exportado (%2$lld mods)."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "« %1$@ » exporté (%2$lld mods)."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“%1$@” exportado (%2$lld mods)."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已导出“%1$@”（%2$lld 个模组）。"
           }
         }
       }
@@ -12034,6 +12296,7 @@
       }
     },
     "Import" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -12068,6 +12331,7 @@
       }
     },
     "Import a collection file (.json)" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -12169,6 +12433,40 @@
         }
       }
     },
+    "Imported profile “%@”. Missing mods download into it." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil „%@“ importiert. Fehlende Mods werden hineingeladen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfil «%@» importado. Los mods que faltan se descargan en él."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil « %@ » importé. Les mods manquants y sont téléchargés."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfil “%@” importado. Os mods faltando são baixados nele."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已导入配置方案“%@”。缺少的模组会下载到其中。"
+          }
+        }
+      }
+    },
     "In “%@”" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -12204,7 +12502,42 @@
         }
       }
     },
+    "In **Saves**, choose which profile a save is played with. **Use Mods & Play** switches to those mods before launching, so each farm always gets its own set." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wähle in **Spielstände**, mit welchem Profil ein Spielstand gespielt wird. **Mods nutzen & spielen** wechselt vor dem Start zu diesen Mods, so hat jeder Hof immer seine eigenen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En **Partidas**, elige con qué perfil se juega una partida. **Usar sus mods y jugar** cambia a esos mods antes de iniciar, así cada granja tiene siempre los suyos."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dans **Sauvegardes**, choisissez le profil avec lequel une sauvegarde se joue. **Activer ses mods et jouer** bascule sur ces mods avant le lancement : chaque ferme a toujours les siens."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Em **Saves**, escolha com qual perfil um save é jogado. **Usar os mods e jogar** troca para esses mods antes de abrir o jogo, então cada fazenda sempre tem os seus."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在**存档**中，选择某个存档使用的配置方案。**使用模组并开始游戏**会在启动前切换到这些模组，让每个农场都使用自己的模组。"
+          }
+        }
+      }
+    },
     "In **Saves**, choose which profile or collection a save is played with. **Use Mods & Play** switches to those mods before launching, so each farm always gets its own set." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -13192,6 +13525,7 @@
       }
     },
     "Installed, disabled" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -14897,7 +15231,42 @@
         }
       }
     },
+    "Make one for each way you play (a big expansion run, a vanilla-plus game…): **Manage Profiles…** in the profile menu creates, renames and deletes them, starting from the mods on now or from no mods. Choosing another profile switches which mods are on; switching back brings yours back exactly as they were." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erstelle eines für jede Spielweise (eine große Erweiterungsrunde, ein fast unverändertes Spiel …): **Profile verwalten …** im Profilmenü erstellt sie – aus den eingeschalteten Mods oder ganz ohne Mods –, benennt und löscht sie. Wählst du ein anderes Profil, wechseln die eingeschalteten Mods; zurückwechseln stellt deine genau wie vorher wieder her."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crea uno para cada forma de jugar (una partida con grandes expansiones, una casi vanilla…): **Gestionar perfiles…** en el menú de perfiles los crea, a partir de los mods activados o de ninguno, los renombra y los elimina. Elegir otro perfil cambia qué mods están activados; volver al tuyo lo deja exactamente como estaba."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Créez-en un pour chaque façon de jouer (une grosse partie avec extensions, une partie presque vanilla…) : **Gérer les profils…** dans le menu des profils permet de les créer, à partir des mods activés ou d’aucun mod, de les renommer et de les supprimer. Choisir un autre profil change les mods activés ; revenir au vôtre le retrouve exactement comme avant."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crie um para cada jeito de jogar (uma partida cheia de expansões, uma quase vanilla…): **Gerenciar perfis…** no menu de perfis cria perfis, a partir dos mods ativados ou de nenhum, renomeia e apaga. Escolher outro perfil troca quais mods estão ativados; voltar ao seu deixa tudo exatamente como estava."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "为每种玩法各建一个（大型扩展流程、接近原版的玩法…）：配置方案菜单中的**管理配置方案…**可以创建（从当前开启的模组或不含模组开始）、重命名和删除它们。选择另一个配置方案会切换开启的模组；切换回来会让你的模组完全恢复原样。"
+          }
+        }
+      }
+    },
     "Make one for each way you play (a big expansion run, a vanilla-plus game…): **Manage Profiles…** in the toolbar's profile menu creates, renames and deletes them. Choosing another profile in that menu switches which mods are on; switching back brings yours back exactly as they were." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -16294,6 +16663,7 @@
       }
     },
     "Mods this collection had enabled are turned on and every other mod is turned off. Nothing is deleted." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -16872,6 +17242,7 @@
       }
     },
     "My Collections" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -16906,6 +17277,7 @@
       }
     },
     "My Mods %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -17588,6 +17960,7 @@
       }
     },
     "No collections yet" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -18711,6 +19084,7 @@
       }
     },
     "Only the collection is deleted, not the mods." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -22680,6 +23054,7 @@
       }
     },
     "Save Current Mods" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -22714,6 +23089,7 @@
       }
     },
     "Save Current Mods…" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -22748,6 +23124,7 @@
       }
     },
     "Save the installed mods as a new collection" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -22781,7 +23158,42 @@
         }
       }
     },
+    "Save this profile to a file (mods, versions, settings) to share it or use it on another Mac" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dieses Profil in eine Datei speichern (Mods, Versionen, Einstellungen), um es zu teilen oder auf einem anderen Mac zu nutzen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar este perfil en un archivo (mods, versiones, ajustes) para compartirlo o usarlo en otro Mac"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer ce profil dans un fichier (mods, versions, réglages) pour le partager ou l’utiliser sur un autre Mac"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salvar este perfil em um arquivo (mods, versões, ajustes) para compartilhar ou usar em outro Mac"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将此配置方案保存为文件（模组、版本、设置），以分享或在另一台 Mac 上使用"
+          }
+        }
+      }
+    },
     "Save your installed mods as a list, export it, and import it on another Mac (or share it with a friend) to install the same mods." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -22816,6 +23228,7 @@
       }
     },
     "saved %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -23062,6 +23475,7 @@
       }
     },
     "Saves the %lld installed mods, their versions, Nexus numbers and settings. A collection with the same name is replaced." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -23640,6 +24054,7 @@
       }
     },
     "Settings for %lld mods, %lld different from yours" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -23680,6 +24095,7 @@
       }
     },
     "Settings for %lld mods, same as yours" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -23777,6 +24193,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "共享"
+          }
+        }
+      }
+    },
+    "Sharing a profile" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein Profil teilen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Compartir un perfil"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Partager un profil"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Compartilhar um perfil"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分享配置方案"
           }
         }
       }
@@ -27757,7 +28207,42 @@
         }
       }
     },
+    "The profile menu at the right of the filter bar switches profiles. Next to it, **This Profile** shows only the mods in the profile in use; **All Mods** shows everything installed." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Profilmenü rechts in der Filterleiste wechselt Profile. Daneben zeigt **Dieses Profil** nur die Mods des Profils in Gebrauch; **Alle Mods** zeigt alles Installierte."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El menú de perfiles, a la derecha de la barra de filtro, cambia de perfil. A su lado, **Este perfil** muestra solo los mods del perfil en uso; **Todos los mods** muestra todo lo instalado."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le menu des profils, à droite de la barre de filtre, change de profil. À côté, **Ce profil** n’affiche que les mods du profil utilisé ; **Tous les mods** affiche tout ce qui est installé."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O menu de perfis, à direita da barra de filtro, troca de perfil. Ao lado, **Este perfil** mostra só os mods do perfil em uso; **Todos os mods** mostra tudo o que está instalado."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "过滤栏右侧的配置方案菜单用于切换配置方案。旁边的**此配置方案**只显示使用中配置方案的模组；**所有模组**显示所有已安装的模组。"
+          }
+        }
+      }
+    },
     "The settings of %@ are replaced by the ones saved in “%@”. Each mod's current settings are kept as config.json.bak." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -29467,6 +29952,7 @@
       }
     },
     "Use “%@”?" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -29740,6 +30226,7 @@
       }
     },
     "Use this collection's mod settings?" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -29842,6 +30329,7 @@
       }
     },
     "Use This Set…" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {

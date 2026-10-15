@@ -157,14 +157,14 @@ struct HelpView: View {
         case .profiles:
             HelpSection("Profiles") {
                 HelpText("A profile remembers which mods are on. One is always in use; its name shows in the toolbar, and turning mods on or off updates it. Starseed starts with a **Default** profile.")
-                HelpText("**In “…”** at the right of the filter bar shows only the mods in the profile in use; **All Mods** shows everything installed.")
-                HelpText("Make one for each way you play (a big expansion run, a vanilla-plus game…): **Manage Profiles…** in the toolbar's profile menu creates, renames and deletes them. Choosing another profile in that menu switches which mods are on; switching back brings yours back exactly as they were.")
+                HelpText("The profile menu at the right of the filter bar switches profiles. Next to it, **This Profile** shows only the mods in the profile in use; **All Mods** shows everything installed.")
+                HelpText("Make one for each way you play (a big expansion run, a vanilla-plus game…): **Manage Profiles…** in the profile menu creates, renames and deletes them, starting from the mods on now or from no mods. Choosing another profile switches which mods are on; switching back brings yours back exactly as they were.")
             }
-            HelpSection("My Collections") {
-                HelpText("A collection is a list of your mods with their versions, Nexus pages and settings. **Export…** it to share your setup, or keep it as a backup; **Import…** reads one back and offers to install whatever's missing. **Apply Settings…** then copies the collection's mod settings over yours.")
+            HelpSection("Sharing a profile") {
+                HelpText("**Export…** in the Profiles window saves a profile to a file: its mods, their versions and Nexus numbers, and their settings. **Import…** on another Mac, or a friend's, creates the profile, downloads the missing mods into it and applies the settings (the previous ones are kept as config.json.bak).")
             }
             HelpSection("Mods for each save") {
-                HelpText("In **Saves**, choose which profile or collection a save is played with. **Use Mods & Play** switches to those mods before launching, so each farm always gets its own set.")
+                HelpText("In **Saves**, choose which profile a save is played with. **Use Mods & Play** switches to those mods before launching, so each farm always gets its own set.")
             }
 
         case .saves:
@@ -272,7 +272,7 @@ struct HelpView: View {
                 shortcut("⇧⌘O", "Open the Mods folder")
                 shortcut("⌘L", "Play Stardew Valley")
                 shortcut("⇧⌘L", "Show SMAPI Log")
-                shortcut("⌘1 – ⌘8", "Go to a page of the sidebar")
+                shortcut("⌘1 – ⌘7", "Go to a page of the sidebar")
                 shortcut("⌥⌘I", "Show or hide the details panel")
                 shortcut("⌘,", "Settings")
                 shortcut("⌘?", "This help")

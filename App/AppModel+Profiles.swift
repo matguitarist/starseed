@@ -146,75 +146,94 @@ extension AppModel {
         collectionSheet = CollectionSheetRequest(slug: collection.slug)
     }
 
-    // MARK: My Collections (mod lists)
+    // MARK: Export and import
+    //
+    // A profile travels as a mod list file (.json): its mods with versions,
+    // Nexus numbers and settings. Files from the old My Collections import too.
 
-
-    func loadModLists() {
-        modLists = modListStore.list()
-    }
-
-    /// Saves the installed mods as a named list (replacing one with that name).
-    @discardableResult
-    func saveCurrentMods(as rawName: String) -> ModList? {
-        let name = rawName.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !name.isEmpty else { return nil }
-        let list = ModList.snapshot(
+    func exportProfile(named name: String) {
+        guard let ids = profiles[name] else { return }
+        let wanted = Set(ids.map { $0.lowercased() })
+        let inProfile = mods.filter { wanted.contains($0.uniqueID.lowercased()) }
+        var list = ModList.snapshot(
             name: name,
-            of: mods,
+            of: inProfile,
             nexusID: { self.nexusID(for: $0) },
-            gameVersion: smapi?.gameVersion?.description,
+            gameVersion: gameVersion?.description,
             smapiVersion: smapi?.version?.description
         )
-        return store(list)
-    }
-
-    @discardableResult
-    func store(_ list: ModList) -> ModList? {
-        do {
-            try modListStore.save(list)
-            loadModLists()
-            return list
-        } catch {
-            show("Couldn't Save Collection", detail: error.localizedDescription)
-            return nil
+        // The profile's view of each mod: on, whatever its state right now.
+        list.mods = list.mods.map { entry in var entry = entry; entry.enabled = true; return entry }
+        // Mods the profile lists that aren't installed here travel too.
+        let installed = Set(mods.map { $0.uniqueID.lowercased() })
+        for id in ids where !installed.contains(id.lowercased()) && !id.lowercased().hasPrefix("smapi.") {
+            list.mods.append(ModListEntry(name: id, uniqueID: id, version: "", author: nil, nexusID: nil, enabled: true))
         }
-    }
-
-    func deleteModList(_ list: ModList) {
-        try? modListStore.delete(list)
-        loadModLists()
-    }
-
-    func exportModList(_ list: ModList) {
         let panel = NSSavePanel()
         panel.nameFieldStringValue = list.suggestedFileName
         panel.allowedContentTypes = [.json]
-        panel.message = String(localized: "Export “\(list.name)” to share it or use it on another computer")
+        panel.message = String(localized: "Export “\(name)” to share it or use it on another Mac")
         guard panel.runModal() == .OK, let url = panel.url else { return }
         do {
             try list.encoded().write(to: url, options: .atomic)
+            showStatusResult(String(localized: "Exported “\(name)” (\(list.mods.count) mods)."))
         } catch {
             show("Export Failed", detail: error.localizedDescription)
         }
     }
 
-    /// Imports a mod list file and keeps a copy in My Collections.
-    func importModList() -> ModList? {
+    /// Imports a profile file: a new profile, put in use; missing mods are
+    /// downloaded into it and its saved settings applied (previous settings
+    /// kept as config.json.bak).
+    func importProfile() {
+        guard !isGameRunning else {
+            return show("Stardew Valley Is Running", "Quit the game first: mods are only loaded when it starts.")
+        }
         let panel = NSOpenPanel()
         panel.allowedContentTypes = [.json]
-        panel.message = String(localized: "Choose a mod list exported from Starseed")
-        guard panel.runModal() == .OK, let url = panel.url else { return nil }
+        panel.message = String(localized: "Choose a profile exported from Starseed")
+        guard panel.runModal() == .OK, let url = panel.url else { return }
+        let list: ModList
         do {
-            var list = try ModList.decode(from: Data(contentsOf: url))
-            // Don't silently replace a different list that has the same name.
-            if modLists.contains(where: { $0.name == list.name && $0 != list }) {
-                list.name += " " + String(localized: "(imported)")
-            }
-            return store(list)
+            list = try ModList.decode(from: Data(contentsOf: url))
         } catch {
-            show("Import Failed", detail: error.localizedDescription)
-            return nil
+            return show("Import Failed", detail: error.localizedDescription)
         }
+        let name = ProfileRules.uniqueName(list.name, taken: { self.profiles[$0] != nil },
+                                           numbered: { String(localized: "\(list.name) \($0)") })
+        let ids = ProfileRules.merged(ProfileRules.smapiBundled(mods.map(\.uniqueID)), adding: list.mods.filter(\.enabled).map(\.uniqueID))
+        profiles[name] = ids
+        persistProfiles()
+        activeProfile = name
+        applyEnabledSet(ids, title: String(localized: "profile “\(name)”"), undoable: false)
+        applySettings(from: list)
+        installMissing(from: list)
+        showStatusResult(String(localized: "Imported profile “\(name)”. Missing mods download into it."))
+    }
+
+    /// One-time move of the old My Collections lists into profiles (same
+    /// name and mods), relinking saves that used them. The files stay.
+    func migrateModListsToProfiles() {
+        let key = "migratedModListsToProfiles"
+        guard !UserDefaults.standard.bool(forKey: key) else { return }
+        defer { UserDefaults.standard.set(true, forKey: key) }
+        var changed = false
+        for list in modListStore.list() {
+            let ids = list.mods.filter(\.enabled).map(\.uniqueID)
+            var name = list.name
+            if let existing = profiles[name], Set(existing.map { $0.lowercased() }) == Set(ids.map { $0.lowercased() }) {
+                // Already there.
+            } else {
+                name = ProfileRules.uniqueName(list.name, taken: { self.profiles[$0] != nil },
+                                               numbered: { String(localized: "\(list.name) \($0)") })
+                profiles[name] = ids
+                changed = true
+            }
+            for (save, modSet) in saveLinks where modSet.kind == .collection && modSet.name == list.name {
+                link(saveID: save, to: SaveModSet(kind: .profile, name: name))
+            }
+        }
+        if changed { persistProfiles() }
     }
 
     /// Downloads mods from a list that are missing or older here. Entries
@@ -272,12 +291,8 @@ extension AppModel {
             show("Some Settings Weren't Applied", detail: failures.joined(separator: "\n"))
         }
         if applied > 0 {
-            showStatusResult(String(localized: "Applied the collection's settings to \(applied) mod(s). The previous ones are kept as config.json.bak."))
+            showStatusResult(String(localized: "Applied the profile's settings to \(applied) mod(s). The previous ones are kept as config.json.bak."))
         }
     }
 
-    /// Enables exactly the mods the list had enabled, like a profile.
-    func apply(_ list: ModList) {
-        applyEnabledSet(list.mods.filter(\.enabled).map(\.uniqueID), title: String(localized: "collection “\(list.name)”"))
-    }
 }
