@@ -312,6 +312,7 @@
       }
     },
     "**Appearance**: show or hide mod pictures from Nexus." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -790,6 +791,7 @@
       }
     },
     "**Playing**: the report after each game session." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -893,6 +895,7 @@
       }
     },
     "**Saves**: back up saves before playing when your mods changed." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -922,6 +925,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**存档**：模组有变化时，在开始游戏前备份存档。"
+          }
+        }
+      }
+    },
+    "**Setup assistant** and **Page tips**: open the assistant again, or bring back tips you dismissed." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Einrichtungsassistent** und **Seitentipps**: den Assistenten erneut öffnen oder ausgeblendete Tipps zurückholen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Asistente de configuración** y **Consejos de página**: volver a abrir el asistente o recuperar los consejos ocultos."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Assistant de configuration** et **Astuces des pages** : rouvrir l’assistant, ou faire revenir les astuces masquées."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Assistente de configuração** e **Dicas das páginas**: abrir o assistente de novo ou trazer de volta as dicas ocultadas."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**设置助手**和**页面提示**：重新打开助手，或恢复已隐藏的提示。"
           }
         }
       }
@@ -960,7 +997,42 @@
         }
       }
     },
+    "**Theme**: light, dark, or the same as macOS." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Design**: hell, dunkel oder wie macOS."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Tema**: claro, oscuro o como macOS."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Thème** : clair, sombre, ou comme macOS."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Tema**: claro, escuro ou igual ao macOS."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**主题**：浅色、深色，或跟随 macOS。"
+          }
+        }
+      }
+    },
     "**Updates**: checking mods every few hours, notifications, and the menu bar icon." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -5314,6 +5386,7 @@
       }
     },
     "App Updates" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -6373,6 +6446,40 @@
         }
       }
     },
+    "Change Key…" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schlüssel ändern …"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cambiar clave…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Changer de clé…"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alterar chave…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更改密钥…"
+          }
+        }
+      }
+    },
     "Change Mods Folder…" : {
       "localizations" : {
         "de" : {
@@ -6988,6 +7095,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "正在检查更新…"
+          }
+        }
+      }
+    },
+    "Checking mods for updates every few hours and notifications about them, and checking for new versions of Starseed. Each has **Check Now**." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle paar Stunden nach Mod-Updates suchen und darüber benachrichtigen, und nach neuen Versionen von Starseed suchen. Beides hat **Jetzt prüfen**."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar actualizaciones de mods cada pocas horas y avisar de ellas, y buscar nuevas versiones de Starseed. Cada una tiene **Comprobar ahora**."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La recherche de mises à jour des mods toutes les quelques heures et leurs notifications, et la recherche de nouvelles versions de Starseed. Chacune a **Vérifier maintenant**."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Procurar atualizações de mods a cada poucas horas e avisar sobre elas, e procurar novas versões do Starseed. Cada uma tem **Verificar agora**."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每隔几小时检查模组更新并发送通知，以及检查 Starseed 的新版本。每项都有**立即检查**。"
           }
         }
       }
@@ -9380,6 +9521,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "创建"
+          }
+        }
+      }
+    },
+    "Dark" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dunkel"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oscuro"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sombre"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escuro"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "深色"
           }
         }
       }
@@ -13380,6 +13555,40 @@
         }
       }
     },
+    "Help" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hilfe"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ayuda"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aide"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajuda"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "帮助"
+          }
+        }
+      }
+    },
     "Here's your setup. You can change any of it in Settings, or run this assistant again from the Help menu." : {
       "localizations" : {
         "de" : {
@@ -15053,6 +15262,40 @@
         }
       }
     },
+    "Installed (unknown version)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installiert (unbekannte Version)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalado (versión desconocida)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installé (version inconnue)"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalado (versão desconhecida)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已安装（版本未知）"
+          }
+        }
+      }
+    },
     "Installed %@" : {
       "localizations" : {
         "de" : {
@@ -16450,6 +16693,40 @@
         }
       }
     },
+    "Light" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hell"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Claro"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clair"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Claro"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浅色"
+          }
+        }
+      }
+    },
     "Links in Starseed open in its own Nexus browser, which catches **Mod Manager Download** buttons. To catch them in Safari or Chrome too, click **Use This App** in **Settings → Nexus Mods**." : {
       "localizations" : {
         "de" : {
@@ -17477,6 +17754,40 @@
         }
       }
     },
+    "Menu Bar" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menüleiste"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Barra de menús"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Barre des menus"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Barra de menus"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "菜单栏"
+          }
+        }
+      }
+    },
     "Miscellaneous" : {
       "localizations" : {
         "de" : {
@@ -17847,6 +18158,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "模组图片"
+          }
+        }
+      }
+    },
+    "Mod pictures from Nexus, the tip at the top of each page, and the menu bar icon." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mod-Bilder von Nexus, der Tipp oben auf jeder Seite und das Symbol in der Menüleiste."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las imágenes de los mods de Nexus, el consejo en la parte superior de cada página y el icono en la barra de menús."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les images des mods depuis Nexus, l’astuce en haut de chaque page et l’icône dans la barre des menus."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "As imagens dos mods do Nexus, a dica no topo de cada página e o ícone na barra de menus."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "来自 Nexus 的模组图片、每个页面顶部的提示，以及菜单栏图标。"
           }
         }
       }
@@ -21159,6 +21504,40 @@
         }
       }
     },
+    "Not set" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nicht festgelegt"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sin definir"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non défini"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não definido"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未设置"
+          }
+        }
+      }
+    },
     "Not sure where it is? Launch the game through SMAPI once — its log prints a line like “Mods go here: …”." : {
       "localizations" : {
         "de" : {
@@ -22523,6 +22902,40 @@
         }
       }
     },
+    "Open…" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öffnen …"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir…"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开…"
+          }
+        }
+      }
+    },
     "Opens the Nexus download page. Click “Slow download” and it installs automatically." : {
       "localizations" : {
         "de" : {
@@ -22587,6 +23000,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "打开 Nexus 下载页面。点击“Slow download”后文件会自动安装。"
+          }
+        }
+      }
+    },
+    "Opens the setup assistant, which finds Steam, GOG and App Store copies of the game" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öffnet den Einrichtungsassistenten, der Steam-, GOG- und App-Store-Kopien des Spiels findet"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abre el asistente de configuración, que encuentra las copias de Steam, GOG y App Store del juego"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvre l’assistant de configuration, qui trouve les copies Steam, GOG et App Store du jeu"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abre o assistente de configuração, que encontra as cópias do jogo da Steam, GOG e App Store"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开设置助手，它可以找到 Steam、GOG 和 App Store 版的游戏"
           }
         }
       }
@@ -23101,7 +23548,42 @@
         }
       }
     },
+    "Play zips all your saves first if mods were added, removed, updated, or switched on or off since you last played; the last 5 are kept, under Saves. When the game closes, SMAPI's log is checked for mods that didn't load, errors, conflicts and crashes." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "„Spielen“ zippt vorher alle Spielstände, wenn seit dem letzten Spielen Mods hinzugefügt, entfernt, aktualisiert oder ein- bzw. ausgeschaltet wurden; die letzten 5 werden unter „Spielstände“ aufbewahrt. Wenn das Spiel beendet wird, wird das Protokoll von SMAPI auf Mods geprüft, die nicht geladen wurden, Fehler, Konflikte und Abstürze."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jugar comprime antes todas tus partidas si se añadieron, quitaron, actualizaron, activaron o desactivaron mods desde la última vez; se conservan las 5 últimas, en Partidas. Al cerrar el juego, se revisa el registro de SMAPI en busca de mods que no se cargaron, errores, conflictos y bloqueos."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jouer compresse toutes vos sauvegardes avant si des mods ont été ajoutés, supprimés, mis à jour, activés ou désactivés depuis la dernière partie ; les 5 dernières copies sont conservées, dans Sauvegardes. À la fermeture du jeu, le journal de SMAPI est vérifié pour repérer les mods qui ne se sont pas chargés, les erreurs, les conflits et les plantages."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jogar compacta todos os seus saves antes se mods foram adicionados, removidos, atualizados, ativados ou desativados desde a última vez; os 5 últimos ficam guardados, em Saves. Quando o jogo fecha, o registro do SMAPI é verificado em busca de mods que não carregaram, erros, conflitos e travamentos."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果自上次游戏后有模组被添加、移除、更新、开启或关闭，开始游戏前会先打包所有存档；最近 5 份保留在“存档”中。游戏关闭时，会检查 SMAPI 日志中未加载的模组、错误、冲突和崩溃。"
+          }
+        }
+      }
+    },
     "Play zips all your saves first if mods were added, removed, updated, or switched on or off since you last played. The last 5 of these backups are kept, under Saves." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -27090,6 +27572,40 @@
         }
       }
     },
+    "Setup assistant" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einrichtungsassistent"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asistente de configuración"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Assistant de configuration"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Assistente de configuração"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置助手"
+          }
+        }
+      }
+    },
     "Setup Assistant…" : {
       "localizations" : {
         "de" : {
@@ -27324,6 +27840,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在每个页面顶部显示提示"
+          }
+        }
+      }
+    },
+    "Show Again" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wieder anzeigen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volver a mostrar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réafficher"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar de novo"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新显示"
           }
         }
       }
@@ -30104,6 +30654,7 @@
       }
     },
     "Starseed asks SMAPI's update service about every installed mod, at launch and every few hours (**Settings → General**). You get a notification when new updates are found, and the status bar at the bottom of the window shows each check's progress and result." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -30133,6 +30684,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Starseed 会在启动时以及每隔几小时向 SMAPI 的更新服务查询每个已安装的模组（**设置 → 通用**）。发现新更新时你会收到通知，窗口底部的状态栏会显示每次检查的进度和结果。"
+          }
+        }
+      }
+    },
+    "Starseed asks SMAPI's update service about every installed mod, at launch and every few hours (**Settings → Updates**). You get a notification when new updates are found, and the status bar at the bottom of the window shows each check's progress and result." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed fragt beim Start und alle paar Stunden den Update-Dienst von SMAPI zu jedem installierten Mod (**Einstellungen → Updates**). Bei neuen Updates bekommst du eine Mitteilung, und die Statusleiste unten im Fenster zeigt Fortschritt und Ergebnis jeder Prüfung."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed consulta el servicio de actualizaciones de SMAPI sobre cada mod instalado al iniciar y cada pocas horas (**Ajustes → Actualizaciones**). Recibes un aviso cuando hay actualizaciones nuevas, y la barra de estado inferior muestra el progreso y el resultado de cada comprobación."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed interroge le service de mises à jour de SMAPI pour chaque mod installé, au lancement puis toutes les quelques heures (**Réglages → Mises à jour**). Vous recevez une notification quand de nouvelles mises à jour sont trouvées, et la barre d’état en bas de la fenêtre montre la progression et le résultat de chaque vérification."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Starseed consulta o serviço de atualizações do SMAPI sobre cada mod instalado ao abrir e a cada poucas horas (**Ajustes → Atualizações**). Você recebe uma notificação quando há atualizações novas, e a barra de status na parte de baixo da janela mostra o progresso e o resultado de cada verificação."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed 会在启动时以及每隔几小时向 SMAPI 的更新服务查询每个已安装的模组（**设置 → 更新**）。发现新更新时你会收到通知，窗口底部的状态栏会显示每次检查的进度和结果。"
           }
         }
       }
@@ -30996,6 +31581,40 @@
         }
       }
     },
+    "System" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "System"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sistema"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Système"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sistema"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "系统"
+          }
+        }
+      }
+    },
     "System (%@)" : {
       "localizations" : {
         "de" : {
@@ -31660,6 +32279,40 @@
         }
       }
     },
+    "The game's version and store, SMAPI's version (with **Install** or **Update** when needed), and your **Mods folder**. **Change…** next to the game opens the setup assistant to pick another copy. **Playing** holds the backup before playing and the report after playing." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version und Store des Spiels, die Version von SMAPI (mit **Installieren** oder **Aktualisieren**, wenn nötig) und dein **Mods-Ordner**. **Ändern …** neben dem Spiel öffnet den Einrichtungsassistenten, um eine andere Kopie zu wählen. **Beim Spielen** enthält die Sicherung vor dem Spielen und den Bericht danach."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La versión y la tienda del juego, la versión de SMAPI (con **Instalar** o **Actualizar** cuando hace falta) y tu **carpeta Mods**. **Cambiar…** junto al juego abre el asistente de configuración para elegir otra copia. **Al jugar** reúne la copia antes de jugar y el informe después de jugar."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La version et la boutique du jeu, la version de SMAPI (avec **Installer** ou **Mettre à jour** si besoin) et votre **dossier Mods**. **Modifier…** à côté du jeu ouvre l’assistant de configuration pour choisir une autre copie. **En jeu** regroupe la copie avant de jouer et le rapport après une partie."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A versão e a loja do jogo, a versão do SMAPI (com **Instalar** ou **Atualizar** quando preciso) e sua **pasta Mods**. **Alterar…** ao lado do jogo abre o assistente de configuração para escolher outra cópia. **Ao jogar** reúne o backup antes de jogar e o relatório depois."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "游戏的版本和商店、SMAPI 的版本（需要时可**安装**或**更新**），以及你的 **Mods 文件夹**。游戏旁边的**更改…**会打开设置助手以选择另一份游戏。**游戏**中包含游戏前的备份和游戏后的报告。"
+          }
+        }
+      }
+    },
     "The Installed list" : {
       "localizations" : {
         "de" : {
@@ -32207,6 +32860,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "被替换的版本会保留。选择该模组，在详细信息面板的**以前的版本**中选择它；你的设置会沿用。"
+          }
+        }
+      }
+    },
+    "Theme" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Design"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tema"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thème"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tema"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "主题"
           }
         }
       }
@@ -35180,6 +35867,7 @@
       }
     },
     "When the game closes, SMAPI's log is checked for mods that didn't load, errors, conflicts and crashes." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -35281,7 +35969,42 @@
         }
       }
     },
+    "When your mods changed since you last played, **Play** backs up every save before starting the game; the last 5 of these are kept. You can turn this off in **Settings → Game**." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haben sich deine Mods seit dem letzten Spielen geändert, sichert **Spielen** vor dem Start jeden Spielstand; die letzten 5 davon werden aufbewahrt. Du kannst das in **Einstellungen → Spiel** ausschalten."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si tus mods cambiaron desde la última vez, **Jugar** copia todas las partidas antes de iniciar el juego; se conservan las 5 últimas. Puedes desactivarlo en **Ajustes → Juego**."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si vos mods ont changé depuis la dernière partie, **Jouer** copie toutes les sauvegardes avant de lancer le jeu ; les 5 dernières copies sont conservées. Vous pouvez désactiver cela dans **Réglages → Jeu**."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se seus mods mudaram desde a última vez, **Jogar** faz backup de todos os saves antes de abrir o jogo; os 5 últimos ficam guardados. Você pode desativar isso em **Ajustes → Jogo**."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果自上次游戏以来模组有变化，**开始游戏**会在启动前备份每个存档；最近 5 个会保留。可在**设置 → 游戏**中关闭。"
+          }
+        }
+      }
+    },
     "When your mods changed since you last played, **Play** backs up every save before starting the game; the last 5 of these are kept. You can turn this off in **Settings → General**." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -35862,6 +36585,7 @@
       }
     },
     "Your **Mods folder**, and the SMAPI and game versions found next to it." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -36173,7 +36897,42 @@
         }
       }
     },
+    "Your personal API key and your account (free or Premium): **Change Key…** or **Remove** it. **Use This App** makes Starseed catch **Mod Manager Download** links clicked in Safari or Chrome." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dein persönlicher API-Schlüssel und dein Konto (kostenlos oder Premium): **Schlüssel ändern …** oder **Entfernen**. **Diese App verwenden** lässt Starseed **Mod Manager Download**-Links abfangen, die in Safari oder Chrome geklickt werden."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu clave personal de API y tu cuenta (gratuita o Premium): **Cambiar clave…** o **Quitar**. **Usar esta app** hace que Starseed capture los enlaces **Mod Manager Download** en los que hagas clic en Safari o Chrome."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Votre clé d’API personnelle et votre compte (gratuit ou Premium) : **Changer de clé…** ou **Retirer**. **Utiliser cette app** permet à Starseed d’intercepter les liens **Mod Manager Download** cliqués dans Safari ou Chrome."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sua chave pessoal de API e sua conta (gratuita ou Premium): **Alterar chave…** ou **Remover**. **Usar este app** faz o Starseed capturar links **Mod Manager Download** clicados no Safari ou no Chrome."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的个人 API 密钥和账户（免费或 Premium）：**更改密钥…**或**移除**。**使用此应用**让 Starseed 捕获在 Safari 或 Chrome 中点击的 **Mod Manager Download** 链接。"
+          }
+        }
+      }
+    },
     "Your personal API key, your account (free or Premium), and **Use This App**, which makes Starseed catch **Mod Manager Download** links clicked in Safari or Chrome." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {

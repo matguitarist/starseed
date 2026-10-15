@@ -133,7 +133,7 @@ struct HelpView: View {
             }
 
         case .updates:
-            HelpText("Starseed asks SMAPI's update service about every installed mod, at launch and every few hours (**Settings → General**). You get a notification when new updates are found, and the status bar at the bottom of the window shows each check's progress and result.")
+            HelpText("Starseed asks SMAPI's update service about every installed mod, at launch and every few hours (**Settings → Updates**). You get a notification when new updates are found, and the status bar at the bottom of the window shows each check's progress and result.")
             HelpSection("Installing updates") {
                 HelpText("Mods with an update show an **Update to…** button in the **Activity** column. The **Updates** section lists them all, with **Update All**. While a mod downloads and installs, its progress shows in the same column.")
                 HelpText("Open **What's New** under an update to read the changelog from Nexus before installing it.")
@@ -180,7 +180,7 @@ struct HelpView: View {
             }
             HelpSection("Backups") {
                 HelpText("**Back Up All Saves**, or **Back Up Now** on a single farm, makes a zip you can restore later, all at once or one save at a time. Restoring first backs up the current saves, so it can be undone. Backups made by SMAPI's own Save Backup mod are listed too.")
-                HelpText("When your mods changed since you last played, **Play** backs up every save before starting the game; the last 5 of these are kept. You can turn this off in **Settings → General**.")
+                HelpText("When your mods changed since you last played, **Play** backs up every save before starting the game; the last 5 of these are kept. You can turn this off in **Settings → Game**.")
             }
 
         case .problems:
@@ -207,18 +207,22 @@ struct HelpView: View {
             HelpSection("General") {
                 HelpBullets([
                     "**Language**: Starseed's language, or the one macOS uses. It changes after a restart.",
-                    "**Updates**: checking mods every few hours, notifications, and the menu bar icon.",
-                    "**Appearance**: show or hide mod pictures from Nexus.",
-                    "**Playing**: the report after each game session.",
-                    "**Saves**: back up saves before playing when your mods changed.",
-                    "Your **Mods folder**, and the SMAPI and game versions found next to it.",
+                    "**Theme**: light, dark, or the same as macOS.",
+                    "Mod pictures from Nexus, the tip at the top of each page, and the menu bar icon.",
+                    "**Setup assistant** and **Page tips**: open the assistant again, or bring back tips you dismissed.",
                 ])
+            }
+            HelpSection("Game") {
+                HelpText("The game's version and store, SMAPI's version (with **Install** or **Update** when needed), and your **Mods folder**. **Change…** next to the game opens the setup assistant to pick another copy. **Playing** holds the backup before playing and the report after playing.")
+            }
+            HelpSection("Updates") {
+                HelpText("Checking mods for updates every few hours and notifications about them, and checking for new versions of Starseed. Each has **Check Now**.")
             }
             HelpSection("The menu bar icon") {
                 HelpText("With the icon on, closing the window keeps Starseed running, so it keeps checking for updates. Its menu shows the game's and SMAPI's state, the number of updates, the last session's problems, and lets you play or switch profiles without opening the window.")
             }
             HelpSection("Nexus Mods") {
-                HelpText("Your personal API key, your account (free or Premium), and **Use This App**, which makes Starseed catch **Mod Manager Download** links clicked in Safari or Chrome.")
+                HelpText("Your personal API key and your account (free or Premium): **Change Key…** or **Remove** it. **Use This App** makes Starseed catch **Mod Manager Download** links clicked in Safari or Chrome.")
             }
             HelpSection("Storage") {
                 HelpText("How much space your mods take, largest first, plus the previous versions kept for rollback and Starseed's save backups. You can remove old versions and backups older than 30 days; they go to the Trash.")

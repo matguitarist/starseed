@@ -137,6 +137,8 @@ Everything is explained in the built-in help.
 **Languages:** English, French, German, Spanish, Brazilian Portuguese and
 Simplified Chinese (Settings → General → Language).
 
+**Light or dark:** follows macOS, or pick one in Settings → General.
+
 ## Good to know
 
 - Works with the Steam, GOG and Mac App Store versions of the game. Play

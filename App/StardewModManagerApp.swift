@@ -11,6 +11,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         UNUserNotificationCenter.current().delegate = self
+        AppTheme.current.apply()
     }
 
     /// With the menu bar icon on, closing the window keeps the app (and its

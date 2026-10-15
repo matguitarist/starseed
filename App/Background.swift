@@ -16,6 +16,7 @@ enum Preferences {
     static let profileCollections = "profileCollections"    // profile name -> Nexus collection it came from
     static let showProfileModsOnly = "showProfileModsOnly"  // Installed list: hide mods outside the profile
     static let lastPlayedModSet = "lastPlayedModSet"        // fingerprint of enabled mods at last Play
+    static let theme = "theme"                              // AppTheme: system, light or dark
     static let setupCompleted = "setupCompleted"            // the setup assistant was finished or skipped
     static let showPageTips = "showPageTips"                // default on: a tip at the top of each page
     static let seenPageTips = "seenPageTips"                // [page] whose tip was dismissed
