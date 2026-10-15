@@ -61,39 +61,7 @@ struct StardewModManagerApp: App {
         }
         .defaultSize(width: 1180, height: 700)
         .commands {
-            CommandGroup(replacing: .appInfo) {
-                Button("About Starseed") { AboutPanel.show() }
-            }
-            if appUpdater.isConfigured {
-                CommandGroup(after: .appInfo) {
-                    Button("Check for App Updates…") { appUpdater.checkForUpdates() }
-                }
-            }
-            CommandGroup(replacing: .help) {
-                HelpCommands()
-            }
-            CommandGroup(replacing: .newItem) {
-                Button("Install Mods…") { model.presentInstallPanel() }
-                    .keyboardShortcut("o")
-                    .disabled(model.manager == nil)
-            }
-            CommandMenu("Mods") {
-                Button("Refresh") { model.refresh() }
-                    .keyboardShortcut("r")
-                Button("Check for Updates") { Task { await model.checkForUpdates() } }
-                    .keyboardShortcut("u", modifiers: [.command, .shift])
-                    .disabled(model.isCheckingUpdates)
-                Divider()
-                Button("Open Mods Folder") { model.openModsFolder() }
-                    .keyboardShortcut("o", modifiers: [.command, .shift])
-                Button("Change Mods Folder…") { model.chooseModsFolder() }
-                Divider()
-                Button("Launch Stardew Valley") { model.launchGame() }
-                    .keyboardShortcut("l")
-                Divider()
-                Button("Find a Broken Mod…") { model.showBisect = true }
-                    .disabled(model.manager == nil)
-            }
+            AppCommands(model: model, appUpdater: appUpdater)
         }
 
         Window("Starseed Help", id: HelpView.windowID) {
@@ -101,6 +69,7 @@ struct StardewModManagerApp: App {
                 .frame(minWidth: 640, minHeight: 420)
         }
         .defaultSize(width: 900, height: 640)
+        .commandsRemoved()  // opened from the Help menu, not listed under Window
 
         Window("Nexus Mods", id: BrowserWindow.id) {
             BrowserView()
@@ -109,9 +78,18 @@ struct StardewModManagerApp: App {
         }
         .defaultSize(width: 1180, height: 820)
 
-        MenuBarExtra("Starseed", systemImage: "leaf.fill", isInserted: $showMenuBarIcon) {
+        MenuBarExtra(isInserted: $showMenuBarIcon) {
             MenuBarContent()
                 .environment(model)
+        } label: {
+            // The number of mod updates next to the leaf, when there are some.
+            let updates = model.modsWithUpdates.count
+            if updates > 0 {
+                Label("\(updates)", systemImage: "leaf.fill")
+                    .labelStyle(.titleAndIcon)
+            } else {
+                Image(systemName: "leaf.fill")
+            }
         }
 
         Settings {

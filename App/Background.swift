@@ -57,37 +57,88 @@ extension AppModel {
     }
 }
 
-/// The optional menu bar icon: play, updates at a glance, open the app.
+/// The optional menu bar icon: the game's and SMAPI's state, play, updates
+/// and profiles at a glance, without opening the window.
 struct MenuBarContent: View {
     @AppModelEnvironment private var model
     @Environment(\.openWindow) private var openWindow
+    @Environment(\.openSettings) private var openSettings
 
     var body: some View {
+        // Status (not clickable): "Stardew Valley 1.6.15 · SMAPI 4.5.2".
+        Text(statusLine)
+        if model.smapiNeedsInstall, model.gameFolder != nil {
+            Button(model.smapi == nil ? String(localized: "Install SMAPI") : String(localized: "Update SMAPI")) {
+                model.installSMAPI()
+            }
+            .disabled(model.smapiInstallPhase != nil)
+        }
         Button("Play Stardew Valley") { model.launchGame() }
         Divider()
+
         let updates = model.modsWithUpdates.count
-        Button(updates == 0 ? String(localized: "All mods up to date")
-               : updates == 1 ? String(localized: "1 mod update available…")
-               : String(localized: "\(updates) mod updates available…")) {
-            model.sidebarSelection = .updates
-            showMainWindow()
+        if updates == 0 {
+            Text("All mods up to date")
+        } else {
+            Button(updates == 1 ? String(localized: "1 mod update available…") : String(localized: "\(updates) mod updates available…")) {
+                show(.updates)
+            }
+            if !model.nexusUpdates.isEmpty {
+                Button("Update All") { model.updateAll() }
+            }
         }
-        .disabled(updates == 0)
         let missing = model.missingDependencies.count
         if missing > 0 {
             Button(missing == 1 ? String(localized: "1 missing requirement…") : String(localized: "\(missing) missing requirements…")) {
-                model.sidebarSelection = .requirements
+                show(.requirements)
+            }
+        }
+        if model.lastPlayReport != nil {
+            Button("Problems in the last game session…") {
+                model.openLogFromNotification(crash: model.lastPlayReport?.crashed == true)
                 showMainWindow()
             }
         }
-        Button(model.isCheckingUpdates ? "Checking…" : "Check for Updates") {
+        Button(model.isCheckingUpdates ? String(localized: "Checking…") : String(localized: "Check for Updates")) {
             Task { await model.checkForUpdates() }
         }
         .disabled(model.isCheckingUpdates)
         Divider()
+
+        if !model.profileNames.isEmpty {
+            Menu("Use Profile") {
+                ForEach(model.profileNames, id: \.self) { name in
+                    Button(name) { model.applyProfile(named: name) }
+                }
+            }
+            .disabled(model.isGameRunning)
+        }
+        Button(model.bisection == nil ? String(localized: "Find a Broken Mod…") : String(localized: "Continue Finding a Broken Mod…")) {
+            model.showBisect = true
+            showMainWindow()
+        }
+        .disabled(model.manager == nil)
+        Divider()
         Button("Open Starseed") { showMainWindow() }
-        Button("Quit") { NSApp.terminate(nil) }
+        Button("Settings…") {
+            openSettings()
+            NSApp.activate()
+        }
+        .keyboardShortcut(",")
+        Button("Quit Starseed") { NSApp.terminate(nil) }
             .keyboardShortcut("q")
+    }
+
+    private var statusLine: String {
+        guard model.manager != nil else { return String(localized: "Choose your Mods folder in Starseed") }
+        let game = model.gameVersion.map { String(localized: "Stardew Valley \($0.description)") } ?? String(localized: "Stardew Valley not found")
+        let smapi = model.smapi.map { smapi in smapi.version.map { "SMAPI \($0.description)" } ?? "SMAPI" } ?? String(localized: "SMAPI not installed")
+        return "\(game) · \(smapi)"
+    }
+
+    private func show(_ item: SidebarItem) {
+        model.sidebarSelection = item
+        showMainWindow()
     }
 
     private func showMainWindow() {

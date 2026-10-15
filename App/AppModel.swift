@@ -74,6 +74,10 @@ final class AppModel {
     /// shown briefly in the status bar.
     var statusResult: StatusResult?
     var isBackingUpBeforePlay = false
+    /// The Installed page's details panel and Profiles sheet (also driven by
+    /// the View and Mods menus).
+    var showInspector = true
+    var showProfiles = false
     /// The running "Find a Broken Mod" search (see BisectView.swift).
     var bisection: Bisection?
     var bisectionOriginal: Set<String>?

@@ -188,7 +188,7 @@ struct HelpView: View {
                 HelpText("A game update probably disconnected SMAPI. Click **Reinstall SMAPI** in the orange banner; your mods and settings stay as they are.")
             }
             HelpQuestion("Something breaks, but the log doesn't say which mod.") {
-                HelpText("Use **Mods → Find a Broken Mod…**. Starseed turns off half of your mods, you play and say whether the problem happened, and after a few tests it names the mod. Your mods are put back at the end.")
+                HelpText("Use **Game → Find a Broken Mod…**. Starseed turns off half of your mods, you play and say whether the problem happened, and after a few tests it names the mod. Your mods are put back at the end.")
             }
             HelpQuestion("How do I know if a mod failed while I played?") {
                 HelpText("When the game closes, Starseed reads SMAPI's log and sends a notification if mods didn't load, had errors, conflicted or crashed the game. Click it to see SMAPI's advice.")
@@ -206,7 +206,10 @@ struct HelpView: View {
                 shortcut("⌘Z / ⇧⌘Z", "Undo or redo enabling and disabling")
                 shortcut("⌫", "Move the selected mods to the Trash")
                 shortcut("⇧⌘O", "Open the Mods folder")
-                shortcut("⌘L", "Launch Stardew Valley")
+                shortcut("⌘L", "Play Stardew Valley")
+                shortcut("⇧⌘L", "Show SMAPI Log")
+                shortcut("⌘1 – ⌘8", "Go to a page of the sidebar")
+                shortcut("⌥⌘I", "Show or hide the details panel")
                 shortcut("⌘,", "Settings")
                 shortcut("⌘?", "This help")
             }

@@ -179,6 +179,15 @@ extension AppModel {
         }
     }
 
+    /// Backs up every save into one backup (Game menu, Saves toolbar).
+    func backUpAllSaves() async {
+        let ids = SaveGame.list(in: backupStore.savesFolder).map(\.id)
+        guard !ids.isEmpty else { return show("No Saves Found", "There are no saves to back up.") }
+        if await backUpSaves(ids, label: String(localized: "All saves")) != nil {
+            showStatusResult(String(localized: "Backed up \(ids.count) save(s). Restore them from Saves."))
+        }
+    }
+
     func backUpSaves(_ ids: [String], label: String) async -> SaveBackup? {
         do {
             return try await backupStore.backUp(saveIDs: ids, label: label)

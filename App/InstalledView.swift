@@ -17,8 +17,6 @@ extension ModStatus {
 struct InstalledView: View {
     @AppModelEnvironment private var model
     @State private var sortOrder = [KeyPathComparator(\ModRow.name, comparator: .localizedStandard)]
-    @State private var showInspector = true
-    @State private var showProfiles = false
     @FocusState private var isFilterFocused: Bool
     @AppStorage(Preferences.showModPictures) private var showModPictures = true
 
@@ -40,11 +38,11 @@ struct InstalledView: View {
         .navigationTitle("Installed")
         .navigationSubtitle(model.summary)
         .toolbar { toolbar }
-        .inspector(isPresented: $showInspector) {
+        .inspector(isPresented: Binding(get: { model.showInspector }, set: { model.showInspector = $0 })) {
             ModDetailView()
                 .inspectorColumnWidth(min: 260, ideal: 320, max: 480)
         }
-        .sheet(isPresented: $showProfiles) {
+        .sheet(isPresented: Binding(get: { model.showProfiles }, set: { model.showProfiles = $0 })) {
             ProfilesView()
         }
     }
@@ -172,7 +170,7 @@ struct InstalledView: View {
                 Button("Move to Trash…", role: .destructive) { model.pendingTrash = targets }
             }
         } primaryAction: { _ in
-            showInspector = true
+            model.showInspector = true
         }
         .onDeleteCommand {
             let ids = model.modIDs(expanding: model.selection)
@@ -209,7 +207,7 @@ struct InstalledView: View {
             }
 
             Button {
-                showProfiles = true
+                model.showProfiles = true
             } label: {
                 Label("Profiles", systemImage: "person.2")
             }
@@ -232,7 +230,7 @@ struct InstalledView: View {
         }
         ToolbarItem {
             Button {
-                showInspector.toggle()
+                model.showInspector.toggle()
             } label: {
                 Label("Details", systemImage: "sidebar.trailing")
             }

@@ -21,6 +21,7 @@
 		49022E1AFED4BDEEF85C55AB /* Conflicts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535F6BA5277F54A75AD419F /* Conflicts.swift */; };
 		5100D9135D68B0C05F95A0B8 /* UnusedRequirementsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0825B0DCF8C284030913ADCA /* UnusedRequirementsSheet.swift */; };
 		52EF3147302B8AF2DE40E91B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882D1E5D99EEAA8946E3990A /* SettingsView.swift */; };
+		6310DF64B31DFCE57FDDD889 /* AppCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CCEF9AC44C47D087228C3 /* AppCommands.swift */; };
 		662EF595FD51F27BFA8675E0 /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A369DA706FAB88E595F89 /* BrowseView.swift */; };
 		69F3A9FD2183012E92E171F9 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD33902DFD3EF0DAE6802F /* RootView.swift */; };
 		745E4ABF7E08EF53EAAEE6AA /* SavesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BB4B7EB0BDCA9B8772C45C /* SavesView.swift */; };
@@ -66,7 +67,7 @@
 		36BD33902DFD3EF0DAE6802F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		3751918581379943B9AB023D /* AppModel+Nexus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModel+Nexus.swift"; sourceTree = "<group>"; };
 		3A7745432F262C11C31A9634 /* StardewModManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StardewModManager.entitlements; sourceTree = "<group>"; };
-		466DFE1F2D8B06DF05695D18 /* StardewModManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StardewModManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		466DFE1F2D8B06DF05695D18 /* StardewModManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = StardewModManager.app; path = Starseed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48197B7BBE7EE15AB71D5108 /* UpdatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesView.swift; sourceTree = "<group>"; };
 		5B138698F0E21A1D71717833 /* ChangelogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangelogView.swift; sourceTree = "<group>"; };
 		5CEAACA199435D4A4282751F /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -92,9 +93,10 @@
 		B30552591D88F603A6043CFE /* AppModel+Saves.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModel+Saves.swift"; sourceTree = "<group>"; };
 		B5FF9E3E65BEAE57ACD20611 /* RequirementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementsView.swift; sourceTree = "<group>"; };
 		B795C47ECDFF10A726ECFDA0 /* BisectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BisectView.swift; sourceTree = "<group>"; };
-		B79A52FECDD87ED11901B6D1 /* ModManagerCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ModManagerCore; path = ModManagerCore; sourceTree = SOURCE_ROOT; };
+		B79A52FECDD87ED11901B6D1 /* ModManagerCore */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ModManagerCore; sourceTree = SOURCE_ROOT; };
 		BD2E122C00662959EB64731C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1D257F10B4C9483D2A26D32 /* AppModelEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModelEnvironment.swift; sourceTree = "<group>"; };
+		EE4CCEF9AC44C47D087228C3 /* AppCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommands.swift; sourceTree = "<group>"; };
 		F0E46DB3F74731B560BF4385 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		FB0D50F734FDCE7EC1A89653 /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
 		FDECCC4ACFA28805A28AD469 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				9603579CCCD6BA0E539392AF /* Activity.swift */,
+				EE4CCEF9AC44C47D087228C3 /* AppCommands.swift */,
 				98B379ABC7330965D2DBC833 /* AppModel.swift */,
 				847385174D1906D29421D1B4 /* AppModel+Installing.swift */,
 				3751918581379943B9AB023D /* AppModel+Nexus.swift */,
@@ -273,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1301601D123E3D5DEC935931 /* Activity.swift in Sources */,
+				6310DF64B31DFCE57FDDD889 /* AppCommands.swift in Sources */,
 				3308FFBE6799F38D542D0D99 /* AppModel+Installing.swift in Sources */,
 				CBFA0F99DCC419C8F691217E /* AppModel+Nexus.swift in Sources */,
 				E04C070C8BA2C7533BDA2E3C /* AppModel+Profiles.swift in Sources */,

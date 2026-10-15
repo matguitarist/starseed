@@ -1418,6 +1418,40 @@
         }
       }
     },
+    "%lld" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        }
+      }
+    },
     "%lld available" : {
       "localizations" : {
         "de" : {
@@ -4410,6 +4444,40 @@
         }
       }
     },
+    "Backed up %lld save(s). Restore them from Saves." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld Spielstand/Spielstände gesichert. Stelle sie unter Spielstände wieder her."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se copiaron %lld partida(s). Restáuralas desde Partidas."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld sauvegarde(s) copiée(s). Restaurez-les depuis Sauvegardes."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Backup de %lld save(s) feito. Restaure-os em Saves."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已备份 %lld 个存档。可在“存档”中恢复。"
+          }
+        }
+      }
+    },
     "Backing up your saves before playing…" : {
       "localizations" : {
         "de" : {
@@ -5711,6 +5779,40 @@
         }
       }
     },
+    "Choose your Mods folder in Starseed" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wähle deinen Mods-Ordner in Starseed"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elige tu carpeta Mods en Starseed"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisissez votre dossier Mods dans Starseed"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escolha sua pasta Mods no Starseed"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请在 Starseed 中选择 Mods 文件夹"
+          }
+        }
+      }
+    },
     "Clear" : {
       "localizations" : {
         "de" : {
@@ -6257,6 +6359,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "继续"
+          }
+        }
+      }
+    },
+    "Continue Finding a Broken Mod…" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suche nach defektem Mod fortsetzen …"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar buscando el mod defectuoso…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuer la recherche du mod défectueux…"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar procurando o mod com defeito…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "继续找出出问题的模组…"
           }
         }
       }
@@ -10549,6 +10685,40 @@
         }
       }
     },
+    "Go to a page of the sidebar" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zu einer Seite der Seitenleiste wechseln"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ir a una página de la barra lateral"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aller à une page de la barre latérale"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ir para uma página da barra lateral"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "前往边栏中的页面"
+          }
+        }
+      }
+    },
     "Has optional content: see Optional Files or optional requirements in the details panel" : {
       "localizations" : {
         "de" : {
@@ -10613,6 +10783,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "隐藏 %@ 的消息"
+          }
+        }
+      }
+    },
+    "Hide Details" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Details ausblenden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ocultar detalles"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masquer les détails"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ocultar detalhes"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隐藏详细信息"
           }
         }
       }
@@ -11362,6 +11566,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "安装缺少的"
+          }
+        }
+      }
+    },
+    "Install Missing Requirements" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fehlende Voraussetzungen installieren"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalar los requisitos que faltan"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installer les prérequis manquants"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalar requisitos faltando"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "安装缺少的前置"
           }
         }
       }
@@ -13844,6 +14082,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "星露谷物语模组管理器。"
+          }
+        }
+      }
+    },
+    "Mod Pictures" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mod-Bilder"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Imágenes de mods"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Images des mods"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Imagens dos mods"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "模组图片"
           }
         }
       }
@@ -18307,6 +18579,40 @@
         }
       }
     },
+    "Problems in the last game session…" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Probleme in der letzten Spielsitzung …"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Problemas en la última sesión de juego…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Problèmes lors de la dernière partie…"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Problemas na última sessão de jogo…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上次游戏中出现的问题…"
+          }
+        }
+      }
+    },
     "Problems:" : {
       "localizations" : {
         "de" : {
@@ -18545,6 +18851,40 @@
         }
       }
     },
+    "Profiles…" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profile …"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfiles…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profils…"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfis…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "配置方案…"
+          }
+        }
+      }
+    },
     "Put v%@ back. The current version is kept here, and your settings carry over." : {
       "localizations" : {
         "de" : {
@@ -18580,6 +18920,7 @@
       }
     },
     "Quit" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -18643,6 +18984,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "请先退出星露谷物语"
+          }
+        }
+      }
+    },
+    "Quit Starseed" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed beenden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salir de Starseed"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quitter Starseed"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sair do Starseed"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "退出 Starseed"
           }
         }
       }
@@ -19499,6 +19874,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "需要"
+          }
+        }
+      }
+    },
+    "Rescan Mods Folder" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods-Ordner neu einlesen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volver a leer la carpeta Mods"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Relire le dossier Mods"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ler a pasta Mods de novo"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新扫描 Mods 文件夹"
           }
         }
       }
@@ -21160,6 +21569,40 @@
         }
       }
     },
+    "Settings…" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen …"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajustes…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réglages…"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajustes…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置…"
+          }
+        }
+      }
+    },
     "Share" : {
       "localizations" : {
         "de" : {
@@ -21326,6 +21769,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "显示全部 %lld 个"
+          }
+        }
+      }
+    },
+    "Show Details" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Details einblenden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar detalles"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher les détails"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar detalhes"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示详细信息"
           }
         }
       }
@@ -21636,6 +22113,40 @@
         }
       }
     },
+    "Show or hide the details panel" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detailbereich ein- oder ausblenden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar u ocultar el panel de detalles"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher ou masquer le panneau de détails"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar ou ocultar o painel de detalhes"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示或隐藏详细信息面板"
+          }
+        }
+      }
+    },
     "Show Requirements" : {
       "localizations" : {
         "de" : {
@@ -21666,6 +22177,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "显示前置"
+          }
+        }
+      }
+    },
+    "Show SMAPI Log" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI-Protokoll zeigen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar el registro de SMAPI"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher le journal SMAPI"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar o registro do SMAPI"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示 SMAPI 日志"
           }
         }
       }
@@ -24558,6 +25103,40 @@
         }
       }
     },
+    "There are no saves to back up." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es gibt keine Spielstände zum Sichern."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hay partidas que copiar."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucune sauvegarde à copier."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não há saves para fazer backup."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有可备份的存档。"
+          }
+        }
+      }
+    },
     "These aren't on Nexus (or SMAPI doesn't know where they are). Search for them by name:\n\n%@" : {
       "localizations" : {
         "de" : {
@@ -25545,6 +26124,40 @@
         }
       }
     },
+    "Update All (%lld)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle aktualisieren (%lld)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualizar todo (%lld)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tout mettre à jour (%lld)"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atualizar tudo (%lld)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全部更新（%lld）"
+          }
+        }
+      }
+    },
     "Update available" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -25955,7 +26568,42 @@
         }
       }
     },
+    "Use **Game → Find a Broken Mod…**. Starseed turns off half of your mods, you play and say whether the problem happened, and after a few tests it names the mod. Your mods are put back at the end." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nutze **Spiel → Defekten Mod finden …**. Starseed schaltet die Hälfte deiner Mods aus, du spielst und sagst, ob das Problem aufgetreten ist, und nach ein paar Tests nennt es den Mod. Am Ende werden deine Mods zurückgesetzt."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usa **Juego → Buscar un mod defectuoso…**. Starseed desactiva la mitad de tus mods, juegas y dices si apareció el problema, y tras unas pocas pruebas nombra el mod. Al final se restauran tus mods."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utilisez **Jeu → Trouver un mod défectueux…**. Starseed désactive la moitié de vos mods, vous jouez et dites si le problème est apparu, et après quelques tests il nomme le mod. Vos mods sont remis en place à la fin."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use **Jogo → Encontrar um mod com defeito…**. O Starseed desativa metade dos seus mods, você joga e diz se o problema aconteceu, e depois de alguns testes ele aponta o mod. No final, seus mods voltam ao normal."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用**游戏 → 找出出问题的模组…**。Starseed 会关闭一半模组，你进入游戏并告诉它问题是否出现，几次测试后它就会指出是哪个模组。最后你的模组会恢复原样。"
+          }
+        }
+      }
+    },
     "Use **Mods → Find a Broken Mod…**. Starseed turns off half of your mods, you play and say whether the problem happened, and after a few tests it names the mod. Your mods are put back at the end." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -26019,6 +26667,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "使用模组并开始游戏"
+          }
+        }
+      }
+    },
+    "Use Profile" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil verwenden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usar perfil"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utiliser un profil"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usar perfil"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用配置方案"
           }
         }
       }
