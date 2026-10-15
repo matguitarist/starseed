@@ -7,7 +7,7 @@ import UserNotifications
 enum Preferences {
     static let autoCheckUpdates = "autoCheckUpdates"        // default on
     static let notifyUpdates = "notifyUpdates"              // default on
-    static let showMenuBarIcon = "showMenuBarIcon"          // default off
+    static let showMenuBarIcon = "showMenuBarIcon"          // default on
     static let notifiedUpdates = "notifiedUpdates"          // ["uniqueid@version"]
     static let backupBeforePlay = "backupBeforePlay"        // default on
     static let reportAfterPlaying = "reportAfterPlaying"    // default on
@@ -81,6 +81,24 @@ struct MenuBarContent: View {
             .disabled(model.smapiInstallPhase != nil)
         }
         Button("Play Stardew Valley") { model.launchGame() }
+        // Each farm with the profile it's played with: switches, then launches.
+        let saves = SaveGame.list()
+        if !saves.isEmpty {
+            Menu("Play a Farm") {
+                ForEach(saves) { save in
+                    Button {
+                        model.play(save)
+                    } label: {
+                        if let profile = model.profile(forSave: save.id) {
+                            Text("\(save.displayName) · \(profile)")
+                        } else {
+                            Text(save.displayName)
+                        }
+                    }
+                }
+            }
+            .disabled(model.manager == nil)
+        }
         Divider()
 
         let updates = model.modsWithUpdates.count
@@ -124,6 +142,17 @@ struct MenuBarContent: View {
                             Text(name)
                         }
                     }
+                }
+                Divider()
+                if let active = model.activeProfile, let collection = model.profileCollections[active] {
+                    Button("Show Collection “\(collection.name)”…") {
+                        model.showCollection(forProfile: active)
+                        showMainWindow()
+                    }
+                }
+                Button("Manage Profiles…") {
+                    model.showProfiles = true
+                    showMainWindow()
                 }
             }
         }

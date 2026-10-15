@@ -508,6 +508,7 @@ private struct SetupOptions: View {
     @AppStorage(Preferences.autoCheckUpdates) private var autoCheckUpdates = true
     @AppStorage(Preferences.notifyUpdates) private var notifyUpdates = true
     @AppStorage(Preferences.showPageTips) private var showPageTips = true
+    @AppStorage(Preferences.showMenuBarIcon) private var showMenuBarIcon = true
 
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
@@ -523,6 +524,8 @@ private struct SetupOptions: View {
                    "Reads SMAPI's log when the game closes and points out mods that failed or crashed.")
             option($autoCheckUpdates, "Check for mod updates every few hours", nil)
             option($notifyUpdates, "Notify me about new updates", nil)
+            option($showMenuBarIcon, "Show icon in the menu bar",
+                   "Play, switch profiles and see updates from the menu bar. Closing the window keeps Starseed there, checking for updates.")
             option($showPageTips, "Show a tip at the top of each page",
                    "A short explanation the first time you open each page. Dismiss each one, or turn them all off.")
         }

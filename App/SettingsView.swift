@@ -59,7 +59,7 @@ private struct GeneralSettings: View {
     @AppStorage(Preferences.theme) private var theme = AppTheme.system
     @AppStorage(Preferences.showModPictures) private var showModPictures = true
     @AppStorage(Preferences.showPageTips) private var showPageTips = true
-    @AppStorage(Preferences.showMenuBarIcon) private var showMenuBarIcon = false
+    @AppStorage(Preferences.showMenuBarIcon) private var showMenuBarIcon = true
     @State private var language = AppLanguage.current
 
     var body: some View {

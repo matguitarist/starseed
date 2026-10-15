@@ -41,13 +41,8 @@ struct CollectionSheet: View {
 
     private var header: some View {
         HStack(alignment: .top, spacing: 14) {
-            AsyncImage(url: collection?.tileImageURL) { image in
-                image.resizable().aspectRatio(contentMode: .fill)
-            } placeholder: {
-                Rectangle().fill(.quaternary)
-            }
-            .frame(width: 110, height: 110)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
+            FittedPicture(url: collection?.tileImageURL, cornerRadius: 10)
+                .frame(width: 110, height: 138)
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(collection?.name ?? "Collection").font(.title2.bold()).lineLimit(2)

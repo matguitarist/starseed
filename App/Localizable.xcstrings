@@ -23480,6 +23480,40 @@
         }
       }
     },
+    "Play a Farm" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einen Hof spielen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jugar una granja"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jouer une ferme"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jogar uma fazenda"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "游玩农场"
+          }
+        }
+      }
+    },
     "Play Stardew Valley" : {
       "localizations" : {
         "de" : {
@@ -23613,6 +23647,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "如果自上次游戏以来模组有增删、更新或开关变化，“开始游戏”会先把你的所有存档打包。这些备份会保留最近 5 个，位于“存档”中。"
+          }
+        }
+      }
+    },
+    "Play, switch profiles and see updates from the menu bar. Closing the window keeps Starseed there, checking for updates." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spiele, wechsle Profile und sieh Updates über die Menüleiste. Wenn du das Fenster schließt, bleibt Starseed dort und sucht weiter nach Updates."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Juega, cambia de perfil y mira las actualizaciones desde la barra de menús. Al cerrar la ventana, Starseed sigue ahí buscando actualizaciones."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jouez, changez de profil et voyez les mises à jour depuis la barre des menus. Fermer la fenêtre y garde Starseed, qui continue de rechercher les mises à jour."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jogue, troque de perfil e veja atualizações pela barra de menus. Fechar a janela mantém o Starseed lá, procurando atualizações."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从菜单栏开始游戏、切换配置方案并查看更新。关闭窗口后 Starseed 会留在菜单栏中继续检查更新。"
           }
         }
       }
@@ -32313,6 +32381,40 @@
         }
       }
     },
+    "The icon is on unless you turn it off. With it, closing the window keeps Starseed running, so it keeps checking for updates. Its menu shows the game's and SMAPI's state, the number of updates and the last session's problems. From it you can play, play a farm with its profile (**Play a Farm**), switch or manage profiles, and open a profile's collection, without opening the window." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Symbol ist eingeschaltet, solange du es nicht ausschaltest. Damit läuft Starseed nach dem Schließen des Fensters weiter und sucht weiter nach Updates. Sein Menü zeigt den Zustand von Spiel und SMAPI, die Zahl der Updates und die Probleme der letzten Sitzung. Darüber kannst du spielen, einen Hof mit seinem Profil spielen (**Einen Hof spielen**), Profile wechseln oder verwalten und die Sammlung eines Profils öffnen, ohne das Fenster zu öffnen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El icono está activado salvo que lo desactives. Con él, al cerrar la ventana Starseed sigue abierto y buscando actualizaciones. Su menú muestra el estado del juego y de SMAPI, el número de actualizaciones y los problemas de la última sesión. Desde él puedes jugar, jugar una granja con su perfil (**Jugar una granja**), cambiar o gestionar perfiles y abrir la colección de un perfil, sin abrir la ventana."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’icône est affichée sauf si vous la désactivez. Avec elle, fermer la fenêtre laisse Starseed ouvert, qui continue de rechercher les mises à jour. Son menu montre l’état du jeu et de SMAPI, le nombre de mises à jour et les problèmes de la dernière partie. Il permet de jouer, de jouer une ferme avec son profil (**Jouer une ferme**), de changer ou gérer les profils et d’ouvrir la collection d’un profil, sans ouvrir la fenêtre."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O ícone fica ativado a menos que você o desative. Com ele, fechar a janela mantém o Starseed aberto, procurando atualizações. O menu dele mostra o estado do jogo e do SMAPI, o número de atualizações e os problemas da última sessão. Por ele você pode jogar, jogar uma fazenda com o perfil dela (**Jogar uma fazenda**), trocar ou gerenciar perfis e abrir a coleção de um perfil, sem abrir a janela."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "除非你关闭，否则会显示该图标。显示时，关闭窗口后 Starseed 仍会运行并继续检查更新。它的菜单显示游戏和 SMAPI 的状态、更新数量和上次游戏的问题。你可以在不打开窗口的情况下从这里开始游戏、使用农场对应的配置方案游玩（**游玩农场**）、切换或管理配置方案，以及打开配置方案的合集。"
+          }
+        }
+      }
+    },
     "The Installed list" : {
       "localizations" : {
         "de" : {
@@ -36143,6 +36245,7 @@
       }
     },
     "With the icon on, closing the window keeps Starseed running, so it keeps checking for updates. Its menu shows the game's and SMAPI's state, the number of updates, the last session's problems, and lets you play or switch profiles without opening the window." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {

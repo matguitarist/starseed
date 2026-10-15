@@ -118,13 +118,9 @@ private struct CollectionRow: View {
 
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
-            AsyncImage(url: collection.tileImageURL) { image in
-                image.resizable().aspectRatio(contentMode: .fill)
-            } placeholder: {
-                Rectangle().fill(.quaternary)
-            }
-            .frame(width: 80, height: 80)
-            .clipShape(RoundedRectangle(cornerRadius: 8))
+            // Nexus collection tiles are portrait (about 4:5): shown whole.
+            FittedPicture(url: collection.tileImageURL)
+                .frame(width: 80, height: 100)
 
             VStack(alignment: .leading, spacing: 3) {
                 Text(collection.name).font(.headline).lineLimit(1)

@@ -17,7 +17,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
     /// With the menu bar icon on, closing the window keeps the app (and its
     /// background update checks) running.
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
-        !Preferences.bool(Preferences.showMenuBarIcon, default: false)
+        !Preferences.bool(Preferences.showMenuBarIcon, default: true)
     }
 
     // Clicking an update notification opens the Updates section.
@@ -36,7 +36,7 @@ struct StardewModManagerApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     @State private var model = AppModel.shared
     private let appUpdater = AppUpdater.shared
-    @AppStorage(Preferences.showMenuBarIcon) private var showMenuBarIcon = false
+    @AppStorage(Preferences.showMenuBarIcon) private var showMenuBarIcon = true
 
     var body: some Scene {
         Window("Starseed", id: "main") {

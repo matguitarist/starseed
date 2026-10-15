@@ -219,7 +219,7 @@ struct HelpView: View {
                 HelpText("Checking mods for updates every few hours and notifications about them, and checking for new versions of Starseed. Each has **Check Now**.")
             }
             HelpSection("The menu bar icon") {
-                HelpText("With the icon on, closing the window keeps Starseed running, so it keeps checking for updates. Its menu shows the game's and SMAPI's state, the number of updates, the last session's problems, and lets you play or switch profiles without opening the window.")
+                HelpText("The icon is on unless you turn it off. With it, closing the window keeps Starseed running, so it keeps checking for updates. Its menu shows the game's and SMAPI's state, the number of updates and the last session's problems. From it you can play, play a farm with its profile (**Play a Farm**), switch or manage profiles, and open a profile's collection, without opening the window.")
             }
             HelpSection("Nexus Mods") {
                 HelpText("Your personal API key and your account (free or Premium): **Change Key…** or **Remove** it. **Use This App** makes Starseed catch **Mod Manager Download** links clicked in Safari or Chrome.")

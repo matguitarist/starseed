@@ -129,3 +129,36 @@ struct ShapedPicture: View {
         }
     }
 }
+
+/// A picture shown whole in a fixed box (list rows, headers), over a blurred
+/// copy of itself, so pictures of any shape line up at the same size.
+struct FittedPicture: View {
+    let url: URL?
+    var cornerRadius: CGFloat = 8
+    @State private var image: NSImage?
+
+    var body: some View {
+        RoundedRectangle(cornerRadius: cornerRadius)
+            .fill(.quaternary.opacity(0.5))
+            .overlay {
+                if let image {
+                    ZStack {
+                        Image(nsImage: image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .blur(radius: 12)
+                            .opacity(0.6)
+                        Image(nsImage: image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    }
+                }
+            }
+            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+            .task(id: url) {
+                guard let url else { image = nil; return }
+                image = ImageCache.shared.cached(url)
+                if image == nil { image = await ImageCache.shared.image(for: url) }
+            }
+    }
+}
