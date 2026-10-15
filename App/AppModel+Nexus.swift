@@ -123,14 +123,38 @@ extension AppModel {
         })
     }
 
-    /// Saves a profile enabling exactly the installed mods from a collection.
-    func saveProfile(fromCollection revision: CollectionRevision) -> Int {
-        let nexusIDs = Set(revision.mods.map(\.modID))
-        let ids = mods.filter { mod in nexusID(for: mod).map(nexusIDs.contains) ?? false }
-            .map(\.uniqueID)
-            .filter { !$0.isEmpty }
-        profiles[revision.collection.name] = ids
+    /// UniqueIDs of the installed mods that belong to a collection, with
+    /// every part of a multi-part mod (only one part may carry the Nexus number).
+    func installedUniqueIDs(for collectionMods: [CollectionMod]) -> [String] {
+        let nexusIDs = Set(collectionMods.map(\.modID))
+        var result: [String] = []
+        var seen = Set<String>()
+        for mod in mods where nexusID(for: mod).map(nexusIDs.contains) ?? false {
+            for part in group(containing: mod)?.mods ?? [mod] where !part.uniqueID.isEmpty {
+                if seen.insert(part.uniqueID.lowercased()).inserted { result.append(part.uniqueID) }
+            }
+        }
+        return result
+    }
+
+    /// Puts a profile named after the collection in use, with only the
+    /// collection's installed mods (and SMAPI's own) on. Mods installed next
+    /// are enabled, so they join it. An existing profile of that name keeps
+    /// its mods and gains the collection's.
+    func useCollectionProfile(_ revision: CollectionRevision, mods collectionMods: [CollectionMod]) {
+        guard !isGameRunning else {
+            return show("Stardew Valley Is Running", "Quit the game first: mods are only loaded when it starts.")
+        }
+        let name = revision.collection.name
+        let smapiMods = mods.filter { $0.uniqueID.lowercased().hasPrefix("smapi.") }.map(\.uniqueID)
+        var ids = profiles[name] ?? []
+        for id in smapiMods + installedUniqueIDs(for: collectionMods)
+        where !ids.contains(where: { $0.caseInsensitiveCompare(id) == .orderedSame }) {
+            ids.append(id)
+        }
+        profiles[name] = ids
         persistProfiles()
-        return ids.count
+        activeProfile = name
+        applyEnabledSet(ids, title: String(localized: "profile “\(name)”"), undoable: false)
     }
 }

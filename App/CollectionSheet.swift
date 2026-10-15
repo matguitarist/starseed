@@ -12,7 +12,9 @@ struct CollectionSheet: View {
     @State private var error: String?
     @State private var selectedOptional: Set<Int> = []   // file IDs of optional mods to include
     @State private var includeNewerDowngrades = false
-    @State private var profileSaved: String?
+    /// Install into a new profile named after the collection (only its mods
+    /// on), or into the profile in use.
+    @State private var intoNewProfile = true
 
     var body: some View {
         VStack(spacing: 0) {
@@ -20,7 +22,11 @@ struct CollectionSheet: View {
             Divider()
             content
             Divider()
-            footer.padding()
+            VStack(spacing: 8) {
+                profileChoice
+                footer
+            }
+            .padding()
         }
         .frame(width: 720, height: 680)
         .task { await load() }
@@ -177,9 +183,7 @@ struct CollectionSheet: View {
     private var footer: some View {
         HStack(spacing: 10) {
             VStack(alignment: .leading, spacing: 2) {
-                if let profileSaved {
-                    Label(profileSaved, systemImage: "checkmark").foregroundStyle(.green)
-                } else if model.nexusAccount.user?.isPremium == true {
+                if model.nexusAccount.user?.isPremium == true {
                     Text("Premium: everything downloads and installs automatically.")
                 } else if model.nexusAccount.user != nil {
                     Text("Free account: the Nexus browser opens each mod in turn. Click **Slow download** on each page.")
@@ -196,23 +200,50 @@ struct CollectionSheet: View {
             }
             .font(.callout)
             Spacer()
-            Button("Save as Profile") {
-                guard let revision else { return }
-                let count = model.saveProfile(fromCollection: revision)
-                profileSaved = String(localized: "Saved profile “\(revision.collection.name)” (\(count) mods)")
-            }
-            .disabled(revision == nil)
-            .help("Save a profile that enables the collection's installed mods")
             Button("Close") { dismiss() }
                 .keyboardShortcut(.cancelAction)
-            Button(modsToInstall.isEmpty ? "Up to Date" : "Install \(modsToInstall.count) Mods") {
+            Button(installTitle) {
+                if intoNewProfile, let revision {
+                    model.useCollectionProfile(revision, mods: includedMods)
+                }
                 model.installCollection(modsToInstall)
                 dismiss()
             }
             .keyboardShortcut(.defaultAction)
             .buttonStyle(.borderedProminent)
-            .disabled(modsToInstall.isEmpty || model.nexusAccount.user == nil)
+            .disabled(revision == nil
+                      || (modsToInstall.isEmpty && !intoNewProfile)
+                      || (!modsToInstall.isEmpty && model.nexusAccount.user == nil))
         }
+    }
+
+    /// "Install into: New profile “X” | Profile in use “Default”".
+    private var profileChoice: some View {
+        HStack(spacing: 8) {
+            Text("Install into").foregroundStyle(.secondary)
+            Picker("Install into", selection: $intoNewProfile) {
+                Text("New profile “\(collection?.name ?? "")”").tag(true)
+                Text("Profile in use “\(model.activeProfile ?? "")”").tag(false)
+            }
+            .labelsHidden()
+            .pickerStyle(.segmented)
+            .fixedSize()
+            Spacer()
+        }
+        .font(.callout)
+        .help("A new profile has only this collection's mods on, so it doesn't mix with your other mods. Mods you already have aren't downloaded again.")
+    }
+
+    /// The collection's mods, with the optional ones you ticked.
+    private var includedMods: [CollectionMod] {
+        (revision?.mods ?? []).filter { !$0.isOptional || selectedOptional.contains($0.fileID) }
+    }
+
+    private var installTitle: String {
+        if modsToInstall.isEmpty {
+            return intoNewProfile ? String(localized: "Use as Profile") : String(localized: "Up to Date")
+        }
+        return String(localized: "Install \(modsToInstall.count) Mods")
     }
 
     private func load() async {

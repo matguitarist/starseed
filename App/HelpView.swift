@@ -100,6 +100,7 @@ struct HelpView: View {
             HelpSection("From Nexus Mods") {
                 HelpText("**Browse Nexus** searches Stardew Valley mods. Open one to see its files and requirements, then **Install**. Requirements that are missing can be installed in the same step.")
                 HelpText("**Collections** lists curated mod packs from Nexus. A collection installs every mod it lists, at the versions it was made with.")
+                HelpText("Install a collection into a **new profile** named after it: only the collection's mods are on there, so it doesn't mix with your other mods, and mods you already have aren't downloaded again. Your usual profile is still one click away in the toolbar.")
                 HelpText("Links in Starseed open in its own Nexus browser, which catches **Mod Manager Download** buttons. To catch them in Safari or Chrome too, click **Use This App** in **Settings → Nexus Mods**.")
             }
             HelpSection("Optional files") {
@@ -156,6 +157,7 @@ struct HelpView: View {
         case .profiles:
             HelpSection("Profiles") {
                 HelpText("A profile remembers which mods are on. One is always in use; its name shows in the toolbar, and turning mods on or off updates it. Starseed starts with a **Default** profile.")
+                HelpText("**In “…”** at the right of the filter bar shows only the mods in the profile in use; **All Mods** shows everything installed.")
                 HelpText("Make one for each way you play (a big expansion run, a vanilla-plus game…): **Manage Profiles…** in the toolbar's profile menu creates, renames and deletes them. Choosing another profile in that menu switches which mods are on; switching back brings yours back exactly as they were.")
             }
             HelpSection("My Collections") {

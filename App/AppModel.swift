@@ -425,10 +425,17 @@ final class AppModel {
 
 
     /// Groups with members matching the filter (whole groups when not filtering).
+    /// Installed list: only the mods in the profile in use (the enabled
+    /// ones), hiding the rest of the library.
+    var showProfileModsOnly = UserDefaults.standard.bool(forKey: Preferences.showProfileModsOnly) {
+        didSet { UserDefaults.standard.set(showProfileModsOnly, forKey: Preferences.showProfileModsOnly) }
+    }
+
     var visibleGroups: [ModGroup] {
         let query = searchText.trimmingCharacters(in: .whitespaces)
-        guard !query.isEmpty else { return allGroups }
-        return allGroups.compactMap { group in
+        let groups = showProfileModsOnly ? allGroups.filter { $0.mods.contains(where: \.isEnabled) } : allGroups
+        guard !query.isEmpty else { return groups }
+        return groups.compactMap { group in
             let matching = group.mods.filter { "\($0.name) \($0.author) \($0.uniqueID)".localizedCaseInsensitiveContains(query) }
             guard !matching.isEmpty else { return nil }
             return ModGroup(id: group.id, name: group.name, mods: matching, isFolder: group.isFolder)

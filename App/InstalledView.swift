@@ -75,6 +75,16 @@ struct InstalledView: View {
             .background(.quaternary.opacity(0.6), in: RoundedRectangle(cornerRadius: 8))
             .frame(maxWidth: 360)
             Spacer()
+            // All installed mods, or only the profile in use (its enabled mods).
+            Picker("Show", selection: $model.showProfileModsOnly) {
+                Text("All Mods").tag(false)
+                Text("In “\(model.activeProfile ?? "")”").tag(true)
+            }
+            .labelsHidden()
+            .pickerStyle(.segmented)
+            .fixedSize()
+            .help("Show every installed mod, or only those in the profile in use")
+            .disabled(model.activeProfile == nil)
             // ⌘F focuses the filter, like a toolbar search field would.
             Button("Find") { isFilterFocused = true }
                 .keyboardShortcut("f")

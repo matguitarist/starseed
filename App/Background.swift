@@ -13,6 +13,7 @@ enum Preferences {
     static let reportAfterPlaying = "reportAfterPlaying"    // default on
     static let showModPictures = "showModPictures"          // default on
     static let activeProfile = "activeProfile"              // name of the profile in use
+    static let showProfileModsOnly = "showProfileModsOnly"  // Installed list: hide mods outside the profile
     static let lastPlayedModSet = "lastPlayedModSet"        // fingerprint of enabled mods at last Play
 
     static func bool(_ key: String, default value: Bool) -> Bool {

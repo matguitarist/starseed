@@ -378,6 +378,40 @@
         }
       }
     },
+    "**In “…”** at the right of the filter bar shows only the mods in the profile in use; **All Mods** shows everything installed." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**In „…“** rechts in der Filterleiste zeigt nur die Mods des Profils in Gebrauch; **Alle Mods** zeigt alles Installierte."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**En «…»**, a la derecha de la barra de filtro, muestra solo los mods del perfil en uso; **Todos los mods** muestra todo lo instalado."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Dans « … »**, à droite de la barre de filtre, n’affiche que les mods du profil utilisé ; **Tous les mods** affiche tout ce qui est installé."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Em “…”**, à direita da barra de filtro, mostra só os mods do perfil em uso; **Todos os mods** mostra tudo o que está instalado."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "过滤栏右侧的**在“…”中**只显示使用中配置方案的模组；**所有模组**显示所有已安装的模组。"
+          }
+        }
+      }
+    },
     "**Install** downloads it from Nexus; **Install All** does them all." : {
       "localizations" : {
         "de" : {
@@ -3218,6 +3252,40 @@
         }
       }
     },
+    "A new profile has only this collection's mods on, so it doesn't mix with your other mods. Mods you already have aren't downloaded again." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein neues Profil schaltet nur die Mods dieser Sammlung ein, damit sie sich nicht mit deinen anderen Mods mischen. Mods, die du schon hast, werden nicht erneut heruntergeladen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un perfil nuevo solo activa los mods de esta colección, para que no se mezclen con tus otros mods. Los mods que ya tienes no se vuelven a descargar."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un nouveau profil n’active que les mods de cette collection, sans les mélanger à vos autres mods. Les mods que vous avez déjà ne sont pas retéléchargés."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Um perfil novo só ativa os mods desta coleção, para não misturar com seus outros mods. Os mods que você já tem não são baixados de novo."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新配置方案只开启此合集的模组，不会和你的其他模组混在一起。你已有的模组不会重复下载。"
+          }
+        }
+      }
+    },
     "A profile remembers which mods are enabled." : {
       "extractionState" : "stale",
       "localizations" : {
@@ -3728,6 +3796,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "已全部安装"
+          }
+        }
+      }
+    },
+    "All Mods" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle Mods"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todos los mods"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tous les mods"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todos os mods"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "所有模组"
           }
         }
       }
@@ -11742,6 +11844,40 @@
         }
       }
     },
+    "In “%@”" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In „%@“"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En «%@»"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dans « %@ »"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Em “%@”"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在“%@”中"
+          }
+        }
+      }
+    },
     "In **Saves**, choose which profile or collection a save is played with. **Use Mods & Play** switches to those mods before launching, so each farm always gets its own set." : {
       "localizations" : {
         "de" : {
@@ -12049,6 +12185,40 @@
         }
       }
     },
+    "Install a collection into a **new profile** named after it: only the collection's mods are on there, so it doesn't mix with your other mods, and mods you already have aren't downloaded again. Your usual profile is still one click away in the toolbar." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installiere eine Sammlung in ein **neues Profil** mit ihrem Namen: Dort sind nur die Mods der Sammlung an, sie mischen sich also nicht mit deinen anderen Mods, und Mods, die du schon hast, werden nicht erneut heruntergeladen. Dein übliches Profil ist in der Symbolleiste nur einen Klick entfernt."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instala una colección en un **perfil nuevo** con su nombre: allí solo están activados los mods de la colección, así que no se mezclan con tus otros mods, y los mods que ya tienes no se vuelven a descargar. Tu perfil habitual sigue a un clic en la barra de herramientas."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installez une collection dans un **nouveau profil** à son nom : seuls les mods de la collection y sont activés, sans se mélanger à vos autres mods, et les mods que vous avez déjà ne sont pas retéléchargés. Votre profil habituel reste à un clic dans la barre d’outils."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instale uma coleção em um **perfil novo** com o nome dela: lá só os mods da coleção ficam ativados, sem misturar com seus outros mods, e os mods que você já tem não são baixados de novo. Seu perfil de sempre continua a um clique na barra de ferramentas."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "把合集安装到以它命名的**新配置方案**中：那里只开启合集的模组，不会和你的其他模组混在一起，你已有的模组也不会重复下载。你平常用的配置方案仍然在工具栏中一键可达。"
+          }
+        }
+      }
+    },
     "Install All" : {
       "localizations" : {
         "de" : {
@@ -12147,6 +12317,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "安装完成但有问题"
+          }
+        }
+      }
+    },
+    "Install into" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installieren in"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalar en"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installer dans"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalar em"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "安装到"
           }
         }
       }
@@ -16404,6 +16608,40 @@
         }
       }
     },
+    "New profile “%@”" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neues Profil „%@“"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nuevo perfil «%@»"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nouveau profil « %@ »"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Novo perfil “%@”"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新配置方案“%@”"
+          }
+        }
+      }
+    },
     "New profile from the mods on now" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -19638,6 +19876,40 @@
         }
       }
     },
+    "Profile in use “%@”" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil in Gebrauch „%@“"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfil en uso «%@»"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil utilisé « %@ »"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfil em uso “%@”"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用中的配置方案“%@”"
+          }
+        }
+      }
+    },
     "Profile in use. Choose another to switch which mods are on." : {
       "localizations" : {
         "de" : {
@@ -21494,6 +21766,7 @@
       }
     },
     "Save a profile that enables the collection's installed mods" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -21563,6 +21836,7 @@
       }
     },
     "Save as Profile" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -21836,6 +22110,7 @@
       }
     },
     "Saved profile “%@” (%lld mods)" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -22732,6 +23007,40 @@
         }
       }
     },
+    "Show" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeigen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示"
+          }
+        }
+      }
+    },
     "Show %@ in the list" : {
       "localizations" : {
         "de" : {
@@ -22898,6 +23207,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "显示详细信息"
+          }
+        }
+      }
+    },
+    "Show every installed mod, or only those in the profile in use" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle installierten Mods zeigen oder nur die des Profils in Gebrauch"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar todos los mods instalados o solo los del perfil en uso"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher tous les mods installés, ou seulement ceux du profil utilisé"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar todos os mods instalados ou só os do perfil em uso"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示所有已安装的模组，或只显示使用中配置方案的模组"
           }
         }
       }
@@ -28204,6 +28547,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "使用**模组 → 找出出问题的模组…**。Starseed 会关闭一半模组，你进入游戏并告诉它问题是否出现，几次测试后它就会指出是哪个模组。最后你的模组会恢复原样。"
+          }
+        }
+      }
+    },
+    "Use as Profile" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Als Profil verwenden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usar como perfil"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utiliser comme profil"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usar como perfil"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "用作配置方案"
           }
         }
       }
