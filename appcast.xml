@@ -8,6 +8,22 @@
             <sparkle:version>7</sparkle:version>
             <sparkle:shortVersionString>2.4</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+<h3>New</h3>
+<ul>
+<li><b>Setup assistant.</b> The first time you open Starseed, it finds your game (Steam, GOG or Mac App Store), installs SMAPI, picks the Mods folder and connects your Nexus account. Run it again from Help → Setup Assistant….</li>
+<li><b>Page tips.</b> A short tip at the top of each page explains what it&#x27;s for. Help → Show Page Tips Again brings them back.</li>
+<li><b>Saves by profile.</b> Saves are grouped by the profile they&#x27;re played with, with a This Profile filter. Farms you play join the profile in use automatically, and Play from Saves switches to the farm&#x27;s profile first.</li>
+<li><b>GOG and Mac App Store versions</b> of the game are found, and Play opens them directly.</li>
+</ul>
+<h3>Improved</h3>
+<ul>
+<li>Every page has the same toolbar: page actions, Refresh, Play, then the side panel.</li>
+<li>The profile panel lists the farms played with that profile.</li>
+<li>Farm names and in-game dates are translated.</li>
+<li>Help and the README describe the new setup.</li>
+</ul>
+]]></description>
             <enclosure url="https://github.com/matguitarist/starseed/releases/download/v2.4/Starseed-2.4.zip" length="7024001" type="application/octet-stream" sparkle:edSignature="zM+vaUqd6DetqNR/Djmh3QajsLhucnC+yyD02+juwCqBVxoCGdMuYz5aJ2CoPtfkqNEbqtvZyCvywbFetXURDg=="/>
         </item>
     </channel>

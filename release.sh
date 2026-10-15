@@ -5,7 +5,9 @@
 #
 # Before running: bump MARKETING_VERSION and CURRENT_PROJECT_VERSION in
 # project.yml (Sparkle compares the build number), run `xcodegen generate`,
-# and commit. Needs `gh` logged in and the Sparkle key in the Keychain.
+# write release-notes/<version>.md (shown in the update window and on
+# GitHub), and commit. Needs `gh` logged in and the Sparkle key in the
+# Keychain.
 set -euo pipefail
 cd "$(dirname "$0")"
 
@@ -16,6 +18,8 @@ TAG="v$VERSION"
 SPARKLE_BIN="$HOME/Library/Caches/StardewModManager/DerivedData/SourcePackages/artifacts/sparkle/Sparkle/bin"
 
 [ -n "$VERSION" ] && [ -n "$BUILD" ] || { echo "Couldn't read the version from project.yml" >&2; exit 1; }
+NOTES="release-notes/$VERSION.md"
+[ -s "$NOTES" ] || { echo "Write $NOTES first: it's what users see in the update window." >&2; exit 1; }
 if ! git diff --quiet || ! git diff --cached --quiet; then
     echo "Commit your changes first." >&2; exit 1
 fi
@@ -32,8 +36,11 @@ STAGING="releases/$TAG"
 rm -rf "$STAGING" && mkdir -p "$STAGING"
 ZIP="$STAGING/Starseed-$VERSION.zip"
 ditto -c -k --keepParent "dist/Starseed.app" "$ZIP"
+# Same name as the zip: generate_appcast embeds it as the update's notes.
+cp "$NOTES" "$STAGING/Starseed-$VERSION.md"
 "$SPARKLE_BIN/generate_appcast" --account starseed \
     --download-url-prefix "https://github.com/$REPO/releases/download/$TAG/" \
+    --embed-release-notes \
     "$STAGING"
 
 # The disk image is for first installs. A fixed name keeps the README's
@@ -43,7 +50,7 @@ DMG="releases/Starseed.dmg"
 ./make_dmg.sh "$DMG"
 
 git push origin HEAD
-gh release create "$TAG" "$DMG" "$ZIP" --repo "$REPO" --title "Starseed $VERSION" --generate-notes
+gh release create "$TAG" "$DMG" "$ZIP" --repo "$REPO" --title "Starseed $VERSION" --notes-file "$NOTES"
 
 # Publish the feed last, once the zip it points to is online.
 cp "$STAGING/appcast.xml" appcast.xml

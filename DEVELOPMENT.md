@@ -131,8 +131,11 @@ To publish a release:
 
 1. Bump `MARKETING_VERSION` **and** `CURRENT_PROJECT_VERSION` in
    `project.yml` (Sparkle compares the build number), run
-   `xcodegen generate`, and commit.
-2. Run `./release.sh`. It builds the app, makes the zip (signed for
+   `xcodegen generate`.
+2. Write `release-notes/<version>.md`: a short Markdown list of what's new,
+   for players. It's shown in Starseed's update window and on the GitHub
+   release, and `release.sh` stops without it. Commit.
+3. Run `./release.sh`. It builds the app, makes the zip (signed for
    Sparkle) and the disk image (`make_dmg.sh`), pushes, creates the GitHub
    release with both, and then publishes the new `appcast.xml`. Running copies of Starseed see the update within a day,
    or right away with **Starseed → Check for App Updates…**.
