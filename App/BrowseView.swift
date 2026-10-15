@@ -184,7 +184,19 @@ struct InstalledBadge: View {
     let nexusID: Int
 
     var body: some View {
-        if let installed = model.installedMod(nexusID: nexusID) {
+        if nexusID == NexusClient.smapiModID {
+            // SMAPI lives next to the game, not in Mods.
+            if let version = model.smapi?.version {
+                let outdated = model.isSMAPIOutdated
+                Text(outdated ? "Update" : "Installed")
+                    .font(.caption2.bold())
+                    .padding(.horizontal, 6)
+                    .padding(.vertical, 2)
+                    .background((outdated ? Color.orange : Color.green).opacity(0.2), in: Capsule())
+                    .foregroundStyle(outdated ? .orange : .green)
+                    .help("Installed \(version.description)")
+            }
+        } else if let installed = model.installedMod(nexusID: nexusID) {
             if model.isInstalledButOff(nexusID: nexusID) {
                 HStack(spacing: 4) {
                     Text("Off in this profile")

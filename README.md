@@ -5,13 +5,13 @@
 *A mod manager for Stardew Valley on macOS.*
 
 Install, update and organize your Stardew Valley mods on a Mac: browse
-Nexus Mods, install mods and whole collections, keep everything up to date,
-and find out quickly what's wrong when the game misbehaves.
+Nexus Mods, install mods and whole collections, keep a profile for each way
+you play, and find out quickly what's wrong when the game misbehaves.
 
 **[Download Starseed for Mac](https://github.com/matguitarist/starseed/releases/latest/download/Starseed.dmg)**
 (macOS 14 Sonoma or later)
 
-![Starseed's Installed list with mod pictures, and Stardew Valley Expanded's details](docs/screenshots/installed.png)
+![Starseed's Installed list showing the mods of a profile, with Stardew Valley Expanded's details](docs/screenshots/installed.png)
 
 ## Install
 
@@ -47,31 +47,48 @@ everything else is explained in **Help → Starseed Help** (⌘?).
 
 ## A quick tour
 
+**Ready in a minute.** The setup assistant finds your game (Steam, GOG or Mac
+App Store), installs SMAPI, picks the Mods folder and connects your Nexus
+account. A short tip on each page explains what it's for.
+
+![The setup assistant's welcome page](docs/screenshots/setup.png)
+
 **Your mods at a glance.** Every mod in your Mods folder with its picture,
 version and status. Multi-part mods like Stardew Valley Expanded show as one
 row. The details panel shows what a mod needs, which mods use it, and any
 conflicts. At the bottom, green, yellow or red dots tell you whether the game
 and SMAPI are up to date, with one-click updates.
 
+**A profile for each way you play.** A profile remembers which mods are on:
+a big expansion run, a vanilla-plus farm, a collection. Switch from the
+profile menu and your mods follow; nothing is deleted. Each farm remembers the
+profile it's played with, and Play switches to it first.
+
+![The profile in use, made from a Nexus collection](docs/screenshots/profile.png)
+
 **Find and install mods from Nexus.** Search or browse the most popular mods,
-see their requirements, and install them along with what they need. Updates
-show up in the list; read what's new, then update in one click.
+see their requirements, and install them along with what they need. Mods you
+have in another profile say so, with a button to turn them on. Updates show up
+in the list; read what's new, then update one mod or all of them.
 
 ![Browsing Stardew Valley mods on Nexus](docs/screenshots/browse.png)
 
 **Install whole collections.** Nexus collections (curated mod packs) install
-every mod at the versions they were made with.
+into their own profile, so they don't mix with your other mods, and mods you
+already have aren't downloaded again. Their optional mods stay one click away.
 
-![Nexus collections in Starseed](docs/screenshots/collections.png)
+![A Nexus collection, ready to install into its profile](docs/screenshots/collection.png)
 
 **When something breaks.** After you play, Starseed tells you if mods failed
 to load, had errors or conflicted, in plain words with a button to fix each
-one. If the log doesn't say which mod is to blame, **Find a Broken Mod**
-narrows it down in a few launches.
+one. The SMAPI log lists the mods that loaded. If the log doesn't say which
+mod is to blame, **Find a Broken Mod** narrows it down in a few launches.
+
+![The SMAPI log with the mods that loaded](docs/screenshots/log.png)
 
 **Keep your farms safe.** Saves are backed up before you play with changed
-mods, each farm remembers the profile it's played with, and earlier mod
-versions are kept so an update can be rolled back.
+mods, and earlier mod versions are kept so an update can be rolled back.
+Everything is explained in the built-in help.
 
 ![Starseed's Help window](docs/screenshots/help.png)
 
@@ -80,9 +97,10 @@ versions are kept so an update can be rolled back.
 **Installing**
 - Browse and search Nexus Mods, see each mod's files and requirements, and
   install with what it needs.
-- Install Nexus collections, or your own mod archives (.zip, .7z, .rar) by
-  dropping them on the window.
+- Install Nexus collections into their own profile, or your own mod archives
+  (.zip, .7z, .rar) by dropping them on the window.
 - Install, update and reconnect SMAPI in one click.
+- A setup assistant for first launch, and a tip on each page.
 - Mods that aren't on Nexus (ModDrop, GitHub…) get a button to their page.
 
 **Keeping up to date**
@@ -94,7 +112,8 @@ versions are kept so an update can be rolled back.
 
 **Organizing**
 - Turn mods on and off (⌘Z undoes it), with multi-part mods kept together.
-- Profiles for different ways of playing, and a set of mods for each farm.
+- Profiles for different ways of playing: switch in one click, see only a
+  profile's mods, and start one from no mods or from a collection.
 - Export a profile (mods, versions and settings) and import it on another Mac
   or share it with a friend; missing mods download into it.
 - Edit a mod's settings in a simple form.
@@ -112,8 +131,8 @@ versions are kept so an update can be rolled back.
   computer, and installs the missing ones.
 - Save backups: back up and restore one farm or all of them; Play backs up
   your saves when your mods changed.
-- Each farm remembers the profile it's played with, and Play from Saves
-  switches to it first.
+- Saves are grouped by profile: each farm remembers the profile it's played
+  with, and Play switches to it first.
 
 **Languages:** English, French, German, Spanish, Brazilian Portuguese and
 Simplified Chinese (Settings → General → Language).
