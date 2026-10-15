@@ -206,13 +206,7 @@ struct InstalledView: View {
                 .help("Rescan the Mods folder and check for updates")
             }
 
-            Button {
-                model.showProfiles = true
-            } label: {
-                Label("Profiles", systemImage: "person.2")
-            }
-            .help("Save and switch between sets of enabled mods")
-            .disabled(model.manager == nil)
+            ProfileMenu()
 
             Button {
                 model.openModsFolder()

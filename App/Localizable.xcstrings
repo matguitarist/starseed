@@ -3219,6 +3219,7 @@
       }
     },
     "A profile remembers which mods are enabled." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -3253,6 +3254,7 @@
       }
     },
     "A profile remembers which mods are enabled. Save one for each way you play (a big expansion run, a vanilla-plus game…) and switch between them with **Profiles** in the toolbar. Applying a profile can be undone with ⌘Z." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -3282,6 +3284,74 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "配置方案会记住启用了哪些模组。为每种玩法各存一个（大型扩展流程、接近原版的玩法…），并用工具栏中的**配置方案**切换。应用配置方案可用 ⌘Z 撤销。"
+          }
+        }
+      }
+    },
+    "A profile remembers which mods are on. One is always in use; its name shows in the toolbar, and turning mods on or off updates it. Starseed starts with a **Default** profile." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein Profil merkt sich, welche Mods an sind. Eines ist immer in Gebrauch; sein Name steht in der Symbolleiste, und das Ein- oder Ausschalten von Mods aktualisiert es. Starseed beginnt mit einem Profil **Standard**."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un perfil recuerda qué mods están activados. Siempre hay uno en uso; su nombre aparece en la barra de herramientas, y activar o desactivar mods lo actualiza. Starseed empieza con un perfil **Predeterminado**."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un profil retient quels mods sont activés. Un profil est toujours utilisé ; son nom apparaît dans la barre d’outils, et activer ou désactiver des mods le met à jour. Starseed commence avec un profil **Par défaut**."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Um perfil lembra quais mods estão ativados. Sempre há um em uso; o nome dele aparece na barra de ferramentas, e ativar ou desativar mods o atualiza. O Starseed começa com um perfil **Padrão**."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "配置方案会记住哪些模组是开启的。始终有一个配置方案在使用中；它的名称显示在工具栏中，开启或关闭模组会更新它。Starseed 一开始有一个**默认**配置方案。"
+          }
+        }
+      }
+    },
+    "A profile with this name already exists." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein Profil mit diesem Namen gibt es schon."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ya existe un perfil con este nombre."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un profil porte déjà ce nom."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Já existe um perfil com este nome."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已有同名的配置方案。"
           }
         }
       }
@@ -4173,6 +4243,7 @@
       }
     },
     "Apply" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -7621,6 +7692,40 @@
         }
       }
     },
+    "Create" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erstellen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crear"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Créer"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Criar"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "创建"
+          }
+        }
+      }
+    },
     "Debug" : {
       "comment" : "SMAPI log level",
       "localizations" : {
@@ -7652,6 +7757,74 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "调试"
+          }
+        }
+      }
+    },
+    "Default" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Standard"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Predeterminado"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Par défaut"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Padrão"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "默认"
+          }
+        }
+      }
+    },
+    "Default %lld" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Standard %lld"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Predeterminado %lld"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Par défaut %lld"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Padrão %lld"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "默认 %lld"
           }
         }
       }
@@ -8336,6 +8509,40 @@
         }
       }
     },
+    "Done" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fertig"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Listo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terminé"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完成"
+          }
+        }
+      }
+    },
     "Download and install every Nexus update" : {
       "localizations" : {
         "de" : {
@@ -8945,6 +9152,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "重复"
+          }
+        }
+      }
+    },
+    "Each profile remembers which mods are on. Changes you make are saved to the profile in use; switching turns another set of mods on. Nothing is deleted." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jedes Profil merkt sich, welche Mods an sind. Deine Änderungen werden im Profil in Gebrauch gesichert; Wechseln schaltet einen anderen Satz Mods ein. Nichts wird gelöscht."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cada perfil recuerda qué mods están activados. Tus cambios se guardan en el perfil en uso; cambiar de perfil activa otro conjunto de mods. No se elimina nada."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chaque profil retient quels mods sont activés. Vos changements sont enregistrés dans le profil utilisé ; changer de profil active un autre ensemble de mods. Rien n’est supprimé."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cada perfil lembra quais mods estão ativados. Suas mudanças são salvas no perfil em uso; trocar de perfil ativa outro conjunto de mods. Nada é apagado."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每个配置方案都会记住哪些模组是开启的。你所做的更改会保存到使用中的配置方案；切换会开启另一组模组。不会删除任何内容。"
           }
         }
       }
@@ -11535,6 +11776,40 @@
         }
       }
     },
+    "In Use" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In Gebrauch"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En uso"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utilisé"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Em uso"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用中"
+          }
+        }
+      }
+    },
     "Include" : {
       "localizations" : {
         "de" : {
@@ -13848,6 +14123,74 @@
         }
       }
     },
+    "Make one for each way you play (a big expansion run, a vanilla-plus game…): **Manage Profiles…** in the toolbar's profile menu creates, renames and deletes them. Choosing another profile in that menu switches which mods are on; switching back brings yours back exactly as they were." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erstelle eines für jede Spielweise (eine große Erweiterungsrunde, ein fast unverändertes Spiel …): **Profile verwalten …** im Profilmenü der Symbolleiste erstellt, benennt und löscht sie. Wählst du dort ein anderes Profil, wechseln die eingeschalteten Mods; zurückwechseln stellt deine genau wie vorher wieder her."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crea uno para cada forma de jugar (una partida con grandes expansiones, una casi vanilla…): **Gestionar perfiles…** en el menú de perfiles de la barra de herramientas los crea, renombra y elimina. Elegir otro perfil en ese menú cambia qué mods están activados; volver al tuyo lo deja exactamente como estaba."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Créez-en un pour chaque façon de jouer (une grosse partie avec extensions, une partie presque vanilla…) : **Gérer les profils…** dans le menu des profils de la barre d’outils permet de les créer, renommer et supprimer. Choisir un autre profil dans ce menu change les mods activés ; revenir au vôtre le retrouve exactement comme avant."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crie um para cada jeito de jogar (uma partida cheia de expansões, uma quase vanilla…): **Gerenciar perfis…** no menu de perfis da barra de ferramentas cria, renomeia e apaga perfis. Escolher outro perfil nesse menu troca quais mods estão ativados; voltar ao seu deixa tudo exatamente como estava."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "为每种玩法各建一个（大型扩展流程、接近原版的玩法…）：工具栏配置方案菜单中的**管理配置方案…**可以创建、重命名和删除它们。在该菜单中选择另一个配置方案会切换开启的模组；切换回来会让你的模组完全恢复原样。"
+          }
+        }
+      }
+    },
+    "Manage Profiles…" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profile verwalten …"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gestionar perfiles…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gérer les profils…"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerenciar perfis…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "管理配置方案…"
+          }
+        }
+      }
+    },
     "Managing Your Mods" : {
       "localizations" : {
         "de" : {
@@ -16027,6 +16370,40 @@
         }
       }
     },
+    "New profile from the mods on now" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neues Profil aus den eingeschalteten Mods"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nuevo perfil con los mods activados ahora"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nouveau profil avec les mods activés"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Novo perfil com os mods ativados agora"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "用当前开启的模组新建配置方案"
+          }
+        }
+      }
+    },
     "Newer SMAPI versions fix bugs and support newer mods." : {
       "localizations" : {
         "de" : {
@@ -16538,6 +16915,7 @@
       }
     },
     "No profiles yet" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -17417,6 +17795,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "只删除合集，不删除模组。"
+          }
+        }
+      }
+    },
+    "Only the profile is deleted, not the mods." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nur das Profil wird gelöscht, nicht die Mods."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Solo se elimina el perfil, no los mods."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seul le profil est supprimé, pas les mods."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Só o perfil é apagado, não os mods."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "只删除配置方案，不删除模组。"
           }
         }
       }
@@ -19123,6 +19535,40 @@
         }
       }
     },
+    "Profile in use. Choose another to switch which mods are on." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil in Gebrauch. Wähle ein anderes, um zu wechseln, welche Mods an sind."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfil en uso. Elige otro para cambiar qué mods están activados."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil utilisé. Choisissez-en un autre pour changer les mods activés."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfil em uso. Escolha outro para trocar quais mods estão ativados."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用中的配置方案。选择另一个即可切换开启的模组。"
+          }
+        }
+      }
+    },
     "Profile name" : {
       "localizations" : {
         "de" : {
@@ -19187,6 +19633,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "找不到配置方案"
+          }
+        }
+      }
+    },
+    "Profile: %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil: %@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfil: %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil : %@"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfil: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "配置方案：%@"
           }
         }
       }
@@ -20010,6 +20490,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "移除模组"
+          }
+        }
+      }
+    },
+    "Rename" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Umbenennen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Renombrar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Renommer"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Renomear"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重命名"
           }
         }
       }
@@ -20911,6 +21425,7 @@
       }
     },
     "Save and switch between sets of enabled mods" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -21013,6 +21528,7 @@
       }
     },
     "Save Current" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -24807,6 +25323,40 @@
         }
       }
     },
+    "Switch To" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wechseln"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cambiar a este"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utiliser"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usar este"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "切换到此方案"
+          }
+        }
+      }
+    },
     "Switch to this save's mods, then launch the game. Then pick %@ Farm in Load Game." : {
       "localizations" : {
         "de" : {
@@ -26562,6 +27112,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "重试"
+          }
+        }
+      }
+    },
+    "Turn this profile's mods on and the others off" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Mods dieses Profils einschalten und die anderen ausschalten"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activar los mods de este perfil y desactivar los demás"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activer les mods de ce profil et désactiver les autres"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ativar os mods deste perfil e desativar os outros"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开启此配置方案的模组并关闭其他模组"
           }
         }
       }

@@ -155,7 +155,8 @@ struct HelpView: View {
 
         case .profiles:
             HelpSection("Profiles") {
-                HelpText("A profile remembers which mods are enabled. Save one for each way you play (a big expansion run, a vanilla-plus game…) and switch between them with **Profiles** in the toolbar. Applying a profile can be undone with ⌘Z.")
+                HelpText("A profile remembers which mods are on. One is always in use; its name shows in the toolbar, and turning mods on or off updates it. Starseed starts with a **Default** profile.")
+                HelpText("Make one for each way you play (a big expansion run, a vanilla-plus game…): **Manage Profiles…** in the toolbar's profile menu creates, renames and deletes them. Choosing another profile in that menu switches which mods are on; switching back brings yours back exactly as they were.")
             }
             HelpSection("My Collections") {
                 HelpText("A collection is a list of your mods with their versions, Nexus pages and settings. **Export…** it to share your setup, or keep it as a backup; **Import…** reads one back and offers to install whatever's missing. **Apply Settings…** then copies the collection's mod settings over yours.")

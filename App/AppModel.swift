@@ -46,6 +46,11 @@ final class AppModel {
         didSet { recomputeDerived() }
     }
     var profiles: [String: [String]] = [:]
+    /// The profile in use: turning mods on or off updates it (see
+    /// AppModel+Profiles.swift). Remembered between launches.
+    var activeProfile: String? = UserDefaults.standard.string(forKey: Preferences.activeProfile) {
+        didSet { UserDefaults.standard.set(activeProfile, forKey: Preferences.activeProfile) }
+    }
     var pendingInstalls = 0
     var installQueue: Task<Void, Never>?
     var isInstalling: Bool { pendingInstalls > 0 }
@@ -225,6 +230,9 @@ final class AppModel {
     // MARK: Mods folder
 
     func start() {
+        // Before reading the Mods folder: a broken-mod search in progress
+        // keeps its temporary mod set out of the profile in use.
+        loadBisection()
         profiles = configStore.loadProfiles()
         saveLinks = configStore.loadSaveLinks()
         loadModLists()
@@ -234,7 +242,6 @@ final class AppModel {
             needsFolderSetup = true
         }
         Task { await loadLogConflicts() }
-        loadBisection()
         nexusAccount = .checking
         Task {
             nexusAPIKey = await Task.detached { Keychain.readNexusAPIKey() }.value
@@ -255,6 +262,7 @@ final class AppModel {
         selection = []
         updates = [:]
         refresh()
+        ensureActiveProfile()  // first launch: a "Default" profile from the current mods
         detectSMAPI()
         Task { await checkForUpdates() }
     }
@@ -282,6 +290,7 @@ final class AppModel {
         }
         markModsNeedingNewerSMAPI(in: &scanned)
         mods = scanned  // one assignment: one recompute of derived data
+        trackActiveProfile()
         // Keep selected groups too (their IDs aren't mod IDs).
         let ids = Set(mods.map(\.id)).union(allGroups.map(\.id))
         selection.formIntersection(ids)

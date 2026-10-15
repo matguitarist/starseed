@@ -12,6 +12,7 @@ enum Preferences {
     static let backupBeforePlay = "backupBeforePlay"        // default on
     static let reportAfterPlaying = "reportAfterPlaying"    // default on
     static let showModPictures = "showModPictures"          // default on
+    static let activeProfile = "activeProfile"              // name of the profile in use
     static let lastPlayedModSet = "lastPlayedModSet"        // fingerprint of enabled mods at last Play
 
     static func bool(_ key: String, default value: Bool) -> Bool {
@@ -106,12 +107,19 @@ struct MenuBarContent: View {
         Divider()
 
         if !model.profileNames.isEmpty {
-            Menu("Use Profile") {
+            Menu(model.activeProfile.map { String(localized: "Profile: \($0)") } ?? String(localized: "Use Profile")) {
                 ForEach(model.profileNames, id: \.self) { name in
-                    Button(name) { model.applyProfile(named: name) }
+                    Button {
+                        model.switchProfile(to: name)
+                    } label: {
+                        if name == model.activeProfile {
+                            Label(name, systemImage: "checkmark")
+                        } else {
+                            Text(name)
+                        }
+                    }
                 }
             }
-            .disabled(model.isGameRunning)
         }
         Button(model.bisection == nil ? String(localized: "Find a Broken Mod…") : String(localized: "Continue Finding a Broken Mod…")) {
             model.showBisect = true

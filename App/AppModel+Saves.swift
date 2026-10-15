@@ -60,8 +60,8 @@ extension AppModel {
         if let modSet = saveLinks[save.id] {
             switch modSet.kind {
             case .profile:
-                guard let ids = profiles[modSet.name] else { return show("Profile Not Found", "“\(modSet.name)” no longer exists. Pick another one for this save.") }
-                applyEnabledSet(ids, title: String(localized: "profile “\(modSet.name)”"))
+                guard profiles[modSet.name] != nil else { return show("Profile Not Found", "“\(modSet.name)” no longer exists. Pick another one for this save.") }
+                switchProfile(to: modSet.name)
             case .collection:
                 guard let list = modLists.first(where: { $0.name == modSet.name }) else { return show("Collection Not Found", "“\(modSet.name)” no longer exists. Pick another one for this save.") }
                 apply(list)

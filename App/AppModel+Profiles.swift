@@ -6,33 +6,102 @@ import SwiftUI
 
 extension AppModel {
     // MARK: Profiles
+    //
+    // One profile is always in use. Turning mods on or off updates it, so
+    // switching to another profile and back returns to exactly that set.
 
-    func saveProfile(named rawName: String) {
-        let name = rawName.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !name.isEmpty else { return }
-        profiles[name] = mods.filter { $0.isEnabled && !$0.uniqueID.isEmpty }.map(\.uniqueID)
+    /// The enabled mods' UniqueIDs.
+    private var enabledUniqueIDs: [String] {
+        mods.filter { $0.isEnabled && !$0.uniqueID.isEmpty }.map(\.uniqueID)
+    }
+
+    /// Makes sure a profile is in use: the remembered one, else one that
+    /// matches the enabled mods, else a new "Default" made from them.
+    func ensureActiveProfile() {
+        guard manager != nil else { return }
+        if let activeProfile, profiles[activeProfile] != nil { return }
+        let current = Set(enabledUniqueIDs.map { $0.lowercased() })
+        if let match = profileNames.first(where: { Set((profiles[$0] ?? []).map { $0.lowercased() }) == current }) {
+            activeProfile = match
+            return
+        }
+        var name = String(localized: "Default")
+        var counter = 2
+        while profiles[name] != nil {
+            name = String(localized: "Default \(counter)")
+            counter += 1
+        }
+        profiles[name] = enabledUniqueIDs
+        persistProfiles()
+        activeProfile = name
+    }
+
+    /// Records the enabled mods in the profile in use. Mods the profile
+    /// lists that aren't installed stay in it; a broken-mod search's
+    /// temporary changes aren't recorded.
+    func trackActiveProfile() {
+        guard manager != nil, bisection == nil, let name = activeProfile, let saved = profiles[name] else { return }
+        let installed = Set(mods.map { $0.uniqueID.lowercased() })
+        let notInstalled = saved.filter { !installed.contains($0.lowercased()) }
+        let updated = enabledUniqueIDs + notInstalled
+        guard Set(updated.map { $0.lowercased() }) != Set(saved.map { $0.lowercased() }) else { return }
+        profiles[name] = updated
         persistProfiles()
     }
 
+    /// Switches to another profile: turns its mods on and the others off.
+    /// The current profile already holds its mods, so nothing is lost.
+    func switchProfile(to name: String) {
+        guard let ids = profiles[name], name != activeProfile else { return }
+        guard !isGameRunning else {
+            return show("Stardew Valley Is Running", "Quit the game first: mods are only loaded when it starts.")
+        }
+        activeProfile = name
+        applyEnabledSet(ids, title: String(localized: "profile “\(name)”"), undoable: false)
+    }
+
+    /// A new profile with the mods enabled now, put in use.
+    func createProfile(named rawName: String) {
+        let name = rawName.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !name.isEmpty, profiles[name] == nil else { return }
+        profiles[name] = enabledUniqueIDs
+        persistProfiles()
+        activeProfile = name
+    }
+
+    func renameProfile(_ old: String, to rawName: String) {
+        let name = rawName.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !name.isEmpty, name != old, profiles[name] == nil, let ids = profiles[old] else { return }
+        profiles[name] = ids
+        profiles[old] = nil
+        persistProfiles()
+        if activeProfile == old { activeProfile = name }
+        // Saves played with this profile keep using it.
+        for (save, modSet) in saveLinks where modSet.kind == .profile && modSet.name == old {
+            link(saveID: save, to: SaveModSet(kind: .profile, name: name))
+        }
+    }
+
+    /// Deletes a profile (not its mods). Deleting the one in use puts
+    /// another in use, or a new Default.
     func deleteProfile(named name: String) {
         profiles[name] = nil
         persistProfiles()
-    }
-
-    /// Enable exactly the profile's mods and disable everything else. Mods
-    /// without a UniqueID (no/broken manifest) are left alone.
-    func applyProfile(named name: String) {
-        guard let ids = profiles[name] else { return }
-        applyEnabledSet(ids, title: String(localized: "profile “\(name)”"))
+        if activeProfile == name {
+            activeProfile = nil
+            ensureActiveProfile()
+        }
     }
 
     /// Enables exactly the given UniqueIDs and disables every other mod that
     /// has one. Mods without a UniqueID (no/broken manifest) are left alone.
-    func applyEnabledSet(_ ids: [String], title: String) {
+    func applyEnabledSet(_ ids: [String], title: String, undoable: Bool = true) {
         guard manager != nil else { return }
         let wanted = Set(ids.map { $0.lowercased() })
         let withIDs = mods.filter { !$0.uniqueID.isEmpty }
-        registerEnabledUndo(before: enabledSnapshot, actionName: String(localized: "Apply \(title)"))
+        if undoable {
+            registerEnabledUndo(before: enabledSnapshot, actionName: String(localized: "Apply \(title)"))
+        }
         // Disable first, then enable (enabling may rename folders).
         var failures = toggle(withIDs.filter { !wanted.contains($0.uniqueID.lowercased()) }, to: false)
         failures += toggle(withIDs.filter { wanted.contains($0.uniqueID.lowercased()) }, to: true)
