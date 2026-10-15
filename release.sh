@@ -6,8 +6,9 @@
 # Before running: bump MARKETING_VERSION and CURRENT_PROJECT_VERSION in
 # project.yml (Sparkle compares the build number), run `xcodegen generate`,
 # write release-notes/<version>.md (shown in the update window and on
-# GitHub), and commit. Needs `gh` logged in and the Sparkle key in the
-# Keychain.
+# GitHub), and commit. Needs `gh` logged in, the Sparkle key in the
+# Keychain, and the "Starseed Self-Signed" certificate
+# (make_signing_identity.sh).
 set -euo pipefail
 cd "$(dirname "$0")"
 
@@ -28,7 +29,7 @@ if gh release view "$TAG" --repo "$REPO" >/dev/null 2>&1; then
 fi
 
 echo "==> Releasing Starseed $VERSION (build $BUILD)"
-./build_app.sh
+REQUIRE_SIGNING=1 ./build_app.sh
 
 # Only the new zip in the folder: the feed lists the latest version, which
 # is all Sparkle needs.

@@ -127,6 +127,25 @@ lives in the maintainer's login Keychain (account `starseed`); back it up with
 `generate_keys --account starseed -x starseed-key.txt` and keep that file
 private. Without it, existing users can't receive updates.
 
+### Signing
+
+Releases are signed with a self-signed certificate, "Starseed Self-Signed",
+instead of Xcode's ad-hoc signature. An ad-hoc signature changes with every
+build, so macOS asked users for Keychain access (the Nexus API key) again
+after each update; with the certificate the app keeps the same identity and
+"Always Allow" sticks. It's free and isn't Apple notarization: first installs
+still need **Open Anyway**. Sparkle accepts the change because updates stay
+signed with the same EdDSA key.
+
+- `./make_signing_identity.sh` creates the certificate in your login
+  Keychain. Run it once on the Mac you release from; the first signing asks
+  to let `codesign` use it (**Always Allow**).
+- `build_app.sh` signs with it (`sign_app.sh`) when it's there;
+  `release.sh` refuses to release without it, so a release can't fall back
+  to ad hoc by accident.
+- Back it up (Keychain Access → My Certificates → Export…). If it's lost, a
+  new one works, but users are asked for Keychain access once more.
+
 To publish a release:
 
 1. Bump `MARKETING_VERSION` **and** `CURRENT_PROJECT_VERSION` in

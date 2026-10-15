@@ -40,4 +40,18 @@ BUILT="$DERIVED/Build/Products/Release/$APP_NAME"
 mkdir -p dist
 /bin/rm -rf "dist/$APP_NAME"
 ditto --noextattr --norsrc "$BUILT" "dist/$APP_NAME"
+
+# Signed with the "Starseed Self-Signed" certificate when it's in the
+# Keychain (make_signing_identity.sh), so the app's identity stays the same
+# from build to build. REQUIRE_SIGNING=1 (release.sh) stops without it.
+if [[ -z "${DEVELOPMENT_TEAM:-}" ]]; then
+    if security find-identity -p codesigning | grep -q '"Starseed Self-Signed"'; then
+        ./sign_app.sh "dist/$APP_NAME" | tail -1
+    elif [[ -n "${REQUIRE_SIGNING:-}" ]]; then
+        echo "No “Starseed Self-Signed” certificate: run ./make_signing_identity.sh first." >&2
+        exit 1
+    else
+        echo "Note: signed ad hoc (run ./make_signing_identity.sh for a stable signature)."
+    fi
+fi
 echo "Built dist/$APP_NAME"
