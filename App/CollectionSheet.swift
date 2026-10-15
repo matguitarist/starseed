@@ -147,8 +147,15 @@ struct CollectionSheet: View {
                     .foregroundStyle(.secondary)
             }
             Spacer()
-            stateText(state)
-                .font(.caption)
+            if state != .missing, mod.modID != NexusClient.smapiModID, model.isInstalledButOff(nexusID: mod.modID) {
+                Text("Off in this profile").foregroundStyle(.secondary).font(.caption)
+                Button("Turn On") { model.turnOn(nexusID: mod.modID) }
+                    .controlSize(.small)
+                    .help("Turn this mod on and add it to the profile in use")
+            } else {
+                stateText(state)
+                    .font(.caption)
+            }
         }
     }
 

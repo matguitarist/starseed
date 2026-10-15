@@ -182,6 +182,27 @@ struct InstalledBadge: View {
 
     var body: some View {
         if let installed = model.installedMod(nexusID: nexusID) {
+            if model.isInstalledButOff(nexusID: nexusID) {
+                HStack(spacing: 4) {
+                    Text("Off in this profile")
+                        .font(.caption2.bold())
+                        .padding(.horizontal, 6)
+                        .padding(.vertical, 2)
+                        .background(Color.secondary.opacity(0.2), in: Capsule())
+                        .foregroundStyle(.secondary)
+                        .help("Installed \(installed.version), but turned off in the profile in use")
+                    Button("Turn On") { model.turnOn(nexusID: nexusID) }
+                        .controlSize(.mini)
+                        .help("Turn this mod on and add it to the profile in use")
+                }
+            } else {
+                badge(installed)
+            }
+        }
+    }
+
+    private func badge(_ installed: ModInfo) -> some View {
+        Group {
             let hasUpdate = model.update(for: installed) != nil
             Text(hasUpdate ? "Update" : "Installed")
                 .font(.caption2.bold())

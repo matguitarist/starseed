@@ -123,6 +123,24 @@ extension AppModel {
         mods.first { self.nexusID(for: $0) == nexusID }
     }
 
+    /// Every installed part of the mod with this Nexus number (a multi-part
+    /// mod has its number on one part only).
+    func installedParts(nexusID: Int) -> [ModInfo] {
+        guard let mod = installedMod(nexusID: nexusID) else { return [] }
+        return group(containing: mod)?.mods ?? [mod]
+    }
+
+    /// Installed but turned off: in another profile, not the one in use.
+    func isInstalledButOff(nexusID: Int) -> Bool {
+        let parts = installedParts(nexusID: nexusID)
+        return !parts.isEmpty && !parts.contains(where: \.isEnabled)
+    }
+
+    /// Turns an installed Nexus mod on, which adds it to the profile in use.
+    func turnOn(nexusID: Int) {
+        setEnabled(Set(installedParts(nexusID: nexusID).map(\.id)), true)
+    }
+
     func checkForUpdates() async {
         guard !isCheckingUpdates, !mods.isEmpty else { return }
         isCheckingUpdates = true
