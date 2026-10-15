@@ -6570,6 +6570,40 @@
         }
       }
     },
+    "Collection" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sammlung"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Colección"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Collection"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coleção"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "合集"
+          }
+        }
+      }
+    },
     "collection “%@”" : {
       "localizations" : {
         "de" : {
@@ -10823,6 +10857,40 @@
         }
       }
     },
+    "Free account: Nexus's page for each update opens in turn; click **Slow download** on each. The browser closes after the last one." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kostenloses Konto: Die Nexus-Seite jedes Updates öffnet sich nacheinander; klicke jeweils auf **Slow download**. Der Browser schließt sich nach dem letzten."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuenta gratuita: la página de Nexus de cada actualización se abre por turnos; haz clic en **Slow download** en cada una. El navegador se cierra después de la última."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Compte gratuit : la page Nexus de chaque mise à jour s’ouvre à tour de rôle ; cliquez sur **Slow download** sur chacune. Le navigateur se ferme après la dernière."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conta gratuita: a página do Nexus de cada atualização abre por vez; clique em **Slow download** em cada uma. O navegador fecha depois da última."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "免费账户：每个更新的 Nexus 页面会依次打开；请在每个页面上点击 **Slow download**。最后一个完成后浏览器会自动关闭。"
+          }
+        }
+      }
+    },
     "Free account: the Nexus browser opens each mod in turn. Click **Slow download** on each page." : {
       "localizations" : {
         "de" : {
@@ -13167,6 +13235,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "正在安装…"
+          }
+        }
+      }
+    },
+    "Installs into the profile in use “%@”" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installiert in das Profil in Gebrauch „%@“"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instala en el perfil en uso «%@»"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installe dans le profil utilisé « %@ »"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instala no perfil em uso “%@”"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "安装到使用中的配置方案“%@”"
           }
         }
       }
@@ -18856,6 +18958,40 @@
         }
       }
     },
+    "Open the Nexus collection this profile was made from, to add its optional mods" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Nexus-Sammlung öffnen, aus der dieses Profil stammt, um ihre optionalen Mods hinzuzufügen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir la colección de Nexus de la que viene este perfil, para añadir sus mods opcionales"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir la collection Nexus d’où vient ce profil, pour ajouter ses mods optionnels"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir a coleção do Nexus de onde veio este perfil, para adicionar os mods opcionais dela"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开此配置方案来源的 Nexus 合集，以添加其可选模组"
+          }
+        }
+      }
+    },
     "Open the saves folder in Finder" : {
       "localizations" : {
         "de" : {
@@ -19900,6 +20036,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "perfil “%@”"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "配置方案“%@”"
+          }
+        }
+      }
+    },
+    "Profile “%@”" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil „%@“"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfil «%@»"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil « %@ »"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfil “%@”"
           }
         },
         "zh-Hans" : {
@@ -23241,6 +23411,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "显示全部 %lld 个"
+          }
+        }
+      }
+    },
+    "Show Collection “%@”…" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sammlung „%@“ zeigen …"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar la colección «%@»…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher la collection « %@ »…"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar a coleção “%@”…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示合集“%@”…"
           }
         }
       }

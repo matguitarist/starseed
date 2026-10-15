@@ -34,6 +34,21 @@ struct ProfilesView: View {
                         Text(name).fontWeight(name == model.activeProfile ? .semibold : .regular)
                     }
                     Spacer()
+                    if model.profileCollections[name] != nil {
+                        Button {
+                            // One sheet at a time: close Profiles, then open the collection.
+                            dismiss()
+                            Task {
+                                try? await Task.sleep(for: .milliseconds(350))
+                                model.showCollection(forProfile: name)
+                            }
+                        } label: {
+                            Label("Collection", systemImage: "square.grid.2x2")
+                        }
+                        .buttonStyle(.borderless)
+                        .font(.caption)
+                        .help("Open the Nexus collection this profile was made from, to add its optional mods")
+                    }
                     if name == model.activeProfile {
                         Text("In Use")
                             .font(.caption.bold())
@@ -153,6 +168,9 @@ struct ProfileMenu: View {
                 }
             }
             Divider()
+            if let active = model.activeProfile, let collection = model.profileCollections[active] {
+                Button("Show Collection “\(collection.name)”…") { model.showCollection(forProfile: active) }
+            }
             Button("Manage Profiles…") { model.showProfiles = true }
         } label: {
             Label(model.activeProfile ?? String(localized: "Profiles"), systemImage: "person.2")

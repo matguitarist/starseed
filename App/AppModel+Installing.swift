@@ -258,6 +258,8 @@ extension AppModel {
         browserQueue.removeFirst()
         if let next = browserQueue.first {
             openInBrowser(next.url)
+        } else {
+            browserQueueFinished += 1  // every download started: close the browser
         }
     }
 

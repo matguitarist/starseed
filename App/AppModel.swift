@@ -46,6 +46,16 @@ final class AppModel {
         didSet { recomputeDerived() }
     }
     var profiles: [String: [String]] = [:]
+    /// Profiles made from a Nexus collection, by profile name, so the
+    /// collection (and its optional mods) can be opened again.
+    var profileCollections: [String: ProfileCollection] = {
+        guard let data = UserDefaults.standard.data(forKey: Preferences.profileCollections),
+              let saved = try? JSONDecoder().decode([String: ProfileCollection].self, from: data)
+        else { return [:] }
+        return saved
+    }() {
+        didSet { UserDefaults.standard.set(try? JSONEncoder().encode(profileCollections), forKey: Preferences.profileCollections) }
+    }
     /// The profile in use: turning mods on or off updates it (see
     /// AppModel+Profiles.swift). Remembered between launches.
     var activeProfile: String? = UserDefaults.standard.string(forKey: Preferences.activeProfile) {
@@ -126,6 +136,9 @@ final class AppModel {
     /// Pages a free account still has to click "Slow download" on (Update
     /// All / install requirements). Advances each time an nxm link arrives.
     var browserQueue: [BrowserQueueItem] = []
+    /// Bumped when the last page of a download queue is done, so the
+    /// browser window closes itself.
+    var browserQueueFinished = 0
     /// Asset conflicts SMAPI reported in the latest log (mods -> assets).
     var logConflicts: [LogConflict] = []
     /// Nexus page info (pictures) of installed mods, by mod number.

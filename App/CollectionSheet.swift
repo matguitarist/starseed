@@ -30,6 +30,9 @@ struct CollectionSheet: View {
         }
         .frame(width: 720, height: 680)
         .task { await load() }
+        .onChange(of: collection?.name, initial: true) { _, name in
+            if let name, model.activeProfile == name { intoNewProfile = false }
+        }
     }
 
     private var collection: NexusCollection? { revision?.collection ?? request.preview }
@@ -223,16 +226,24 @@ struct CollectionSheet: View {
     }
 
     /// "Install into: New profile “X” | Profile in use “Default”".
+    @ViewBuilder
     private var profileChoice: some View {
+        let name = collection?.name ?? ""
         HStack(spacing: 8) {
-            Text("Install into").foregroundStyle(.secondary)
-            Picker("Install into", selection: $intoNewProfile) {
-                Text("New profile “\(collection?.name ?? "")”").tag(true)
-                Text("Profile in use “\(model.activeProfile ?? "")”").tag(false)
+            if model.activeProfile == name {
+                // Its own profile is in use: just install into it.
+                Label("Installs into the profile in use “\(name)”", systemImage: "person.2")
+                    .foregroundStyle(.secondary)
+            } else {
+                Text("Install into").foregroundStyle(.secondary)
+                Picker("Install into", selection: $intoNewProfile) {
+                    Text(model.profiles[name] == nil ? String(localized: "New profile “\(name)”") : String(localized: "Profile “\(name)”")).tag(true)
+                    Text("Profile in use “\(model.activeProfile ?? "")”").tag(false)
+                }
+                .labelsHidden()
+                .pickerStyle(.segmented)
+                .fixedSize()
             }
-            .labelsHidden()
-            .pickerStyle(.segmented)
-            .fixedSize()
             Spacer()
         }
         .font(.callout)

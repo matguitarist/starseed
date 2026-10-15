@@ -169,6 +169,7 @@ extension AppModel {
             ids.append(id)
         }
         profiles[name] = ids
+        profileCollections[name] = ProfileCollection(slug: revision.collection.slug, name: revision.collection.name)
         persistProfiles()
         activeProfile = name
         applyEnabledSet(ids, title: String(localized: "profile “\(name)”"), undoable: false)

@@ -1,5 +1,11 @@
 // Profiles (sets of enabled mods) and My Collections (exportable mod lists).
 
+/// The Nexus collection a profile was made from.
+struct ProfileCollection: Codable, Equatable {
+    let slug: String
+    let name: String
+}
+
 import AppKit
 import ModManagerCore
 import SwiftUI
@@ -89,6 +95,7 @@ extension AppModel {
         profiles[old] = nil
         persistProfiles()
         if activeProfile == old { activeProfile = name }
+        if let collection = profileCollections.removeValue(forKey: old) { profileCollections[name] = collection }
         // Saves played with this profile keep using it.
         for (save, modSet) in saveLinks where modSet.kind == .profile && modSet.name == old {
             link(saveID: save, to: SaveModSet(kind: .profile, name: name))
@@ -99,6 +106,7 @@ extension AppModel {
     /// another in use, or a new Default.
     func deleteProfile(named name: String) {
         profiles[name] = nil
+        profileCollections[name] = nil
         persistProfiles()
         if activeProfile == name {
             activeProfile = nil
@@ -137,6 +145,12 @@ extension AppModel {
         } catch {
             show("Couldn't save profiles", detail: error.localizedDescription)
         }
+    }
+
+    /// Opens the Nexus collection a profile came from (to add its optional mods).
+    func showCollection(forProfile name: String) {
+        guard let collection = profileCollections[name] else { return }
+        collectionSheet = CollectionSheetRequest(slug: collection.slug)
     }
 
     // MARK: My Collections (mod lists)

@@ -24,9 +24,12 @@ struct UpdatesView: View {
                         .disabled(model.isCheckingUpdates)
                 }
             } else {
-                List(model.modsWithUpdates) { mod in
-                    if let update = model.update(for: mod) {
-                        UpdateRow(mod: mod, update: update)
+                VStack(spacing: 0) {
+                    updateAllBar
+                    List(model.modsWithUpdates) { mod in
+                        if let update = model.update(for: mod) {
+                            UpdateRow(mod: mod, update: update)
+                        }
                     }
                 }
             }
@@ -34,17 +37,6 @@ struct UpdatesView: View {
         .navigationTitle("Updates")
         .navigationSubtitle(model.modsWithUpdates.isEmpty ? "" : "\(model.modsWithUpdates.count) available")
         .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-                Button {
-                    model.updateAll()
-                } label: {
-                    Label("Update All", systemImage: "square.and.arrow.down.on.square")
-                }
-                .help(model.nexusAccount.user?.isPremium == true
-                      ? "Download and install every Nexus update"
-                      : "Walk through each update's Nexus download page")
-                .disabled(model.nexusUpdates.isEmpty)
-            }
             ToolbarItem {
                 if model.isCheckingUpdates {
                     ProgressView().controlSize(.small)
@@ -58,6 +50,41 @@ struct UpdatesView: View {
                 }
             }
         }
+    }
+}
+
+extension UpdatesView {
+    /// "3 updates available · [Update All]" above the list.
+    private var updateAllBar: some View {
+        let count = model.nexusUpdates.count
+        return HStack(spacing: 12) {
+            VStack(alignment: .leading, spacing: 2) {
+                Text(model.modsWithUpdates.count == 1 ? String(localized: "1 mod update available") : String(localized: "\(model.modsWithUpdates.count) mod updates available"))
+                    .font(.headline)
+                if model.nexusAccount.user?.isPremium != true, count > 0 {
+                    Text("Free account: Nexus's page for each update opens in turn; click **Slow download** on each. The browser closes after the last one.")
+                        .font(.callout)
+                        .foregroundStyle(.secondary)
+                        .lineLimit(2)
+                }
+            }
+            Spacer()
+            Button {
+                model.updateAll()
+            } label: {
+                Label(count > 0 ? String(localized: "Update All (\(count))") : String(localized: "Update All"), systemImage: "square.and.arrow.down.on.square")
+            }
+            .buttonStyle(.borderedProminent)
+            .controlSize(.large)
+            .disabled(count == 0 || model.nexusAccount.user == nil)
+            .help(model.nexusAccount.user == nil ? "Add your Nexus API key in Settings first"
+                  : model.nexusAccount.user?.isPremium == true ? "Download and install every Nexus update"
+                  : "Walk through each update's Nexus download page")
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 10)
+        .background(.bar)
+        .overlay(alignment: .bottom) { Divider() }
     }
 }
 

@@ -11,6 +11,7 @@ import WebKit
 struct BrowserView: View {
     @AppModelEnvironment private var model
     @State private var browser = BrowserController()
+    @Environment(\.dismissWindow) private var dismissWindow
 
     var body: some View {
         VStack(spacing: 0) {
@@ -76,6 +77,13 @@ struct BrowserView: View {
         }
         .onChange(of: model.browserRequest) { _, request in
             if let request { browser.load(request.url) }
+        }
+        .onChange(of: model.browserQueueFinished) {
+            // The queue's last download has started (it continues in Starseed).
+            Task {
+                try? await Task.sleep(for: .seconds(1.5))
+                dismissWindow(id: BrowserWindow.id)
+            }
         }
     }
 
