@@ -36,7 +36,7 @@ REQUIRE_SIGNING=1 ./build_app.sh
 STAGING="releases/$TAG"
 rm -rf "$STAGING" && mkdir -p "$STAGING"
 ZIP="$STAGING/Starseed-$VERSION.zip"
-ditto -c -k --keepParent "dist/Starseed.app" "$ZIP"
+ditto -c -k --norsrc --noextattr --keepParent "dist/Starseed.app" "$ZIP"
 # Same name as the zip: generate_appcast embeds it as the update's notes.
 cp "$NOTES" "$STAGING/Starseed-$VERSION.md"
 "$SPARKLE_BIN/generate_appcast" --account starseed \
