@@ -164,7 +164,7 @@ struct HelpView: View {
                 HelpText("**Export…** in the Profiles window saves a profile to a file: its mods, their versions and Nexus numbers, and their settings. **Import…** on another Mac, or a friend's, creates the profile, downloads the missing mods into it and applies the settings (the previous ones are kept as config.json.bak).")
             }
             HelpSection("Mods for each save") {
-                HelpText("In **Saves**, choose which profile a save is played with. **Use Mods & Play** switches to those mods before launching, so each farm always gets its own set.")
+                HelpText("Each save belongs to the profile you play it with: when the game closes, saves played in that session (new farms too) join the profile in use. **Saves** lists them by profile; **This Profile** shows only the farms of the profile in use. Pick another profile for a save from the menu at the top right of its page. **Play** in the Saves toolbar switches to the save's profile before launching, so each farm always gets its own mods.")
             }
 
         case .saves:

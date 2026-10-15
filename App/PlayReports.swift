@@ -25,6 +25,7 @@ extension AppModel {
             let launched = app.launchDate ?? Date(timeIntervalSinceNow: -24 * 60 * 60)
             Task { @MainActor in
                 self?.detectSMAPI()  // a game update may have disconnected it
+                self?.linkPlayedSaves(launchedAt: launched)
                 await self?.reportOnSession(launchedAt: launched)
             }
         }

@@ -22,6 +22,9 @@ struct CollectionsView: View {
             .navigationTitle("Collections")
             .navigationSubtitle(totalCount > 0 ? "\(totalCount.formatted()) collections" : "")
             .searchable(text: $query, placement: .toolbar, prompt: "Search collections")
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) { PlayToolbarButton() }
+            }
             .onSubmit(of: .search) { submittedQuery = query }
             .safeAreaInset(edge: .top, spacing: 0) {
                 Picker("Sort", selection: $sort) {

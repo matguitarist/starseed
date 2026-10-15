@@ -303,10 +303,8 @@ struct LogViewerView: View {
             .help("Clear: hide everything logged so far and show only new messages (⌘K). The log file isn't changed.")
             .disabled(log == nil)
 
-            Button {
+            RefreshToolbarButton(title: "Reload", help: "Read the log file again") {
                 Task { await reload(force: true) }
-            } label: {
-                Label("Reload", systemImage: "arrow.clockwise")
             }
 
             Menu {
@@ -322,14 +320,11 @@ struct LogViewerView: View {
             }
             .disabled(log == nil)
             .help("Copy, share, or show the log file")
+
+            PlayToolbarButton()
         }
         ToolbarItem {
-            Button {
-                showLoadedMods.toggle()
-            } label: {
-                Label("Loaded Mods", systemImage: "sidebar.trailing")
-            }
-            .help("Show or hide the mods SMAPI loaded")
+            PanelToolbarButton(title: "Loaded Mods", help: "Show or hide the mods SMAPI loaded", isShown: $showLoadedMods)
         }
     }
 

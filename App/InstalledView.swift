@@ -202,22 +202,6 @@ struct InstalledView: View {
             .help("Install mods from downloaded archives (or drop them on the window)")
             .disabled(model.manager == nil || model.isInstalling)
 
-            if model.isCheckingUpdates {
-                ProgressView()
-                    .controlSize(.small)
-                    .help("Checking for updates…")
-            } else {
-                Button {
-                    model.refresh()
-                    model.detectSMAPI()
-                    Task { await model.checkForUpdates() }
-                } label: {
-                    Label("Refresh", systemImage: "arrow.clockwise")
-                }
-                .help("Rescan the Mods folder and check for updates")
-            }
-
-
             Button {
                 model.openModsFolder()
             } label: {
@@ -225,20 +209,17 @@ struct InstalledView: View {
             }
             .help("Open the Mods folder in Finder")
 
-            Button {
-                model.launchGame()
-            } label: {
-                Label("Play", systemImage: "play.fill")
+            RefreshToolbarButton(title: "Refresh", help: "Rescan the Mods folder and check for updates", isBusy: model.isCheckingUpdates) {
+                model.refresh()
+                model.detectSMAPI()
+                Task { await model.checkForUpdates() }
             }
-            .help("Launch Stardew Valley via Steam")
+
+            PlayToolbarButton()
         }
         ToolbarItem {
-            Button {
-                model.showInspector.toggle()
-            } label: {
-                Label("Details", systemImage: "sidebar.trailing")
-            }
-            .help("Show or hide mod details")
+            @Bindable var model = model
+            PanelToolbarButton(title: "Details", help: "Show or hide mod details", isShown: $model.showInspector)
         }
     }
 }

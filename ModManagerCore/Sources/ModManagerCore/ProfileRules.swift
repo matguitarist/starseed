@@ -57,4 +57,32 @@ public enum ProfileRules {
         var seen = Set<String>()
         return ids.filter { !$0.isEmpty && seen.insert($0.lowercased()).inserted }
     }
+
+    // MARK: Saves
+
+    /// Saves to link to the profile a session was played with: the ones
+    /// saved during it (new farms included) that aren't linked yet. A save
+    /// already linked keeps its profile.
+    public static func savesToLink(saved: [(id: String, lastSaved: Date?)], since launch: Date, linked: Set<String>) -> [String] {
+        saved.filter { save in
+            guard let date = save.lastSaved, !linked.contains(save.id) else { return false }
+            return date >= launch.addingTimeInterval(-5)
+        }.map(\.id)
+    }
+
+    /// Saves grouped by profile: the profile in use first, then the others
+    /// in `order`, then the unlinked ones (nil). Links to deleted profiles
+    /// count as unlinked. Saves keep their order inside each group.
+    public static func groupedSaves(_ ids: [String], links: [String: String], order: [String], active: String?) -> [(profile: String?, saves: [String])] {
+        let known = Set(order)
+        var groups: [String?: [String]] = [:]
+        for id in ids {
+            let profile = links[id].flatMap { known.contains($0) ? $0 : nil }
+            groups[profile, default: []].append(id)
+        }
+        let names = (active.map { [$0] } ?? []) + order.filter { $0 != active }
+        return names.compactMap { name in groups[name].map { (Optional(name), $0) } }
+            + (groups[nil].map { [(nil, $0)] } ?? [])
+    }
+
 }

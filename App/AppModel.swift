@@ -190,8 +190,10 @@ final class AppModel {
 
     /// Which profile/collection each save uses (AppModel+Saves).
     var saveLinks: [String: SaveModSet] = [:]
+    /// Bumped when saves change outside the Saves page (a session ended), so it reloads.
+    var savesRevision = 0
 
-    // My Collections (AppModel+Profiles).
+    // Old My Collections lists, read once to turn them into profiles.
     let modListStore = ModListStore()
 
     // Derived from `mods` (and update data), stored rather than computed:

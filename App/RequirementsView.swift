@@ -46,7 +46,7 @@ struct RequirementsView: View {
             }
         }
         .navigationTitle("Requirements")
-        .navigationSubtitle(confirmed.isEmpty ? "" : "\(confirmed.count) missing")
+        .navigationSubtitle(confirmed.isEmpty ? String(localized: "Nothing missing") : String(localized: "\(confirmed.count) missing"))
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button {
@@ -56,6 +56,9 @@ struct RequirementsView: View {
                 }
                 .help("Enable or download every missing requirement")
                 .disabled(confirmed.isEmpty)
+            }
+            ToolbarItem(placement: .primaryAction) {
+                PlayToolbarButton()
             }
         }
         .task { await model.resolveMissingDependencies() }

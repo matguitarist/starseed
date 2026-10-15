@@ -104,6 +104,8 @@ kept so an update can be rolled back.
   computer, and installs the missing ones.
 - Save backups: back up and restore one farm or all of them; Play backs up
   your saves when your mods changed.
+- Each farm remembers the profile it's played with, and Play from Saves
+  switches to it first.
 
 **Languages:** English, French, German, Spanish, Brazilian Portuguese and
 Simplified Chinese (Settings → General → Language).

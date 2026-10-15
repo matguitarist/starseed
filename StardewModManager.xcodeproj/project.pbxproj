@@ -23,6 +23,7 @@
 		52EF3147302B8AF2DE40E91B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882D1E5D99EEAA8946E3990A /* SettingsView.swift */; };
 		6310DF64B31DFCE57FDDD889 /* AppCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CCEF9AC44C47D087228C3 /* AppCommands.swift */; };
 		662EF595FD51F27BFA8675E0 /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A369DA706FAB88E595F89 /* BrowseView.swift */; };
+		676A88A9865D610F94B50D21 /* PageToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996D1BEF9E00254F8C88D0AD /* PageToolbar.swift */; };
 		69F3A9FD2183012E92E171F9 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD33902DFD3EF0DAE6802F /* RootView.swift */; };
 		745E4ABF7E08EF53EAAEE6AA /* SavesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BB4B7EB0BDCA9B8772C45C /* SavesView.swift */; };
 		7FC9C92FCE9783FBAC90971B /* CollectionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667A44B25AC6FAF1BBC3B154 /* CollectionSheet.swift */; };
@@ -66,7 +67,7 @@
 		36BD33902DFD3EF0DAE6802F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		3751918581379943B9AB023D /* AppModel+Nexus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModel+Nexus.swift"; sourceTree = "<group>"; };
 		3A7745432F262C11C31A9634 /* StardewModManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StardewModManager.entitlements; sourceTree = "<group>"; };
-		466DFE1F2D8B06DF05695D18 /* StardewModManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StardewModManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		466DFE1F2D8B06DF05695D18 /* StardewModManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = StardewModManager.app; path = Starseed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48197B7BBE7EE15AB71D5108 /* UpdatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesView.swift; sourceTree = "<group>"; };
 		5B138698F0E21A1D71717833 /* ChangelogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangelogView.swift; sourceTree = "<group>"; };
 		5CEAACA199435D4A4282751F /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -87,11 +88,12 @@
 		95E44F54DC4269E345B7EE63 /* Thumbnails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnails.swift; sourceTree = "<group>"; };
 		9603579CCCD6BA0E539392AF /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		98B379ABC7330965D2DBC833 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		996D1BEF9E00254F8C88D0AD /* PageToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageToolbar.swift; sourceTree = "<group>"; };
 		AA3A369DA706FAB88E595F89 /* BrowseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
 		B30552591D88F603A6043CFE /* AppModel+Saves.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModel+Saves.swift"; sourceTree = "<group>"; };
 		B5FF9E3E65BEAE57ACD20611 /* RequirementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementsView.swift; sourceTree = "<group>"; };
 		B795C47ECDFF10A726ECFDA0 /* BisectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BisectView.swift; sourceTree = "<group>"; };
-		B79A52FECDD87ED11901B6D1 /* ModManagerCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ModManagerCore; path = ModManagerCore; sourceTree = SOURCE_ROOT; };
+		B79A52FECDD87ED11901B6D1 /* ModManagerCore */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ModManagerCore; sourceTree = SOURCE_ROOT; };
 		BD2E122C00662959EB64731C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1D257F10B4C9483D2A26D32 /* AppModelEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModelEnvironment.swift; sourceTree = "<group>"; };
 		EE4CCEF9AC44C47D087228C3 /* AppCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommands.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				879299EC8FC1BC543B82D3E2 /* LogViewerView.swift */,
 				700FCC9D677E0197700F1C10 /* ModDetailView.swift */,
 				2521CC450C378D7A7830C95E /* NexusModSheet.swift */,
+				996D1BEF9E00254F8C88D0AD /* PageToolbar.swift */,
 				341555E4992218C6A0DFB554 /* PlayReports.swift */,
 				71A5C63340551AD5F955C117 /* ProfilesView.swift */,
 				B5FF9E3E65BEAE57ACD20611 /* RequirementsView.swift */,
@@ -299,6 +302,7 @@
 				A6523D07ADA48F91AE9DA70A /* LogViewerView.swift in Sources */,
 				0F75249C1D10234D3DEA361F /* ModDetailView.swift in Sources */,
 				B38314289E9A310C62D0F339 /* NexusModSheet.swift in Sources */,
+				676A88A9865D610F94B50D21 /* PageToolbar.swift in Sources */,
 				B1D6FB869B6F2E2986B87F9D /* PlayReports.swift in Sources */,
 				353A05FA3748E05DD877DF29 /* ProfilesView.swift in Sources */,
 				A842122987F23B29355D563E /* RequirementsView.swift in Sources */,

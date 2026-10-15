@@ -36,4 +36,27 @@ import Testing
     @Test func keepsOnlySMAPIsOwnModsForAnEmptyProfile() {
         #expect(ProfileRules.smapiBundled(["SMAPI.ConsoleCommands", "Pathoschild.ContentPatcher", "SMAPI.SaveBackup"]) == ["SMAPI.ConsoleCommands", "SMAPI.SaveBackup"])
     }
+
+    @Test func linksSavesPlayedDuringTheSession() {
+        let launch = Date(timeIntervalSince1970: 1_000_000)
+        let saves: [(id: String, lastSaved: Date?)] = [
+            ("New_1", launch.addingTimeInterval(600)),      // new farm
+            ("Old_2", launch.addingTimeInterval(-3600)),    // not played
+            ("Linked_3", launch.addingTimeInterval(300)),   // keeps its profile
+            ("Played_4", launch.addingTimeInterval(1200)),
+        ]
+        #expect(ProfileRules.savesToLink(saved: saves, since: launch, linked: ["Linked_3"]) == ["New_1", "Played_4"])
+    }
+
+    @Test func groupsSavesByProfileInUseFirst() {
+        let groups = ProfileRules.groupedSaves(
+            ["a", "b", "c", "d", "e"],
+            links: ["a": "SVE", "b": "Default", "c": "Gone", "d": "SVE"],
+            order: ["Default", "SVE", "Vanilla"],
+            active: "SVE"
+        )
+        #expect(groups.map(\.profile) == ["SVE", "Default", nil])
+        #expect(groups.map(\.saves) == [["a", "d"], ["b"], ["c", "e"]])
+    }
+
 }

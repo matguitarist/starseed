@@ -7,6 +7,7 @@ struct SavesView: View {
     @AppModelEnvironment private var model
     @State private var saves: [SaveGame] = []
     @State private var tab = Tab.mods
+    @AppStorage("showProfileSavesOnly") private var showProfileSavesOnly = false
 
     static let allSavesID = "__all__"
 
@@ -24,43 +25,50 @@ struct SavesView: View {
     var body: some View {
         @Bindable var model = model
         HStack(spacing: 0) {
-            List(selection: $model.selectedSaveID) {
-                Label("All Saves & Backups", systemImage: "archivebox")
-                    .tag(Self.allSavesID)
-                Section("Saves") {
-                    ForEach(saves) { save in
-                        VStack(alignment: .leading, spacing: 2) {
-                            HStack(spacing: 4) {
-                                Text(save.farmName.isEmpty ? save.id : "\(save.farmName) Farm").font(.headline)
-                                if let modSet = model.saveLinks[save.id] {
-                                    Image(systemName: modSet.kind == .profile ? "person.2.fill" : "list.bullet.rectangle.fill")
-                                        .font(.caption2)
-                                        .foregroundStyle(.tint)
-                                        .help("Plays with “\(modSet.name)”")
-                                }
+            VStack(spacing: 0) {
+                Picker("Show", selection: $showProfileSavesOnly) {
+                    Text("All Saves").tag(false)
+                    Text("This Profile").tag(true)
+                }
+                .pickerStyle(.segmented)
+                .labelsHidden()
+                .padding(8)
+                .help("This Profile shows only the saves played with the profile in use")
+                Divider()
+                List(selection: $model.selectedSaveID) {
+                    Label("All Saves & Backups", systemImage: "archivebox")
+                        .tag(Self.allSavesID)
+                    ForEach(groups, id: \.profile) { group in
+                        Section {
+                            ForEach(group.saves) { save in
+                                saveRow(save).tag(save.id)
                             }
-                            Text(save.farmerName).foregroundStyle(.secondary)
-                            Text([save.dateText, save.gameVersion.map { "v\($0)" }].compactMap { $0 }.joined(separator: " · "))
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
+                        } header: {
+                            sectionHeader(group.profile)
                         }
-                        .padding(.vertical, 3)
-                        .tag(save.id)
+                    }
+                }
+                .overlay {
+                    if showProfileSavesOnly, groups.isEmpty, !saves.isEmpty {
+                        ContentUnavailableView("No Saves in This Profile", systemImage: "person.2",
+                                               description: Text("Saves join a profile when you play them with it, or when you pick it for a save."))
                     }
                 }
             }
-            .frame(width: 230)
+            .frame(width: 240)
             Divider()
             detail
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .navigationTitle("Saves")
+        .navigationSubtitle(saves.isEmpty ? "" : (saves.count == 1 ? String(localized: "1 save") : String(localized: "\(saves.count) saves")))
         .onAppear {
             reloadSaves()
             if model.selectedSaveID == nil { model.selectedSaveID = saves.first?.id }
         }
+        .onChange(of: model.savesRevision) { reloadSaves() }
         .toolbar {
-            ToolbarItemGroup {
+            ToolbarItemGroup(placement: .primaryAction) {
                 Button {
                     Task {
                         if await model.backUpSaves(saves.map(\.id), label: String(localized: "All saves")) != nil {
@@ -79,8 +87,50 @@ struct SavesView: View {
                     Label("Open Saves Folder", systemImage: "folder")
                 }
                 .help("Open the saves folder in Finder")
+
+                RefreshToolbarButton(title: "Refresh", help: "Read the saves folder again", action: reloadSaves)
+
+                PlayToolbarButton(save: saves.first { $0.id == model.selectedSaveID })
             }
         }
+    }
+
+    /// Saves by profile: the one in use first, then the others, then saves
+    /// without one.
+    private var groups: [(profile: String?, saves: [SaveGame])] {
+        let links = model.saveLinks.compactMapValues { $0.kind == .profile ? $0.name : nil }
+        let byID = Dictionary(saves.map { ($0.id, $0) }, uniquingKeysWith: { first, _ in first })
+        let grouped = ProfileRules.groupedSaves(saves.map(\.id), links: links, order: model.profileNames, active: model.activeProfile)
+            .map { (profile: $0.profile, saves: $0.saves.compactMap { byID[$0] }) }
+        return showProfileSavesOnly ? grouped.filter { $0.profile != nil && $0.profile == model.activeProfile } : grouped
+    }
+
+    @ViewBuilder
+    private func sectionHeader(_ profile: String?) -> some View {
+        if let profile {
+            HStack(spacing: 4) {
+                Label(profile, systemImage: "person.2")
+                if profile == model.activeProfile {
+                    Text("In Use")
+                        .font(.caption2.bold())
+                        .padding(.horizontal, 5)
+                        .background(.green.opacity(0.2), in: Capsule())
+                }
+            }
+        } else {
+            Text("No Profile")
+        }
+    }
+
+    private func saveRow(_ save: SaveGame) -> some View {
+        VStack(alignment: .leading, spacing: 2) {
+            Text(save.farmName.isEmpty ? save.id : "\(save.farmName) Farm").font(.headline)
+            Text(save.farmerName).foregroundStyle(.secondary)
+            Text([save.dateText, save.gameVersion.map { "v\($0)" }].compactMap { $0 }.joined(separator: " · "))
+                .font(.caption)
+                .foregroundStyle(.secondary)
+        }
+        .padding(.vertical, 3)
     }
 
     @ViewBuilder
@@ -98,15 +148,6 @@ struct SavesView: View {
                     .frame(width: 200)
                     Spacer()
                     SaveModSetPicker(save: save)
-                    Button {
-                        model.play(save)
-                    } label: {
-                        Label(model.saveLinks[save.id] == nil ? "Play" : "Use Mods & Play", systemImage: "play.fill")
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .help(model.saveLinks[save.id] == nil
-                          ? "Launch the game"
-                          : "Switch to this save's mods, then launch the game. Then pick \(save.farmName) Farm in Load Game.")
                 }
                 .padding(.horizontal)
                 .padding(.vertical, 8)
@@ -621,7 +662,7 @@ private struct ConfidenceBadge: View {
     }
 }
 
-/// Picks the profile or collection a save is played with.
+/// Picks the profile a save is played with.
 private struct SaveModSetPicker: View {
     @AppModelEnvironment private var model
     let save: SaveGame
@@ -629,23 +670,26 @@ private struct SaveModSetPicker: View {
     var body: some View {
         let current = model.saveLinks[save.id]
         Menu {
-            Button("Any (keep current mods)") { model.link(saveID: save.id, to: nil) }
-            if !model.profileNames.isEmpty {
-                Section("Profiles") {
-                    ForEach(model.profileNames, id: \.self) { name in
-                        Button(name) { model.link(saveID: save.id, to: SaveModSet(kind: .profile, name: name)) }
+            Section("Profiles") {
+                ForEach(model.profileNames, id: \.self) { name in
+                    Button {
+                        model.link(saveID: save.id, to: SaveModSet(kind: .profile, name: name))
+                    } label: {
+                        if current?.name == name { Label(name, systemImage: "checkmark") } else { Text(name) }
                     }
                 }
             }
+            Divider()
+            Button("No Profile (keep the mods that are on)") { model.link(saveID: save.id, to: nil) }
         } label: {
             if let current {
                 Label(current.name, systemImage: "person.2")
                     .foregroundStyle(model.exists(current) ? Color.primary : Color.red)
             } else {
-                Label("Mods: any", systemImage: "square.stack.3d.up")
+                Label("No Profile", systemImage: "person.2.slash")
             }
         }
         .fixedSize()
-        .help("Which mods this save is played with. “Use Mods & Play” switches to them before launching.")
+        .help("The profile this save is played with. Play switches to it before launching. Saves you play join the profile in use.")
     }
 }

@@ -828,6 +828,46 @@
         }
       }
     },
+    "%@ · %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ · %2$@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ · %2$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ · %2$@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ · %2$@"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ · %2$@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ · %2$@"
+          }
+        }
+      }
+    },
     "%@ · Free account" : {
       "localizations" : {
         "de" : {
@@ -1512,6 +1552,46 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ 个模组"
+          }
+        }
+      }
+    },
+    "%@ now plays with the profile “%@”. Change it in Saves." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ wird jetzt mit dem Profil „%2$@“ gespielt. Änderbar unter Spielstände."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ now plays with the profile “%2$@”. Change it in Saves."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ ahora se juega con el perfil «%2$@». Puedes cambiarlo en Partidas."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ se joue désormais avec le profil « %2$@ ». Modifiable dans Sauvegardes."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ agora é jogado com o perfil “%2$@”. Altere em Saves."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ 现在使用配置方案“%2$@”游玩。可在存档中更改。"
           }
         }
       }
@@ -2654,6 +2734,40 @@
         }
       }
     },
+    "%lld saves" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld Spielstände"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld partidas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld sauvegardes"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld saves"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 个存档"
+          }
+        }
+      }
+    },
     "%lld shown · %@" : {
       "localizations" : {
         "de" : {
@@ -2997,6 +3111,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "另有 1 个未在 Nexus 上列出…"
+          }
+        }
+      }
+    },
+    "1 save" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 Spielstand"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 partida"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 sauvegarde"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 save"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 个存档"
           }
         }
       }
@@ -4300,6 +4448,40 @@
         }
       }
     },
+    "All Saves" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle Spielstände"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todas las partidas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toutes les sauvegardes"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todos os saves"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "所有存档"
+          }
+        }
+      }
+    },
     "All Saves & Backups" : {
       "localizations" : {
         "de" : {
@@ -4403,6 +4585,7 @@
       }
     },
     "Any (keep current mods)" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -9733,6 +9916,40 @@
         }
       }
     },
+    "Each save belongs to the profile you play it with: when the game closes, saves played in that session (new farms too) join the profile in use. **Saves** lists them by profile; **This Profile** shows only the farms of the profile in use. Pick another profile for a save from the menu at the top right of its page. **Play** in the Saves toolbar switches to the save's profile before launching, so each farm always gets its own mods." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jeder Spielstand gehört zu dem Profil, mit dem du ihn spielst: Wenn das Spiel beendet wird, kommen die in der Sitzung gespielten Spielstände (auch neue Höfe) zum aktiven Profil. **Spielstände** zeigt sie nach Profil; **Dieses Profil** zeigt nur die Höfe des aktiven Profils. Ein anderes Profil wählst du im Menü oben rechts auf der Seite des Spielstands. **Spielen** in der Symbolleiste der Spielstände wechselt vor dem Start zum Profil des Spielstands, so hat jeder Hof immer seine eigenen Mods."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cada partida pertenece al perfil con el que la juegas: al cerrar el juego, las partidas jugadas en esa sesión (también las granjas nuevas) se unen al perfil en uso. **Partidas** las agrupa por perfil; **Este perfil** muestra solo las granjas del perfil en uso. Elige otro perfil para una partida en el menú de arriba a la derecha de su página. **Jugar**, en la barra de herramientas de Partidas, cambia al perfil de la partida antes de iniciar, así cada granja siempre tiene sus propios mods."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chaque sauvegarde appartient au profil avec lequel vous la jouez : à la fermeture du jeu, les sauvegardes jouées pendant la session (nouvelles fermes comprises) rejoignent le profil utilisé. **Sauvegardes** les classe par profil ; **Ce profil** n’affiche que les fermes du profil utilisé. Choisissez un autre profil pour une sauvegarde dans le menu en haut à droite de sa page. **Jouer**, dans la barre d’outils des Sauvegardes, passe au profil de la sauvegarde avant le lancement : chaque ferme retrouve toujours ses mods."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cada save pertence ao perfil com que você o joga: quando o jogo fecha, os saves jogados na sessão (fazendas novas também) entram no perfil em uso. **Saves** os mostra por perfil; **Este perfil** mostra só as fazendas do perfil em uso. Escolha outro perfil para um save no menu no canto superior direito da página dele. **Jogar**, na barra de ferramentas de Saves, troca para o perfil do save antes de abrir o jogo, assim cada fazenda sempre tem os próprios mods."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每个存档属于你游玩它时使用的配置方案：游戏关闭时，本次游玩过的存档（包括新农场）会加入使用中的配置方案。**存档**按配置方案列出它们；**此配置方案**只显示使用中的配置方案的农场。可在存档页面右上角的菜单中为存档选择其他配置方案。存档工具栏中的**开始游戏**会在启动前切换到该存档的配置方案，让每个农场始终使用自己的模组。"
+          }
+        }
+      }
+    },
     "edit its settings with **Mod Settings…**, without opening the config file" : {
       "localizations" : {
         "de" : {
@@ -12503,6 +12720,7 @@
       }
     },
     "In **Saves**, choose which profile a save is played with. **Use Mods & Play** switches to those mods before launching, so each farm always gets its own set." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -14580,6 +14798,7 @@
       }
     },
     "Launch Stardew Valley via Steam" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -14613,7 +14832,42 @@
         }
       }
     },
+    "Launch Stardew Valley with the mods that are on" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stardew Valley mit den eingeschalteten Mods starten"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iniciar Stardew Valley con los mods activados"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lancer Stardew Valley avec les mods activés"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir Stardew Valley com os mods ativados"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用已开启的模组启动 Stardew Valley"
+          }
+        }
+      }
+    },
     "Launch the game" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -14643,6 +14897,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "启动游戏"
+          }
+        }
+      }
+    },
+    "Launch the game. Then pick %@ in Load Game." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Spiel starten. Wähle dann unter „Spiel laden“ %@."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicia el juego. Después elige %@ en Cargar partida."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lancer le jeu. Choisissez ensuite %@ dans « Charger »."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abra o jogo. Em seguida, escolha %@ em Carregar jogo."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启动游戏。之后在“载入游戏”中选择%@。"
           }
         }
       }
@@ -16834,6 +17122,7 @@
       }
     },
     "Mods: any" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -18232,6 +18521,74 @@
         }
       }
     },
+    "No Profile" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kein Profil"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sin perfil"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun profil"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sem perfil"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无配置方案"
+          }
+        }
+      }
+    },
+    "No Profile (keep the mods that are on)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kein Profil (eingeschaltete Mods behalten)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sin perfil (mantener los mods activados)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun profil (garder les mods activés)"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sem perfil (manter os mods ativados)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无配置方案（保留已开启的模组）"
+          }
+        }
+      }
+    },
     "No profiles yet" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -18297,6 +18654,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "找不到存档"
+          }
+        }
+      }
+    },
+    "No Saves in This Profile" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Spielstände in diesem Profil"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hay partidas en este perfil"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucune sauvegarde dans ce profil"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nenhum save neste perfil"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此配置方案中没有存档"
           }
         }
       }
@@ -18807,6 +19198,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "你安装的其他内容都不再使用它们了。它们只被你刚移除的内容需要。"
+          }
+        }
+      }
+    },
+    "Nothing missing" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nichts fehlt"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No falta nada"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rien ne manque"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nada faltando"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有缺失"
           }
         }
       }
@@ -20583,6 +21008,7 @@
       }
     },
     "Plays with “%@”" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -21531,6 +21957,74 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "原始 JSON"
+          }
+        }
+      }
+    },
+    "Read the log file again" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Logdatei neu lesen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volver a leer el archivo de registro"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Relire le fichier journal"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ler o arquivo de log de novo"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新读取日志文件"
+          }
+        }
+      }
+    },
+    "Read the saves folder again" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Den Spielstand-Ordner neu lesen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volver a leer la carpeta de partidas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Relire le dossier des sauvegardes"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ler a pasta de saves de novo"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新读取存档文件夹"
           }
         }
       }
@@ -23435,6 +23929,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "存档和备份"
+          }
+        }
+      }
+    },
+    "Saves join a profile when you play them with it, or when you pick it for a save." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein Spielstand kommt zu einem Profil, wenn du ihn damit spielst oder es für ihn auswählst."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Una partida se une a un perfil cuando la juegas con él o cuando lo eliges para ella."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une sauvegarde rejoint un profil quand vous la jouez avec, ou quand vous le choisissez pour elle."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Um save entra em um perfil quando você o joga com ele ou quando o escolhe para ele."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "用某个配置方案游玩存档，或为存档选择它时，存档就会加入该配置方案。"
           }
         }
       }
@@ -27373,7 +27901,48 @@
         }
       }
     },
+    "Switch to the profile “%@”, then launch the game. Then pick %@ in Load Game." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zum Profil „%1$@“ wechseln und dann das Spiel starten. Wähle dann unter „Spiel laden“ %2$@."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Switch to the profile “%1$@”, then launch the game. Then pick %2$@ in Load Game."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cambia al perfil «%1$@» y luego inicia el juego. Después elige %2$@ en Cargar partida."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passer au profil « %1$@ », puis lancer le jeu. Choisissez ensuite %2$@ dans « Charger »."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Troque para o perfil “%1$@” e depois abra o jogo. Em seguida, escolha %2$@ em Carregar jogo."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "切换到配置方案“%1$@”，然后启动游戏。之后在“载入游戏”中选择%2$@。"
+          }
+        }
+      }
+    },
     "Switch to this save's mods, then launch the game. Then pick %@ Farm in Load Game." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -28309,6 +28878,40 @@
         }
       }
     },
+    "The profile this save is played with. Play switches to it before launching. Saves you play join the profile in use." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Profil, mit dem dieser Spielstand gespielt wird. Spielen wechselt vor dem Start dorthin. Gespielte Spielstände kommen zum aktiven Profil."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El perfil con el que se juega esta partida. Jugar cambia a él antes de iniciar. Las partidas que juegas se unen al perfil en uso."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le profil avec lequel cette sauvegarde se joue. Jouer y bascule avant le lancement. Les sauvegardes que vous jouez rejoignent le profil utilisé."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O perfil com que este save é jogado. Jogar troca para ele antes de abrir o jogo. Os saves que você joga entram no perfil em uso."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "游玩此存档时使用的配置方案。开始游戏会在启动前切换到它。你游玩的存档会加入使用中的配置方案。"
+          }
+        }
+      }
+    },
     "The settings of %@ are replaced by the ones saved in “%@”. Each mod's current settings are kept as config.json.bak." : {
       "extractionState" : "stale",
       "localizations" : {
@@ -28924,6 +29527,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "此配置方案"
+          }
+        }
+      }
+    },
+    "This Profile shows only the saves played with the profile in use" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dieses Profil zeigt nur die Spielstände, die mit dem aktiven Profil gespielt wurden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este perfil muestra solo las partidas jugadas con el perfil en uso"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce profil n’affiche que les sauvegardes jouées avec le profil utilisé"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este perfil mostra só os saves jogados com o perfil em uso"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此配置方案只显示使用当前配置方案游玩过的存档"
           }
         }
       }
@@ -30260,6 +30897,7 @@
       }
     },
     "Use Mods & Play" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -31317,6 +31955,7 @@
       }
     },
     "Which mods this save is played with. “Use Mods & Play” switches to them before launching." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {

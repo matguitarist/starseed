@@ -1,3 +1,4 @@
+import ModManagerCore
 import SwiftUI
 
 /// Profiles: named sets of enabled mods. One is always in use, and turning
@@ -222,6 +223,8 @@ struct ProfileOverview: View {
                     collectionCard(link)
                 }
 
+                savesCard(profile: name)
+
                 HStack {
                     Button("Manage Profiles…") { model.showProfiles = true }
                 }
@@ -237,6 +240,27 @@ struct ProfileOverview: View {
                   let revision = try? await model.nexusClient.collectionRevision(slug: slug)
             else { return }
             model.collectionRevisions[slug] = revision
+        }
+    }
+
+    /// The farms played with this profile; clicking one opens it in Saves.
+    @ViewBuilder
+    private func savesCard(profile: String) -> some View {
+        let _ = model.savesRevision  // re-read after a session links new saves
+        let saves = SaveGame.list().filter { model.profile(forSave: $0.id) == profile }
+        if !saves.isEmpty {
+            VStack(alignment: .leading, spacing: 6) {
+                Text("Saves").font(.caption).foregroundStyle(.secondary)
+                ForEach(saves) { save in
+                    Button {
+                        model.showSave(id: save.id)
+                    } label: {
+                        Label(save.farmName.isEmpty ? save.id : String(localized: "\(save.farmName) Farm"), systemImage: "house")
+                    }
+                    .buttonStyle(.link)
+                    .help(save.dateText.map { String(localized: "\(save.farmerName) · \($0)") } ?? save.farmerName)
+                }
+            }
         }
     }
 

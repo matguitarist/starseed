@@ -101,6 +101,10 @@ extension AppModel {
         profiles[name] = nil
         profileCollections[name] = nil
         persistProfiles()
+        // Its saves go back to "any mods".
+        for (save, modSet) in saveLinks where modSet.kind == .profile && modSet.name == name {
+            link(saveID: save, to: nil)
+        }
         if activeProfile == name {
             activeProfile = nil
             ensureActiveProfile()

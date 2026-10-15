@@ -22,6 +22,9 @@ struct BrowseView: View {
             .navigationTitle("Browse Nexus")
             .navigationSubtitle(totalCount > 0 ? "\(totalCount.formatted()) mods" : "")
             .searchable(text: $query, placement: .toolbar, prompt: "Search, or paste a Nexus link or mod #")
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) { PlayToolbarButton() }
+            }
             .onSubmit(of: .search) {
                 // A pasted link, "#7286" or "7286" opens that mod directly.
                 if let modID = NexusClient.modID(fromLinkOrNumber: query) {

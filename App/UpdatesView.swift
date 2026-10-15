@@ -37,17 +37,11 @@ struct UpdatesView: View {
         .navigationTitle("Updates")
         .navigationSubtitle(model.modsWithUpdates.isEmpty ? "" : "\(model.modsWithUpdates.count) available")
         .toolbar {
-            ToolbarItem {
-                if model.isCheckingUpdates {
-                    ProgressView().controlSize(.small)
-                } else {
-                    Button {
-                        Task { await model.checkForUpdates() }
-                    } label: {
-                        Label("Check for Updates", systemImage: "arrow.clockwise")
-                    }
-                    .help("Check for updates")
+            ToolbarItemGroup(placement: .primaryAction) {
+                RefreshToolbarButton(title: "Check for Updates", help: "Check for updates", isBusy: model.isCheckingUpdates) {
+                    Task { await model.checkForUpdates() }
                 }
+                PlayToolbarButton()
             }
         }
     }

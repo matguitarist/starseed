@@ -43,6 +43,31 @@ extension AppModel {
         }
     }
 
+    /// After a session, links the saves played in it (new farms too) to the
+    /// profile in use, so "Use Mods & Play" brings their mods back. Saves
+    /// already linked keep their profile.
+    func linkPlayedSaves(launchedAt launch: Date) {
+        defer { savesRevision += 1 }
+        guard let profile = activeProfile, profiles[profile] != nil else { return }
+        let saves = SaveGame.list(in: backupStore.savesFolder)
+        let ids = ProfileRules.savesToLink(saved: saves.map { ($0.id, $0.lastSaved) }, since: launch, linked: Set(saveLinks.keys))
+        guard !ids.isEmpty else { return }
+        for id in ids { saveLinks[id] = SaveModSet(kind: .profile, name: profile) }
+        do {
+            try configStore.saveSaveLinks(saveLinks)
+        } catch {
+            return show("Couldn't Save Link", detail: error.localizedDescription)
+        }
+        let farms = saves.filter { ids.contains($0.id) }.map { $0.farmName.isEmpty ? $0.id : String(localized: "\($0.farmName) Farm") }
+        showStatusResult(String(localized: "\(farms.formatted(.list(type: .and))) now plays with the profile “\(profile)”. Change it in Saves."))
+    }
+
+    /// The profile a save is played with, when it still exists.
+    func profile(forSave id: String) -> String? {
+        guard let modSet = saveLinks[id], profiles[modSet.name] != nil else { return nil }
+        return modSet.name
+    }
+
     /// Whether a linked profile/collection still exists.
     func exists(_ modSet: SaveModSet) -> Bool {
         switch modSet.kind {
