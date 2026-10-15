@@ -242,6 +242,40 @@
         }
       }
     },
+    "**Appearance**: show or hide mod pictures from Nexus." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Darstellung**: Mod-Bilder von Nexus ein- oder ausblenden."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Apariencia**: mostrar u ocultar las imágenes de los mods desde Nexus."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Apparence** : afficher ou masquer les images des mods depuis Nexus."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Aparência**: mostrar ou ocultar as imagens dos mods do Nexus."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**外观**：显示或隐藏来自 Nexus 的模组图片。"
+          }
+        }
+      }
+    },
     "**Back Up All Saves**, or **Back Up Now** on a single farm, makes a zip you can restore later, all at once or one save at a time. Restoring first backs up the current saves, so it can be undone. Backups made by SMAPI's own Save Backup mod are listed too." : {
       "localizations" : {
         "de" : {
@@ -378,6 +412,40 @@
         }
       }
     },
+    "**Language**: Starseed's language, or the one macOS uses. It changes after a restart." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Sprache**: die Sprache von Starseed oder die von macOS. Sie wechselt nach einem Neustart."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Idioma**: el idioma de Starseed o el de macOS. Cambia después de reiniciar."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Langue** : la langue de Starseed, ou celle de macOS. Elle change après un redémarrage."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Idioma**: o idioma do Starseed ou o do macOS. Muda depois de reiniciar."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**语言**：Starseed 的语言，或跟随 macOS。重新启动后生效。"
+          }
+        }
+      }
+    },
     "**Move to Trash…** (or the Delete key) puts mods in the Trash, so they can be restored from Finder. If a mod is used by others, you're warned first; afterwards, Starseed offers to remove requirements nothing uses anymore." : {
       "localizations" : {
         "de" : {
@@ -480,6 +548,40 @@
         }
       }
     },
+    "**Playing**: the report after each game session." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Beim Spielen**: der Bericht nach jeder Spielsitzung."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Al jugar**: el informe después de cada sesión de juego."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**En jeu** : le rapport après chaque partie."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Ao jogar**: o relatório depois de cada sessão de jogo."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**游戏**：每次游戏结束后的报告。"
+          }
+        }
+      }
+    },
     "**Saves** lists your farms. Select one to see the mods it was played with and which are missing or older here, then **Find Missing Mods** to install them from Nexus." : {
       "localizations" : {
         "de" : {
@@ -510,6 +612,74 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**存档**列出你的农场。选择一个即可查看它使用过哪些模组、哪些在此缺少或较旧，然后点击**查找缺少的模组**从 Nexus 安装。"
+          }
+        }
+      }
+    },
+    "**Saves**: back up saves before playing when your mods changed." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Spielstände**: Spielstände vor dem Spielen sichern, wenn sich deine Mods geändert haben."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Partidas**: copiar las partidas antes de jugar si tus mods cambiaron."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Sauvegardes** : copier les sauvegardes avant de jouer si vos mods ont changé."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Saves**: fazer backup dos saves antes de jogar se seus mods mudaram."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**存档**：模组有变化时，在开始游戏前备份存档。"
+          }
+        }
+      }
+    },
+    "**Updates**: checking mods every few hours, notifications, and the menu bar icon." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Updates**: Mods alle paar Stunden prüfen, Mitteilungen und das Menüleistensymbol."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Actualizaciones**: comprobar los mods cada pocas horas, los avisos y el icono de la barra de menús."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Mises à jour** : vérifier les mods toutes les quelques heures, les notifications et l’icône de la barre des menus."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Atualizações**: verificar os mods a cada poucas horas, as notificações e o ícone na barra de menus."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**更新**：每隔几小时检查模组、通知以及菜单栏图标。"
           }
         }
       }
@@ -3351,6 +3521,74 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "请在“设置 → Nexus Mods”中添加你的个人 Nexus Mods API 密钥以下载模组。"
+          }
+        }
+      }
+    },
+    "After a few tests, Starseed names the mod. Keep it off, or put everything back as it was." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nach ein paar Tests nennt Starseed den Mod. Lass ihn aus oder stelle alles wieder wie vorher her."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tras unas pocas pruebas, Starseed nombra el mod. Déjalo desactivado o vuelve a dejarlo todo como estaba."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Après quelques tests, Starseed nomme le mod. Laissez-le désactivé, ou remettez tout comme avant."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Depois de alguns testes, o Starseed aponta o mod. Deixe-o desativado ou volte tudo como estava."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "几次测试后，Starseed 会指出是哪个模组。你可以保持它关闭，或把一切恢复原样。"
+          }
+        }
+      }
+    },
+    "After you play" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nach dem Spielen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Después de jugar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Après une partie"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Depois de jogar"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "游戏结束后"
           }
         }
       }
@@ -8064,6 +8302,40 @@
         }
       }
     },
+    "Don't go to bed in the game during tests: Stardew Valley saves overnight, and saving with mods off can lose their content. You can quit Starseed between tests; the search continues where you left it." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geh während der Tests im Spiel nicht schlafen: Stardew Valley speichert über Nacht, und Speichern mit ausgeschalteten Mods kann deren Inhalte kosten. Du kannst Starseed zwischen den Tests beenden; die Suche geht dort weiter, wo du aufgehört hast."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No te vayas a dormir en el juego durante las pruebas: Stardew Valley guarda por la noche, y guardar con mods desactivados puede hacer perder su contenido. Puedes cerrar Starseed entre pruebas; la búsqueda sigue donde la dejaste."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "N’allez pas vous coucher dans le jeu pendant les tests : Stardew Valley sauvegarde la nuit, et sauvegarder avec des mods désactivés peut faire perdre leur contenu. Vous pouvez quitter Starseed entre deux tests ; la recherche reprend là où vous l’avez laissée."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não vá dormir no jogo durante os testes: Stardew Valley salva durante a noite, e salvar com mods desativados pode fazer perder o conteúdo deles. Você pode fechar o Starseed entre os testes; a busca continua de onde parou."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "测试期间不要在游戏中睡觉：星露谷物语会在夜间存档，关闭模组时存档可能会丢失它们的内容。两次测试之间可以退出 Starseed；搜索会从你离开的地方继续。"
+          }
+        }
+      }
+    },
     "Download and install every Nexus update" : {
       "localizations" : {
         "de" : {
@@ -10889,6 +11161,40 @@
         }
       }
     },
+    "How much space your mods take, largest first, plus the previous versions kept for rollback and Starseed's save backups. You can remove old versions and backups older than 30 days; they go to the Trash." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wie viel Platz deine Mods belegen, größte zuerst, dazu die aufbewahrten früheren Versionen und die Spielstandsicherungen von Starseed. Du kannst alte Versionen und Sicherungen, die älter als 30 Tage sind, entfernen; sie kommen in den Papierkorb."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuánto espacio ocupan tus mods, de mayor a menor, además de las versiones anteriores conservadas y las copias de partidas de Starseed. Puedes quitar las versiones antiguas y las copias de más de 30 días; van a la Papelera."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La place prise par vos mods, des plus gros aux plus petits, ainsi que les versions précédentes conservées et les copies de sauvegardes de Starseed. Vous pouvez supprimer les anciennes versions et les copies de plus de 30 jours ; elles vont dans la Corbeille."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quanto espaço seus mods ocupam, dos maiores para os menores, além das versões anteriores guardadas e dos backups de saves do Starseed. Você pode remover versões antigas e backups com mais de 30 dias; eles vão para a Lixeira."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的模组占用了多少空间（从大到小），以及为回退保留的以前版本和 Starseed 的存档备份。你可以移除旧版本和超过 30 天的备份；它们会移到废纸篓。"
+          }
+        }
+      }
+    },
     "https://www.nexusmods.com/stardewvalley/mods/7286" : {
       "localizations" : {
         "de" : {
@@ -10953,6 +11259,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "如果更新导致了问题"
+          }
+        }
+      }
+    },
+    "If an update caused it" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wenn ein Update schuld ist"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si lo causó una actualización"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si une mise à jour en est la cause"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se uma atualização causou isso"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果是更新导致的"
           }
         }
       }
@@ -13436,6 +13776,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "启动时 macOS 请求钥匙串访问权限。"
+          }
+        }
+      }
+    },
+    "macOS says it can't check Starseed when I open it." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS sagt beim Öffnen, dass es Starseed nicht überprüfen kann."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS dice que no puede comprobar Starseed al abrirlo."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS dit ne pas pouvoir vérifier Starseed à l’ouverture."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O macOS diz que não consegue verificar o Starseed ao abrir."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开 Starseed 时，macOS 提示无法检查它。"
           }
         }
       }
@@ -18273,6 +18647,40 @@
         }
       }
     },
+    "Play until you can tell whether the problem happens, quit the game, then answer **Yes** or **No**." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spiele, bis du sagen kannst, ob das Problem auftritt, beende das Spiel und antworte dann mit **Ja** oder **Nein**."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Juega hasta saber si aparece el problema, cierra el juego y responde **Sí** o **No**."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jouez jusqu’à savoir si le problème apparaît, quittez le jeu, puis répondez **Oui** ou **Non**."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jogue até saber se o problema acontece, feche o jogo e responda **Sim** ou **Não**."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "进入游戏直到能判断问题是否出现，退出游戏，然后回答**出现了**或**没有**。"
+          }
+        }
+      }
+    },
     "Play zips all your saves first if mods were added, removed, updated, or switched on or off since you last played. The last 5 of these backups are kept, under Saves." : {
       "localizations" : {
         "de" : {
@@ -21393,6 +21801,40 @@
         }
       }
     },
+    "Select the mod and pick the version you had under **Previous Versions** in the details panel." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wähle den Mod und dann die Version, die du hattest, unter **Frühere Versionen** im Detailbereich."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona el mod y elige la versión que tenías en **Versiones anteriores** en el panel de detalles."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélectionnez le mod et choisissez la version que vous aviez sous **Versions précédentes** dans le panneau de détails."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecione o mod e escolha a versão que você tinha em **Versões anteriores** no painel de detalhes."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择该模组，在详细信息面板的**以前的版本**中选择你之前的版本。"
+          }
+        }
+      }
+    },
     "Select your Stardew Valley “Mods” folder" : {
       "localizations" : {
         "de" : {
@@ -21491,6 +21933,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "设置"
+          }
+        }
+      }
+    },
+    "Settings & Storage" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen & Speicherplatz"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajustes y almacenamiento"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réglages et stockage"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajustes e armazenamento"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置和存储空间"
           }
         }
       }
@@ -23276,6 +23752,40 @@
         }
       }
     },
+    "Something is wrong with Starseed itself." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit Starseed selbst stimmt etwas nicht."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Algo falla en el propio Starseed."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quelque chose ne va pas dans Starseed lui-même."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Algo está errado no próprio Starseed."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed 本身出了问题。"
+          }
+        }
+      }
+    },
     "Sort" : {
       "localizations" : {
         "de" : {
@@ -23855,6 +24365,40 @@
         }
       }
     },
+    "Starseed isn't signed with a paid Apple Developer ID. Open **System Settings → Privacy & Security** and click **Open Anyway**. It's needed only once; updates don't ask again." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed ist nicht mit einer kostenpflichtigen Apple-Entwickler-ID signiert. Öffne **Systemeinstellungen → Datenschutz & Sicherheit** und klicke auf **Dennoch öffnen**. Das ist nur einmal nötig; Updates fragen nicht erneut."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed no está firmado con un ID de desarrollador de Apple de pago. Abre **Ajustes del Sistema → Privacidad y seguridad** y haz clic en **Abrir igualmente**. Solo hace falta una vez; las actualizaciones no vuelven a preguntar."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed n’est pas signé avec un identifiant de développeur Apple payant. Ouvrez **Réglages Système → Confidentialité et sécurité** et cliquez sur **Ouvrir quand même**. Une seule fois suffit ; les mises à jour ne redemandent pas."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Starseed não é assinado com um ID de desenvolvedor Apple pago. Abra **Ajustes do Sistema → Privacidade e Segurança** e clique em **Abrir Mesmo Assim**. É preciso só uma vez; as atualizações não perguntam de novo."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed 没有使用付费的 Apple 开发者 ID 签名。请打开**系统设置 → 隐私与安全性**，然后点击**仍要打开**。只需操作一次；之后的更新不会再询问。"
+          }
+        }
+      }
+    },
     "Starseed on GitHub" : {
       "localizations" : {
         "de" : {
@@ -23889,6 +24433,40 @@
         }
       }
     },
+    "Starseed turns off half of your mods. Mods that need each other, and the parts of one mod, stay together." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed schaltet die Hälfte deiner Mods aus. Mods, die einander brauchen, und die Teile eines Mods bleiben zusammen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed desactiva la mitad de tus mods. Los mods que se necesitan entre sí y las partes de un mismo mod van juntos."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed désactive la moitié de vos mods. Les mods qui ont besoin les uns des autres, et les parties d’un même mod, restent ensemble."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Starseed desativa metade dos seus mods. Mods que dependem uns dos outros e as partes de um mesmo mod ficam juntos."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed 会关闭一半模组。互相依赖的模组以及同一模组的各个部分会放在一起。"
+          }
+        }
+      }
+    },
     "Starseed turns some mods off." : {
       "localizations" : {
         "de" : {
@@ -23919,6 +24497,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Starseed 会关闭一部分模组。"
+          }
+        }
+      }
+    },
+    "Starseed updates itself: it checks for new versions once a day and asks before installing. **Starseed → Check for App Updates…** checks right away." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed aktualisiert sich selbst: Es sucht einmal am Tag nach neuen Versionen und fragt vor dem Installieren. **Starseed → Nach App-Updates suchen …** prüft sofort."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed se actualiza solo: busca versiones nuevas una vez al día y pregunta antes de instalarlas. **Starseed → Buscar actualizaciones de la app…** lo comprueba al momento."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed se met à jour tout seul : il cherche une nouvelle version une fois par jour et demande avant de l’installer. **Starseed → Rechercher des mises à jour de l’app…** vérifie tout de suite."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Starseed se atualiza sozinho: procura versões novas uma vez por dia e pergunta antes de instalar. **Starseed → Procurar atualizações do app…** verifica na hora."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed 会自行更新：它每天检查一次新版本，并在安装前询问你。**Starseed → 检查应用更新…**可立即检查。"
           }
         }
       }
@@ -24405,6 +25017,40 @@
         }
       }
     },
+    "The bar at the bottom of the window shows Stardew Valley's and SMAPI's versions, each with a colored dot: **green** when up to date, **yellow** when an update is waiting, **red** when missing. Point at a dot to see why." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Leiste unten im Fenster zeigt die Versionen von Stardew Valley und SMAPI, jeweils mit einem farbigen Punkt: **grün**, wenn aktuell, **gelb**, wenn ein Update wartet, **rot**, wenn es fehlt. Zeige auf einen Punkt, um den Grund zu sehen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La barra inferior de la ventana muestra las versiones de Stardew Valley y de SMAPI, cada una con un punto de color: **verde** si está al día, **amarillo** si hay una actualización pendiente, **rojo** si falta. Pasa el puntero sobre un punto para ver por qué."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La barre en bas de la fenêtre affiche les versions de Stardew Valley et de SMAPI, chacune avec un point de couleur : **vert** si c’est à jour, **jaune** si une mise à jour attend, **rouge** s’il manque. Survolez un point pour savoir pourquoi."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A barra na parte de baixo da janela mostra as versões do Stardew Valley e do SMAPI, cada uma com um ponto colorido: **verde** quando está atualizado, **amarelo** quando há uma atualização esperando, **vermelho** quando falta. Passe o cursor sobre um ponto para ver o motivo."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "窗口底部的栏会显示星露谷物语和 SMAPI 的版本，各带一个彩色圆点：**绿色**表示已是最新，**黄色**表示有更新等待，**红色**表示缺失。将指针悬停在圆点上可查看原因。"
+          }
+        }
+      }
+    },
     "The broken-mod search is done." : {
       "localizations" : {
         "de" : {
@@ -24503,6 +25149,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "详细信息面板"
+          }
+        }
+      }
+    },
+    "The game and SMAPI" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Spiel und SMAPI"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El juego y SMAPI"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le jeu et SMAPI"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O jogo e o SMAPI"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "游戏和 SMAPI"
           }
         }
       }
@@ -24753,6 +25433,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "已安装列表"
+          }
+        }
+      }
+    },
+    "The menu bar icon" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Menüleistensymbol"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El icono de la barra de menús"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’icône de la barre des menus"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O ícone na barra de menus"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "菜单栏图标"
           }
         }
       }
@@ -25852,6 +26566,40 @@
         }
       }
     },
+    "Two mods conflict when they replace the same game files: SMAPI then uses the game's originals, so neither change shows. The mods' details show the conflict in orange, and **Disable One** in the SMAPI Log turns one off (⌘Z undoes it)." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zwei Mods kollidieren, wenn sie dieselben Spieldateien ersetzen: SMAPI verwendet dann die Originale des Spiels, und keine der Änderungen ist zu sehen. Die Details der Mods zeigen den Konflikt in Orange, und **Einen deaktivieren** im SMAPI-Protokoll schaltet einen aus (⌘Z macht es rückgängig)."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dos mods entran en conflicto cuando reemplazan los mismos archivos del juego: SMAPI usa entonces los originales y no se ve ningún cambio. Los detalles de los mods muestran el conflicto en naranja, y **Desactivar uno** en el registro de SMAPI desactiva uno (⌘Z lo deshace)."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deux mods sont en conflit quand ils remplacent les mêmes fichiers du jeu : SMAPI garde alors les originaux, et aucune modification n’apparaît. Les détails des mods affichent le conflit en orange, et **En désactiver un** dans le journal SMAPI en désactive un (⌘Z annule)."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dois mods entram em conflito quando substituem os mesmos arquivos do jogo: o SMAPI então usa os originais, e nenhuma mudança aparece. Os detalhes dos mods mostram o conflito em laranja, e **Desativar um** no registro do SMAPI desativa um deles (⌘Z desfaz)."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "两个模组替换相同的游戏文件时会发生冲突：SMAPI 会改用游戏的原始文件，两者的修改都不会显示。模组的详细信息中会以橙色显示冲突，SMAPI 日志中的**停用其中一个**可以关掉其中一个（⌘Z 可撤销）。"
+          }
+        }
+      }
+    },
     "Undo or redo enabling and disabling" : {
       "localizations" : {
         "de" : {
@@ -26500,6 +27248,40 @@
         }
       }
     },
+    "Updates of Starseed" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Updates von Starseed"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualizaciones de Starseed"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mises à jour de Starseed"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atualizações do Starseed"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starseed 的更新"
+          }
+        }
+      }
+    },
     "Upload to smapi.io…" : {
       "localizations" : {
         "de" : {
@@ -26598,6 +27380,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "使用**游戏 → 找出出问题的模组…**。Starseed 会关闭一半模组，你进入游戏并告诉它问题是否出现，几次测试后它就会指出是哪个模组。最后你的模组会恢复原样。"
+          }
+        }
+      }
+    },
+    "Use **Help → Report a Problem or Suggest an Idea…** to tell us on GitHub. Include your Starseed version (**Starseed → About Starseed**) and what you were doing." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nutze **Hilfe → Problem melden oder Idee vorschlagen …**, um es uns auf GitHub zu sagen. Gib deine Starseed-Version (**Starseed → Über Starseed**) an und was du gerade gemacht hast."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usa **Ayuda → Informar de un problema o sugerir una idea…** para contárnoslo en GitHub. Indica tu versión de Starseed (**Starseed → Acerca de Starseed**) y qué estabas haciendo."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utilisez **Aide → Signaler un problème ou proposer une idée…** pour nous le dire sur GitHub. Indiquez votre version de Starseed (**Starseed → À propos de Starseed**) et ce que vous faisiez."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use **Ajuda → Relatar um problema ou sugerir uma ideia…** para nos avisar no GitHub. Informe sua versão do Starseed (**Starseed → Sobre o Starseed**) e o que você estava fazendo."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用**帮助 → 报告问题或提出建议…**在 GitHub 上告诉我们。请附上你的 Starseed 版本（**Starseed → 关于 Starseed**）以及你当时在做什么。"
           }
         }
       }
@@ -27352,6 +28168,108 @@
         }
       }
     },
+    "When SMAPI has a new version, **Update to…** installs it. After a game update, SMAPI may be disconnected; **Reinstall** connects it again." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gibt es eine neue SMAPI-Version, installiert **Aktualisieren auf …** sie. Nach einem Spiel-Update kann SMAPI getrennt sein; **Neu installieren** verbindet es wieder."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuando SMAPI tiene una versión nueva, **Actualizar a…** la instala. Tras una actualización del juego, SMAPI puede quedar desconectado; **Reinstalar** lo vuelve a conectar."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quand SMAPI a une nouvelle version, **Mettre à jour vers…** l’installe. Après une mise à jour du jeu, SMAPI peut être déconnecté ; **Réinstaller** le reconnecte."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quando o SMAPI tem uma versão nova, **Atualizar para…** a instala. Depois de uma atualização do jogo, o SMAPI pode ficar desconectado; **Reinstalar** o reconecta."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI 有新版本时，**更新到…**会安装它。游戏更新后 SMAPI 可能会断开；**重新安装**可重新连接。"
+          }
+        }
+      }
+    },
+    "When Something Breaks" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wenn etwas kaputtgeht"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuando algo falla"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quand quelque chose ne marche pas"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quando algo dá errado"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "出问题时"
+          }
+        }
+      }
+    },
+    "When something goes wrong but nothing says which mod is to blame, use **Game → Find a Broken Mod…**:" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wenn etwas schiefgeht, aber nichts sagt, welcher Mod schuld ist, nutze **Spiel → Defekten Mod finden …**:"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuando algo falla pero nada dice qué mod es el culpable, usa **Juego → Buscar un mod defectuoso…**:"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quand quelque chose ne marche pas mais que rien ne dit quel mod est en cause, utilisez **Jeu → Trouver un mod défectueux…** :"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quando algo dá errado mas nada diz qual mod é o culpado, use **Jogo → Encontrar um mod com defeito…**:"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "出了问题但没有任何提示说明是哪个模组时，请使用**游戏 → 找出出问题的模组…**："
+          }
+        }
+      }
+    },
     "When something goes wrong but the log doesn't say which mod is to blame, Starseed can find it by testing half of your mods at a time." : {
       "localizations" : {
         "de" : {
@@ -27382,6 +28300,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "出问题但日志没说是哪个模组时，Starseed 可以每次测试一半模组来找出它。"
+          }
+        }
+      }
+    },
+    "When Steam has a game update, **Update in Steam** opens the game's page in Steam." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hat Steam ein Spiel-Update, öffnet **In Steam aktualisieren** die Seite des Spiels in Steam."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuando Steam tiene una actualización del juego, **Actualizar en Steam** abre la página del juego en Steam."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quand Steam a une mise à jour du jeu, **Mettre à jour dans Steam** ouvre la page du jeu dans Steam."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quando a Steam tem uma atualização do jogo, **Atualizar na Steam** abre a página do jogo na Steam."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Steam 有游戏更新时，**在 Steam 中更新**会在 Steam 中打开游戏页面。"
           }
         }
       }
@@ -27450,6 +28402,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "游戏关闭时，Starseed 会读取 SMAPI 日志，如果有模组未加载、出错、冲突或导致游戏崩溃，会发送通知。点击即可查看 SMAPI 的建议。"
+          }
+        }
+      }
+    },
+    "When the game closes, Starseed reads SMAPI's log. If mods didn't load, had errors, conflicted or crashed the game, a notification tells you; click it to open the **SMAPI Log** with plain advice and a button to fix each problem." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wenn das Spiel schließt, liest Starseed das SMAPI-Protokoll. Wurden Mods nicht geladen, hatten Fehler, kollidierten oder ließen das Spiel abstürzen, bekommst du eine Mitteilung; klicke darauf, um das **SMAPI-Protokoll** mit verständlichen Hinweisen und einer Schaltfläche zum Beheben jedes Problems zu öffnen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Al cerrar el juego, Starseed lee el registro de SMAPI. Si algunos mods no se cargaron, tuvieron errores, entraron en conflicto o cerraron el juego, un aviso te lo dice; haz clic para abrir el **Registro de SMAPI** con consejos claros y un botón para solucionar cada problema."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À la fermeture du jeu, Starseed lit le journal de SMAPI. Si des mods ne se sont pas chargés, ont eu des erreurs, sont en conflit ou ont fait planter le jeu, une notification vous prévient ; cliquez dessus pour ouvrir le **Journal SMAPI**, avec des conseils simples et un bouton pour corriger chaque problème."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quando o jogo fecha, o Starseed lê o registro do SMAPI. Se mods não carregaram, tiveram erros, entraram em conflito ou travaram o jogo, uma notificação avisa você; clique nela para abrir o **Registro do SMAPI** com dicas simples e um botão para corrigir cada problema."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "游戏关闭时，Starseed 会读取 SMAPI 日志。如果有模组未加载、出错、冲突或导致游戏崩溃，会发送通知提醒你；点击即可打开 **SMAPI 日志**，查看通俗的建议以及修复每个问题的按钮。"
           }
         }
       }
@@ -27552,6 +28538,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "这是哪个 Nexus 模组？"
+          }
+        }
+      }
+    },
+    "With the icon on, closing the window keeps Starseed running, so it keeps checking for updates. Its menu shows the game's and SMAPI's state, the number of updates, the last session's problems, and lets you play or switch profiles without opening the window." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit eingeschaltetem Symbol läuft Starseed weiter, wenn du das Fenster schließt, und sucht weiter nach Updates. Sein Menü zeigt den Zustand von Spiel und SMAPI, die Zahl der Updates und die Probleme der letzten Sitzung und lässt dich spielen oder Profile wechseln, ohne das Fenster zu öffnen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Con el icono activado, cerrar la ventana mantiene Starseed abierto para que siga buscando actualizaciones. Su menú muestra el estado del juego y de SMAPI, el número de actualizaciones y los problemas de la última sesión, y te deja jugar o cambiar de perfil sin abrir la ventana."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avec l’icône activée, fermer la fenêtre laisse Starseed ouvert pour continuer à chercher des mises à jour. Son menu montre l’état du jeu et de SMAPI, le nombre de mises à jour, les problèmes de la dernière partie, et permet de jouer ou de changer de profil sans ouvrir la fenêtre."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Com o ícone ativado, fechar a janela mantém o Starseed aberto, procurando atualizações. O menu dele mostra o estado do jogo e do SMAPI, o número de atualizações e os problemas da última sessão, e permite jogar ou trocar de perfil sem abrir a janela."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开启图标后，关闭窗口时 Starseed 仍会运行，继续检查更新。它的菜单会显示游戏和 SMAPI 的状态、更新数量以及上次游戏的问题，并且无需打开窗口即可开始游戏或切换配置方案。"
           }
         }
       }
@@ -27862,6 +28882,40 @@
         }
       }
     },
+    "Your **Mods folder**, and the SMAPI and game versions found next to it." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dein **Mods-Ordner** und die daneben gefundenen Versionen von SMAPI und Spiel."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu **carpeta Mods** y las versiones de SMAPI y del juego encontradas junto a ella."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Votre **dossier Mods**, et les versions de SMAPI et du jeu trouvées à côté."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sua **pasta Mods** e as versões do SMAPI e do jogo encontradas ao lado dela."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的 **Mods 文件夹**，以及在其旁边找到的 SMAPI 和游戏版本。"
+          }
+        }
+      }
+    },
     "Your %lld enabled mods make %lld groups to test (parts of one mod, and mods with what they need, stay together): about %lld tests. At the end, your mods are put back as they were." : {
       "localizations" : {
         "de" : {
@@ -28000,6 +29054,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "你的模组有变化，因此在开始游戏前备份了存档（存档 → 备份）"
+          }
+        }
+      }
+    },
+    "Your personal API key, your account (free or Premium), and **Use This App**, which makes Starseed catch **Mod Manager Download** links clicked in Safari or Chrome." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dein persönlicher API-Schlüssel, dein Konto (kostenlos oder Premium) und **Diese App verwenden**, damit Starseed in Safari oder Chrome angeklickte Links **Mod Manager Download** abfängt."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu clave personal de API, tu cuenta (gratuita o Premium) y **Usar esta app**, que hace que Starseed capture los enlaces **Mod Manager Download** en los que hagas clic en Safari o Chrome."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Votre clé d’API personnelle, votre compte (gratuit ou Premium), et **Utiliser cette app**, qui fait intercepter par Starseed les liens **Mod Manager Download** cliqués dans Safari ou Chrome."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sua chave pessoal de API, sua conta (gratuita ou Premium) e **Usar este app**, que faz o Starseed capturar os links **Mod Manager Download** clicados no Safari ou no Chrome."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的个人 API 密钥、你的账户（免费或高级会员），以及**使用此应用**，它让 Starseed 接管你在 Safari 或 Chrome 中点击的 **Mod Manager Download** 链接。"
           }
         }
       }

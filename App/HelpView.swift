@@ -6,7 +6,7 @@ import ModManagerCore
 import SwiftUI
 
 enum HelpTopic: String, CaseIterable, Identifiable {
-    case gettingStarted, installing, managing, updates, requirements, profiles, saves, log, troubleshooting, shortcuts
+    case gettingStarted, installing, managing, updates, requirements, profiles, saves, problems, log, settings, troubleshooting, shortcuts
 
     var id: String { rawValue }
 
@@ -19,7 +19,9 @@ enum HelpTopic: String, CaseIterable, Identifiable {
         case .requirements: "Requirements"
         case .profiles: "Profiles & Collections"
         case .saves: "Saves & Backups"
+        case .problems: "When Something Breaks"
         case .log: "SMAPI Log"
+        case .settings: "Settings & Storage"
         case .troubleshooting: "Troubleshooting"
         case .shortcuts: "Keyboard Shortcuts"
         }
@@ -34,7 +36,9 @@ enum HelpTopic: String, CaseIterable, Identifiable {
         case .requirements: "puzzlepiece.extension"
         case .profiles: "person.2"
         case .saves: "archivebox"
+        case .problems: "bandage"
         case .log: "doc.text.magnifyingglass"
+        case .settings: "gearshape"
         case .troubleshooting: "wrench.and.screwdriver"
         case .shortcuts: "keyboard"
         }
@@ -50,7 +54,7 @@ struct HelpView: View {
             List(HelpTopic.allCases, selection: $selection) { topic in
                 Label(topic.title, systemImage: topic.icon).tag(topic)
             }
-            .navigationSplitViewColumnWidth(min: 190, ideal: 210, max: 260)
+            .navigationSplitViewColumnWidth(min: 220, ideal: 250, max: 300)  // room for German and Spanish titles
         } detail: {
             ScrollView {
                 VStack(alignment: .leading, spacing: 18) {
@@ -129,6 +133,16 @@ struct HelpView: View {
             HelpSection("If an update breaks something") {
                 HelpText("The version you replaced is kept. Select the mod and pick it under **Previous Versions** in the details panel; your settings carry over.")
             }
+            HelpSection("The game and SMAPI") {
+                HelpText("The bar at the bottom of the window shows Stardew Valley's and SMAPI's versions, each with a colored dot: **green** when up to date, **yellow** when an update is waiting, **red** when missing. Point at a dot to see why.")
+                HelpBullets([
+                    "When Steam has a game update, **Update in Steam** opens the game's page in Steam.",
+                    "When SMAPI has a new version, **Update to…** installs it. After a game update, SMAPI may be disconnected; **Reinstall** connects it again.",
+                ])
+            }
+            HelpSection("Updates of Starseed") {
+                HelpText("Starseed updates itself: it checks for new versions once a day and asks before installing. **Starseed → Check for App Updates…** checks right away.")
+            }
 
         case .requirements:
             HelpText("Many mods need others to work: frameworks like Content Patcher or SpaceCore, or tilesheet packs. The **Requirements** section lists what your enabled mods need but you don't have, and which mods need it.")
@@ -157,6 +171,47 @@ struct HelpView: View {
             HelpSection("Backups") {
                 HelpText("**Back Up All Saves**, or **Back Up Now** on a single farm, makes a zip you can restore later, all at once or one save at a time. Restoring first backs up the current saves, so it can be undone. Backups made by SMAPI's own Save Backup mod are listed too.")
                 HelpText("When your mods changed since you last played, **Play** backs up every save before starting the game; the last 5 of these are kept. You can turn this off in **Settings → General**.")
+            }
+
+        case .problems:
+            HelpSection("After you play") {
+                HelpText("When the game closes, Starseed reads SMAPI's log. If mods didn't load, had errors, conflicted or crashed the game, a notification tells you; click it to open the **SMAPI Log** with plain advice and a button to fix each problem.")
+            }
+            HelpSection("Conflicts") {
+                HelpText("Two mods conflict when they replace the same game files: SMAPI then uses the game's originals, so neither change shows. The mods' details show the conflict in orange, and **Disable One** in the SMAPI Log turns one off (⌘Z undoes it).")
+            }
+            HelpSection("Find a Broken Mod") {
+                HelpText("When something goes wrong but nothing says which mod is to blame, use **Game → Find a Broken Mod…**:")
+                HelpBullets([
+                    "Starseed turns off half of your mods. Mods that need each other, and the parts of one mod, stay together.",
+                    "Play until you can tell whether the problem happens, quit the game, then answer **Yes** or **No**.",
+                    "After a few tests, Starseed names the mod. Keep it off, or put everything back as it was.",
+                ])
+                HelpText("Don't go to bed in the game during tests: Stardew Valley saves overnight, and saving with mods off can lose their content. You can quit Starseed between tests; the search continues where you left it.")
+            }
+            HelpSection("If an update caused it") {
+                HelpText("Select the mod and pick the version you had under **Previous Versions** in the details panel.")
+            }
+
+        case .settings:
+            HelpSection("General") {
+                HelpBullets([
+                    "**Language**: Starseed's language, or the one macOS uses. It changes after a restart.",
+                    "**Updates**: checking mods every few hours, notifications, and the menu bar icon.",
+                    "**Appearance**: show or hide mod pictures from Nexus.",
+                    "**Playing**: the report after each game session.",
+                    "**Saves**: back up saves before playing when your mods changed.",
+                    "Your **Mods folder**, and the SMAPI and game versions found next to it.",
+                ])
+            }
+            HelpSection("The menu bar icon") {
+                HelpText("With the icon on, closing the window keeps Starseed running, so it keeps checking for updates. Its menu shows the game's and SMAPI's state, the number of updates, the last session's problems, and lets you play or switch profiles without opening the window.")
+            }
+            HelpSection("Nexus Mods") {
+                HelpText("Your personal API key, your account (free or Premium), and **Use This App**, which makes Starseed catch **Mod Manager Download** links clicked in Safari or Chrome.")
+            }
+            HelpSection("Storage") {
+                HelpText("How much space your mods take, largest first, plus the previous versions kept for rollback and Starseed's save backups. You can remove old versions and backups older than 30 days; they go to the Trash.")
             }
 
         case .log:
@@ -193,8 +248,14 @@ struct HelpView: View {
             HelpQuestion("How do I know if a mod failed while I played?") {
                 HelpText("When the game closes, Starseed reads SMAPI's log and sends a notification if mods didn't load, had errors, conflicted or crashed the game. Click it to see SMAPI's advice.")
             }
+            HelpQuestion("macOS says it can't check Starseed when I open it.") {
+                HelpText("Starseed isn't signed with a paid Apple Developer ID. Open **System Settings → Privacy & Security** and click **Open Anyway**. It's needed only once; updates don't ask again.")
+            }
             HelpQuestion("Something else went wrong.") {
                 HelpText("Most problems show up in the **SMAPI Log**. The Stardew Valley modding community can help with it on the official forums and Discord.")
+            }
+            HelpQuestion("Something is wrong with Starseed itself.") {
+                HelpText("Use **Help → Report a Problem or Suggest an Idea…** to tell us on GitHub. Include your Starseed version (**Starseed → About Starseed**) and what you were doing.")
             }
 
         case .shortcuts:
