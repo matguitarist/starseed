@@ -41,6 +41,7 @@ struct LogViewerView: View {
     @State private var sourceFilter: String?
     @State private var searchText = ""
     @State private var followLive = true
+    @AppStorage("showLoadedMods") private var showLoadedMods = true
 
     /// What the view shows, computed off the main thread once per change of
     /// the log (or of "Clear") instead of on every redraw.
@@ -60,7 +61,6 @@ struct LogViewerView: View {
                 VStack(spacing: 0) {
                     missingContentBanner(summary)
                     InsightsPanel(insights: summary.insights, onShowSource: { sourceFilter = $0 })
-                    LoadedModsPanel(loaded: summary.loadedMods)
                     summaryHeader(summary)
                     Divider()
                     entryList(log)
@@ -80,6 +80,10 @@ struct LogViewerView: View {
         .navigationSubtitle(fileURL.lastPathComponent)
         .searchable(text: $searchText, placement: .toolbar, prompt: "Search log")
         .toolbar { toolbar }
+        .inspector(isPresented: $showLoadedMods) {
+            LoadedModsInspector(loaded: summary?.loadedMods ?? [])
+                .inspectorColumnWidth(min: 240, ideal: 320, max: 480)
+        }
         .onChange(of: model.logClearMark) { Task { await updateSummary() } }
         .onChange(of: model.requestedLogURL, initial: true) { _, url in
             // Opened from a notification after playing.
@@ -313,6 +317,14 @@ struct LogViewerView: View {
             }
             .disabled(log == nil)
             .help("Copy, share, or show the log file")
+        }
+        ToolbarItem {
+            Button {
+                showLoadedMods.toggle()
+            } label: {
+                Label("Loaded Mods", systemImage: "sidebar.trailing")
+            }
+            .help("Show or hide the mods SMAPI loaded")
         }
     }
 
@@ -549,50 +561,54 @@ struct LogSummary: Sendable {
     }
 }
 
-/// "Loaded: 7 mods · 2 content packs": what SMAPI actually loaded, folded
-/// by default. Names jump to the mod in the Installed list.
-private struct LoadedModsPanel: View {
+/// The panel at the right of the SMAPI Log: what SMAPI actually loaded in
+/// that session. Names jump to the mod in the Installed list; hovering one
+/// shows its description.
+private struct LoadedModsInspector: View {
     @AppModelEnvironment private var model
     let loaded: [LoadedMod]
-    @State private var expanded = false
 
     var body: some View {
-        if !loaded.isEmpty {
-            let mods = loaded.filter { !$0.isContentPack }
-            let packs = loaded.filter(\.isContentPack)
-            VStack(alignment: .leading, spacing: 0) {
-                DisclosureGroup(isExpanded: $expanded) {
-                    ScrollView {
-                        VStack(alignment: .leading, spacing: 10) {
-                            section(String(localized: "Mods (\(mods.count))"), mods)
-                            if !packs.isEmpty {
-                                section(String(localized: "Content packs (\(packs.count))"), packs)
-                            }
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.top, 6)
+        let mods = loaded.filter { !$0.isContentPack }
+        let packs = loaded.filter(\.isContentPack)
+        if loaded.isEmpty {
+            ContentUnavailableView("No Loaded Mods Listed", systemImage: "checklist",
+                                   description: Text("SMAPI lists the mods it loaded when the game starts."))
+        } else {
+            List {
+                Section {
+                    ForEach(mods) { row($0) }
+                } header: {
+                    Text("Mods (\(mods.count))")
+                }
+                if !packs.isEmpty {
+                    Section {
+                        ForEach(packs) { row($0) }
+                    } header: {
+                        Text("Content packs (\(packs.count))")
                     }
-                    .frame(maxHeight: 260)
-                } label: {
-                    Label(packs.isEmpty ? String(localized: "Loaded \(mods.count) mods")
-                          : String(localized: "Loaded \(mods.count) mods and \(packs.count) content packs"),
-                          systemImage: "checklist")
-                        .font(.headline)
                 }
             }
-            .padding(.horizontal, 14)
-            .padding(.vertical, 10)
-            .background(.bar)
-            Divider()
+            .listStyle(.sidebar)
+            .safeAreaInset(edge: .top, spacing: 0) {
+                Label(packs.isEmpty ? String(localized: "Loaded \(mods.count) mods")
+                      : String(localized: "Loaded \(mods.count) mods and \(packs.count) content packs"),
+                      systemImage: "checklist")
+                    .font(.headline)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 14)
+                    .padding(.vertical, 10)
+                    .background(.bar)
+                    .overlay(alignment: .bottom) { Divider() }
+            }
         }
     }
 
-    private func section(_ title: String, _ items: [LoadedMod]) -> some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text(title).font(.subheadline.bold()).foregroundStyle(.secondary)
-            ForEach(items) { item in
-                HStack(alignment: .firstTextBaseline, spacing: 6) {
-                    Image(systemName: "checkmark.circle.fill").foregroundStyle(.green).imageScale(.small)
+    private func row(_ item: LoadedMod) -> some View {
+        HStack(alignment: .top, spacing: 6) {
+            Image(systemName: "checkmark.circle.fill").foregroundStyle(.green).imageScale(.small)
+            VStack(alignment: .leading, spacing: 1) {
+                HStack(spacing: 4) {
                     if let installed = model.installedMod(named: item.name) {
                         Button(item.name) {
                             model.reveal(rowID: model.group(containing: installed)?.id ?? installed.id)
@@ -603,16 +619,20 @@ private struct LoadedModsPanel: View {
                         Text(item.name)
                     }
                     Text(verbatim: item.version).monospacedDigit().foregroundStyle(.secondary)
+                }
+                HStack(spacing: 4) {
                     if let author = item.author {
-                        Text("by \(author)").foregroundStyle(.secondary).lineLimit(1)
+                        Text("by \(author)")
                     }
                     if let framework = item.contentPackFor, !framework.isEmpty {
-                        Text("for \(framework)").font(.caption).foregroundStyle(.tertiary).lineLimit(1)
+                        Text("· for \(framework)")
                     }
                 }
-                .font(.callout)
-                .help(item.description ?? "")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+                .lineLimit(1)
             }
         }
+        .help(item.description ?? "")
     }
 }

@@ -156,6 +156,7 @@ struct ActivityStatusBar: View {
             if model.manager != nil {
                 GameIndicator()
                 SMAPIIndicator()
+                ProfileIndicator()
             }
             if let status = model.activityStatus {
                 if model.manager != nil {
@@ -322,6 +323,48 @@ private struct SMAPIIndicator: View {
                 .tint(.yellow)
                 .buttonStyle(.borderedProminent)
                 .help("Downloads SMAPI's official installer from GitHub and runs it for your game. Quit the game first.")
+        }
+    }
+}
+
+/// The profile in use, in the bottom bar; click to switch.
+private struct ProfileIndicator: View {
+    @AppModelEnvironment private var model
+
+    var body: some View {
+        if let name = model.activeProfile {
+            Menu {
+                ForEach(model.profileNames, id: \.self) { profile in
+                    Button {
+                        model.switchProfile(to: profile)
+                    } label: {
+                        if profile == name {
+                            Label(profile, systemImage: "checkmark")
+                        } else {
+                            Text(profile)
+                        }
+                    }
+                }
+                Divider()
+                Button("Show Profile Details") {
+                    model.sidebarSelection = .installed
+                    model.selection = []
+                    model.showInspector = true
+                }
+                Button("Manage Profiles…") {
+                    model.sidebarSelection = .installed
+                    model.showProfiles = true
+                }
+            } label: {
+                Label(name, systemImage: "person.2.fill")
+                    .font(.callout)
+                    .foregroundStyle(.secondary)
+                    .labelStyle(.titleAndIcon)
+            }
+            .menuStyle(.borderlessButton)
+            .menuIndicator(.hidden)
+            .fixedSize()
+            .help("Profile in use. Click to switch.")
         }
     }
 }

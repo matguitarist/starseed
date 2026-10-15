@@ -72,6 +72,40 @@
         }
       }
     },
+    "· for %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "· für %@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "· para %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "· pour %@"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "· para %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "· 用于 %@"
+          }
+        }
+      }
+    },
     "· Revision %lld" : {
       "localizations" : {
         "de" : {
@@ -10808,6 +10842,7 @@
       }
     },
     "for %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -14488,6 +14523,40 @@
         }
       }
     },
+    "Loaded Mods" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geladene Mods"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods cargados"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods chargés"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mods carregados"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已加载的模组"
+          }
+        }
+      }
+    },
     "Loading changelog…" : {
       "localizations" : {
         "de" : {
@@ -17586,6 +17655,40 @@
         }
       }
     },
+    "No Loaded Mods Listed" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine geladenen Mods aufgeführt"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hay mods cargados en la lista"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun mod chargé listé"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nenhum mod carregado listado"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有列出已加载的模组"
+          }
+        }
+      }
+    },
     "No match found on Nexus" : {
       "localizations" : {
         "de" : {
@@ -20543,6 +20646,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "使用中的配置方案。选择另一个即可切换开启的模组。"
+          }
+        }
+      }
+    },
+    "Profile in use. Click to switch." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil in Gebrauch. Klicke zum Wechseln."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfil en uso. Haz clic para cambiarlo."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil utilisé. Cliquez pour en changer."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfil em uso. Clique para trocar."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用中的配置方案。点击可切换。"
           }
         }
       }
@@ -24290,6 +24427,40 @@
         }
       }
     },
+    "Show or hide the mods SMAPI loaded" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die von SMAPI geladenen Mods ein- oder ausblenden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar u ocultar los mods que cargó SMAPI"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher ou masquer les mods chargés par SMAPI"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar ou ocultar os mods carregados pelo SMAPI"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示或隐藏 SMAPI 加载的模组"
+          }
+        }
+      }
+    },
     "Show Profile Details" : {
       "localizations" : {
         "de" : {
@@ -25007,6 +25178,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "SMAPI 未安装"
+          }
+        }
+      }
+    },
+    "SMAPI lists the mods it loaded when the game starts." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI listet beim Spielstart die geladenen Mods auf."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI lista los mods que cargó al iniciar el juego."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI liste les mods qu’il a chargés au lancement du jeu."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O SMAPI lista os mods que carregou quando o jogo abre."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMAPI 会在游戏启动时列出已加载的模组。"
           }
         }
       }
