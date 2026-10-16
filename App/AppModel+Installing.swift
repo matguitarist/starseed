@@ -128,6 +128,13 @@ extension AppModel {
             install([url])
             return
         }
+        // Baldur's Gate 3 links go on to Tadpole (which passes Stardew Valley
+        // links back), so either app can be the browser's nxm handler.
+        if url.scheme?.lowercased() == "nxm", url.host?.lowercased() == "baldursgate3",
+           let tadpole = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "local.tadpole") {
+            NSWorkspace.shared.open([url], withApplicationAt: tadpole, configuration: NSWorkspace.OpenConfiguration())
+            return
+        }
         if let collection = NXMCollectionLink(url: url), collection.gameDomain == NexusClient.gameDomain {
             collectionSheet = CollectionSheetRequest(slug: collection.slug, revision: collection.revision)
             NSApp.activate()
