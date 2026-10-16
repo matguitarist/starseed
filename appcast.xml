@@ -3,16 +3,21 @@
     <channel>
         <title>Starseed</title>
         <item>
-            <title>2.6.1</title>
-            <pubDate>Thu, 15 Oct 2026 15:46:30 -0400</pubDate>
-            <sparkle:version>11</sparkle:version>
-            <sparkle:shortVersionString>2.6.1</sparkle:shortVersionString>
+            <title>2.6.2</title>
+            <pubDate>Fri, 16 Oct 2026 14:33:10 -0400</pubDate>
+            <sparkle:version>12</sparkle:version>
+            <sparkle:shortVersionString>2.6.2</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <description sparkle:format="markdown"><![CDATA[## Improved
 
-- **Fewer Keychain questions.** Starseed is now signed with its own certificate, so macOS recognizes it from one version to the next. After this update, macOS asks one last time whether Starseed may use your Nexus API key: click **Always Allow**, and future updates won't ask again.
+- **Mods → Profile** in the menu bar switches profiles (the one in use is checked), opens a profile's collection, and manages profiles.
+- The Dock icon shows how many mod updates are waiting.
+- The menu bar icon's menu shows the profile in use on its first line.
+- **View → Show Details** (⌥⌘I) works on the page you're on: on the SMAPI Log, it shows or hides the loaded mods.
+- Updates says "All up to date" when there's nothing to install.
+- Saves: the install button reads "Install Selected" until you tick a mod.
 ]]></description>
-            <enclosure url="https://github.com/matguitarist/starseed/releases/download/v2.6.1/Starseed-2.6.1.zip" length="7086827" type="application/octet-stream" sparkle:edSignature="hzq/vF2Ee7kcmC2+g1WxMbIQmf7cQqnXGUL4RSrkv0Ko4iZSzTzUs8PwRNTp+E9kyNzcDA1xD2xIqFIb2h4ACQ=="/>
+            <enclosure url="https://github.com/matguitarist/starseed/releases/download/v2.6.2/Starseed-2.6.2.zip" length="7100285" type="application/octet-stream" sparkle:edSignature="5Muz/kXtnGi5yqU97lnSlj19CDKj7yuCF3h8M1Hrvs/oIubpSVP64vFXDoO08D9zfKi4zkz8JwX83mK60utmDg=="/>
         </item>
     </channel>
 </rss>
