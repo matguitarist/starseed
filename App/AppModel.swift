@@ -236,6 +236,9 @@ final class AppModel {
         }
         missingDependencies = MissingDependency.find(in: mods)
         duplicateGroups = ModManager.duplicateGroups(in: mods)
+        // The number of mod updates on the Dock icon, like next to the menu bar icon.
+        let updateCount = mods.count { update(for: $0) != nil }
+        NSApp?.dockTile.badgeLabel = updateCount > 0 ? "\(updateCount)" : nil
     }
 
     var summary: String {

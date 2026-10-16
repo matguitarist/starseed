@@ -448,7 +448,7 @@ private struct SaveAnalysisView: View {
                     .foregroundStyle(.green)
             } else {
                 Text("\(missingCount) missing").foregroundStyle(.orange)
-                Button("Install \(selected.count) Selected") {
+                Button(selected.isEmpty ? String(localized: "Install Selected") : String(localized: "Install \(selected.count)")) {
                     model.installMatches(missingMatches(analysis).filter { selected.contains($0.modID) })
                 }
                 .buttonStyle(.borderedProminent)

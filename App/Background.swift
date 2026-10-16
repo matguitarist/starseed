@@ -150,7 +150,8 @@ struct MenuBarContent: View {
         guard model.manager != nil else { return String(localized: "Choose your Mods folder in Starseed") }
         let game = model.gameVersion.map { String(localized: "Stardew Valley \($0.description)") } ?? String(localized: "Stardew Valley not found")
         let smapi = model.smapi.map { smapi in smapi.version.map { "SMAPI \($0.description)" } ?? "SMAPI" } ?? String(localized: "SMAPI not installed")
-        return "\(game) · \(smapi)"
+        let line = "\(game) · \(smapi)"
+        return model.activeProfile.map { String(localized: "\(line) · Profile: \($0)") } ?? line
     }
 
     private func show(_ item: SidebarItem) {

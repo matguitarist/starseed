@@ -1248,6 +1248,46 @@
         }
       }
     },
+    "%@ · Profile: %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ · Profil: %2$@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ · Profile: %2$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ · Perfil: %2$@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ · Profil : %2$@"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ · Perfil: %2$@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ · 配置方案：%2$@"
+          }
+        }
+      }
+    },
     "%@ · v%@" : {
       "localizations" : {
         "de" : {
@@ -5176,6 +5216,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "所有存档和备份"
+          }
+        }
+      }
+    },
+    "All up to date" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alles aktuell"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todo al día"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tout est à jour"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tudo atualizado"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全部是最新"
           }
         }
       }
@@ -13759,6 +13833,40 @@
         }
       }
     },
+    "Hide Loaded Mods" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geladene Mods ausblenden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ocultar mods cargados"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masquer les mods chargés"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ocultar mods carregados"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隐藏已加载的模组"
+          }
+        }
+      }
+    },
     "How do I know if a mod failed while I played?" : {
       "localizations" : {
         "de" : {
@@ -14513,6 +14621,40 @@
         }
       }
     },
+    "Install %lld" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld installieren"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalar %lld"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installer %lld"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalar %lld"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "安装 %lld 个"
+          }
+        }
+      }
+    },
     "Install %lld Missing" : {
       "localizations" : {
         "de" : {
@@ -14582,6 +14724,7 @@
       }
     },
     "Install %lld Selected" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -15122,6 +15265,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "安装模组…"
+          }
+        }
+      }
+    },
+    "Install Selected" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auswahl installieren"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalar selección"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installer la sélection"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalar seleção"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "安装所选项"
           }
         }
       }
@@ -21232,6 +21409,40 @@
         }
       }
     },
+    "Not checked yet" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Noch nicht geprüft"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aún sin comprobar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pas encore vérifié"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ainda não verificado"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "尚未检查"
+          }
+        }
+      }
+    },
     "Not connected" : {
       "localizations" : {
         "de" : {
@@ -24061,6 +24272,40 @@
         }
       }
     },
+    "Profile" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfil"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfil"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "配置方案"
+          }
+        }
+      }
+    },
     "profile “%@”" : {
       "localizations" : {
         "de" : {
@@ -24470,6 +24715,7 @@
       }
     },
     "Profiles…" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -28287,6 +28533,40 @@
         }
       }
     },
+    "Show Loaded Mods" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geladene Mods einblenden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar mods cargados"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher les mods chargés"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar mods carregados"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示已加载的模组"
+          }
+        }
+      }
+    },
     "Show Messages" : {
       "localizations" : {
         "de" : {
@@ -28458,6 +28738,7 @@
       }
     },
     "Show or hide the details panel" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -28521,6 +28802,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "显示或隐藏 SMAPI 加载的模组"
+          }
+        }
+      }
+    },
+    "Show or hide the panel at the right (mod details, or loaded mods in the SMAPI Log)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechte Seitenleiste ein- oder ausblenden (Mod-Details oder geladene Mods im SMAPI-Protokoll)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar u ocultar el panel derecho (detalles del mod, o mods cargados en el registro de SMAPI)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher ou masquer le panneau de droite (détails du mod, ou mods chargés dans le journal SMAPI)"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar ou ocultar o painel à direita (detalhes do mod, ou mods carregados no registro do SMAPI)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示或隐藏右侧面板（模组详情，或 SMAPI 日志中已加载的模组）"
           }
         }
       }
@@ -32757,7 +33072,42 @@
         }
       }
     },
+    "The profile menu at the right of the filter bar shows the profile in use and switches profiles; in the list, the one in use is checked. Next to it, **This Profile** shows only the mods in the profile in use; **All Mods** shows everything installed. The SMAPI Log header and the menu bar icon's menu show it too, and **Mods → Profile** in the menu bar switches as well." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Profilmenü rechts in der Filterleiste zeigt das aktive Profil und wechselt Profile; in der Liste ist das aktive abgehakt. Daneben zeigt **Dieses Profil** nur die Mods des aktiven Profils; **Alle Mods** zeigt alles Installierte. Der Kopf des SMAPI-Protokolls und das Menü des Menüleistensymbols zeigen es ebenfalls. Auch **Mods → Profil** in der Menüleiste wechselt Profile."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El menú de perfiles, a la derecha de la barra de filtro, muestra el perfil en uso y permite cambiarlo; en la lista, el que está en uso aparece marcado. Al lado, **Este perfil** muestra solo los mods del perfil en uso; **Todos los mods** muestra todo lo instalado. La cabecera del registro de SMAPI y el menú del icono de la barra de menús también lo muestran. **Mods → Perfil** en la barra de menús también permite cambiarlo."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le menu des profils, à droite de la barre de filtre, montre le profil utilisé et permet d’en changer ; dans la liste, celui utilisé est coché. À côté, **Ce profil** n’affiche que les mods du profil utilisé ; **Tous les mods** affiche tout ce qui est installé. L’en-tête du journal SMAPI et le menu de l’icône dans la barre des menus l’indiquent aussi, et **Mods → Profil** dans la barre des menus permet aussi d’en changer."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O menu de perfis, à direita da barra de filtro, mostra o perfil em uso e permite trocá-lo; na lista, o que está em uso aparece marcado. Ao lado, **Este perfil** mostra só os mods do perfil em uso; **Todos os mods** mostra tudo o que está instalado. O cabeçalho do registro do SMAPI e o menu do ícone na barra de menus também o mostram. **Mods → Perfil** na barra de menus também permite trocá-lo."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "筛选栏右侧的配置方案菜单显示使用中的配置方案，并可切换；列表中使用中的会打勾。旁边的**此配置方案**只显示使用中配置方案的模组；**所有模组**显示所有已安装的模组。SMAPI 日志的标题栏和菜单栏图标的菜单也会显示它。菜单栏中的**模组 → 配置方案**也可以切换。"
+          }
+        }
+      }
+    },
     "The profile menu at the right of the filter bar shows the profile in use and switches profiles; in the list, the one in use is checked. Next to it, **This Profile** shows only the mods in the profile in use; **All Mods** shows everything installed. The SMAPI Log header and the menu bar icon's menu show it too." : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {

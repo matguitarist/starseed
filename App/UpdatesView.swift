@@ -35,7 +35,7 @@ struct UpdatesView: View {
             }
         }
         .navigationTitle("Updates")
-        .navigationSubtitle(model.modsWithUpdates.isEmpty ? "" : "\(model.modsWithUpdates.count) available")
+        .navigationSubtitle(updatesSubtitle)
         .toolbar {
             ToolbarItemGroup(placement: .primaryAction) {
                 RefreshToolbarButton(title: "Check for Updates", help: "Check for updates", isBusy: model.isCheckingUpdates) {
@@ -48,6 +48,14 @@ struct UpdatesView: View {
 }
 
 extension UpdatesView {
+    /// Like the other pages: always says where things stand.
+    private var updatesSubtitle: String {
+        let count = model.modsWithUpdates.count
+        if count > 0 { return String(localized: "\(count) available") }
+        if model.isCheckingUpdates { return String(localized: "Checking…") }
+        return model.lastUpdateCheck == nil ? String(localized: "Not checked yet") : String(localized: "All up to date")
+    }
+
     /// "3 updates available · [Update All]" above the list.
     private var updateAllBar: some View {
         let count = model.nexusUpdates.count

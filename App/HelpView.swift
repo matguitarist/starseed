@@ -164,7 +164,7 @@ struct HelpView: View {
         case .profiles:
             HelpSection("Profiles") {
                 HelpText("A profile remembers which mods are on. One is always in use; its name shows in the filter bar of **Installed**, and turning mods on or off updates it. Starseed starts with a **Default** profile.")
-                HelpText("The profile menu at the right of the filter bar shows the profile in use and switches profiles; in the list, the one in use is checked. Next to it, **This Profile** shows only the mods in the profile in use; **All Mods** shows everything installed. The SMAPI Log header and the menu bar icon's menu show it too.")
+                HelpText("The profile menu at the right of the filter bar shows the profile in use and switches profiles; in the list, the one in use is checked. Next to it, **This Profile** shows only the mods in the profile in use; **All Mods** shows everything installed. The SMAPI Log header and the menu bar icon's menu show it too, and **Mods → Profile** in the menu bar switches as well.")
                 HelpText("Make one for each way you play (a big expansion run, a vanilla-plus game…): **Manage Profiles…** in the profile menu creates, renames and deletes them, starting from the mods on now or from no mods. Choosing another profile switches which mods are on; switching back brings yours back exactly as they were.")
             }
             HelpSection("Sharing a profile") {
@@ -287,7 +287,7 @@ struct HelpView: View {
                 shortcut("⌘L", "Play Stardew Valley")
                 shortcut("⇧⌘L", "Show SMAPI Log")
                 shortcut("⌘1 – ⌘7", "Go to a page of the sidebar")
-                shortcut("⌥⌘I", "Show or hide the details panel")
+                shortcut("⌥⌘I", "Show or hide the panel at the right (mod details, or loaded mods in the SMAPI Log)")
                 shortcut("⌘,", "Settings")
                 shortcut("⌘?", "This help")
             }

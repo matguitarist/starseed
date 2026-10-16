@@ -47,11 +47,12 @@ private struct FileMenuItems: View {
     }
 }
 
-/// View: the sidebar's pages (⌘1–⌘8), the details panel, pictures.
+/// View: the sidebar's pages (⌘1–⌘7), the side panel, pictures.
 private struct ViewMenuItems: View {
     let model: AppModel
     @Environment(\.openWindow) private var openWindow
     @AppStorage(Preferences.showModPictures) private var showModPictures = true
+    @AppStorage("showLoadedMods") private var showLoadedMods = true
 
     private static let pages: [(item: SidebarItem, title: LocalizedStringKey)] = [
         (.installed, "Installed"), (.updates, "Updates"), (.requirements, "Requirements"),
@@ -66,11 +67,18 @@ private struct ViewMenuItems: View {
                 .disabled(model.manager == nil)
         }
         Divider()
-        Button(model.showInspector ? "Hide Details" : "Show Details") {
-            showPage(.installed, model: model, openWindow: openWindow)
-            model.showInspector.toggle()
+        // The panel at the right of the page you're on: mod details, or the
+        // mods SMAPI loaded on the SMAPI Log page.
+        if model.sidebarSelection == .log {
+            Button(showLoadedMods ? "Hide Loaded Mods" : "Show Loaded Mods") { showLoadedMods.toggle() }
+                .keyboardShortcut("i", modifiers: [.command, .option])
+        } else {
+            Button(model.showInspector ? "Hide Details" : "Show Details") {
+                showPage(.installed, model: model, openWindow: openWindow)
+                model.showInspector.toggle()
+            }
+            .keyboardShortcut("i", modifiers: [.command, .option])
         }
-        .keyboardShortcut("i", modifiers: [.command, .option])
         Toggle("Mod Pictures", isOn: $showModPictures)
         Divider()
     }
@@ -96,9 +104,21 @@ private struct ModsMenuItems: View {
         }
         .disabled(!model.missingDependencies.contains(where: model.isConfirmed))
         Divider()
-        Button("Profiles…") {
-            showPage(.installed, model: model, openWindow: openWindow)
-            model.showProfiles = true
+        Menu("Profile") {
+            ForEach(model.profileNames, id: \.self) { name in
+                CheckedMenuItem(title: name, isChecked: name == model.activeProfile) { model.switchProfile(to: name) }
+            }
+            Divider()
+            if let active = model.activeProfile, let collection = model.profileCollections[active] {
+                Button("Show Collection “\(collection.name)”…") {
+                    showPage(.installed, model: model, openWindow: openWindow)
+                    model.showCollection(forProfile: active)
+                }
+            }
+            Button("Manage Profiles…") {
+                showPage(.installed, model: model, openWindow: openWindow)
+                model.showProfiles = true
+            }
         }
         .disabled(model.manager == nil)
         Divider()
