@@ -37,9 +37,9 @@ APP_NAME="Starseed.app"
 BUILT="$DERIVED/Build/Products/Release/$APP_NAME"
 [[ -d "$BUILT" ]] || { echo "Build failed"; exit 1; }
 
-# Signed with the "Starseed Self-Signed" certificate when it's in the
-# Keychain (make_signing_identity.sh), so the app's identity stays the same
-# from build to build. REQUIRE_SIGNING=1 (release.sh) stops without it.
+# Signed with your Developer ID (or else the "Starseed Self-Signed"
+# certificate, make_signing_identity.sh), so the app's identity stays the
+# same from build to build. REQUIRE_SIGNING=1 (release.sh) stops without one.
 # Signing happens here in Caches: this folder may sync with iCloud Drive,
 # which puts Finder attributes back on files and makes codesign fail.
 STAGED="$DERIVED/Signed/$APP_NAME"
@@ -47,10 +47,12 @@ STAGED="$DERIVED/Signed/$APP_NAME"
 mkdir -p "${STAGED:h}"
 ditto --noextattr --norsrc "$BUILT" "$STAGED"
 if [[ -z "${DEVELOPMENT_TEAM:-}" ]]; then
-    if security find-identity -p codesigning | grep -q '"Starseed Self-Signed"'; then
+    if [[ -n "$(./signing_identity.sh)" ]]; then
         ./sign_app.sh "$STAGED" 2>&1 | grep -v "replacing existing signature"
+        # Notarized here, in Caches, for the same reason (release.sh asks).
+        if [[ -n "${NOTARIZE:-}" ]]; then ./notarize.sh "$STAGED"; fi
     elif [[ -n "${REQUIRE_SIGNING:-}" ]]; then
-        echo "No “Starseed Self-Signed” certificate: run ./make_signing_identity.sh first." >&2
+        echo "No signing certificate: add your Developer ID in Xcode, or run ./make_signing_identity.sh." >&2
         exit 1
     else
         echo "Note: signed ad hoc (run ./make_signing_identity.sh for a stable signature)."

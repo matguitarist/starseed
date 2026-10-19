@@ -29,7 +29,11 @@ if gh release view "$TAG" --repo "$REPO" >/dev/null 2>&1; then
 fi
 
 echo "==> Releasing Starseed $VERSION (build $BUILD)"
-REQUIRE_SIGNING=1 ./build_app.sh
+# With a Developer ID, the app and the disk image are notarized by Apple, so
+# macOS opens them without asking ("Open Anyway"); a release can't skip it.
+NOTARIZE=""
+if [[ "$(./signing_identity.sh)" == "Developer ID Application:"* ]]; then NOTARIZE=1; fi
+REQUIRE_SIGNING=1 NOTARIZE=$NOTARIZE ./build_app.sh
 
 # Only the new zip in the folder: the feed lists the latest version, which
 # is all Sparkle needs.
@@ -48,7 +52,11 @@ cp "$NOTES" "$STAGING/Starseed-$VERSION.md"
 # ".../releases/latest/download/Starseed.dmg" link working. It's made after
 # the appcast so generate_appcast only sees the zip.
 DMG="releases/Starseed.dmg"
-./make_dmg.sh "$DMG"
+NOTARIZED=$NOTARIZE ./make_dmg.sh "$DMG"
+if [[ -n "$NOTARIZE" ]]; then
+    codesign --force --timestamp --sign "$(./signing_identity.sh)" "$DMG"
+    ./notarize.sh "$DMG"
+fi
 
 git push origin HEAD
 gh release create "$TAG" "$DMG" "$ZIP" --repo "$REPO" --title "Starseed $VERSION" --notes-file "$NOTES"

@@ -1,20 +1,25 @@
 #!/bin/zsh
-# Signs a built Starseed.app with the self-signed certificate made by
-# make_signing_identity.sh. A certificate (unlike Xcode's ad-hoc signature)
+# Signs a built Starseed.app: with your "Developer ID Application" certificate
+# when it's in the Keychain (then notarize.sh can get Apple's approval), else
+# with the self-signed certificate made by make_signing_identity.sh. Either
 # keeps the app's identity the same from build to build, so macOS asks for
 # Keychain access once instead of after every update.
 #
-# Usage: ./sign_app.sh path/to/Starseed.app
+# Usage: ./sign_app.sh path/to/Starseed.app   (SIGNING_IDENTITY overrides)
 # Signs inside out, as Sparkle's documentation describes: its helpers, the
 # framework, then the app with its own entitlements.
 set -euo pipefail
 
 APP="$1"
-IDENTITY="${SIGNING_IDENTITY:-Starseed Self-Signed}"
+IDENTITY="${SIGNING_IDENTITY:-$("${0:A:h}/signing_identity.sh")}"
 KEYCHAIN_ARGS=()
 [[ -n "${SIGNING_KEYCHAIN:-}" ]] && KEYCHAIN_ARGS=(--keychain "$SIGNING_KEYCHAIN")
+# Notarization needs Apple's secure timestamp; the self-signed one can't
+# be notarized, so it skips the round trip to Apple.
+TIMESTAMP=(--timestamp=none)
+[[ "$IDENTITY" == "Developer ID Application:"* ]] && TIMESTAMP=(--timestamp)
 
-sign() { codesign --force --timestamp=none --options runtime --sign "$IDENTITY" "${KEYCHAIN_ARGS[@]}" "$@" }
+sign() { codesign --force "${TIMESTAMP[@]}" --options runtime --sign "$IDENTITY" "${KEYCHAIN_ARGS[@]}" "$@" }
 
 # Extended attributes (Finder info, iCloud) make codesign fail.
 xattr -cr "$APP"

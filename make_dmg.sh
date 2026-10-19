@@ -1,8 +1,8 @@
 #!/bin/bash
 # Packs dist/Starseed.app into a drag-to-install disk image:
 #   ./make_dmg.sh releases/Starseed.dmg
-# The window shows the app, an Applications shortcut, and a note about
-# macOS's warning for apps without an Apple Developer ID.
+# The window shows the app, an Applications shortcut, and (unless
+# NOTARIZED=1) a note about macOS's warning for apps that aren't notarized.
 set -euo pipefail
 cd "$(dirname "$0")"
 
@@ -16,7 +16,8 @@ trap 'rm -rf "$STAGE"' EXIT
 ditto --noextattr --norsrc "$APP" "$STAGE/Starseed.app"
 xattr -cr "$STAGE/Starseed.app"
 ln -s /Applications "$STAGE/Applications"
-cat > "$STAGE/If macOS blocks Starseed.txt" <<'NOTE'
+# Notarized apps open without a warning: the note is for the others.
+[ -n "${NOTARIZED:-}" ] || cat > "$STAGE/If macOS blocks Starseed.txt" <<'NOTE'
 Install: drag Starseed onto the Applications folder.
 
 The first time you open it, macOS may say it can't check Starseed for
