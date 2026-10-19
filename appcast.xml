@@ -3,21 +3,18 @@
     <channel>
         <title>Starseed</title>
         <item>
-            <title>2.6.2</title>
-            <pubDate>Fri, 16 Oct 2026 14:33:10 -0400</pubDate>
-            <sparkle:version>12</sparkle:version>
-            <sparkle:shortVersionString>2.6.2</sparkle:shortVersionString>
+            <title>2.6.3</title>
+            <pubDate>Mon, 19 Oct 2026 08:17:20 -0400</pubDate>
+            <sparkle:version>13</sparkle:version>
+            <sparkle:shortVersionString>2.6.3</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[## Improved
+            <description sparkle:format="markdown"><![CDATA[## Signed and notarized by Apple
 
-- **Mods → Profile** in the menu bar switches profiles (the one in use is checked), opens a profile's collection, and manages profiles.
-- The Dock icon shows how many mod updates are waiting.
-- The menu bar icon's menu shows the profile in use on its first line.
-- **View → Show Details** (⌥⌘I) works on the page you're on: on the SMAPI Log, it shows or hides the loaded mods.
-- Updates says "All up to date" when there's nothing to install.
-- Saves: the install button reads "Install Selected" until you tick a mod.
+- Starseed is now signed with an Apple Developer ID and notarized by Apple: new installs open without the "Open Anyway" step.
+- After this update, macOS may ask once for Keychain access to your Nexus API key (the app's signature changed). Click **Always Allow**.
+- "Mod Manager Download" links for Baldur's Gate 3 mods now go to Tadpole, if it's installed.
 ]]></description>
-            <enclosure url="https://github.com/matguitarist/starseed/releases/download/v2.6.2/Starseed-2.6.2.zip" length="7100285" type="application/octet-stream" sparkle:edSignature="5Muz/kXtnGi5yqU97lnSlj19CDKj7yuCF3h8M1Hrvs/oIubpSVP64vFXDoO08D9zfKi4zkz8JwX83mK60utmDg=="/>
+            <enclosure url="https://github.com/matguitarist/starseed/releases/download/v2.6.3/Starseed-2.6.3.zip" length="7146869" type="application/octet-stream" sparkle:edSignature="3L3QXx2JAnKqw7ekDewyt/gcbFeBH1ZQdyn46fUmO2Yr6CKjfH2kyxliZwtiA9+BcB+csocMV4KvDWij1VbZCQ=="/>
         </item>
     </channel>
 </rss>
