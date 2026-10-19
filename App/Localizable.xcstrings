@@ -31242,36 +31242,36 @@
         }
       }
     },
-    "Starseed isn't signed with a paid Apple Developer ID. Open **System Settings → Privacy & Security** and click **Open Anyway**. It's needed only once; updates don't ask again." : {
+    "Starseed is signed with an Apple Developer ID and notarized by Apple since version 2.6.3, so it opens like any other app. An older copy can still ask: open **System Settings → Privacy & Security** and click **Open Anyway** once, or download the latest version." : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Starseed ist nicht mit einer kostenpflichtigen Apple-Entwickler-ID signiert. Öffne **Systemeinstellungen → Datenschutz & Sicherheit** und klicke auf **Dennoch öffnen**. Das ist nur einmal nötig; Updates fragen nicht erneut."
+            "value" : "Starseed ist seit Version 2.6.3 mit einer Apple-Entwickler-ID signiert und von Apple notarisiert, es öffnet sich also wie jede andere App. Eine ältere Kopie kann noch nachfragen: Öffne **Systemeinstellungen → Datenschutz & Sicherheit** und klicke einmal auf **Dennoch öffnen**, oder lade die neueste Version herunter."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Starseed no está firmado con un ID de desarrollador de Apple de pago. Abre **Ajustes del Sistema → Privacidad y seguridad** y haz clic en **Abrir igualmente**. Solo hace falta una vez; las actualizaciones no vuelven a preguntar."
+            "value" : "Desde la versión 2.6.3, Starseed está firmado con un ID de desarrollador de Apple y notarizado por Apple, así que se abre como cualquier otra app. Una copia anterior aún puede preguntar: abre **Ajustes del Sistema → Privacidad y seguridad** y haz clic una vez en **Abrir igualmente**, o descarga la última versión."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Starseed n’est pas signé avec un identifiant de développeur Apple payant. Ouvrez **Réglages Système → Confidentialité et sécurité** et cliquez sur **Ouvrir quand même**. Une seule fois suffit ; les mises à jour ne redemandent pas."
+            "value" : "Starseed est signé avec un identifiant de développeur Apple et notarié par Apple depuis la version 2.6.3 : il s’ouvre comme n’importe quelle app. Une copie plus ancienne peut encore demander : ouvrez **Réglages Système → Confidentialité et sécurité** et cliquez une fois sur **Ouvrir quand même**, ou téléchargez la dernière version."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "O Starseed não é assinado com um ID de desenvolvedor Apple pago. Abra **Ajustes do Sistema → Privacidade e Segurança** e clique em **Abrir Mesmo Assim**. É preciso só uma vez; as atualizações não perguntam de novo."
+            "value" : "Desde a versão 2.6.3, o Starseed é assinado com um ID de desenvolvedor Apple e notarizado pela Apple, então abre como qualquer outro app. Uma cópia mais antiga ainda pode perguntar: abra **Ajustes do Sistema → Privacidade e Segurança** e clique uma vez em **Abrir Mesmo Assim**, ou baixe a versão mais recente."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Starseed 没有使用付费的 Apple 开发者 ID 签名。请打开**系统设置 → 隐私与安全性**，然后点击**仍要打开**。只需操作一次；之后的更新不会再询问。"
+            "value" : "从 2.6.3 版起，Starseed 使用 Apple 开发者 ID 签名并经过 Apple 公证，因此可以像其他 App 一样直接打开。旧版本可能仍会询问：请打开**系统设置 → 隐私与安全性**，点击一次**仍要打开**，或下载最新版本。"
           }
         }
       }

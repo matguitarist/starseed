@@ -15,11 +15,9 @@ you play, and find out quickly what's wrong when the game misbehaves.
 
 ## Install
 
-1. Open the disk image and drag **Starseed** onto **Applications**.
-2. The first time, macOS says it can't check Starseed, because it isn't
-   signed with a paid Apple Developer ID. Open **System Settings → Privacy &
-   Security**, scroll down, and click **Open Anyway**. This is needed only once:
-   Starseed updates itself after that.
+Open the disk image and drag **Starseed** onto **Applications**. Starseed is
+signed with an Apple Developer ID and notarized by Apple, so it opens like
+any other app, and it updates itself after that.
 
 ## Getting started
 

@@ -266,7 +266,7 @@ struct HelpView: View {
                 HelpText("When the game closes, Starseed reads SMAPI's log and sends a notification if mods didn't load, had errors, conflicted or crashed the game. Click it to see SMAPI's advice.")
             }
             HelpQuestion("macOS says it can't check Starseed when I open it.") {
-                HelpText("Starseed isn't signed with a paid Apple Developer ID. Open **System Settings → Privacy & Security** and click **Open Anyway**. It's needed only once; updates don't ask again.")
+                HelpText("Starseed is signed with an Apple Developer ID and notarized by Apple since version 2.6.3, so it opens like any other app. An older copy can still ask: open **System Settings → Privacy & Security** and click **Open Anyway** once, or download the latest version.")
             }
             HelpQuestion("Something else went wrong.") {
                 HelpText("Most problems show up in the **SMAPI Log**. The Stardew Valley modding community can help with it on the official forums and Discord.")

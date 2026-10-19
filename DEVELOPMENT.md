@@ -129,7 +129,16 @@ private. Without it, existing users can't receive updates.
 
 ### Signing
 
-Releases are signed with a self-signed certificate, "Starseed Self-Signed",
+With a "Developer ID Application" certificate in the Keychain (Xcode →
+Settings → Accounts → Manage Certificates), releases are signed with it and
+notarized by Apple: `release.sh` sends the app and the disk image to the
+notary service (`notarize.sh`, credentials saved once with
+`xcrun notarytool store-credentials ares-notary --apple-id <you>
+--team-id <TEAMID>`, shared with Tadpole) and staples the approval, so
+macOS opens Starseed without Open Anyway. `signing_identity.sh` picks the
+certificate.
+
+Before that, releases were signed with a self-signed certificate, "Starseed Self-Signed",
 instead of Xcode's ad-hoc signature. An ad-hoc signature changes with every
 build, so macOS asked users for Keychain access (the Nexus API key) again
 after each update; with the certificate the app keeps the same identity and
@@ -159,10 +168,8 @@ To publish a release:
    release with both, and then publishes the new `appcast.xml`. Running copies of Starseed see the update within a day,
    or right away with **Starseed → Check for App Updates…**.
 
-The app is signed ad hoc (no Apple Developer ID), so on first launch macOS
-says it can't verify the developer: open **System Settings → Privacy &
-Security** and click **Open Anyway**. Updates installed by Sparkle don't ask
-again.
+Releases are signed with the Developer ID and notarized (see Signing), so
+they open without a warning; updates installed by Sparkle too.
 
 ## Languages
 
