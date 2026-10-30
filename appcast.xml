@@ -3,18 +3,22 @@
     <channel>
         <title>Starseed</title>
         <item>
-            <title>2.6.3</title>
-            <pubDate>Mon, 19 Oct 2026 08:17:20 -0400</pubDate>
-            <sparkle:version>13</sparkle:version>
-            <sparkle:shortVersionString>2.6.3</sparkle:shortVersionString>
+            <title>2.6.4</title>
+            <pubDate>Fri, 30 Oct 2026 09:10:14 -0400</pubDate>
+            <sparkle:version>14</sparkle:version>
+            <sparkle:shortVersionString>2.6.4</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[## Signed and notarized by Apple
+            <description sparkle:format="markdown"><![CDATA[## Fixes across the app
 
-- Starseed is now signed with an Apple Developer ID and notarized by Apple: new installs open without the "Open Anyway" step.
-- After this update, macOS may ask once for Keychain access to your Nexus API key (the app's signature changed). Click **Always Allow**.
-- "Mod Manager Download" links for Baldur's Gate 3 mods now go to Tadpole, if it's installed.
+- SMAPI Log: the sidebar and status bar no longer disappear when the log reports problems. A long "What SMAPI is telling you" list now scrolls.
+- Update All no longer downloads a mod twice when it has several parts, such as Stardew Valley Expanded.
+- Updates says "Couldn't Check for Updates" or "Not Checked Yet" instead of "All Mods Up to Date" when nothing was actually checked, and tells you when a Nexus API key is needed.
+- Installed: more room for mod names, and rows stay the same height when an update is available. The sidebar and the filter field are no longer squeezed in a small window.
+- Notes in Requirements, Saves and Find a Broken Mod wrap instead of being cut off.
+- Counts read correctly for one item in every language ("1 mod", "1 update available").
+- What's New shows its arrow on the Updates page, the lines between rows line up in Browse and Collections, and the Nexus API key link in Settings looks like a link.
 ]]></description>
-            <enclosure url="https://github.com/matguitarist/starseed/releases/download/v2.6.3/Starseed-2.6.3.zip" length="7146869" type="application/octet-stream" sparkle:edSignature="3L3QXx2JAnKqw7ekDewyt/gcbFeBH1ZQdyn46fUmO2Yr6CKjfH2kyxliZwtiA9+BcB+csocMV4KvDWij1VbZCQ=="/>
+            <enclosure url="https://github.com/matguitarist/starseed/releases/download/v2.6.4/Starseed-2.6.4.zip" length="7198165" type="application/octet-stream" sparkle:edSignature="WtUImALCsizBwpOdRXWy1/21zVfx9Zoxz5zspSrgbEyW6dmcJtQ3yO1OYW/Cip+zngCXiYYlroZa9jIj0sfXDg=="/>
         </item>
     </channel>
 </rss>
