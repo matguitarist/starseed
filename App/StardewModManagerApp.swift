@@ -42,7 +42,7 @@ struct StardewModManagerApp: App {
         Window("Starseed", id: "main") {
             RootView()
                 .environment(model)
-                .frame(minWidth: 900, minHeight: 500)
+                .frame(minWidth: 1080, minHeight: 560)
                 .task {
                     model.start()
                     model.startBackgroundChecks()
@@ -60,7 +60,7 @@ struct StardewModManagerApp: App {
                 // nxm:// links from Nexus "Mod Manager Download", and archives opened with the app.
                 .onOpenURL { model.handleOpenURL($0) }
         }
-        .defaultSize(width: 1180, height: 700)
+        .defaultSize(width: 1240, height: 760)
         .commands {
             AppCommands(model: model, appUpdater: appUpdater)
         }

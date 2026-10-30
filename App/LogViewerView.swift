@@ -115,9 +115,9 @@ struct LogViewerView: View {
                     .foregroundStyle(.orange)
                 VStack(alignment: .leading, spacing: 1) {
                     Text("This save uses mods you don't have").font(.headline)
-                    Text(npcCount > 0
-                         ? "The game dropped \(unknown.count) locations and \(npcCount) NPCs from “\(saveID)” because their mods aren't installed."
-                         : "The game dropped \(unknown.count) locations from “\(saveID)” because their mods aren't installed.")
+                    let locations = String(localized: "\(unknown.count) locations")
+                    let dropped = npcCount > 0 ? [locations, String(localized: "\(npcCount) NPCs")].formatted(.list(type: .and)) : locations
+                    Text("The game dropped \(dropped) from “\(saveID)” because their mods aren't installed.")
                         .font(.callout)
                         .foregroundStyle(.secondary)
                 }
@@ -167,10 +167,13 @@ struct LogViewerView: View {
 
             // Level toggles double as counts.
             HStack(spacing: 6) {
-                ForEach(LogLevel.allCases, id: \.self) { level in
-                    levelChip(level, count: summary.counts[level, default: 0])
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 6) {
+                        ForEach(LogLevel.allCases, id: \.self) { level in
+                            levelChip(level, count: summary.counts[level, default: 0])
+                        }
+                    }
                 }
-                Spacer()
                 if let sourceFilter {
                     Button {
                         self.sourceFilter = nil
@@ -181,6 +184,7 @@ struct LogViewerView: View {
                     .controlSize(.small)
                 }
             }
+            .fixedSize(horizontal: false, vertical: true)
 
             let problems = summary.problems
             if !problems.isEmpty {
@@ -424,11 +428,13 @@ private struct InsightsPanel: View {
         if !insights.isEmpty {
             VStack(alignment: .leading, spacing: 0) {
                 DisclosureGroup(isExpanded: $expanded) {
-                    VStack(alignment: .leading, spacing: 8) {
-                        ForEach(insights) { insight in
-                            row(insight)
-                        }
+                    // Scrolls when long: at full height a few findings pushed
+                    // the sidebar and status bar out of the window.
+                    ViewThatFits(in: .vertical) {
+                        rows
+                        ScrollView { rows }
                     }
+                    .frame(maxHeight: 180)
                     .padding(.top, 6)
                 } label: {
                     Label("What SMAPI is telling you (\(insights.count))", systemImage: "lightbulb")
@@ -439,6 +445,14 @@ private struct InsightsPanel: View {
             .padding(.vertical, 10)
             .background(.bar)
             Divider()
+        }
+    }
+
+    private var rows: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            ForEach(insights) { insight in
+                row(insight)
+            }
         }
     }
 
@@ -453,7 +467,7 @@ private struct InsightsPanel: View {
                 Text(detail(insight)).font(.callout).foregroundStyle(.secondary).fixedSize(horizontal: false, vertical: true)
             }
             Spacer(minLength: 8)
-            actions(insight)
+            actions(insight).fixedSize()
         }
     }
 
@@ -592,7 +606,7 @@ private struct LoadedModsInspector: View {
             .listStyle(.sidebar)
             .safeAreaInset(edge: .top, spacing: 0) {
                 Label(packs.isEmpty ? String(localized: "Loaded \(mods.count) mods")
-                      : String(localized: "Loaded \(mods.count) mods and \(packs.count) content packs"),
+                      : String(localized: "Loaded \(mods.count) mods") + " · " + String(localized: "\(packs.count) content packs"),
                       systemImage: "checklist")
                     .font(.headline)
                     .frame(maxWidth: .infinity, alignment: .leading)

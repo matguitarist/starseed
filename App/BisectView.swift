@@ -151,6 +151,7 @@ struct BisectView: View {
                 .foregroundStyle(.secondary)
             Label("Don't go to bed in the game during tests: Stardew Valley saves overnight, and saving with mods off can lose their content. Quit to the title screen instead.", systemImage: "moon.zzz")
                 .font(.callout)
+                .fixedSize(horizontal: false, vertical: true)
                 .padding(10)
                 .background(.orange.opacity(0.1), in: RoundedRectangle(cornerRadius: 8))
             HStack {

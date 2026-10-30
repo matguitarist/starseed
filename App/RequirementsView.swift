@@ -38,15 +38,14 @@ struct RequirementsView: View {
                             } label: {
                                 Text("Not listed on Nexus (\(unlisted.count))")
                             }
-                        } footer: {
-                            Text("These IDs come from the mods' own files but don't match anything on their Nexus pages. Often they're covered by the requirements above under another name; if SMAPI's log still reports them missing, search for them.")
+                            ListNote(text: Text("These IDs come from the mods' own files but don't match anything on their Nexus pages. Often they're covered by the requirements above under another name; if SMAPI's log still reports them missing, search for them."))
                         }
                     }
                 }
             }
         }
         .navigationTitle("Requirements")
-        .navigationSubtitle(!confirmed.isEmpty ? String(localized: "\(confirmed.count) missing") : (model.isResolvingRequirements ? "" : String(localized: "Nothing missing")))
+        .navigationSubtitle(!missing.isEmpty ? String(localized: "\(missing.count) missing") : (model.isResolvingRequirements ? "" : String(localized: "Nothing missing")))
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button {

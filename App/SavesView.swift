@@ -394,10 +394,9 @@ private struct SaveAnalysisView: View {
                         ForEach(analysis.mods) { use in
                             modRow(use)
                         }
+                        ListNote(text: Text("Found from IDs stored in the save file."))
                     } header: {
                         Text("Mods this save uses")
-                    } footer: {
-                        Text("Found from IDs stored in the save file.")
                     }
                 }
 
@@ -407,10 +406,9 @@ private struct SaveAnalysisView: View {
                             ForEach(analysis.gaps) { gap in
                                 gapRow(gap)
                             }
+                            ListNote(text: Text("Locations and NPCs the game dropped when loading this save, grouped by their probable mod. Matches come from a Nexus search, so check them before installing."))
                         } header: {
                             Text("Missing content (from your last game session)")
-                        } footer: {
-                            Text("Locations and NPCs the game dropped when loading this save, grouped by their probable mod. Matches come from a Nexus search, so check them before installing.")
                         }
                     }
                 } else {

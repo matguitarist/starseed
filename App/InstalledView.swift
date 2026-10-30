@@ -40,7 +40,7 @@ struct InstalledView: View {
         .toolbar { toolbar }
         .inspector(isPresented: Binding(get: { model.showInspector }, set: { model.showInspector = $0 })) {
             ModDetailView()
-                .inspectorColumnWidth(min: 260, ideal: 320, max: 480)
+                .inspectorColumnWidth(min: 240, ideal: 260, max: 480)
         }
         .sheet(isPresented: Binding(get: { model.showProfiles }, set: { model.showProfiles = $0 })) {
             ProfilesView()
@@ -73,7 +73,7 @@ struct InstalledView: View {
             .padding(.horizontal, 10)
             .padding(.vertical, 6)
             .background(.quaternary.opacity(0.6), in: RoundedRectangle(cornerRadius: 8))
-            .frame(maxWidth: 360)
+            .frame(minWidth: 180, maxWidth: 360)
             Spacer()
             ProfileMenu()
             // All installed mods, or only the profile in use (its enabled mods).
@@ -132,7 +132,7 @@ struct InstalledView: View {
                         .foregroundStyle(row.enabledState == .off ? .secondary : .primary)
                         .layoutPriority(1)  // truncate the note before the name
                     if row.isGroup {
-                        Text("\(row.memberCount) parts").font(.caption).foregroundStyle(.secondary)
+                        Text("\(row.memberCount) parts").font(.caption).foregroundStyle(.secondary).fixedSize()
                     } else if let note = row.folderNote {
                         Text(note).font(.caption).foregroundStyle(.secondary).lineLimit(1)
                     }
@@ -145,26 +145,26 @@ struct InstalledView: View {
                 }
                 .help(row.statusText)
             }
-            .width(min: 160, ideal: 300)
+            .width(min: 170, ideal: 340)
 
             TableColumn("Version", value: \.version, comparator: .localizedStandard) { row in
                 Text(row.version).monospacedDigit()
             }
-            .width(min: 50, ideal: 80)
+            .width(min: 50, ideal: 70)
 
             TableColumn("Activity") { row in
                 ActivityCell(mods: row.mods)
             }
-            .width(min: 110, ideal: 160)
+            .width(min: 80, ideal: 130)
 
             TableColumn("Author", value: \.author, comparator: .localizedStandard)
-                .width(min: 80, ideal: 140)
+                .width(min: 60, ideal: 110)
 
             TableColumn("Status", value: \.statusText) { row in
                 Text(row.statusText).foregroundStyle(row.statusColor)
                     .help(row.statusText)
             }
-            .width(min: 90, ideal: 140)
+            .width(min: 80, ideal: 110)
         }
         .contextMenu(forSelectionType: String.self) { ids in
             let modIDs = model.modIDs(expanding: ids)
@@ -432,7 +432,15 @@ private struct TableScroller: NSViewRepresentable {
     let index: Int?
     let done: () -> Void
 
-    func makeNSView(context: Context) -> NSView { NSView() }
+    func makeNSView(context: Context) -> NSView {
+        let view = NSView()
+        // The list, not the filter field, takes the keyboard when the page
+        // opens: arrow keys move through mods, and no caret sits in the field.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            if let table = Self.table(near: view) { view.window?.makeFirstResponder(table) }
+        }
+        return view
+    }
 
     func updateNSView(_ view: NSView, context: Context) {
         guard let index else { return }
@@ -505,6 +513,7 @@ struct SMAPIInstallButton: View {
             .fixedSize()
             .help("Install SMAPI yourself instead")
         }
+        .fixedSize()
         .disabled(model.smapiInstallPhase != nil)
     }
 

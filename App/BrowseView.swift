@@ -85,6 +85,7 @@ struct BrowseView: View {
                         NexusModRow(mod: mod)
                     }
                     .buttonStyle(.plain)
+                    .alignmentGuide(.listRowSeparatorLeading) { _ in 0 }
                 }
                 if isLoading || results.count < totalCount {
                     HStack {

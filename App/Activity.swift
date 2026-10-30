@@ -61,12 +61,12 @@ extension AppModel {
             let downloading = active.filter { $0.state == .downloading }
             if !downloading.isEmpty {
                 let fraction = downloading.map(\.progress).reduce(0, +) / Double(downloading.count)
-                return ActivityStatus(text: String(localized: "Downloading \(downloading.count) mod(s)…"), progress: fraction)
+                return ActivityStatus(text: String(localized: "Downloading \(downloading.count) mods…"), progress: fraction)
             }
             if active.contains(where: { $0.state == .installing }) {
                 return ActivityStatus(text: String(localized: "Installing…"))
             }
-            return ActivityStatus(text: String(localized: "Starting \(active.count) download(s)…"))
+            return ActivityStatus(text: String(localized: "Starting \(active.count) downloads…"))
         }
         if let phase = smapiInstallPhase {
             switch phase {
@@ -81,7 +81,7 @@ extension AppModel {
         if isCheckingUpdates { return ActivityStatus(text: String(localized: "Checking for updates…")) }
         if isResolvingRequirements { return ActivityStatus(text: String(localized: "Looking up requirements…")) }
         if !browserQueue.isEmpty {
-            return ActivityStatus(text: String(localized: "\(browserQueue.count) download(s) waiting on Nexus: click “Slow download” in the browser"))
+            return ActivityStatus(text: String(localized: "\(browserQueue.count) downloads waiting on Nexus: click “Slow download” in the browser"))
         }
         if let statusResult {
             return ActivityStatus(text: statusResult.text, isResult: true, isError: statusResult.isError)
@@ -116,15 +116,20 @@ struct ActivityCell: View {
                 Button {
                     model.queueNexusInstalls([NexusInstallRequest(modID: nexusID, title: mod.displayName, version: update.version)])
                 } label: {
-                    Label("Update to \(update.version)", systemImage: "arrow.down.circle")
-                        .monospacedDigit()
+                    // The version alone when the column can't fit the sentence.
+                    ViewThatFits(in: .horizontal) {
+                        Label("Update to \(update.version)", systemImage: "arrow.down.circle")
+                        Label(update.version, systemImage: "arrow.down.circle")
+                    }
+                    .lineLimit(1)
+                    .monospacedDigit()
                 }
                 .controlSize(.small)
                 .tint(.orange)
                 .help("Download and install version \(update.version) from Nexus")
             } else if let url = update.url {
                 Link(destination: url) {
-                    Text("\(update.version) available").monospacedDigit()
+                    Text("\(update.version) available").monospacedDigit().lineLimit(1)
                 }
                 .font(.caption)
                 .help("This update isn't on Nexus: open its page")

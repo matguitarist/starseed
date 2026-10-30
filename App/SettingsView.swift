@@ -260,10 +260,11 @@ private struct NexusSettings: View {
             } footer: {
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Needed to download mods. Sign in to Nexus, open your account's API Keys page, and copy the “Personal API Key” at the bottom. It's stored in your Keychain.")
+                        .foregroundStyle(.secondary)
                     Link("Open the Nexus API Keys page…", destination: NexusClient.apiKeyPageURL)
+                        .foregroundStyle(.tint)
                 }
                 .font(.caption)
-                .foregroundStyle(.secondary)
             }
 
             if let user = model.nexusAccount.user {

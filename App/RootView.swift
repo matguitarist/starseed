@@ -199,6 +199,20 @@ private struct Sidebar: View {
     }
 }
 
+/// A note in a list, as a row: section footers stay on one line and cut
+/// their text off.
+struct ListNote: View {
+    let text: Text
+
+    var body: some View {
+        text
+            .font(.caption)
+            .foregroundStyle(.secondary)
+            .fixedSize(horizontal: false, vertical: true)
+            .listRowSeparator(.hidden)
+    }
+}
+
 enum BrowserWindow {
     static let id = "nexus-browser"
 }

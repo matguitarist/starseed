@@ -135,11 +135,7 @@ struct ModDetailView: View {
                         }
                         .help("Edit this mod's config.json")
                     }
-                    HStack {
-                        Button("Show in Finder") { model.revealInFinder([mod]) }
-                        Spacer()
-                        Button("Move to Trash…", role: .destructive) { model.pendingTrash = [mod] }
-                    }
+                    FinderAndTrashButtons(mods: [mod])
                     if let nexusID = model.nexusID(for: mod) {
                         Button("All Nexus Files…") { model.nexusSheet = NexusSheetRequest(modID: nexusID) }
                             .help("Every file on this mod's Nexus page: main, optional, updates and old versions")
@@ -365,11 +361,7 @@ private struct GroupDetailView: View {
                         Button("Enable All") { model.setEnabled(Set(group.mods.map(\.id)), true) }
                         Button("Disable All") { model.setEnabled(Set(group.mods.map(\.id)), false) }
                     }
-                    HStack {
-                        Button("Show in Finder") { model.revealInFinder(group.mods) }
-                        Spacer()
-                        Button("Move to Trash…", role: .destructive) { model.pendingTrash = group.mods }
-                    }
+                    FinderAndTrashButtons(mods: group.mods)
                 }
             }
             .padding()
@@ -417,5 +409,34 @@ struct DependentsSection: View {
                 if let nexusID = user.nexusID { NexusIDLink(modID: nexusID) }
             }
         }
+    }
+}
+
+/// Side by side, or stacked when the panel is too narrow for both: their
+/// width would otherwise push the whole panel past its edge.
+private struct FinderAndTrashButtons: View {
+    @AppModelEnvironment private var model
+    let mods: [ModInfo]
+
+    var body: some View {
+        ViewThatFits(in: .horizontal) {
+            HStack {
+                reveal
+                Spacer()
+                trash
+            }
+            VStack(alignment: .leading) {
+                reveal
+                trash
+            }
+        }
+    }
+
+    private var reveal: some View {
+        Button("Show in Finder") { model.revealInFinder(mods) }
+    }
+
+    private var trash: some View {
+        Button("Move to Trash…", role: .destructive) { model.pendingTrash = mods }
     }
 }

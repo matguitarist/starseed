@@ -210,7 +210,7 @@ extension AppModel {
         let ids = SaveGame.list(in: backupStore.savesFolder).map(\.id)
         guard !ids.isEmpty else { return show("No Saves Found", "There are no saves to back up.") }
         if await backUpSaves(ids, label: String(localized: "All saves")) != nil {
-            showStatusResult(String(localized: "Backed up \(ids.count) save(s). Restore them from Saves."))
+            showStatusResult(String(localized: "Backed up \(ids.count) saves. Restore them from Saves."))
         }
     }
 

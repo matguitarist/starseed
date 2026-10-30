@@ -111,8 +111,16 @@ extension AppModel {
     }
 
     var modsWithUpdates: [ModInfo] {
-        mods.filter { update(for: $0) != nil }
+        // The parts of a mod share one Nexus download: listed once, or Update
+        // All would fetch and install the same file for each part.
+        var seen = Set<String>()
+        return mods
             .sorted { $0.displayName.localizedStandardCompare($1.displayName) == .orderedAscending }
+            .filter { mod in
+                guard let update = update(for: mod) else { return false }
+                guard let id = nexusID(for: mod) else { return true }
+                return seen.insert("\(id)@\(update.version)").inserted
+            }
     }
 
     /// The Nexus mod ID for an installed mod, from its manifest or SMAPI's update data.
@@ -181,7 +189,7 @@ extension AppModel {
         } else if modsWithUpdates.isEmpty {
             showStatusResult(String(localized: "Checked \(mods.count) mods: all up to date"))
         } else {
-            showStatusResult(String(localized: "Checked \(mods.count) mods: \(modsWithUpdates.count) update(s) available"))
+            showStatusResult(String(localized: "Checked \(mods.count) mods") + " · " + String(localized: "\(modsWithUpdates.count) updates available"))
         }
     }
 

@@ -295,7 +295,7 @@ extension AppModel {
             show("Some Settings Weren't Applied", detail: failures.joined(separator: "\n"))
         }
         if applied > 0 {
-            showStatusResult(String(localized: "Applied the profile's settings to \(applied) mod(s). The previous ones are kept as config.json.bak."))
+            showStatusResult(String(localized: "Applied the profile's settings to \(applied) mods. The previous ones are kept as config.json.bak."))
         }
     }
 

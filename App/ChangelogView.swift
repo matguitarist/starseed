@@ -18,12 +18,25 @@ struct ChangelogDisclosure: View {
     @State private var isExpanded = false
 
     var body: some View {
-        DisclosureGroup(isExpanded: $isExpanded) {
-            content
-                .padding(.top, 4)
-                .task { await model.loadChangelog(nexusID: nexusID) }
-        } label: {
-            Text("What's New").font(.callout)
+        // Not a DisclosureGroup: inside a List row it loses its arrow.
+        VStack(alignment: .leading, spacing: 4) {
+            Button {
+                withAnimation(.easeInOut(duration: 0.15)) { isExpanded.toggle() }
+            } label: {
+                HStack(spacing: 4) {
+                    Image(systemName: "chevron.right")
+                        .font(.caption2.weight(.semibold))
+                        .foregroundStyle(.secondary)
+                        .rotationEffect(.degrees(isExpanded ? 90 : 0))
+                    Text("What's New").font(.callout)
+                }
+                .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            if isExpanded {
+                content
+                    .task { await model.loadChangelog(nexusID: nexusID) }
+            }
         }
     }
 

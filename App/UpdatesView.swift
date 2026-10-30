@@ -9,10 +9,7 @@ struct UpdatesView: View {
         Group {
             if model.modsWithUpdates.isEmpty {
                 ContentUnavailableView {
-                    Label(
-                        model.isCheckingUpdates ? "Checking for Updates…" : "All Mods Up to Date",
-                        systemImage: model.isCheckingUpdates ? "arrow.triangle.2.circlepath" : "checkmark.circle"
-                    )
+                    emptyTitle
                 } description: {
                     if let error = model.updateCheckError {
                         Text(error)
@@ -53,7 +50,24 @@ extension UpdatesView {
         let count = model.modsWithUpdates.count
         if count > 0 { return String(localized: "\(count) available") }
         if model.isCheckingUpdates { return String(localized: "Checking…") }
+        if model.updateCheckError != nil { return String(localized: "Check failed") }
         return model.lastUpdateCheck == nil ? String(localized: "Not checked yet") : String(localized: "All up to date")
+    }
+
+    /// Only says everything is up to date after a check that worked.
+    @ViewBuilder
+    private var emptyTitle: some View {
+        if model.isCheckingUpdates {
+            Label("Checking for Updates…", systemImage: "arrow.triangle.2.circlepath")
+        } else if model.updateCheckError != nil {
+            Label("Couldn't Check for Updates", systemImage: "exclamationmark.triangle")
+        } else if model.mods.isEmpty {
+            Label("No Mods to Check", systemImage: "square.stack.3d.up")
+        } else if model.lastUpdateCheck == nil {
+            Label("Not Checked Yet", systemImage: "clock")
+        } else {
+            Label("All Mods Up to Date", systemImage: "checkmark.circle")
+        }
     }
 
     /// "3 updates available · [Update All]" above the list.
@@ -63,7 +77,11 @@ extension UpdatesView {
             VStack(alignment: .leading, spacing: 2) {
                 Text(model.modsWithUpdates.count == 1 ? String(localized: "1 mod update available") : String(localized: "\(model.modsWithUpdates.count) mod updates available"))
                     .font(.headline)
-                if model.nexusAccount.user?.isPremium != true, count > 0 {
+                if model.nexusAccount.user == nil {
+                    Text("Add your Nexus API key in Settings first")
+                        .font(.callout)
+                        .foregroundStyle(.secondary)
+                } else if model.nexusAccount.user?.isPremium != true, count > 0 {
                     Text("Free account: Nexus's page for each update opens in turn; click **Slow download** on each. The browser closes after the last one.")
                         .font(.callout)
                         .foregroundStyle(.secondary)
