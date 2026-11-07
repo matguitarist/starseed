@@ -384,7 +384,7 @@ struct SetupAssistant: View {
             }
             .padding(10)
             .contentShape(Rectangle())
-            .background(game == folder ? Color.accentColor.opacity(0.12) : Color.secondary.opacity(0.06), in: RoundedRectangle(cornerRadius: 8))
+            .background(game == folder ? Color.accentColor.opacity(0.12) : Color.secondary.opacity(0.06), in: RoundedRectangle(cornerRadius: Radius.control))
         }
         .buttonStyle(.plain)
     }

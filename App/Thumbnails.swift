@@ -47,7 +47,7 @@ final class ImageCache {
 /// and for mods without one.
 struct ModPicture: View {
     let url: URL?
-    var cornerRadius: CGFloat = 4
+    var cornerRadius: CGFloat = Radius.thumbnail
     @State private var image: NSImage?
 
     var body: some View {
@@ -93,7 +93,7 @@ struct ModHeaderPicture: View {
 /// copy of themselves.
 struct ShapedPicture: View {
     let url: URL
-    var cornerRadius: CGFloat = 8
+    var cornerRadius: CGFloat = Radius.control
     @State private var image: NSImage?
 
     /// Tallest box for portrait pictures (width / height).
@@ -134,7 +134,7 @@ struct ShapedPicture: View {
 /// copy of itself, so pictures of any shape line up at the same size.
 struct FittedPicture: View {
     let url: URL?
-    var cornerRadius: CGFloat = 8
+    var cornerRadius: CGFloat = Radius.control
     @State private var image: NSImage?
 
     var body: some View {

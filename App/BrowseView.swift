@@ -141,7 +141,7 @@ struct NexusModRow: View {
                 Rectangle().fill(.quaternary)
             }
             .frame(width: 112, height: 63)
-            .clipShape(RoundedRectangle(cornerRadius: 6))
+            .clipShape(RoundedRectangle(cornerRadius: Radius.control))
 
             VStack(alignment: .leading, spacing: 3) {
                 HStack(spacing: 6) {

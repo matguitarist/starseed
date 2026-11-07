@@ -72,7 +72,7 @@ struct InstalledView: View {
             }
             .padding(.horizontal, 10)
             .padding(.vertical, 6)
-            .background(.quaternary.opacity(0.6), in: RoundedRectangle(cornerRadius: 8))
+            .background(.quaternary.opacity(0.6), in: RoundedRectangle(cornerRadius: Radius.control))
             .frame(minWidth: 180, maxWidth: 360)
             Spacer()
             ProfileMenu()

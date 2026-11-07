@@ -39,7 +39,7 @@ struct NexusModSheet: View {
                 Rectangle().fill(.quaternary)
             }
             .frame(width: 176, height: 99)
-            .clipShape(RoundedRectangle(cornerRadius: 8))
+            .clipShape(RoundedRectangle(cornerRadius: Radius.control))
 
             VStack(alignment: .leading, spacing: 4) {
                 HStack {

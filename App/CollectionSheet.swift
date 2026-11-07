@@ -41,7 +41,7 @@ struct CollectionSheet: View {
 
     private var header: some View {
         HStack(alignment: .top, spacing: 14) {
-            FittedPicture(url: collection?.tileImageURL, cornerRadius: 10)
+            FittedPicture(url: collection?.tileImageURL, cornerRadius: Radius.artwork)
                 .frame(width: 110, height: 138)
 
             VStack(alignment: .leading, spacing: 4) {
