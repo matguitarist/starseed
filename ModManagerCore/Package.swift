@@ -12,7 +12,7 @@ let package = Package(
     ],
     dependencies: [
         // SMAPI's log is parsed and shown with the log viewer the apps share.
-        .package(url: "https://github.com/matguitarist/LogKit", from: "0.1.2"),
+        .package(url: "https://github.com/matguitarist/LogKit", from: "0.2.0"),
     ],
     targets: [
         .target(name: "ModManagerCore",

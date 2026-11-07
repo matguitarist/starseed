@@ -1,13 +1,13 @@
 {
-  "originHash" : "2367fc94d9d4a7557376096f7dc2e39b5a5ec395ab6409a8e62bb064487bd6b8",
+  "originHash" : "36efbd411578e4daa62dacdbe521f534418338e3780024758de8acf04de8d964",
   "pins" : [
     {
       "identity" : "logkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/matguitarist/LogKit",
       "state" : {
-        "revision" : "a05a585da0c1bbd86e355f7aa92a98b6d0d2f7dc",
-        "version" : "0.1.2"
+        "revision" : "c87e0a52e30b013e4f15edaa003ea9f661ff99c8",
+        "version" : "0.2.0"
       }
     },
     {

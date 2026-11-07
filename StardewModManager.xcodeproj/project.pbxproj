@@ -549,7 +549,7 @@
 			repositoryURL = "https://github.com/matguitarist/LogKit";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.2;
+				minimumVersion = 0.2.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

@@ -23,7 +23,7 @@ packages:
   # The log viewer the apps share (the SMAPI Log page).
   LogKit:
     url: https://github.com/matguitarist/LogKit
-    from: 0.1.2
+    from: 0.2.0
   # Self-updates for the app (see "Releasing updates" in the README).
   Sparkle:
     url: https://github.com/sparkle-project/Sparkle
