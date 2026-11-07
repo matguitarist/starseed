@@ -1,6 +1,6 @@
 #!/bin/zsh
 # Signs a built Starseed.app: with your "Developer ID Application" certificate
-# when it's in the Keychain (then notarize.sh can get Apple's approval), else
+# when it's in the Keychain (then tools/release.sh can have it notarized), else
 # with the self-signed certificate made by make_signing_identity.sh. Either
 # keeps the app's identity the same from build to build, so macOS asks for
 # Keychain access once instead of after every update.

@@ -131,8 +131,8 @@ private. Without it, existing users can't receive updates.
 
 With a "Developer ID Application" certificate in the Keychain (Xcode →
 Settings → Accounts → Manage Certificates), releases are signed with it and
-notarized by Apple: `release.sh` sends the app and the disk image to the
-notary service (`notarize.sh`, credentials saved once with
+notarized by Apple: `tools/release.sh` sends the disk image to the
+notary service (credentials saved once with
 `xcrun notarytool store-credentials ares-notary --apple-id <you>
 --team-id <TEAMID>`, shared with Tadpole) and staples the approval, so
 macOS opens Starseed without Open Anyway. `signing_identity.sh` picks the
@@ -150,22 +150,24 @@ signed with the same EdDSA key.
   Keychain. Run it once on the Mac you release from; the first signing asks
   to let `codesign` use it (**Always Allow**).
 - `build_app.sh` signs with it (`sign_app.sh`) when it's there;
-  `release.sh` refuses to release without it, so a release can't fall back
-  to ad hoc by accident.
+  `tools/release.sh` releases only with the Developer ID, so a release can't
+  fall back to ad hoc by accident.
 - Back it up (Keychain Access → My Certificates → Export…). If it's lost, a
   new one works, but users are asked for Keychain access once more.
 
 To publish a release:
 
-1. Bump `MARKETING_VERSION` **and** `CURRENT_PROJECT_VERSION` in
-   `project.yml` (Sparkle compares the build number), run
-   `xcodegen generate`.
-2. Write `release-notes/<version>.md`: a short Markdown list of what's new,
+1. Write `release-notes/<version>.md`: a short Markdown list of what's new,
    for players. It's shown in Starseed's update window and on the GitHub
-   release, and `release.sh` stops without it. Commit.
-3. Run `./release.sh`. It builds the app, makes the zip (signed for
-   Sparkle) and the disk image (`make_dmg.sh`), pushes, creates the GitHub
-   release with both, and then publishes the new `appcast.xml`. Running copies of Starseed see the update within a day,
+   release. Without it, the notes are drafted from the commits since the
+   last tag.
+2. Run `tools/release.sh <version>` (`--check` first if you like: it only
+   checks). It sets `MARKETING_VERSION` and bumps `CURRENT_PROJECT_VERSION`
+   (Sparkle compares the build number), regenerates the project, builds,
+   signs, notarizes once, makes the disk image and the zip signed for
+   Sparkle, commits and tags the release, creates the GitHub release, and
+   then publishes the new `appcast.xml`. The script is the same in every
+   app; `release.conf` holds what's specific to Starseed. Running copies of Starseed see the update within a day,
    or right away with **Starseed → Check for App Updates…**.
 
 Releases are signed with the Developer ID and notarized (see Signing), so
