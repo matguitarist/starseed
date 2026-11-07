@@ -4,7 +4,7 @@
 
 import Foundation
 
-public struct LogInsight: Identifiable, Hashable, Sendable {
+public struct SMAPIInsight: Identifiable, Hashable, Sendable {
     public enum Kind: Hashable, Sendable {
         /// SMAPI didn't load a mod. `missingIDs`: required mods that aren't
         /// installed; `needsSMAPI`: the SMAPI version it wants.
@@ -38,13 +38,19 @@ public struct LogInsight: Identifiable, Hashable, Sendable {
         case .assetConflict(let mods, _): "conflict:" + mods.joined(separator: "|")
         }
     }
+
+    /// The source whose messages it's about, for the viewer's "Show Messages".
+    public var source: String? {
+        if case .modErrors(let source, _, _) = kind { return source }
+        return nil
+    }
 }
 
 extension SMAPILog {
-    public var insights: [LogInsight] {
-        var skipped: [LogInsight] = []
-        var updates: [LogInsight.AvailableUpdate] = []
-        var smapiUpdate: LogInsight?
+    public var insights: [SMAPIInsight] {
+        var skipped: [SMAPIInsight] = []
+        var updates: [SMAPIInsight.AvailableUpdate] = []
+        var smapiUpdate: SMAPIInsight?
         var errorsBySource: [String: (count: Int, events: [String])] = [:]
         var inUpdateList = false
         var conflictAssets: [[String]: [String]] = [:]  // mods -> assets
@@ -65,7 +71,7 @@ extension SMAPILog {
             }
 
             // "   - Better Crafting 1.2.0 because it requires mods which aren't installed (leclair.Common)."
-            if entry.source == "SMAPI", entry.level >= .warn, message.contains(" because "),
+            if entry.source == "SMAPI", entry.level >= .warning, message.contains(" because "),
                let match = message.firstMatch(of: /^\s*-\s+(.+?)\s+because\s+(.+?)\.?\s*$/) {
                 let name = Self.stripVersion(String(match.1))
                 let reason = String(match.2)
@@ -76,13 +82,13 @@ extension SMAPILog {
                 }
                 let smapi = reason.firstMatch(of: /SMAPI (\d+\.\d+(?:\.\d+)?)(?: or later)?/).map { String($0.1) }
                     ?? (reason.localizedCaseInsensitiveContains("newer version of SMAPI") ? "" : nil)
-                skipped.append(LogInsight(kind: .skippedMod(name: name, reason: reason, missingIDs: missing, needsSMAPI: smapi), level: entry.level))
+                skipped.append(SMAPIInsight(kind: .skippedMod(name: name, reason: reason, missingIDs: missing, needsSMAPI: smapi), level: entry.level))
                 continue
             }
 
             // "You can update SMAPI to 4.6.0: https://smapi.io"
             if message.hasPrefix("You can update SMAPI"), let match = message.firstMatch(of: /^You can update SMAPI to (\S+?):?\s+(https?:\/\/\S+)/) {
-                smapiUpdate = LogInsight(kind: .smapiUpdate(version: String(match.1), url: URL(string: String(match.2))), level: entry.level)
+                smapiUpdate = SMAPIInsight(kind: .smapiUpdate(version: String(match.1), url: URL(string: String(match.2))), level: entry.level)
                 continue
             }
 
@@ -92,7 +98,7 @@ extension SMAPILog {
                 continue
             }
             if inUpdateList {
-                if entry.level == .alert, let match = message.firstMatch(of: /^\s+(.+?)\s+(\S+?):\s+(https?:\/\/\S+)\s*$/) {
+                if entry.level == .critical, let match = message.firstMatch(of: /^\s+(.+?)\s+(\S+?):\s+(https?:\/\/\S+)\s*$/) {
                     updates.append(.init(name: String(match.1), version: String(match.2), url: URL(string: String(match.3))))
                     continue
                 }
@@ -111,12 +117,12 @@ extension SMAPILog {
         }
 
         var insights = skipped
-        insights += conflictOrder.map { LogInsight(kind: .assetConflict(mods: $0, assets: conflictAssets[$0] ?? []), level: .warn) }
+        insights += conflictOrder.map { SMAPIInsight(kind: .assetConflict(mods: $0, assets: conflictAssets[$0] ?? []), level: .warning) }
         insights += errorsBySource
             .sorted { $0.value.count > $1.value.count }
-            .map { LogInsight(kind: .modErrors(source: $0.key, count: $0.value.count, events: $0.value.events), level: .error) }
+            .map { SMAPIInsight(kind: .modErrors(source: $0.key, count: $0.value.count, events: $0.value.events), level: .error) }
         if let smapiUpdate { insights.append(smapiUpdate) }
-        if !updates.isEmpty { insights.append(LogInsight(kind: .updatesAvailable(updates), level: .alert)) }
+        if !updates.isEmpty { insights.append(SMAPIInsight(kind: .updatesAvailable(updates), level: .critical)) }
         return insights
     }
 

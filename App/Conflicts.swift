@@ -15,7 +15,7 @@ extension AppModel {
         setLogConflicts(from: log.insights)
     }
 
-    func setLogConflicts(from insights: [LogInsight]) {
+    func setLogConflicts(from insights: [SMAPIInsight]) {
         logConflicts = insights.compactMap { insight in
             if case .assetConflict(let mods, let assets) = insight.kind { return LogConflict(mods: mods, assets: assets) }
             return nil
@@ -82,7 +82,7 @@ struct ConflictsSection: View {
     }
 
     /// "Maps/Town, Maps/Town_Fair and 3 more".
-    static func assetList(_ assets: [String]) -> String {
+    nonisolated static func assetList(_ assets: [String]) -> String {
         let shown = assets.prefix(3).joined(separator: ", ")
         return assets.count > 3 ? String(localized: "\(shown) and \(assets.count - 3) more") : shown
     }

@@ -216,7 +216,7 @@ struct LiveAPITests {
         #expect(log.entries[4].source == "Cool Mod")
         #expect(log.entries[4].message.contains("NullReferenceException"))
         #expect(log.entries[4].message.split(separator: "\n").count == 3)
-        #expect(log.count(of: .error) == 2)
+        #expect(log.entries.filter { $0.level == .error }.count == 2)
     }
 
     @Test func parsesCRLFLineEndings() {
@@ -227,20 +227,17 @@ struct LiveAPITests {
         #expect(log.entries[4].message.split(whereSeparator: \.isNewline).count == 3)
     }
 
-    @Test func clearsUpToAPointButKeepsVersions() {
-        let log = SMAPILog(text: Self.sample)
-        let cleared = log.droppingFirst(5)
-        #expect(cleared.entries.map(\.level) == [.error, .alert])
-        #expect(cleared.smapiVersion == "4.1.10")
-        #expect(cleared.count(of: .warn) == 0)
-        #expect(log.sessionKey == "12:00:01 SMAPI 4.1.10 with Stardew Valley 1.6.15 build 24356 on macOS Unix 14.5.0")
-    }
-
-    @Test func groupsProblemsBySource() {
-        let problems = SMAPILog(text: Self.sample).problemsBySource
-        #expect(problems.map(\.source) == ["SMAPI", "Cool Mod", "Content Patcher"])
-        #expect(problems[1].count == 2)
-        #expect(problems[2].worst == .warn)
+    @Test func parserGivesTheViewerVersionsAndInsights() {
+        let document = SMAPILog.parser(describe: { ("title " + $0.id, "detail") }).parse(Self.sample)
+        #expect(document.entries.count == 7)
+        #expect(document.entries.filter { $0.level == .error }.count == 2)
+        #expect(document.entries[0].code == "INFO")
+        #expect(document.metadata.map(\.label) == ["SMAPI 4.1.10", "Stardew Valley 1.6.15", "macOS Unix 14.5.0"])
+        #expect(document.sessionKey == "12:00:01 SMAPI 4.1.10 with Stardew Valley 1.6.15 build 24356 on macOS Unix 14.5.0")
+        let errors = document.insights.first { $0.id == "errors:Cool Mod" }
+        #expect(errors?.title == "title errors:Cool Mod")
+        #expect(errors?.source == "Cool Mod")
+        #expect(errors?.level == .error)
     }
 }
 

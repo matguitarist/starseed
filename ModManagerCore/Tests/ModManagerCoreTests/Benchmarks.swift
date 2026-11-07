@@ -51,8 +51,8 @@ struct Benchmarks {
         var log = SMAPILog(text: "")
         Self.time("parse 50k-line log") { log = SMAPILog(text: text) }
         #expect(log.entries.count == 50_001)
-        Self.time("count(of:) × 6 levels") { for level in LogLevel.allCases { _ = log.count(of: level) } }
-        Self.time("problemsBySource") { _ = log.problemsBySource }
+        Self.time("viewer parse (with insights)") { _ = SMAPILog.parser().parse(text) }
+        Self.time("summary") { _ = LogSummary(entries: log.entries) }
         Self.time("insights") { _ = log.insights }
         Self.time("unknownLocations") { _ = log.unknownLocations }
     }

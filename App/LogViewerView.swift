@@ -1,113 +1,259 @@
 import AppKit
+import LogKitUI
 import ModManagerCore
+import os
 import SwiftUI
 
-extension LogLevel {
-    /// Colors follow SMAPI's console: dim trace/debug, plain info, yellow
-    /// warnings, red errors, magenta alerts.
-    var color: Color {
-        switch self {
-        case .trace: .gray
-        case .debug: .secondary
-        case .info: .primary
-        case .warn: .orange
-        case .error: .red
-        case .alert: .purple
+// The SMAPI Log page: LogKit's viewer (levels, problems, search, Clear,
+// follow live, copy and export) with what only Starseed knows: what to do
+// about each insight, the save's missing content, the mods SMAPI loaded,
+// and smapi.io.
+
+extension LogViewerModel {
+    /// SMAPI's latest and crash logs, and the earlier ones in its folder.
+    static func smapi(names: DependencyNames) -> LogViewerModel {
+        let model = LogViewerModel(file: LogFileSource(
+            files: [.init(String(localized: "Latest Log"), url: SMAPILog.latestLogURL),
+                    .init(String(localized: "Crash Log"), url: SMAPILog.crashLogURL)],
+            folder: SMAPILog.defaultFolder,
+            parser: SMAPILog.parser(describe: { SMAPIInsightText.describe($0, names: names) })))
+        model.showInspector = UserDefaults.standard.object(forKey: "showLoadedMods") as? Bool ?? true
+        return model
+    }
+}
+
+/// Names of mods by UniqueID, from SMAPI's database, readable while the log
+/// is parsed off the main thread.
+final class DependencyNames: Sendable {
+    private let names = OSAllocatedUnfairLock<[String: String]>(initialState: [:])
+
+    func update(_ records: [String: SMAPIModRecord]) {
+        let known = records.compactMapValues(\.name)
+        names.withLock { $0 = known }
+    }
+
+    func name(for uniqueID: String) -> String? {
+        names.withLock { $0[uniqueID.lowercased()] }
+    }
+}
+
+struct LogViewerView: View {
+    @AppModelEnvironment private var model
+    /// What Starseed reads from the log shown, computed off the main thread
+    /// once per change of the log (or of Clear).
+    @State private var facts = SMAPILogFacts()
+
+    var body: some View {
+        let log = model.smapiLog
+        LogViewer(model: log, options: options)
+            .navigationTitle("SMAPI Log")
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) { PlayToolbarButton() }
+            }
+            .task(id: documentKey) { await updateFacts() }
+            .onChange(of: log.showInspector) { _, shown in
+                UserDefaults.standard.set(shown, forKey: "showLoadedMods")
+            }
+    }
+
+    private var options: LogViewerOptions {
+        LogViewerOptions(
+            emptyTitle: String(localized: "No SMAPI Log Yet"),
+            emptyMessage: String(localized: "Launch the game through SMAPI once; its log appears here, updating live while you play."),
+            emptyActions: { AnyView(Button("Launch Stardew Valley") { model.launchGame() }) },
+            insightsTitle: String(localized: "What SMAPI is telling you"),
+            insightActions: { insight in
+                AnyView(InsightActions(insight: facts.insights.first { $0.id == insight.id },
+                                       showSource: { model.smapiLog.filter.source = $0 }))
+            },
+            banner: { _ in AnyView(MissingContentBanner(facts: facts)) },
+            headerAccessory: { AnyView(HeaderAccessory()) },
+            inspectorTitle: String(localized: "Loaded Mods"),
+            inspector: { _ in AnyView(LoadedModsInspector(loaded: facts.loadedMods)) },
+            shareActions: [.init(String(localized: "Upload to smapi.io…")) { _ in uploadToSMAPI() }],
+            sourceColor: { source in
+                switch source {
+                case "SMAPI": .blue
+                case "game": .teal
+                default: .indigo
+                }
+            })
+    }
+
+    /// Changes when the log shown changes: another file, a new session, new lines, Clear.
+    private var documentKey: String {
+        let log = model.smapiLog
+        let entries = log.document?.entries
+        return "\(log.fileURL?.path ?? "") \(entries?.first?.id ?? -1) \(entries?.count ?? -1) \(entries?.last?.id ?? -1)"
+    }
+
+    private func updateFacts() async {
+        let log = model.smapiLog
+        guard let entries = log.document?.entries else {
+            facts = SMAPILogFacts()
+            return
+        }
+        let updated = await Task.detached { SMAPILogFacts(log: SMAPILog(entries: entries)) }.value
+        facts = updated
+        // The Installed list warns about conflicts from the latest session.
+        if log.fileURL == SMAPILog.latestLogURL, log.clearMark == nil {
+            model.setLogConflicts(from: updated.insights)
         }
     }
 
-    var symbol: String {
-        switch self {
-        case .trace: "ellipsis.circle"
-        case .debug: "ladybug"
-        case .info: "info.circle"
-        case .warn: "exclamationmark.triangle.fill"
-        case .error: "xmark.octagon.fill"
-        case .alert: "bell.fill"
+    /// smapi.io's log parser reads SMAPI's own format: copy the file as is, then open the page.
+    private func uploadToSMAPI() {
+        guard let url = model.smapiLog.fileURL, let text = try? String(contentsOf: url, encoding: .utf8) else { return }
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(text, forType: .string)
+        model.openInBrowser(URL(string: "https://smapi.io/log")!)
+    }
+}
+
+/// Everything the page reads from the log besides what LogKit shows.
+struct SMAPILogFacts: Sendable {
+    var insights: [SMAPIInsight] = []
+    var unknownLocations: [UnknownLocation] = []
+    var loadedSaveID: String?
+    var loadedMods: [LoadedMod] = []
+
+    init() {}
+
+    init(log: SMAPILog) {
+        insights = log.insights
+        unknownLocations = log.unknownLocations
+        loadedSaveID = log.loadedSaveID
+        loadedMods = log.loadedMods
+    }
+}
+
+/// Where the game came from, and the profile in use, after SMAPI's versions.
+private struct HeaderAccessory: View {
+    @AppModelEnvironment private var model
+
+    var body: some View {
+        if let store = model.gameStore?.displayName {
+            Label(store, systemImage: "bag").lineLimit(1)
+        }
+        ProfileIndicator()
+    }
+}
+
+// MARK: Insights
+
+/// "What SMAPI is telling you" in plain words: skipped mods, crashing mods,
+/// updates and conflicts. Runs while the log is parsed, off the main thread.
+enum SMAPIInsightText {
+    nonisolated static func describe(_ insight: SMAPIInsight, names: DependencyNames) -> (title: String, detail: String) {
+        (title(insight), detail(insight, names: names))
+    }
+
+    nonisolated private static func title(_ insight: SMAPIInsight) -> String {
+        switch insight.kind {
+        case .skippedMod(let name, _, let missing, let smapi):
+            if !missing.isEmpty { return String(localized: "\(name) didn't load: it needs mods you don't have") }
+            if smapi != nil { return String(localized: "\(name) didn't load: it needs a newer SMAPI") }
+            return String(localized: "\(name) didn't load")
+        case .modErrors(let source, let count, _):
+            return count == 1 ? String(localized: "\(source) had an error while you played") : String(localized: "\(source) had \(count) errors while you played")
+        case .updatesAvailable(let list):
+            return list.count == 1 ? String(localized: "1 mod update available") : String(localized: "\(list.count) mod updates available")
+        case .smapiUpdate(let version, _):
+            return String(localized: "SMAPI \(version) is available")
+        case .assetConflict(let mods, _):
+            return String(localized: "Conflict: \(mods.formatted(.list(type: .and)))")
+        }
+    }
+
+    nonisolated private static func detail(_ insight: SMAPIInsight, names: DependencyNames) -> String {
+        switch insight.kind {
+        case .skippedMod(_, let reason, let missing, let smapi):
+            if !missing.isEmpty {
+                let names = missing.map { names.name(for: $0) ?? $0 }
+                return String(localized: "Missing: \(names.joined(separator: ", "))")
+            }
+            if let smapi, !smapi.isEmpty { return String(localized: "It needs SMAPI \(smapi) or later.") }
+            return String(localized: "SMAPI says: \(reason).")
+        case .modErrors(_, _, let events):
+            let advice = String(localized: "It may be broken or outdated. Updating it often helps; if not, report it to its author with your log.")
+            return events.isEmpty ? advice : advice + " " + String(localized: "(During: \(events.joined(separator: ", ")).)")
+        case .updatesAvailable(let list):
+            return list.map { "\($0.name) \($0.version)" }.joined(separator: ", ")
+        case .smapiUpdate:
+            return String(localized: "Newer SMAPI versions fix bugs and support newer mods.")
+        case .assetConflict(_, let assets):
+            return String(localized: "They replace the same game files (\(ConflictsSection.assetList(assets))), so SMAPI used the originals and neither change shows. Disable one of them.")
         }
     }
 }
 
-/// SMAPI's console log with colored levels, filters, search and a
-/// per-mod problem summary. Reloads automatically while the game runs.
-struct LogViewerView: View {
+/// A way to fix each insight.
+private struct InsightActions: View {
     @AppModelEnvironment private var model
-
-    @State private var fileURL = SMAPILog.latestLogURL
-    @State private var log: SMAPILog?
-    @State private var loadError: String?
-    @State private var lastModified: Date?
-    @State private var levels: Set<LogLevel> = [.debug, .info, .warn, .error, .alert]
-    @State private var sourceFilter: String?
-    @State private var searchText = ""
-    @State private var followLive = true
-    @AppStorage("showLoadedMods") private var showLoadedMods = true
-
-    /// What the view shows, computed off the main thread once per change of
-    /// the log (or of "Clear") instead of on every redraw.
-    @State private var summary: LogSummary?
-
-    private func activeClearMark(for log: SMAPILog) -> AppModel.LogClearMark? {
-        guard let mark = model.logClearMark, mark.file == fileURL, mark.session == log.sessionKey,
-              mark.entryCount <= log.entries.count
-        else { return nil }
-        return mark
-    }
+    let insight: SMAPIInsight?
+    let showSource: (String) -> Void
 
     var body: some View {
-        Group {
-            if let summary {
-                let log = summary.log
-                VStack(spacing: 0) {
-                    missingContentBanner(summary)
-                    InsightsPanel(insights: summary.insights, onShowSource: { sourceFilter = $0 })
-                    summaryHeader(summary)
-                    Divider()
-                    entryList(log)
-                }
-            } else {
-                ContentUnavailableView {
-                    Label("No SMAPI Log Yet", systemImage: "doc.text.magnifyingglass")
-                } description: {
-                    Text(loadError ?? "Launch the game through SMAPI once; its log appears here, updating live while you play.")
-                } actions: {
-                    Button("Launch Stardew Valley") { model.launchGame() }
-                    Button("Open Log File…", action: chooseFile)
+        switch insight?.kind {
+        case .skippedMod(let name, _, let missing, let smapi)?:
+            if !missing.isEmpty {
+                Button("Install Missing") { model.installMissing(uniqueIDs: missing, neededBy: name) }
+                    .task {
+                        // Look up the missing mods' names, then show them instead of their IDs.
+                        let unknown = missing.contains { model.record(forDependency: $0)?.name == nil }
+                        await model.resolve(uniqueIDs: missing)
+                        if unknown, missing.contains(where: { model.record(forDependency: $0)?.name != nil }) {
+                            await model.smapiLog.reload()
+                        }
+                    }
+            } else if smapi != nil {
+                SMAPIInstallButton()
+            } else if let mod = model.installedMod(named: name), let nexusID = model.nexusID(for: mod) {
+                Button("Check for Update…") { model.nexusSheet = NexusSheetRequest(modID: nexusID) }
+            }
+        case .modErrors(let source, _, _)?:
+            HStack {
+                Button("Show Messages") { showSource(source) }
+                if let mod = model.installedMod(named: source), let update = model.update(for: mod), let nexusID = model.nexusID(for: mod) {
+                    Button("Update to \(update.version)") {
+                        model.queueNexusInstalls([NexusInstallRequest(modID: nexusID, title: mod.displayName, version: update.version)])
+                    }
+                    .buttonStyle(.borderedProminent)
                 }
             }
-        }
-        .navigationTitle("SMAPI Log")
-        .navigationSubtitle(fileURL.lastPathComponent)
-        .searchable(text: $searchText, placement: .toolbar, prompt: "Search log")
-        .toolbar { toolbar }
-        .inspector(isPresented: $showLoadedMods) {
-            LoadedModsInspector(loaded: summary?.loadedMods ?? [])
-                .inspectorColumnWidth(min: 240, ideal: 320, max: 480)
-        }
-        .onChange(of: model.logClearMark) { Task { await updateSummary() } }
-        .onChange(of: model.requestedLogURL, initial: true) { _, url in
-            // Opened from a notification after playing.
-            guard let url else { return }
-            fileURL = url
-            model.requestedLogURL = nil
-        }
-        .task(id: fileURL) {
-            await reload(force: true)
-            // Poll for changes so the log follows a running game.
-            while !Task.isCancelled {
-                try? await Task.sleep(for: .seconds(2))
-                if followLive { await reload(force: false) }
+        case .updatesAvailable?:
+            Button("Open Updates") { model.sidebarSelection = .updates }
+        case .smapiUpdate?:
+            SMAPIInstallButton()
+        case .assetConflict(let mods, _)?:
+            let installed = mods.compactMap { model.installedMod(named: $0) }.filter(\.isEnabled)
+            if installed.count > 1 {
+                Menu("Disable One") {
+                    ForEach(installed) { mod in
+                        Button(mod.displayName) {
+                            model.setEnabled(Set((model.group(containing: mod)?.mods ?? [mod]).map(\.id)), false)
+                        }
+                    }
+                }
+                .fixedSize()
+                .help("Disabling can be undone with ⌘Z")
             }
+        case nil:
+            EmptyView()
         }
     }
+}
 
-    // MARK: Missing content
+// MARK: Missing content
 
-    /// Shown when the session loaded a save whose mods aren't installed.
-    @ViewBuilder
-    private func missingContentBanner(_ summary: LogSummary) -> some View {
-        let unknown = summary.unknownLocations
-        if !unknown.isEmpty, let saveID = summary.loadedSaveID {
+/// Shown when the session loaded a save whose mods aren't installed.
+private struct MissingContentBanner: View {
+    @AppModelEnvironment private var model
+    let facts: SMAPILogFacts
+
+    var body: some View {
+        let unknown = facts.unknownLocations
+        if !unknown.isEmpty, let saveID = facts.loadedSaveID {
             let npcCount = Set(unknown.flatMap(\.npcs)).count
             HStack(spacing: 10) {
                 Image(systemName: "puzzlepiece.extension.fill")
@@ -131,449 +277,9 @@ struct LogViewerView: View {
             Divider()
         }
     }
-
-    // MARK: Header
-
-    private func summaryHeader(_ summary: LogSummary) -> some View {
-        let log = summary.log
-        return VStack(alignment: .leading, spacing: 8) {
-            HStack(spacing: 14) {
-                if let smapi = log.smapiVersion {
-                    Label("SMAPI \(smapi)", systemImage: "gearshape.2")
-                }
-                if let game = log.gameVersion {
-                    if let store = model.gameStore?.displayName {
-                        Label("Stardew Valley \(game) · \(store)", systemImage: "leaf")
-                    } else {
-                        Label("Stardew Valley \(game)", systemImage: "leaf")
-                    }
-                }
-                if let platform = log.platform {
-                    Label(platform, systemImage: "desktopcomputer").lineLimit(1)
-                }
-                ProfileIndicator()
-                Spacer()
-                if let full = self.log, let mark = activeClearMark(for: full) {
-                    Text("Cleared at \(mark.date.formatted(date: .omitted, time: .standard)) · \(mark.entryCount) earlier messages hidden")
-                        .foregroundStyle(.secondary)
-                    Button("Show All") { model.logClearMark = nil }
-                        .controlSize(.small)
-                } else if let lastModified {
-                    Text("Updated \(lastModified.formatted(date: .omitted, time: .standard))")
-                        .foregroundStyle(.secondary)
-                }
-            }
-            .font(.callout)
-
-            // Level toggles double as counts.
-            HStack(spacing: 6) {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 6) {
-                        ForEach(LogLevel.allCases, id: \.self) { level in
-                            levelChip(level, count: summary.counts[level, default: 0])
-                        }
-                    }
-                }
-                if let sourceFilter {
-                    Button {
-                        self.sourceFilter = nil
-                    } label: {
-                        Label("Source: \(sourceFilter)", systemImage: "xmark.circle.fill")
-                    }
-                    .buttonStyle(.bordered)
-                    .controlSize(.small)
-                }
-            }
-            .fixedSize(horizontal: false, vertical: true)
-
-            let problems = summary.problems
-            if !problems.isEmpty {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 6) {
-                        Text("Problems:").font(.callout.bold()).foregroundStyle(.secondary)
-                        ForEach(problems, id: \.source) { problem in
-                            Button {
-                                sourceFilter = sourceFilter == problem.source ? nil : problem.source
-                            } label: {
-                                HStack(spacing: 4) {
-                                    Image(systemName: problem.worst.symbol)
-                                    Text("\(problem.source) (\(problem.count))")
-                                }
-                                .font(.callout)
-                                .padding(.horizontal, 11)
-                                .padding(.vertical, 5)
-                                .background(problem.worst.color.opacity(sourceFilter == problem.source ? 0.35 : 0.15), in: Capsule())
-                                .foregroundStyle(problem.worst.color)
-                            }
-                            .buttonStyle(.plain)
-                            .help("Show only \(problem.source)")
-                        }
-                    }
-                }
-            }
-        }
-        .padding(.horizontal)
-        .padding(.vertical, 10)
-        .background(.bar)
-    }
-
-    private func levelChip(_ level: LogLevel, count: Int) -> some View {
-        let isOn = levels.contains(level)
-        return Button {
-            if isOn { levels.remove(level) } else { levels.insert(level) }
-        } label: {
-            HStack(spacing: 4) {
-                Image(systemName: level.symbol)
-                Text("\(level.localizedTitle) \(count)")
-                    .monospacedDigit()
-            }
-            .font(.callout.weight(.medium))
-            .padding(.horizontal, 12)
-            .padding(.vertical, 5)
-            .background(isOn ? level.color.opacity(0.2) : Color.clear, in: Capsule())
-            .overlay(Capsule().strokeBorder(level.color.opacity(isOn ? 0.6 : 0.25)))
-            .foregroundStyle(isOn ? level.color : .secondary)
-        }
-        .buttonStyle(.plain)
-        .help(isOn ? Text("Hide \(level.localizedTitle) messages") : Text("Show \(level.localizedTitle) messages"))
-    }
-
-    // MARK: Entries
-
-    private func filteredEntries(_ log: SMAPILog) -> [LogEntry] {
-        let query = searchText.trimmingCharacters(in: .whitespaces)
-        return log.entries.filter { entry in
-            levels.contains(entry.level)
-                && (sourceFilter == nil || entry.source == sourceFilter)
-                && (query.isEmpty || entry.message.localizedCaseInsensitiveContains(query) || entry.source.localizedCaseInsensitiveContains(query))
-        }
-    }
-
-    private func entryList(_ log: SMAPILog) -> some View {
-        let entries = filteredEntries(log)
-        return ScrollViewReader { proxy in
-            List(entries) { entry in
-                LogRow(entry: entry, onSourceTap: { sourceFilter = $0 })
-                    .listRowBackground(entry.isProblem ? entry.level.color.opacity(0.08) : Color.clear)
-                    .id(entry.id)
-            }
-            .listStyle(.plain)
-            .overlay {
-                if entries.isEmpty {
-                    if log.entries.isEmpty, model.logClearMark != nil {
-                        ContentUnavailableView(
-                            "Log Cleared",
-                            systemImage: "clear",
-                            description: Text("New messages appear here as SMAPI writes them. Starting the game again begins a fresh log.")
-                        )
-                    } else {
-                        ContentUnavailableView("No Matching Messages", systemImage: "line.3.horizontal.decrease.circle")
-                    }
-                }
-            }
-            .onChange(of: log.entries.count) {
-                if followLive, let last = entries.last { proxy.scrollTo(last.id, anchor: .bottom) }
-            }
-        }
-    }
-
-    // MARK: Toolbar
-
-    @ToolbarContentBuilder
-    private var toolbar: some ToolbarContent {
-        ToolbarItemGroup(placement: .primaryAction) {
-            Menu {
-                Button("Latest Log") { fileURL = SMAPILog.latestLogURL }
-                Button("Crash Log") { fileURL = SMAPILog.crashLogURL }
-                    .disabled(!FileManager.default.fileExists(atPath: SMAPILog.crashLogURL.path(percentEncoded: false)))
-                Divider()
-                Button("Open Log File…", action: chooseFile)
-            } label: {
-                Label("Log File", systemImage: "doc.text")
-            }
-            .help("Choose which log to show")
-
-            Toggle(isOn: $followLive) {
-                Label("Follow Live", systemImage: "dot.radiowaves.left.and.right")
-            }
-            .help("Reload automatically and scroll to new messages while the game runs")
-
-            Button {
-                if let log { model.logClearMark = AppModel.LogClearMark(file: fileURL, session: log.sessionKey ?? "", entryCount: log.entries.count, date: .now) }
-            } label: {
-                Label("Clear", systemImage: "clear")
-            }
-            .keyboardShortcut("k")
-            .help("Clear: hide everything logged so far and show only new messages (⌘K). The log file isn't changed.")
-            .disabled(log == nil)
-
-            RefreshToolbarButton(title: "Reload", help: "Read the log file again") {
-                Task { await reload(force: true) }
-            }
-
-            Menu {
-                Button("Copy Log") { copyLog() }
-                Button("Upload to smapi.io…") {
-                    // smapi.io's log parser takes a pasted log; copy it and open the page.
-                    copyLog()
-                    model.openInBrowser(URL(string: "https://smapi.io/log")!)
-                }
-                Button("Show in Finder") { NSWorkspace.shared.activateFileViewerSelecting([fileURL]) }
-            } label: {
-                Label("Share", systemImage: "square.and.arrow.up")
-            }
-            .disabled(log == nil)
-            .help("Copy, share, or show the log file")
-
-            PlayToolbarButton()
-        }
-        ToolbarItem {
-            PanelToolbarButton(title: "Loaded Mods", help: "Show or hide the mods SMAPI loaded", isShown: $showLoadedMods)
-        }
-    }
-
-    // MARK: Loading
-
-    private func reload(force: Bool) async {
-        let url = fileURL
-        guard let attributes = try? FileManager.default.attributesOfItem(atPath: url.path(percentEncoded: false)) else {
-            log = nil
-            summary = nil
-            loadError = nil
-            return
-        }
-        let modified = attributes[.modificationDate] as? Date
-        guard force || modified != lastModified else { return }
-        do {
-            log = try await Task.detached { try SMAPILog.load(from: url) }.value
-            lastModified = modified
-            if url == SMAPILog.latestLogURL, let log { model.setLogConflicts(from: log.insights) }
-            loadError = nil
-            await updateSummary()
-        } catch {
-            loadError = error.localizedDescription
-        }
-    }
-
-    /// Applies "Clear" and precomputes counts, problems and insights.
-    private func updateSummary() async {
-        guard let log else { summary = nil; return }
-        let mark = activeClearMark(for: log)
-        summary = await Task.detached { LogSummary(log: mark.map { log.droppingFirst($0.entryCount) } ?? log) }.value
-    }
-
-    private func chooseFile() {
-        let panel = NSOpenPanel()
-        panel.allowedContentTypes = [.plainText, .log]
-        panel.directoryURL = SMAPILog.defaultFolder
-        panel.showsHiddenFiles = true
-        if panel.runModal() == .OK, let url = panel.url {
-            fileURL = url
-        }
-    }
-
-    private func copyLog() {
-        guard let text = try? String(contentsOf: fileURL, encoding: .utf8) else { return }
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString(text, forType: .string)
-    }
 }
 
-private struct LogRow: View {
-    let entry: LogEntry
-    let onSourceTap: (String) -> Void
-
-    var body: some View {
-        HStack(alignment: .firstTextBaseline, spacing: 8) {
-            Text(entry.time)
-                .foregroundStyle(.tertiary)
-            Text(verbatim: entry.level.rawValue)  // SMAPI's own level codes
-                .font(.system(.caption, design: .monospaced).weight(.bold))
-                .foregroundStyle(entry.level == .info ? Color.secondary : entry.level.color)
-                .frame(width: 44, alignment: .leading)
-            Button(entry.source) { onSourceTap(entry.source) }
-                .buttonStyle(.plain)
-                .foregroundStyle(sourceColor)
-                .fontWeight(.semibold)
-                .lineLimit(1)
-                .frame(width: 140, alignment: .leading)
-                .help("Show only \(entry.source)")
-            Text(entry.message)
-                .foregroundStyle(entry.level.color)
-                .textSelection(.enabled)
-                .frame(maxWidth: .infinity, alignment: .leading)
-        }
-        .font(.system(.callout, design: .monospaced))
-        .padding(.vertical, 1)
-    }
-
-    private var sourceColor: Color {
-        switch entry.source {
-        case "SMAPI": .blue
-        case "game": .teal
-        default: .indigo
-        }
-    }
-}
-
-/// "What SMAPI is telling you": skipped mods, crashing mods and updates in
-/// plain words, each with a way to fix it.
-private struct InsightsPanel: View {
-    @AppModelEnvironment private var model
-    let insights: [LogInsight]
-    let onShowSource: (String) -> Void
-    @State private var expanded = true
-
-    var body: some View {
-        if !insights.isEmpty {
-            VStack(alignment: .leading, spacing: 0) {
-                DisclosureGroup(isExpanded: $expanded) {
-                    // Scrolls when long: at full height a few findings pushed
-                    // the sidebar and status bar out of the window.
-                    ViewThatFits(in: .vertical) {
-                        rows
-                        ScrollView { rows }
-                    }
-                    .frame(maxHeight: 180)
-                    .padding(.top, 6)
-                } label: {
-                    Label("What SMAPI is telling you (\(insights.count))", systemImage: "lightbulb")
-                        .font(.headline)
-                }
-            }
-            .padding(.horizontal, 14)
-            .padding(.vertical, 10)
-            .background(.bar)
-            Divider()
-        }
-    }
-
-    private var rows: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            ForEach(insights) { insight in
-                row(insight)
-            }
-        }
-    }
-
-    @ViewBuilder
-    private func row(_ insight: LogInsight) -> some View {
-        HStack(alignment: .top, spacing: 10) {
-            Image(systemName: insight.level.symbol)
-                .foregroundStyle(insight.level.color)
-                .frame(width: 18)
-            VStack(alignment: .leading, spacing: 2) {
-                Text(title(insight)).fontWeight(.semibold)
-                Text(detail(insight)).font(.callout).foregroundStyle(.secondary).fixedSize(horizontal: false, vertical: true)
-            }
-            Spacer(minLength: 8)
-            actions(insight).fixedSize()
-        }
-    }
-
-    private func title(_ insight: LogInsight) -> String {
-        switch insight.kind {
-        case .skippedMod(let name, _, let missing, let smapi):
-            if !missing.isEmpty { return String(localized: "\(name) didn't load: it needs mods you don't have") }
-            if smapi != nil { return String(localized: "\(name) didn't load: it needs a newer SMAPI") }
-            return String(localized: "\(name) didn't load")
-        case .modErrors(let source, let count, _):
-            return count == 1 ? String(localized: "\(source) had an error while you played") : String(localized: "\(source) had \(count) errors while you played")
-        case .updatesAvailable(let list):
-            return list.count == 1 ? String(localized: "1 mod update available") : String(localized: "\(list.count) mod updates available")
-        case .smapiUpdate(let version, _):
-            return String(localized: "SMAPI \(version) is available")
-        case .assetConflict(let mods, _):
-            return String(localized: "Conflict: \(mods.formatted(.list(type: .and)))")
-        }
-    }
-
-    private func detail(_ insight: LogInsight) -> String {
-        switch insight.kind {
-        case .skippedMod(_, let reason, let missing, let smapi):
-            if !missing.isEmpty {
-                let names = missing.map { model.record(forDependency: $0)?.name ?? $0 }
-                return String(localized: "Missing: \(names.joined(separator: ", "))")
-            }
-            if let smapi, !smapi.isEmpty { return String(localized: "It needs SMAPI \(smapi) or later.") }
-            return String(localized: "SMAPI says: \(reason).")
-        case .modErrors(_, _, let events):
-            let advice = String(localized: "It may be broken or outdated. Updating it often helps; if not, report it to its author with your log.")
-            return events.isEmpty ? advice : advice + " " + String(localized: "(During: \(events.joined(separator: ", ")).)")
-        case .updatesAvailable(let list):
-            return list.map { "\($0.name) \($0.version)" }.joined(separator: ", ")
-        case .smapiUpdate:
-            return String(localized: "Newer SMAPI versions fix bugs and support newer mods.")
-        case .assetConflict(_, let assets):
-            return String(localized: "They replace the same game files (\(ConflictsSection.assetList(assets))), so SMAPI used the originals and neither change shows. Disable one of them.")
-        }
-    }
-
-    @ViewBuilder
-    private func actions(_ insight: LogInsight) -> some View {
-        switch insight.kind {
-        case .skippedMod(let name, _, let missing, let smapi):
-            if !missing.isEmpty {
-                Button("Install Missing") { model.installMissing(uniqueIDs: missing, neededBy: name) }
-                    .task { await model.resolve(uniqueIDs: missing) }
-            } else if smapi != nil {
-                SMAPIInstallButton()
-            } else if let mod = model.installedMod(named: name), let nexusID = model.nexusID(for: mod) {
-                Button("Check for Update…") { model.nexusSheet = NexusSheetRequest(modID: nexusID) }
-            }
-        case .modErrors(let source, _, _):
-            HStack {
-                Button("Show Messages") { onShowSource(source) }
-                if let mod = model.installedMod(named: source), let update = model.update(for: mod), let nexusID = model.nexusID(for: mod) {
-                    Button("Update to \(update.version)") {
-                        model.queueNexusInstalls([NexusInstallRequest(modID: nexusID, title: mod.displayName, version: update.version)])
-                    }
-                    .buttonStyle(.borderedProminent)
-                }
-            }
-        case .updatesAvailable:
-            Button("Open Updates") { model.sidebarSelection = .updates }
-        case .smapiUpdate:
-            SMAPIInstallButton()
-        case .assetConflict(let mods, _):
-            let installed = mods.compactMap { model.installedMod(named: $0) }.filter(\.isEnabled)
-            if installed.count > 1 {
-                Menu("Disable One") {
-                    ForEach(installed) { mod in
-                        Button(mod.displayName) {
-                            model.setEnabled(Set((model.group(containing: mod)?.mods ?? [mod]).map(\.id)), false)
-                        }
-                    }
-                }
-                .fixedSize()
-                .help("Disabling can be undone with ⌘Z")
-            }
-        }
-    }
-}
-
-/// Everything the log view derives from a log, computed once per change.
-struct LogSummary: Sendable {
-    let log: SMAPILog
-    let counts: [LogLevel: Int]
-    let problems: [(source: String, worst: LogLevel, count: Int)]
-    let insights: [LogInsight]
-    let unknownLocations: [UnknownLocation]
-    let loadedSaveID: String?
-    let loadedMods: [LoadedMod]
-
-    init(log: SMAPILog) {
-        self.log = log
-        var counts: [LogLevel: Int] = [:]
-        for entry in log.entries { counts[entry.level, default: 0] += 1 }
-        self.counts = counts
-        problems = log.problemsBySource
-        insights = log.insights
-        unknownLocations = log.unknownLocations
-        loadedSaveID = log.loadedSaveID
-        loadedMods = log.loadedMods
-    }
-}
+// MARK: Loaded mods
 
 /// The panel at the right of the SMAPI Log: what SMAPI actually loaded in
 /// that session. Names jump to the mod in the Installed list; hovering one

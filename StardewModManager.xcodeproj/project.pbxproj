@@ -10,7 +10,7 @@
 		0F75249C1D10234D3DEA361F /* ModDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700FCC9D677E0197700F1C10 /* ModDetailView.swift */; };
 		1301601D123E3D5DEC935931 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9603579CCCD6BA0E539392AF /* Activity.swift */; };
 		171A4655CDBAAB5AD7F35469 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B379ABC7330965D2DBC833 /* AppModel.swift */; };
-		1ED9266FE169076AE48E26D0 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 9BC9EBD9F28B49969A6D335D /* Sparkle */; };
+		1ED9266FE169076AE48E26D0 /* LogKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = A63D39DCDFD7F166A097F6D0 /* LogKitUI */; };
 		1F50529705F42A85F37609DD /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECCC4ACFA28805A28AD469 /* Background.swift */; };
 		3308FFBE6799F38D542D0D99 /* AppModel+Installing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847385174D1906D29421D1B4 /* AppModel+Installing.swift */; };
 		332C6B299600518B54646C0A /* Thumbnails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E44F54DC4269E345B7EE63 /* Thumbnails.swift */; };
@@ -45,6 +45,7 @@
 		DAC272AC390752F7D3E7F5DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD2E122C00662959EB64731C /* Assets.xcassets */; };
 		DE5E60839197F15E90C56F40 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E46DB3F74731B560BF4385 /* Keychain.swift */; };
 		DF6863EC182FECE9BC603FB6 /* StardewModManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060CBD6601F4146FAF75C704 /* StardewModManagerApp.swift */; };
+		E03D5AF206534C6ADEA0F7B2 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 9BC9EBD9F28B49969A6D335D /* Sparkle */; };
 		E04C070C8BA2C7533BDA2E3C /* AppModel+Profiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A51E6BD6FC074BC41A3353 /* AppModel+Profiles.swift */; };
 		E4B5CEEA4A1EB96953C7CCE2 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75577C052056FCD477A7DBDC /* HelpView.swift */; };
 		E61234292113931E91B31C65 /* ModManagerCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8A443BB383FD0A5D9F88D16D /* ModManagerCore */; };
@@ -112,7 +113,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E61234292113931E91B31C65 /* ModManagerCore in Frameworks */,
-				1ED9266FE169076AE48E26D0 /* Sparkle in Frameworks */,
+				1ED9266FE169076AE48E26D0 /* LogKitUI in Frameworks */,
+				E03D5AF206534C6ADEA0F7B2 /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +217,7 @@
 			name = StardewModManager;
 			packageProductDependencies = (
 				8A443BB383FD0A5D9F88D16D /* ModManagerCore */,
+				A63D39DCDFD7F166A097F6D0 /* LogKitUI */,
 				9BC9EBD9F28B49969A6D335D /* Sparkle */,
 			);
 			productName = StardewModManager;
@@ -250,6 +253,7 @@
 			mainGroup = 9FDC79F8A3249922785C0454;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+				92CC38ECCBBA83240860A427 /* XCRemoteSwiftPackageReference "LogKit" */,
 				2DF448B9CF2E098DE27DB586 /* XCRemoteSwiftPackageReference "Sparkle" */,
 				97D190738D8CEA28B281FAE7 /* XCLocalSwiftPackageReference "ModManagerCore" */,
 			);
@@ -540,6 +544,14 @@
 				version = 2.10.0;
 			};
 		};
+		92CC38ECCBBA83240860A427 /* XCRemoteSwiftPackageReference "LogKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/matguitarist/LogKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -551,6 +563,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2DF448B9CF2E098DE27DB586 /* XCRemoteSwiftPackageReference "Sparkle" */;
 			productName = Sparkle;
+		};
+		A63D39DCDFD7F166A097F6D0 /* LogKitUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92CC38ECCBBA83240860A427 /* XCRemoteSwiftPackageReference "LogKit" */;
+			productName = LogKitUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

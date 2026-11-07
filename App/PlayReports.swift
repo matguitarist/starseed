@@ -97,7 +97,7 @@ extension AppModel {
 
     /// Opens the SMAPI Log section from a notification.
     func openLogFromNotification(crash: Bool) {
-        requestedLogURL = crash ? SMAPILog.crashLogURL : SMAPILog.latestLogURL
+        smapiLog.fileURL = crash ? SMAPILog.crashLogURL : SMAPILog.latestLogURL
         sidebarSelection = .log
         NSApp.activate()
     }

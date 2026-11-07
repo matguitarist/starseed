@@ -10,8 +10,14 @@ let package = Package(
     products: [
         .library(name: "ModManagerCore", targets: ["ModManagerCore"]),
     ],
+    dependencies: [
+        // SMAPI's log is parsed and shown with the log viewer the apps share.
+        .package(url: "https://github.com/matguitarist/LogKit", from: "0.1.2"),
+    ],
     targets: [
-        .target(name: "ModManagerCore", resources: [.process("Resources")]),
+        .target(name: "ModManagerCore",
+                dependencies: [.product(name: "LogKit", package: "LogKit")],
+                resources: [.process("Resources")]),
         .testTarget(name: "ModManagerCoreTests", dependencies: ["ModManagerCore"]),
     ]
 )

@@ -64,7 +64,7 @@ stardew_mod_manager/
 │   ├── RequirementsView.swift    # missing dependencies
 │   ├── BrowserView.swift         # in-app Nexus browser (WKWebView)
 │   ├── CollectionsView.swift / CollectionSheet.swift
-│   ├── LogViewerView.swift       # SMAPI log viewer
+│   ├── LogViewerView.swift       # SMAPI Log page (LogKit's viewer + insights, Loaded Mods)
 │   ├── SavesView.swift           # saves: missing-mod analysis, backups/restore
 │   ├── ConfigEditorView.swift    # config.json form editor
 │   ├── Background.swift          # background checks, notifications, menu bar

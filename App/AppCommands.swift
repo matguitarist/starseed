@@ -52,7 +52,6 @@ private struct ViewMenuItems: View {
     let model: AppModel
     @Environment(\.openWindow) private var openWindow
     @AppStorage(Preferences.showModPictures) private var showModPictures = true
-    @AppStorage("showLoadedMods") private var showLoadedMods = true
 
     private static let pages: [(item: SidebarItem, title: LocalizedStringKey)] = [
         (.installed, "Installed"), (.updates, "Updates"), (.requirements, "Requirements"),
@@ -70,7 +69,7 @@ private struct ViewMenuItems: View {
         // The panel at the right of the page you're on: mod details, or the
         // mods SMAPI loaded on the SMAPI Log page.
         if model.sidebarSelection == .log {
-            Button(showLoadedMods ? "Hide Loaded Mods" : "Show Loaded Mods") { showLoadedMods.toggle() }
+            Button(model.smapiLog.showInspector ? "Hide Loaded Mods" : "Show Loaded Mods") { model.smapiLog.showInspector.toggle() }
                 .keyboardShortcut("i", modifiers: [.command, .option])
         } else {
             Button(model.showInspector ? "Hide Details" : "Show Details") {

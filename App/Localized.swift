@@ -17,19 +17,6 @@ extension ModStatus {
     }
 }
 
-extension LogLevel {
-    var localizedTitle: String {
-        switch self {
-        case .trace: String(localized: "Trace", comment: "SMAPI log level")
-        case .debug: String(localized: "Debug", comment: "SMAPI log level")
-        case .info: String(localized: "Info", comment: "SMAPI log level")
-        case .warn: String(localized: "Warning", comment: "SMAPI log level")
-        case .error: String(localized: "Error", comment: "SMAPI log level")
-        case .alert: String(localized: "Alert", comment: "SMAPI log level")
-        }
-    }
-}
-
 extension NexusSort {
     var localizedTitle: String {
         switch self {

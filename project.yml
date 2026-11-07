@@ -20,6 +20,10 @@ settings:
 packages:
   ModManagerCore:
     path: ModManagerCore
+  # The log viewer the apps share (the SMAPI Log page).
+  LogKit:
+    url: https://github.com/matguitarist/LogKit
+    from: 0.1.2
   # Self-updates for the app (see "Releasing updates" in the README).
   Sparkle:
     url: https://github.com/sparkle-project/Sparkle
@@ -32,6 +36,8 @@ targets:
       - App
     dependencies:
       - package: ModManagerCore
+      - package: LogKit
+        product: LogKitUI
       - package: Sparkle
     # A locally ("ad-hoc") signed app with the hardened runtime can't load
     # separately signed frameworks (Sparkle) without this.

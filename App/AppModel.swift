@@ -2,6 +2,7 @@
 // Nexus account, updates and downloads, plus the user-facing actions.
 
 import AppKit
+import LogKitUI
 import ModManagerCore
 import SwiftUI
 import UniformTypeIdentifiers
@@ -11,6 +12,12 @@ import UniformTypeIdentifiers
 final class AppModel {
     /// The one model for the whole app (see `AppModelEnvironment`).
     static let shared = AppModel()
+
+    init() {
+        let names = DependencyNames()
+        dependencyNames = names
+        smapiLog = .smapi(names: names)
+    }
 
     struct UserMessage: Identifiable {
         let id = UUID()
@@ -80,7 +87,10 @@ final class AppModel {
     /// What SMAPI's database knows about installed mods and missing
     /// dependencies (names, Nexus IDs), keyed by lowercased UniqueID.
     var smapiRecords: [String: SMAPIModRecord] = [:] {
-        didSet { recomputeDerived() }
+        didSet {
+            recomputeDerived()
+            dependencyNames.update(smapiRecords)
+        }
     }
     /// Set after an install leaves mods with missing requirements.
     var requirementsPrompt: [MissingDependency]?
@@ -101,8 +111,11 @@ final class AppModel {
     var showBisect = false
     /// The problems from the last game session (see PlayReports.swift).
     var lastPlayReport: PlayReport?
-    /// A log the SMAPI Log section should open (e.g. the crash log).
-    var requestedLogURL: URL?
+    /// The SMAPI Log page's state (file, filters, Clear), kept here so it
+    /// survives switching pages. See LogViewerView.swift.
+    let smapiLog: LogViewerModel
+    /// Names of mods looked up by UniqueID, for the log's insights.
+    let dependencyNames: DependencyNames
     /// Steam's view of the game (update waiting?), read with SMAPI's version.
     var steamGame: SteamGameState?
     /// Where the game was bought (Steam, GOG, Mac App Store).
@@ -122,16 +135,6 @@ final class AppModel {
     var sidebarSelection: SidebarItem? = .installed
     /// Save to show in the Saves section.
     var selectedSaveID: String?
-
-    /// Where the log was cleared: entries before it are hidden. Kept here so
-    /// it survives switching sections; a new game session resets it.
-    struct LogClearMark: Equatable {
-        let file: URL
-        let session: String
-        let entryCount: Int
-        let date: Date
-    }
-    var logClearMark: LogClearMark?
 
     /// SMAPI next to the Mods folder (nil if missing) and the latest release on Nexus.
     var smapi: SMAPIInstallation?
