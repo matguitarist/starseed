@@ -48,7 +48,7 @@ targets:
         CFBundleDevelopmentRegion: en
         CFBundleLocalizations: [en, fr, de, es, pt-BR, zh-Hans]
         LSApplicationCategoryType: public.app-category.games
-        # App updates (Sparkle): release.sh publishes the zip on GitHub
+        # App updates (Sparkle): tools/release.sh publishes the zip on GitHub
         # Releases and the feed (appcast.xml) on the main branch. The key
         # checks that updates were signed with the private key in the
         # maintainer's Keychain (account "starseed").
