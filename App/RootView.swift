@@ -77,7 +77,7 @@ struct RootView: View {
         }
         .overlay {
             if isDropTargeted {
-                RoundedRectangle(cornerRadius: 8)
+                RoundedRectangle(cornerRadius: Radius.control)
                     .strokeBorder(Color.accentColor, lineWidth: 3)
                     .padding(4)
                     .allowsHitTesting(false)

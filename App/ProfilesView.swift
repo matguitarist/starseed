@@ -304,6 +304,6 @@ struct ProfileOverview: View {
             }
         }
         .padding(10)
-        .background(.quaternary.opacity(0.4), in: RoundedRectangle(cornerRadius: 10))
+        .background(.quaternary.opacity(0.4), in: RoundedRectangle(cornerRadius: Radius.banner))
     }
 }

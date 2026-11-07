@@ -77,7 +77,7 @@ struct ConflictsSection: View {
             }
             .font(.callout)
             .padding(8)
-            .background(.orange.opacity(0.1), in: RoundedRectangle(cornerRadius: 6))
+            .background(.orange.opacity(0.1), in: RoundedRectangle(cornerRadius: Radius.banner))
         }
     }
 

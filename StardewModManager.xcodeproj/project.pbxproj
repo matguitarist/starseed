@@ -12,6 +12,7 @@
 		171A4655CDBAAB5AD7F35469 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B379ABC7330965D2DBC833 /* AppModel.swift */; };
 		1ED9266FE169076AE48E26D0 /* LogKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = A63D39DCDFD7F166A097F6D0 /* LogKitUI */; };
 		1F50529705F42A85F37609DD /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECCC4ACFA28805A28AD469 /* Background.swift */; };
+		21FAB2CDBD707282CABB5CD8 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE13516D0D387277B30E59D /* Grid.swift */; };
 		3308FFBE6799F38D542D0D99 /* AppModel+Installing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847385174D1906D29421D1B4 /* AppModel+Installing.swift */; };
 		332C6B299600518B54646C0A /* Thumbnails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E44F54DC4269E345B7EE63 /* Thumbnails.swift */; };
 		347139B1801B9B805642EAE5 /* BrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC65CDCCA389CF775E52F81 /* BrowserView.swift */; };
@@ -71,6 +72,7 @@
 		36BD33902DFD3EF0DAE6802F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		3751918581379943B9AB023D /* AppModel+Nexus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModel+Nexus.swift"; sourceTree = "<group>"; };
 		3A7745432F262C11C31A9634 /* StardewModManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StardewModManager.entitlements; sourceTree = "<group>"; };
+		3DE13516D0D387277B30E59D /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		466DFE1F2D8B06DF05695D18 /* StardewModManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StardewModManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48197B7BBE7EE15AB71D5108 /* UpdatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesView.swift; sourceTree = "<group>"; };
 		5B138698F0E21A1D71717833 /* ChangelogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangelogView.swift; sourceTree = "<group>"; };
@@ -127,6 +129,14 @@
 				466DFE1F2D8B06DF05695D18 /* StardewModManager.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		8B9DA1A4BF933CC713A0459A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3DE13516D0D387277B30E59D /* Grid.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		9FDC79F8A3249922785C0454 = {
@@ -187,6 +197,7 @@
 				95E44F54DC4269E345B7EE63 /* Thumbnails.swift */,
 				0825B0DCF8C284030913ADCA /* UnusedRequirementsSheet.swift */,
 				48197B7BBE7EE15AB71D5108 /* UpdatesView.swift */,
+				8B9DA1A4BF933CC713A0459A /* UI */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -305,6 +316,7 @@
 				47E9636795C75895D5A37ACC /* ConfigEditorView.swift in Sources */,
 				49022E1AFED4BDEEF85C55AB /* Conflicts.swift in Sources */,
 				D52CAA46469BF512CA60D1E5 /* Downloads.swift in Sources */,
+				21FAB2CDBD707282CABB5CD8 /* Grid.swift in Sources */,
 				E4B5CEEA4A1EB96953C7CCE2 /* HelpView.swift in Sources */,
 				92BF6C1C464C2C813B8FE030 /* InstalledView.swift in Sources */,
 				DE5E60839197F15E90C56F40 /* Keychain.swift in Sources */,

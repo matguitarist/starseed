@@ -153,7 +153,7 @@ struct BisectView: View {
                 .font(.callout)
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(10)
-                .background(.orange.opacity(0.1), in: RoundedRectangle(cornerRadius: 8))
+                .background(.orange.opacity(0.1), in: RoundedRectangle(cornerRadius: Radius.banner))
             HStack {
                 Spacer()
                 Button("Cancel") { dismiss() }

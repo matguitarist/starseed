@@ -54,7 +54,7 @@ struct ModDetailView: View {
                         }
                         .font(.callout)
                         .padding(8)
-                        .background(.orange.opacity(0.1), in: RoundedRectangle(cornerRadius: 6))
+                        .background(.orange.opacity(0.1), in: RoundedRectangle(cornerRadius: Radius.banner))
                     }
                     if mod.isBundledWithSMAPI {
                         Label(mod.uniqueID.lowercased() == "smapi.savebackup"
