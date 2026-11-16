@@ -13,7 +13,7 @@ if ! xcodebuild -version >/dev/null 2>&1; then
     export DEVELOPER_DIR="$XCODE_APP/Contents/Developer"
 fi
 
-# Optional: DEVELOPMENT_TEAM=XXXXXXXXXX ./build_app.sh signs with your Apple
+# Optional: DEVELOPMENT_TEAM=XXXXXXXXXX ./build.sh signs with your Apple
 # Development certificate (add your Apple ID in Xcode → Settings → Accounts).
 # A stable signature means macOS asks for Keychain access only once instead
 # of after every rebuild.
@@ -38,7 +38,7 @@ BUILT="$DERIVED/Build/Products/Release/$APP_NAME"
 [[ -d "$BUILT" ]] || { echo "Build failed"; exit 1; }
 
 # Signed with your Developer ID (or else the "Starseed Self-Signed"
-# certificate, make_signing_identity.sh), so the app's identity stays the
+# certificate, tools/make_signing_identity.sh), so the app's identity stays the
 # same from build to build. REQUIRE_SIGNING=1 stops without one.
 # Signing happens here in Caches: this folder may sync with iCloud Drive,
 # which puts Finder attributes back on files and makes codesign fail.
@@ -47,13 +47,13 @@ STAGED="$DERIVED/Signed/$APP_NAME"
 mkdir -p "${STAGED:h}"
 ditto --noextattr --norsrc "$BUILT" "$STAGED"
 if [[ -z "${DEVELOPMENT_TEAM:-}" ]]; then
-    if [[ -n "$(./signing_identity.sh)" ]]; then
-        ./sign_app.sh "$STAGED" 2>&1 | grep -v "replacing existing signature"
+    if [[ -n "$(tools/signing_identity.sh)" ]]; then
+        tools/sign_app.sh "$STAGED" 2>&1 | grep -v "replacing existing signature"
     elif [[ -n "${REQUIRE_SIGNING:-}" ]]; then
-        echo "No signing certificate: add your Developer ID in Xcode, or run ./make_signing_identity.sh." >&2
+        echo "No signing certificate: add your Developer ID in Xcode, or run tools/make_signing_identity.sh." >&2
         exit 1
     else
-        echo "Note: signed ad hoc (run ./make_signing_identity.sh for a stable signature)."
+        echo "Note: signed ad hoc (run tools/make_signing_identity.sh for a stable signature)."
     fi
 fi
 

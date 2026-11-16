@@ -81,7 +81,7 @@ targets:
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         # Ad-hoc "Sign to Run Locally" by default. With an ad-hoc signature,
         # macOS asks for Keychain access again after every rebuild; signing with
-        # an Apple Development team (DEVELOPMENT_TEAM=XXXXXXXXXX ./build_app.sh)
+        # an Apple Development team (DEVELOPMENT_TEAM=XXXXXXXXXX ./build.sh)
         # keeps the app's identity stable so it only asks once.
         CODE_SIGN_STYLE: Automatic
         CODE_SIGN_IDENTITY: "-"

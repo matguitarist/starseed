@@ -1,7 +1,7 @@
 #!/bin/zsh
 # Prints the certificate to sign with: your "Developer ID Application" one
 # (Xcode → Settings → Accounts → Manage Certificates) if it's in the
-# Keychain, else "Starseed Self-Signed" (make_signing_identity.sh), else
+# Keychain, else "Starseed Self-Signed" (tools/make_signing_identity.sh), else
 # nothing.
 set -euo pipefail
 IDENTITIES=$(security find-identity -v -p codesigning; security find-identity -p codesigning)

@@ -1,11 +1,11 @@
 #!/bin/zsh
 # Signs a built Starseed.app: with your "Developer ID Application" certificate
 # when it's in the Keychain (then tools/release.sh can have it notarized), else
-# with the self-signed certificate made by make_signing_identity.sh. Either
+# with the self-signed certificate made by tools/make_signing_identity.sh. Either
 # keeps the app's identity the same from build to build, so macOS asks for
 # Keychain access once instead of after every update.
 #
-# Usage: ./sign_app.sh path/to/Starseed.app   (SIGNING_IDENTITY overrides)
+# Usage: tools/sign_app.sh path/to/Starseed.app   (SIGNING_IDENTITY overrides)
 # Signs inside out, as Sparkle's documentation describes: its helpers, the
 # framework, then the app with its own entitlements.
 set -euo pipefail

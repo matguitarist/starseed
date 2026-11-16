@@ -14,7 +14,7 @@ Open `StardewModManager.xcodeproj` in Xcode and press ⌘R, or ⌘U to run the
 tests. From the terminal:
 
 ```bash
-./build_app.sh                          # -> dist/Starseed.app
+./build.sh                          # -> dist/Starseed.app
 open "dist/Starseed.app"     # or drag it into /Applications
 ```
 
@@ -26,7 +26,7 @@ files or changing build settings. Edit `project.yml`, not the `.xcodeproj`.
 > **iCloud Drive note:** if this folder syncs with iCloud (e.g. it's on the
 > Desktop), build products must live outside it, or `codesign` fails with
 > "resource fork, Finder information, or similar detritus not allowed".
-> Xcode's DerivedData and `build_app.sh` already build in `~/Library`. For
+> Xcode's DerivedData and `build.sh` already build in `~/Library`. For
 > `swift test` in `ModManagerCore/`, pass
 > `--scratch-path ~/Library/Caches/StardewModManager/core-build`.
 >
@@ -53,7 +53,7 @@ it later in Settings or via **Mods → Change Mods Folder…**.
 stardew_mod_manager/
 ├── project.yml                   # XcodeGen spec -> StardewModManager.xcodeproj
 ├── StardewModManager.xcodeproj
-├── build_app.sh                  # Release build -> dist/
+├── build.sh                  # Release build -> dist/
 ├── App/                          # SwiftUI app target
 │   ├── StardewModManagerApp.swift
 │   ├── AppModel.swift            # app state + actions (install queue, downloads, updates)
@@ -111,7 +111,9 @@ stardew_mod_manager/
 │   │   ├── LogInsights.swift     # plain-language findings from SMAPI logs
 │   │   └── FileDownloader.swift
 │   └── Tests/ModManagerCoreTests/
-└── legacy-python/               # original PySide6 version, kept for reference
+└── tools/                        # release.sh and the signing scripts
+
+The original PySide6 version is in git at the tag `python-original`.
 ```
 
 App settings and profiles are stored at
@@ -135,7 +137,7 @@ notarized by Apple: `tools/release.sh` sends the disk image to the
 notary service (credentials saved once with
 `xcrun notarytool store-credentials ares-notary --apple-id <you>
 --team-id <TEAMID>`, shared with Tadpole) and staples the approval, so
-macOS opens Starseed without Open Anyway. `signing_identity.sh` picks the
+macOS opens Starseed without Open Anyway. `tools/signing_identity.sh` picks the
 certificate.
 
 Before that, releases were signed with a self-signed certificate, "Starseed Self-Signed",
@@ -146,10 +148,10 @@ after each update; with the certificate the app keeps the same identity and
 still need **Open Anyway**. Sparkle accepts the change because updates stay
 signed with the same EdDSA key.
 
-- `./make_signing_identity.sh` creates the certificate in your login
+- `tools/make_signing_identity.sh` creates the certificate in your login
   Keychain. Run it once on the Mac you release from; the first signing asks
   to let `codesign` use it (**Always Allow**).
-- `build_app.sh` signs with it (`sign_app.sh`) when it's there;
+- `build.sh` signs with it (`tools/sign_app.sh`) when it's there;
   `tools/release.sh` releases only with the Developer ID, so a release can't
   fall back to ad hoc by accident.
 - Back it up (Keychain Access → My Certificates → Export…). If it's lost, a

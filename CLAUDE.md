@@ -10,12 +10,12 @@ the part you need before changing those.
 - `project.yml` is the XcodeGen spec for `StardewModManager.xcodeproj`. Edit it, then `xcodegen generate`; never edit the `.xcodeproj`.
 - `App/` the SwiftUI app. `AppModel.swift` holds state and actions.
 - `ModManagerCore/` local Swift package, no UI: models, Nexus and SMAPI clients, saves, profiles. Tests in `ModManagerCore/Tests/ModManagerCoreTests/`.
-- `legacy-python/` the original PySide6 version, kept for reference only. Don't change it.
+- The original PySide6 version is in git at the tag `python-original` (`git show python-original:legacy-python/main.py`).
 - Settings and profiles: `~/Library/Application Support/StardewModManager/`, in the old Python version's format. Never test against the real one.
 
 ## Build and check
 
-- Build: `./build_app.sh` → `dist/Starseed.app`.
+- Build: `./build.sh` → `dist/Starseed.app`.
 - Core tests: `swift test --package-path ModManagerCore --scratch-path ~/Library/Caches/StardewModManager/core-build`. Live Nexus/SMAPI tests run only with `LIVE_API_TESTS=1`.
 - Strings live in String Catalogs, in six languages; new user-facing text needs every language (see Languages in `DEVELOPMENT.md`).
 - Logs use LogKit (the `log-viewer` skill).
