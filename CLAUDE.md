@@ -5,6 +5,9 @@ collections, profiles, saves). SwiftUI app plus a no-UI core package.
 `DEVELOPMENT.md` has the full layout, signing, languages and versioning: read
 the part you need before changing those.
 
+Shared rules for how every project is laid out and named:
+@~/.claude/project-layout.md
+
 ## Layout
 
 - `project.yml` is the XcodeGen spec for `StardewModManager.xcodeproj`. Edit it, then `xcodegen generate`; never edit the `.xcodeproj`.
