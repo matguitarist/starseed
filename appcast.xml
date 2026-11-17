@@ -3,6 +3,21 @@
     <channel>
         <title>Starseed</title>
         <item>
+            <title>2.8</title>
+            <pubDate>Tue, 17 Nov 2026 09:47:56 -0500</pubDate>
+            <sparkle:version>16</sparkle:version>
+            <sparkle:shortVersionString>2.8</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[## A better SMAPI Log
+
+- The toolbar says how many messages it shows, and **Show All Messages** undoes every filter at once.
+- Pick any mod or source from the **Source** menu, not only the ones with problems.
+- After **Clear**, the log says when you cleared it and how many earlier messages are hidden.
+- An empty log says so plainly, instead of "No Matching Messages".
+]]></description>
+            <enclosure url="https://github.com/matguitarist/starseed/releases/download/v2.8/Starseed-2.8.zip" length="7578898" type="application/octet-stream" sparkle:edSignature="g55J5pkf6hfnaijeSCoSLX6MeSlngVXR8yMSVhpxisH8i7Wh8YUUtF9och6ToWDz2QPQgKeW72GOzGOE3fH0AA=="/>
+        </item>
+        <item>
             <title>2.7</title>
             <pubDate>Sat, 07 Nov 2026 06:54:43 -0500</pubDate>
             <sparkle:version>15</sparkle:version>
