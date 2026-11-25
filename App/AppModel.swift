@@ -4,6 +4,7 @@
 import AppKit
 import LogKitUI
 import ModManagerCore
+import SteamKit
 import SwiftUI
 import UniformTypeIdentifiers
 
@@ -580,8 +581,8 @@ final class AppModel {
                 } catch {
                     show("Couldn't Start the Game", detail: error.localizedDescription)
                 }
-            } else if let url = URL(string: "steam://rungameid/\(AppConstants.steamAppID)") {
-                NSWorkspace.shared.open(url)
+            } else {
+                NSWorkspace.shared.open(SteamLink.run(appID: AppConstants.steamAppID))
             }
         }
     }

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0F75249C1D10234D3DEA361F /* ModDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700FCC9D677E0197700F1C10 /* ModDetailView.swift */; };
 		1301601D123E3D5DEC935931 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9603579CCCD6BA0E539392AF /* Activity.swift */; };
-		15DD26CE61F853880AD86C69 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 9BC9EBD9F28B49969A6D335D /* Sparkle */; };
+		15DD26CE61F853880AD86C69 /* SteamKit in Frameworks */ = {isa = PBXBuildFile; productRef = 06B76A3CB1BA533D0E76E589 /* SteamKit */; };
 		171A4655CDBAAB5AD7F35469 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B379ABC7330965D2DBC833 /* AppModel.swift */; };
 		1ED9266FE169076AE48E26D0 /* LogKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = A63D39DCDFD7F166A097F6D0 /* LogKitUI */; };
 		1F50529705F42A85F37609DD /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECCC4ACFA28805A28AD469 /* Background.swift */; };
@@ -31,6 +31,7 @@
 		7E1F05263ECFC7F3E64EC9DB /* release-notes in Resources */ = {isa = PBXBuildFile; fileRef = 92321D956BF791BA11C76662 /* release-notes */; };
 		7FC9C92FCE9783FBAC90971B /* CollectionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667A44B25AC6FAF1BBC3B154 /* CollectionSheet.swift */; };
 		815275C41A1B0D3D66E3D939 /* BisectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B795C47ECDFF10A726ECFDA0 /* BisectView.swift */; };
+		86E760399E956750A10DC986 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 9BC9EBD9F28B49969A6D335D /* Sparkle */; };
 		92BF6C1C464C2C813B8FE030 /* InstalledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B72EE4ABCABDFF5EEC268D /* InstalledView.swift */; };
 		95C0C9AEA819D620A641CD00 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 5CEAACA199435D4A4282751F /* Localizable.xcstrings */; };
 		9CCCFD4ABD257FFD564BD3E0 /* SetupAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23980B79DD8EC7F29D835276 /* SetupAssistant.swift */; };
@@ -120,7 +121,8 @@
 				E61234292113931E91B31C65 /* ModManagerCore in Frameworks */,
 				1ED9266FE169076AE48E26D0 /* LogKitUI in Frameworks */,
 				E03D5AF206534C6ADEA0F7B2 /* FileKit in Frameworks */,
-				15DD26CE61F853880AD86C69 /* Sparkle in Frameworks */,
+				15DD26CE61F853880AD86C69 /* SteamKit in Frameworks */,
+				86E760399E956750A10DC986 /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +229,7 @@
 				8A443BB383FD0A5D9F88D16D /* ModManagerCore */,
 				A63D39DCDFD7F166A097F6D0 /* LogKitUI */,
 				EBECB0EA622994DA5445DFD7 /* FileKit */,
+				06B76A3CB1BA533D0E76E589 /* SteamKit */,
 				9BC9EBD9F28B49969A6D335D /* Sparkle */,
 			);
 			productName = StardewModManager;
@@ -265,6 +268,7 @@
 				D6C29CC78843DE1DF22FF4AD /* XCRemoteSwiftPackageReference "FileKit" */,
 				92CC38ECCBBA83240860A427 /* XCRemoteSwiftPackageReference "LogKit" */,
 				2DF448B9CF2E098DE27DB586 /* XCRemoteSwiftPackageReference "Sparkle" */,
+				D1407FC8BDF46CDDBE2D3557 /* XCRemoteSwiftPackageReference "SteamKit" */,
 				97D190738D8CEA28B281FAE7 /* XCLocalSwiftPackageReference "ModManagerCore" */,
 			);
 			preferredProjectObjectVersion = 77;
@@ -564,6 +568,14 @@
 				minimumVersion = 0.6.0;
 			};
 		};
+		D1407FC8BDF46CDDBE2D3557 /* XCRemoteSwiftPackageReference "SteamKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/matguitarist/SteamKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
 		D6C29CC78843DE1DF22FF4AD /* XCRemoteSwiftPackageReference "FileKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/matguitarist/FileKit";
@@ -575,6 +587,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		06B76A3CB1BA533D0E76E589 /* SteamKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1407FC8BDF46CDDBE2D3557 /* XCRemoteSwiftPackageReference "SteamKit" */;
+			productName = SteamKit;
+		};
 		8A443BB383FD0A5D9F88D16D /* ModManagerCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ModManagerCore;

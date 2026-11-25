@@ -2,6 +2,7 @@
 // and Nexus file lists of installed mods.
 
 import ModManagerCore
+import SteamKit
 import SwiftUI
 
 extension AppModel {
@@ -30,9 +31,7 @@ extension AppModel {
 
     /// Opens the game's page in Steam, where a waiting update can be started.
     func openGameInSteam() {
-        if let url = URL(string: "steam://nav/games/details/\(SteamGameState.appID)") {
-            NSWorkspace.shared.open(url)
-        }
+        NSWorkspace.shared.open(SteamLink.libraryPage(appID: AppConstants.steamAppID))
     }
 
     var isSMAPIOutdated: Bool {

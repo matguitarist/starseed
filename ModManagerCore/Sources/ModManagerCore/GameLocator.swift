@@ -3,6 +3,7 @@
 // where SMAPI installs and the Mods folder lives.
 
 import Foundation
+import SteamKit
 
 public struct GameLocator: Sendable {
     public var home: URL
@@ -19,32 +20,18 @@ public struct GameLocator: Sendable {
     }
 
     /// Steam keeps its main library here, and lists the others in libraryfolders.vdf.
-    var steamFolder: URL { home.appending(path: "Library/Application Support/Steam", directoryHint: .isDirectory) }
+    var steamFolder: URL { Steam.defaultRoot(home: home) }
 
     /// Every game folder found, Steam first, without duplicates.
     public func installs() -> [URL] {
-        var libraries = [steamFolder.path(percentEncoded: false)]
-        if let text = try? String(contentsOf: steamFolder.appending(path: "steamapps/libraryfolders.vdf"), encoding: .utf8) {
-            libraries += Self.steamLibraries(inVDF: text)
-        }
-        let steam = libraries.map {
-            URL(filePath: $0, directoryHint: .isDirectory).appending(path: "steamapps/common/Stardew Valley/Contents/MacOS", directoryHint: .isDirectory)
+        let steam = Steam(root: steamFolder).libraries().map {
+            $0.common.appending(path: "Stardew Valley/Contents/MacOS", directoryHint: .isDirectory)
         }
         let apps = applicationFolders.map { $0.appending(path: "Stardew Valley.app/Contents/MacOS", directoryHint: .isDirectory) }
         var seen = Set<String>()
         return (steam + apps).filter { folder in
             let key = folder.standardizedFileURL.resolvingSymlinksInPath().path(percentEncoded: false)
             return SMAPIInstaller.isGameFolder(folder) && seen.insert(key).inserted
-        }
-    }
-
-    /// The "path" entries of Steam's libraryfolders.vdf.
-    public static func steamLibraries(inVDF text: String) -> [String] {
-        text.split(whereSeparator: \.isNewline).compactMap { line in
-            let parts = line.split(separator: "\"", omittingEmptySubsequences: false)
-            // \t"path"\t\t"/Volumes/Games/SteamLibrary"  ->  ["\t", "path", "\t\t", "/Volumes/…", ""]
-            guard parts.count >= 4, parts[1] == "path" else { return nil }
-            return parts[3].replacingOccurrences(of: "\\\\", with: "\\")
         }
     }
 

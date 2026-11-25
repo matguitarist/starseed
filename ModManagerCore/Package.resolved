@@ -1,5 +1,5 @@
 {
-  "originHash" : "82cc2533023bc80680420bd77891b47d9fb4df35410799aedda3f35da5833f94",
+  "originHash" : "e982cc3db6e6010381e3defb401e95c56fe335846fabdf547aa41a4f0c0dd8ea",
   "pins" : [
     {
       "identity" : "archivekit",
@@ -44,6 +44,15 @@
       "state" : {
         "revision" : "4664cb8f16dab9f2ccad228dccfad67b729b5d46",
         "version" : "0.2.1"
+      }
+    },
+    {
+      "identity" : "steamkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/matguitarist/SteamKit",
+      "state" : {
+        "revision" : "84fe7c69356eb43e6d6ba87a7fe8357d4ca8d18d",
+        "version" : "0.1.0"
       }
     }
   ],

@@ -8,24 +8,6 @@ import Testing
         try Data().write(to: folder.appending(path: "Stardew Valley.dll"))
     }
 
-    @Test func readsSteamLibraryPaths() {
-        let vdf = """
-        "libraryfolders"
-        {
-        \t"0"
-        \t{
-        \t\t"path"\t\t"/Users/me/Library/Application Support/Steam"
-        \t\t"label"\t\t""
-        \t}
-        \t"1"
-        \t{
-        \t\t"path"\t\t"/Volumes/Games/SteamLibrary"
-        \t}
-        }
-        """
-        #expect(GameLocator.steamLibraries(inVDF: vdf) == ["/Users/me/Library/Application Support/Steam", "/Volumes/Games/SteamLibrary"])
-    }
-
     @Test func findsSteamLibrariesAndApps() throws {
         let root = FileManager.default.temporaryDirectory.appending(path: "locator-\(UUID().uuidString)")
         defer { try? FileManager.default.removeItem(at: root) }

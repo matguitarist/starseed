@@ -21,6 +21,8 @@ let package = Package(
         .package(url: "https://github.com/matguitarist/DownloadKit", from: "0.2.0"),
         // Folder sizes that count hard links once (the tests measure kept versions with it).
         .package(url: "https://github.com/matguitarist/FileKit", from: "0.2.0"),
+        // Steam's libraries and the game's manifest (where it is, whether an update waits).
+        .package(url: "https://github.com/matguitarist/SteamKit", from: "0.1.0"),
     ],
     targets: [
         .target(name: "ModManagerCore",
@@ -29,6 +31,7 @@ let package = Package(
                     .product(name: "ProcessKit", package: "ProcessKit"),
                     .product(name: "ArchiveKit", package: "ArchiveKit"),
                     .product(name: "DownloadKit", package: "DownloadKit"),
+                    .product(name: "SteamKit", package: "SteamKit"),
                 ],
                 resources: [.process("Resources")]),
         .testTarget(name: "ModManagerCoreTests", dependencies: [
@@ -36,6 +39,7 @@ let package = Package(
             .product(name: "ProcessKit", package: "ProcessKit"),
             .product(name: "DownloadKit", package: "DownloadKit"),
             .product(name: "FileKit", package: "FileKit"),
+            .product(name: "SteamKit", package: "SteamKit"),
         ]),
     ]
 )
