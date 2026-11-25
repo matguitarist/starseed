@@ -42,6 +42,7 @@ struct StardewModManagerApp: App {
         Window("Starseed", id: "main") {
             RootView()
                 .environment(model)
+                .whatsNew(app: "Starseed", repository: "matguitarist/starseed")
                 .frame(minWidth: 1080, minHeight: 560)
                 .task {
                     model.start()

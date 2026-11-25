@@ -38,6 +38,10 @@ targets:
     platform: macOS
     sources:
       - App
+      # What's New: release-notes/<version>.md, bundled as Resources/release-notes.
+      - path: release-notes
+        type: folder
+        buildPhase: resources
     dependencies:
       - package: ModManagerCore
       - package: LogKit
