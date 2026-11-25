@@ -3,6 +3,22 @@
     <channel>
         <title>Starseed</title>
         <item>
+            <title>2.8.1</title>
+            <pubDate>Wed, 25 Nov 2026 10:28:25 -0500</pubDate>
+            <sparkle:version>17</sparkle:version>
+            <sparkle:shortVersionString>2.8.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[## Steadier downloads and installs
+
+- A mod or SMAPI download that loses its connection, even for a Wi-Fi drop, picks up where it stopped, and a cut download never reaches the installer.
+- A mod archive that would write outside its folder is refused, and an install or restore that fails halfway leaves your Mods and saves as they were.
+- Installing mods, backing up saves and updating SMAPI can no longer hang on a tool with a lot to say.
+- The Storage page counts hard-linked files once, so the sizes match what the disk really holds.
+- A refused download now says the server's real error code.
+]]></description>
+            <enclosure url="https://github.com/matguitarist/starseed/releases/download/v2.8.1/Starseed-2.8.1.zip" length="8259942" type="application/octet-stream" sparkle:edSignature="/U4rIonDkujcLCvn5Xwg5HlGPuCiiMGVsmBLRAMG5hgEEqgx1Yy2ugiZHj6W36hu7/v8VhdGPxxY5+XOR3gbDw=="/>
+        </item>
+        <item>
             <title>2.8</title>
             <pubDate>Tue, 17 Nov 2026 09:47:56 -0500</pubDate>
             <sparkle:version>16</sparkle:version>
