@@ -15,12 +15,15 @@ let package = Package(
         .package(url: "https://github.com/matguitarist/LogKit", from: "0.6.0"),
         // Runs ditto, zip, tar and SMAPI's installer without blocking on a full pipe.
         .package(url: "https://github.com/matguitarist/ProcessKit", from: "0.1.1"),
+        // Mod archives and save backups: Zip Slip checks, nothing half-written.
+        .package(url: "https://github.com/matguitarist/ArchiveKit", from: "0.1.1"),
     ],
     targets: [
         .target(name: "ModManagerCore",
                 dependencies: [
                     .product(name: "LogKit", package: "LogKit"),
                     .product(name: "ProcessKit", package: "ProcessKit"),
+                    .product(name: "ArchiveKit", package: "ArchiveKit"),
                 ],
                 resources: [.process("Resources")]),
         .testTarget(name: "ModManagerCoreTests", dependencies: [

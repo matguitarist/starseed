@@ -6,7 +6,7 @@
 // files out of the Mods folder.
 
 import Foundation
-import ProcessKit
+import ArchiveKit
 
 /// Expected, user-facing problems (bad zip, missing folder, name clash, etc).
 public struct ModManagerError: LocalizedError, Sendable {
@@ -235,7 +235,7 @@ public struct ModManager: Sendable {
 
     // MARK: Installing from a downloaded .zip
 
-    /// Archive formats we can extract: zip via ditto, the rest via bsdtar (libarchive).
+    /// Archive formats we can extract: zip via ditto, the rest via bsdtar (libarchive), both through ArchiveKit.
     public static let archiveExtensions: Set<String> = ["zip", "7z", "rar", "tar", "gz", "tgz"]
 
     /// Extract an archive and find the mod folder(s) inside it. Runs off the main thread.
@@ -246,12 +246,18 @@ public struct ModManager: Sendable {
         let fm = FileManager.default
         let archiveName = archive.lastPathComponent
         let work = fm.temporaryDirectory.appending(path: "sdv_mod_\(UUID().uuidString)", directoryHint: .isDirectory)
-        try fm.createDirectory(at: work, withIntermediateDirectories: true)
 
+        // Every entry is checked first, and nothing is left behind when it fails.
         do {
-            try await Self.extract(archive, to: work)
+            if archive.pathExtension.lowercased() == "zip" {
+                try await Zip.unpack(archive, into: work)
+            } else {
+                // macOS's tar is bsdtar/libarchive, which also reads 7z and RAR.
+                try await AnyArchive.unpack(archive, into: work)
+            }
+        } catch ArchiveError.unsafeEntry(let name) {
+            throw ModManagerError(archive: ArchiveError.unsafeEntry(name))
         } catch {
-            try? fm.removeItem(at: work)
             throw ModManagerError("\(archiveName) is not a valid archive (or is damaged).")
         }
 
@@ -378,34 +384,9 @@ public struct ModManager: Sendable {
 
     /// Moves `item` into `folder`, adding " 2", " 3"... if the name is taken.
     private static func moveToUniqueLocation(_ item: URL, in folder: URL) throws -> URL {
-        let fm = FileManager.default
-        let base = item.lastPathComponent
-        var destination = folder.appending(path: base)
-        var counter = 2
-        while fm.fileExists(atPath: destination.path(percentEncoded: false)) {
-            destination = folder.appending(path: "\(base) \(counter)")
-            counter += 1
-        }
-        try fm.moveItem(at: item, to: destination)
+        let destination = UniqueName.url(for: item.lastPathComponent, in: folder, isFolder: true)
+        try FileManager.default.moveItem(at: item, to: destination)
         return destination
-    }
-
-    private static func extract(_ archive: URL, to destination: URL) async throws {
-        let source = archive.path(percentEncoded: false)
-        let target = destination.path(percentEncoded: false)
-        if archive.pathExtension.lowercased() == "zip" {
-            try await run("/usr/bin/ditto", ["-x", "-k", source, target])
-        } else {
-            // macOS's tar is bsdtar/libarchive, which also reads 7z and RAR.
-            try await run("/usr/bin/tar", ["-xf", source, "-C", target])
-        }
-    }
-
-    private static func run(_ executable: String, _ arguments: [String]) async throws {
-        let output = try await Shell.run(executable, arguments, options: Shell.Options(stdout: .discard, stderr: .discard))
-        guard output.succeeded else {
-            throw ModManagerError("\(executable) exited with status \(output.status)")
-        }
     }
 
     private static func isDirectory(_ url: URL) -> Bool {

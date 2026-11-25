@@ -1039,6 +1039,40 @@
         }
       }
     },
+    "This archive tries to write outside its folder (“%@”), so nothing was unpacked." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dieses Archiv versucht, außerhalb seines Ordners zu schreiben („%@“), daher wurde nichts entpackt."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este archivo intenta escribir fuera de su carpeta («%@»), así que no se ha descomprimido nada."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cette archive tente d’écrire hors de son dossier (« %@ »), donc rien n’a été décompressé."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este arquivo tenta gravar fora da sua pasta (“%@”), então nada foi descompactado."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此压缩包试图写入其文件夹之外（“%@”），因此未解压任何内容。"
+          }
+        }
+      }
+    },
     "This doesn't look like the game's folder: %@" : {
       "localizations" : {
         "de" : {

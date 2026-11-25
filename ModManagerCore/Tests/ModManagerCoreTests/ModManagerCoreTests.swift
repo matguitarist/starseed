@@ -200,6 +200,19 @@ func manifest(_ id: String, name: String? = nil, version: String = "1.0.0", extr
         let archive = try tmp.zip(noManifest, named: "xnb.zip")
         await #expect(throws: ModManagerError.self) { try await manager.prepareInstall(archive: archive) }
     }
+
+    @Test func refusesAZipThatWritesOutsideItsFolder() async throws {
+        let tmp = try TempDir()
+        let manager = ModManager.forTesting(tmp.url.appending(path: "Mods"))
+        // A mod whose "Assets" is a symbolic link out of the mod folder.
+        let mod = try tmp.makeMod("Sneaky", manifest: manifest("me.sneaky"), in: tmp.url.appending(path: "staging"))
+        try FileManager.default.createSymbolicLink(atPath: mod.appending(path: "Assets").path, withDestinationPath: "/tmp")
+        let archive = tmp.url.appending(path: "Sneaky.zip")
+        try Shell.runSync("/usr/bin/zip", ["-r", "-q", "-y", archive.path, "Sneaky"], in: mod.deletingLastPathComponent()).check()
+
+        let error = await #expect(throws: ModManagerError.self) { try await manager.prepareInstall(archive: archive) }
+        #expect(error?.message.contains("Sneaky/Assets") == true)
+    }
 }
 
 @Suite struct ConfigStoreTests {

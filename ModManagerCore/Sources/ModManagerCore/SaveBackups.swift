@@ -3,7 +3,7 @@
 // game folder's save-backups/) can be listed and restored too.
 
 import Foundation
-import ProcessKit
+import ArchiveKit
 
 public struct SaveBackup: Identifiable, Hashable, Sendable {
     public let url: URL
@@ -47,17 +47,18 @@ public struct SaveBackupStore: Sendable {
         self.recycle = recycle
     }
 
+    /// Where pruned backups and the saves a restore replaces go.
+    var folder: BackupFolder { BackupFolder(root: directory, disposal: .custom(recycle)) }
+
     // MARK: Listing
 
     /// All backups (this app's and SMAPI's), newest first.
     public func list() async -> [SaveBackup] {
         var backups: [SaveBackup] = []
-        for (folder, isSMAPI) in [(directory, false), (smapiDirectory, true)] {
-            guard let folder,
-                  let files = try? FileManager.default.contentsOfDirectory(at: folder, includingPropertiesForKeys: [.contentModificationDateKey, .fileSizeKey])
-            else { continue }
-            for file in files where file.pathExtension.lowercased() == "zip" {
-                if let backup = await Self.inspect(file, isSMAPIBackup: isSMAPI) {
+        for (root, isSMAPI) in [(directory, false), (smapiDirectory, true)] {
+            guard let root else { continue }
+            for zip in BackupFolder(root: root).list() {
+                if let backup = await Self.inspect(zip.url, isSMAPIBackup: isSMAPI) {
                     backups.append(backup)
                 }
             }
@@ -66,11 +67,11 @@ public struct SaveBackupStore: Sendable {
     }
 
     static func inspect(_ zip: URL, isSMAPIBackup: Bool) async -> SaveBackup? {
-        guard let listing = try? await Archive.run("/usr/bin/zipinfo", ["-1", zip.path(percentEncoded: false)]) else { return nil }
+        guard let entries = try? Zip.entries(zip) else { return nil }
         // Top-level folders that contain a SaveGameInfo are saves.
         var ids: [String] = []
-        for line in listing.split(whereSeparator: \.isNewline) {
-            let parts = line.split(separator: "/")
+        for entry in entries {
+            let parts = entry.name.split(separator: "/")
             if parts.count == 2, parts[1] == "SaveGameInfo", !ids.contains(String(parts[0])) {
                 ids.append(String(parts[0]))
             }
@@ -79,7 +80,8 @@ public struct SaveBackupStore: Sendable {
 
         var names: [String: String] = [:]
         for id in ids {
-            if let info = try? await Archive.run("/usr/bin/unzip", ["-p", zip.path(percentEncoded: false), "\(id)/SaveGameInfo"]) {
+            if let data = try? await Zip.read("\(id)/SaveGameInfo", from: zip, limit: 16 << 20) {
+                let info = String(decoding: data, as: UTF8.self)
                 let farm = info.xmlTag("farmName").map { "\($0) Farm" } ?? id
                 var name = info.xmlTag("name").map { "\(farm) (\($0))" } ?? farm
                 // The in-game date tells apart saves with the same farm name.
@@ -104,51 +106,30 @@ public struct SaveBackupStore: Sendable {
 
     // MARK: Backing up
 
-    /// Zips the given save folders into one backup.
+    /// Zips the given save folders into one backup: "2026-10-08 20.22.05 - label.zip",
+    /// with " 2" when one was made in the same second. Each save is a top-level folder.
     @discardableResult
     public func backUp(saveIDs: [String], label: String) async throws -> SaveBackup {
-        let fm = FileManager.default
-        let existing = saveIDs.filter { fm.fileExists(atPath: savesFolder.appending(path: $0).path(percentEncoded: false)) }
+        let existing = saveIDs.filter { FileManager.default.fileExists(atPath: savesFolder.appending(path: $0).path(percentEncoded: false)) }
         guard !existing.isEmpty else { throw ModManagerError("There are no saves to back up.") }
-        try fm.createDirectory(at: directory, withIntermediateDirectories: true)
-
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH.mm.ss"
-        let safeLabel = label.replacingOccurrences(of: "/", with: "-").replacingOccurrences(of: ":", with: "-")
-        var zip = directory.appending(path: "\(formatter.string(from: .now)) - \(safeLabel).zip")
-        var counter = 2
-        while fm.fileExists(atPath: zip.path(percentEncoded: false)) {
-            zip = directory.appending(path: "\(formatter.string(from: .now)) - \(safeLabel) \(counter).zip")
-            counter += 1
+        // A plain zip (no macOS metadata), like SMAPI's Save Backup mod writes.
+        let zip: BackupFolder.Backup
+        do {
+            zip = try await folder.backUp(from: savesFolder, items: existing, label: label, macMetadata: false)
+        } catch {
+            throw ModManagerError(archive: error)
         }
-
-        // -r recurse, -q quiet, -X no extra file attributes; run inside the
-        // Saves folder so each save is a top-level folder in the zip.
-        _ = try await Archive.run("/usr/bin/zip", ["-r", "-q", "-X", zip.path(percentEncoded: false)] + existing, in: savesFolder)
-        guard let backup = await Self.inspect(zip, isSMAPIBackup: false) else {
+        guard let backup = await Self.inspect(zip.url, isSMAPIBackup: false) else {
             throw ModManagerError("The backup was created but couldn't be read back.")
         }
         return backup
     }
 
     /// Keeps the newest `keep` of this app's backups whose label is one of
-    /// `labels` (e.g. automatic ones), recycling the rest.
+    /// `labels` (e.g. automatic ones), recycling the rest. "Auto 2" is a
+    /// second "Auto" made in the same second.
     public func prune(labels: Set<String>, keep: Int) async throws {
-        // "Auto 2" is a second "Auto" made in the same second.
-        func split(_ label: String) -> (base: String, counter: Int) {
-            guard let match = label.wholeMatch(of: /(.+)\s(\d+)/), let counter = Int(match.2) else { return (label, 1) }
-            return (String(match.1), counter)
-        }
-        // Newest first by the name's timestamp, then by that counter.
-        func age(_ backup: SaveBackup) -> (String, Int) {
-            (String(backup.url.lastPathComponent.prefix(19)), split(backup.label).counter)
-        }
-        let matching = await list()
-            .filter { !$0.isSMAPIBackup && labels.contains(split($0.label).base) }
-            .sorted { age($0) > age($1) }
-        for backup in matching.dropFirst(keep) {
-            try recycle(backup.url)
-        }
+        try folder.prune(keep: keep) { $0.label.map(labels.contains) ?? false }
     }
 
     // MARK: Restoring
@@ -157,31 +138,27 @@ public struct SaveBackupStore: Sendable {
     /// current versions are first backed up ("Before restore") and moved to
     /// the Trash, so a restore can always be undone.
     public func restore(_ backup: SaveBackup, saveIDs: [String]? = nil) async throws {
-        let fm = FileManager.default
         let ids = saveIDs ?? backup.saveIDs
         guard !ids.isEmpty, Set(ids).isSubset(of: backup.saveIDs) else {
             throw ModManagerError("That backup doesn't contain the selected save.")
         }
 
-        let current = ids.filter { fm.fileExists(atPath: savesFolder.appending(path: $0).path(percentEncoded: false)) }
+        let current = ids.filter { FileManager.default.fileExists(atPath: savesFolder.appending(path: $0).path(percentEncoded: false)) }
         if !current.isEmpty {
             try await backUp(saveIDs: current, label: "Before restore")
         }
 
-        let work = fm.temporaryDirectory.appending(path: "sdv_restore_\(UUID().uuidString)", directoryHint: .isDirectory)
-        try fm.createDirectory(at: work, withIntermediateDirectories: true)
-        defer { try? fm.removeItem(at: work) }
-        _ = try await Archive.run("/usr/bin/ditto", ["-x", "-k", backup.url.path(percentEncoded: false), work.path(percentEncoded: false)])
-
-        try fm.createDirectory(at: savesFolder, withIntermediateDirectories: true)
-        for id in ids {
-            let source = work.appending(path: id, directoryHint: .isDirectory)
-            let destination = savesFolder.appending(path: id, directoryHint: .isDirectory)
-            guard fm.fileExists(atPath: source.path(percentEncoded: false)) else { continue }
-            if fm.fileExists(atPath: destination.path(percentEncoded: false)) {
-                try recycle(destination)
+        // Unpacked beside the Saves folder first; each save then replaces its
+        // current folder, and the others stay as they are.
+        let source = BackupFolder(root: backup.url.deletingLastPathComponent(), disposal: .custom(recycle))
+        let wanted = ids
+        do {
+            try await source.restore(try source.backup(at: backup.url), into: savesFolder, items: ids) { content in
+                // A zip of one save holds one folder: its top is still the Saves folder.
+                wanted.contains { FileManager.default.fileExists(atPath: content.appending(path: "\($0)/SaveGameInfo").path(percentEncoded: false)) }
             }
-            try fm.moveItem(at: source, to: destination)
+        } catch {
+            throw ModManagerError(archive: error)
         }
     }
 
@@ -192,14 +169,21 @@ public struct SaveBackupStore: Sendable {
     }
 }
 
-/// Runs the system archive tools and returns their output.
-enum Archive {
-    static func run(_ executable: String, _ arguments: [String], in directory: URL? = nil) async throws -> String {
-        let output = try await Shell.run(executable, arguments, options: Shell.Options(directory: directory, stderr: .discard))
-        guard output.succeeded else {
-            throw ModManagerError("\(output.name) failed (status \(output.status)).")
+extension ModManagerError {
+    /// ArchiveKit's errors in this app's words.
+    init(archive error: any Error) {
+        switch error {
+        case let error as ModManagerError:
+            self = error
+        case ArchiveError.nothingToBackUp:
+            self.init("There are no saves to back up.")
+        case ArchiveError.notABackup:
+            self.init("That backup doesn't contain the selected save.")
+        case ArchiveError.unsafeEntry(let name):
+            self.init("This archive tries to write outside its folder (“\(name)”), so nothing was unpacked.")
+        default:
+            self.init(verbatim: error.localizedDescription)
         }
-        return output.text
     }
 }
 

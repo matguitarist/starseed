@@ -3,6 +3,7 @@
 // `SMAPI.Installer --install --no-prompt --game-path <folder>`.
 
 import Foundation
+import ArchiveKit
 import ProcessKit
 
 public struct SMAPIRelease: Sendable, Equatable {
@@ -84,7 +85,11 @@ public enum SMAPIInstaller {
 
         progress(.installing)
         let extracted = work.appending(path: "installer", directoryHint: .isDirectory)
-        _ = try await run("/usr/bin/ditto", ["-x", "-k", zip.path(percentEncoded: false), extracted.path(percentEncoded: false)])
+        do {
+            try await Zip.unpack(zip, into: extracted)
+        } catch {
+            throw ModManagerError(archive: error)
+        }
         guard let executable = findInstaller(in: extracted) else {
             throw ModManagerError("The SMAPI download doesn't contain its macOS installer.")
         }

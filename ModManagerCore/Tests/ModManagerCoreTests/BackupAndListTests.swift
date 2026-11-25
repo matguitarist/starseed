@@ -1,5 +1,6 @@
 import Foundation
 import Testing
+import ProcessKit
 @testable import ModManagerCore
 
 @Suite struct SaveBackupTests {
@@ -81,13 +82,22 @@ import Testing
         let game = tmp.url.appending(path: "Game", directoryHint: .isDirectory)
         let smapiBackups = game.appending(path: "save-backups", directoryHint: .isDirectory)
         try FileManager.default.createDirectory(at: smapiBackups, withIntermediateDirectories: true)
-        _ = try await Archive.run("/usr/bin/zip", ["-r", "-q", smapiBackups.appending(path: "2026-10-09 - SMAPI 4.5.2.zip").path, "Mats_1"], in: saves)
+        try Shell.runSync("/usr/bin/zip", ["-r", "-q", smapiBackups.appending(path: "2026-10-09 - SMAPI 4.5.2.zip").path, "Mats_1"], in: saves).check()
 
         let store = SaveBackupStore(directory: tmp.url.appending(path: "Backups"), gameFolder: game, savesFolder: saves)
         let backup = try #require(await store.list().first)
         #expect(backup.isSMAPIBackup)
         #expect(backup.saveIDs == ["Mats_1"])
         #expect(throws: ModManagerError.self) { try store.delete(backup) }
+
+        // A zip of one save holds one folder, made by Info-ZIP: it restores too.
+        try Data("day 70".utf8).write(to: saves.appending(path: "Mats_1/Mats_1"))
+        let restoring = SaveBackupStore(directory: tmp.url.appending(path: "Backups"), gameFolder: game, savesFolder: saves,
+                                        recycle: { try FileManager.default.removeItem(at: $0) })
+        try await restoring.restore(backup)
+        #expect(try String(contentsOf: saves.appending(path: "Mats_1/Mats_1"), encoding: .utf8) == "day 1")
+        #expect(FileManager.default.fileExists(atPath: saves.appending(path: "Cydonia_2/SaveGameInfo").path))
+        #expect(try FileManager.default.contentsOfDirectory(atPath: saves.path).sorted() == ["Cydonia_2", "Mats_1"])
     }
 }
 
