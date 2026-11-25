@@ -4,6 +4,7 @@
 
 import Foundation
 import ArchiveKit
+import DownloadKit
 import ProcessKit
 
 public struct SMAPIRelease: Sendable, Equatable {
@@ -17,36 +18,28 @@ public enum SMAPIInstaller {
         case installing
     }
 
-    static let latestReleaseURL = URL(string: "https://api.github.com/repos/Pathoschild/SMAPI/releases/latest")!
-
     /// The newest SMAPI release on GitHub.
-    public static func latestRelease(session: URLSession = .shared) async throws -> SMAPIRelease {
-        var request = URLRequest(url: latestReleaseURL)
-        request.setValue("application/vnd.github+json", forHTTPHeaderField: "Accept")
-        let (data, response) = try await session.data(for: request)
-        if let http = response as? HTTPURLResponse, !(200..<300).contains(http.statusCode) {
-            throw ModManagerError("Couldn't reach SMAPI's releases on GitHub (HTTP \(http.statusCode)).")
+    public static func latestRelease() async throws -> SMAPIRelease {
+        let release: GitHubRelease
+        do {
+            release = try await GitHubRelease.latest(owner: "Pathoschild", repo: "SMAPI")
+        } catch DownloadError.http(let status, _) {
+            throw ModManagerError("Couldn't reach SMAPI's releases on GitHub (HTTP \(status)).")
+        } catch DownloadError.rateLimited {
+            throw ModManagerError("Couldn't reach SMAPI's releases on GitHub (HTTP \(403)).")
+        } catch DownloadError.badResponse {
+            throw ModManagerError("SMAPI's latest release has no installer for this app to run.")
         }
-        return try parseRelease(data)
+        return try installer(in: release)
     }
 
     /// Picks the plain installer zip ("SMAPI-4.5.2-installer.zip", not the
     /// "double-zipped" one meant for sites that unzip uploads).
-    static func parseRelease(_ data: Data) throws -> SMAPIRelease {
-        struct Release: Decodable {
-            struct Asset: Decodable {
-                let name: String
-                let browser_download_url: String
-            }
-            let tag_name: String
-            let assets: [Asset]
-        }
-        let release = try JSONDecoder().decode(Release.self, from: data)
-        guard let version = SemanticVersion(release.tag_name),
-              let asset = release.assets.first(where: { $0.name.wholeMatch(of: /SMAPI-[\d.]+(-[\w.]+)?-installer\.zip/) != nil }),
-              let url = URL(string: asset.browser_download_url)
+    static func installer(in release: GitHubRelease) throws -> SMAPIRelease {
+        guard let version = SemanticVersion(release.tag),
+              let asset = release.assets.first(where: { $0.name.wholeMatch(of: /SMAPI-[\d.]+(-[\w.]+)?-installer\.zip/) != nil })
         else { throw ModManagerError("SMAPI's latest release has no installer for this app to run.") }
-        return SMAPIRelease(version: version, installerURL: url)
+        return SMAPIRelease(version: version, installerURL: asset.url)
     }
 
     /// Whether `folder` is the game's folder (Contents/MacOS for Steam).

@@ -1,18 +1,24 @@
 import Foundation
 import Testing
+import DownloadKit
 @testable import ModManagerCore
 
 @Suite struct SMAPIAutoInstallTests {
     @Test func picksThePlainInstallerZip() throws {
         let json = """
-        {"tag_name": "4.5.2", "assets": [
-          {"name": "SMAPI-4.5.2-installer-double-zipped.zip", "browser_download_url": "https://example.com/double.zip"},
-          {"name": "SMAPI-4.5.2-installer.zip", "browser_download_url": "https://example.com/plain.zip"}
+        {"id": 1, "tag_name": "4.5.2", "assets": [
+          {"id": 10, "name": "SMAPI-4.5.2-installer-double-zipped.zip", "browser_download_url": "https://example.com/double.zip"},
+          {"id": 11, "name": "SMAPI-4.5.2-installer.zip", "browser_download_url": "https://example.com/plain.zip"}
         ]}
         """
-        let release = try SMAPIInstaller.parseRelease(Data(json.utf8))
+        let release = try SMAPIInstaller.installer(in: GitHubRelease.decode(Data(json.utf8)))
         #expect(release.version == SemanticVersion("4.5.2"))
         #expect(release.installerURL.absoluteString == "https://example.com/plain.zip")
+
+        let noInstaller = GitHubRelease(id: 2, tag: "4.6.0", name: "4.6.0", assets: [
+            GitHubRelease.Asset(id: 20, name: "SMAPI-4.6.0-installer-double-zipped.zip", url: URL(string: "https://example.com/double.zip")!, size: 1),
+        ])
+        #expect(throws: ModManagerError.self) { try SMAPIInstaller.installer(in: noInstaller) }
     }
 
     @Test func readsTheInstallersOutcome() throws {

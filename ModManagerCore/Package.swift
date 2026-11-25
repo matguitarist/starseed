@@ -17,6 +17,8 @@ let package = Package(
         .package(url: "https://github.com/matguitarist/ProcessKit", from: "0.1.1"),
         // Mod archives and save backups: Zip Slip checks, nothing half-written.
         .package(url: "https://github.com/matguitarist/ArchiveKit", from: "0.1.1"),
+        // Mod and SMAPI downloads that resume after a dropped connection; SMAPI's GitHub releases.
+        .package(url: "https://github.com/matguitarist/DownloadKit", from: "0.1.0"),
     ],
     targets: [
         .target(name: "ModManagerCore",
@@ -24,11 +26,13 @@ let package = Package(
                     .product(name: "LogKit", package: "LogKit"),
                     .product(name: "ProcessKit", package: "ProcessKit"),
                     .product(name: "ArchiveKit", package: "ArchiveKit"),
+                    .product(name: "DownloadKit", package: "DownloadKit"),
                 ],
                 resources: [.process("Resources")]),
         .testTarget(name: "ModManagerCoreTests", dependencies: [
             "ModManagerCore",
             .product(name: "ProcessKit", package: "ProcessKit"),
+            .product(name: "DownloadKit", package: "DownloadKit"),
         ]),
     ]
 )
