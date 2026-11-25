@@ -3,6 +3,21 @@
     <channel>
         <title>Starseed</title>
         <item>
+            <title>2.9.0</title>
+            <pubDate>Wed, 25 Nov 2026 17:01:57 -0500</pubDate>
+            <sparkle:version>18</sparkle:version>
+            <sparkle:shortVersionString>2.9.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[## The same Help menu as every app
+
+- **What's New in Starseed** opens the latest release notes.
+- **Report a Problem…** opens a new GitHub issue with the app version, build and macOS version already filled in.
+- **Check for Updates…** is always in the Starseed menu, greyed out when updates aren't available.
+- The mods' item is now **Check for Mod Updates**, so it isn't confused with app updates.
+]]></description>
+            <enclosure url="https://github.com/matguitarist/starseed/releases/download/v2.9.0/Starseed-2.9.0.zip" length="8311252" type="application/octet-stream" sparkle:edSignature="TdAKYbCNKwyRCENGEBVvOrcg/5Y9PvOcpn+03S3tihgSy+icIbleImtElFizOjDyqmh3dn4+sEZU6Cy/elyVDg=="/>
+        </item>
+        <item>
             <title>2.8.1</title>
             <pubDate>Wed, 25 Nov 2026 10:28:25 -0500</pubDate>
             <sparkle:version>17</sparkle:version>
