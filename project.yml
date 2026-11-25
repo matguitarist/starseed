@@ -27,7 +27,7 @@ packages:
   # Folder sizes on the Storage page and the Nexus API key in the Keychain.
   FileKit:
     url: https://github.com/matguitarist/FileKit
-    from: 0.1.0
+    from: 0.2.0
   # Self-updates for the app (see "Releasing updates" in the README).
   Sparkle:
     url: https://github.com/sparkle-project/Sparkle

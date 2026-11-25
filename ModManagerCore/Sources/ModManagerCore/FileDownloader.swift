@@ -5,6 +5,10 @@ import DownloadKit
 import Foundation
 
 public enum FileDownloader {
+    /// What Starseed's downloads send: the system's own User-Agent, as before
+    /// DownloadKit, and the server's suggested file name.
+    static let options = DownloadOptions(usesSystemUserAgent: true, prefersSuggestedFilename: true)
+
     /// Downloads `url` into a fresh temp folder, keeping the server's file name
     /// (so the archive extension is preserved). Returns the local file URL.
     public static func download(
@@ -13,21 +17,21 @@ public enum FileDownloader {
     ) async throws -> URL {
         let folder = try Download.temporaryFolder(prefix: "sdv_download")
         do {
-            return try await Download.file(url, into: folder) { update in
+            return try await Download.file(url, into: folder, options: options) { update in
                 if let fraction = update.fraction { progress(fraction) }
             }
+        } catch let error as DownloadError {
+            try? FileManager.default.removeItem(at: folder)
+            if let status = error.status {
+                throw NexusError("Download failed (HTTP \(status)).")
+            }
+            if case .badResponse = error {
+                throw NexusError("Download finished without a response.")
+            }
+            throw error
         } catch {
             try? FileManager.default.removeItem(at: folder)
-            switch error {
-            case DownloadError.http(let status, _):
-                throw NexusError("Download failed (HTTP \(status)).")
-            case DownloadError.rateLimited:
-                throw NexusError("Download failed (HTTP \(429)).")
-            case DownloadError.badResponse:
-                throw NexusError("Download finished without a response.")
-            default:
-                throw error
-            }
+            throw error
         }
     }
 }

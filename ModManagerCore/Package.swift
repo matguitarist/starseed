@@ -14,13 +14,13 @@ let package = Package(
         // SMAPI's log is parsed and shown with the log viewer the apps share.
         .package(url: "https://github.com/matguitarist/LogKit", from: "0.6.0"),
         // Runs ditto, zip, tar and SMAPI's installer without blocking on a full pipe.
-        .package(url: "https://github.com/matguitarist/ProcessKit", from: "0.1.1"),
+        .package(url: "https://github.com/matguitarist/ProcessKit", from: "0.2.1"),
         // Mod archives and save backups: Zip Slip checks, nothing half-written.
-        .package(url: "https://github.com/matguitarist/ArchiveKit", from: "0.1.1"),
+        .package(url: "https://github.com/matguitarist/ArchiveKit", from: "0.2.0"),
         // Mod and SMAPI downloads that resume after a dropped connection; SMAPI's GitHub releases.
-        .package(url: "https://github.com/matguitarist/DownloadKit", from: "0.1.0"),
+        .package(url: "https://github.com/matguitarist/DownloadKit", from: "0.2.0"),
         // Folder sizes that count hard links once (the tests measure kept versions with it).
-        .package(url: "https://github.com/matguitarist/FileKit", from: "0.1.0"),
+        .package(url: "https://github.com/matguitarist/FileKit", from: "0.2.0"),
     ],
     targets: [
         .target(name: "ModManagerCore",

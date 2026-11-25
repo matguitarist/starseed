@@ -22,13 +22,15 @@ public enum SMAPIInstaller {
     public static func latestRelease() async throws -> SMAPIRelease {
         let release: GitHubRelease
         do {
-            release = try await GitHubRelease.latest(owner: "Pathoschild", repo: "SMAPI")
-        } catch DownloadError.http(let status, _) {
-            throw ModManagerError("Couldn't reach SMAPI's releases on GitHub (HTTP \(status)).")
-        } catch DownloadError.rateLimited {
-            throw ModManagerError("Couldn't reach SMAPI's releases on GitHub (HTTP \(403)).")
-        } catch DownloadError.badResponse {
-            throw ModManagerError("SMAPI's latest release has no installer for this app to run.")
+            release = try await GitHubRelease.latest(owner: "Pathoschild", repo: "SMAPI", options: FileDownloader.options)
+        } catch let error as DownloadError {
+            if let status = error.status {
+                throw ModManagerError("Couldn't reach SMAPI's releases on GitHub (HTTP \(status)).")
+            }
+            if case .badResponse = error {
+                throw ModManagerError("SMAPI's latest release has no installer for this app to run.")
+            }
+            throw error
         }
         return try installer(in: release)
     }
