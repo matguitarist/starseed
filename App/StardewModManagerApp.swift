@@ -62,7 +62,16 @@ struct StardewModManagerApp: App {
         }
         .defaultSize(width: 1240, height: 760)
         .commands {
-            AppCommands(model: model, appUpdater: appUpdater)
+            StandardCommands(app: "Starseed", repository: "matguitarist/starseed",
+                             updates: AppUpdates(isAvailable: appUpdater.isConfigured) { appUpdater.checkForUpdates() },
+                             about: { AboutPanel.show(StarseedAbout.credits) },
+                             help: .window(HelpView.windowID)) {
+                HelpCommands(model: model)
+            }
+            PageCommands(pages: SidebarItem.menuPages, title: \.menuTitle, isEnabled: model.manager != nil) {
+                model.sidebarSelection = $0
+            }
+            AppMenus(model: model)
         }
 
         Window("Starseed Help", id: HelpView.windowID) {
@@ -101,37 +110,15 @@ struct StardewModManagerApp: App {
     }
 }
 
-/// The standard About panel, with the icon passed in explicitly (macOS can
-/// show a stale generic icon for a rebuilt app) and a short credit line.
+/// About Starseed's credits, under the shared About panel's icon, name and version.
 @MainActor
-enum AboutPanel {
-    static func show() {
-        let credits = NSMutableAttributedString(
-            string: String(localized: "Mod manager for Stardew Valley.") + "\n\n" + String(localized: "Mod updates and info come from SMAPI's web API and Nexus Mods. Not affiliated with ConcernedApe, SMAPI or Nexus Mods."),
-            attributes: [
-                .font: NSFont.systemFont(ofSize: NSFont.smallSystemFontSize),
-                .foregroundColor: NSColor.secondaryLabelColor,
-            ]
-        )
-        // The project page, as a link (not translated: it's an address).
-        credits.append(NSAttributedString(string: "\n\n", attributes: [.font: NSFont.systemFont(ofSize: NSFont.smallSystemFontSize)]))
-        credits.append(NSAttributedString(string: "github.com/matguitarist/starseed", attributes: [
-            .font: NSFont.systemFont(ofSize: NSFont.smallSystemFontSize),
-            .link: AppLinks.repository,
-        ]))
-        let style = NSMutableParagraphStyle()
-        style.alignment = .center
-        credits.addAttribute(.paragraphStyle, value: style, range: NSRange(location: 0, length: credits.length))
-        var options: [NSApplication.AboutPanelOptionKey: Any] = [.credits: credits]
-        if let icon = NSImage(named: "AppIcon") ?? NSImage(named: NSImage.applicationIconName) {
-            options[.applicationIcon] = icon
-        }
-        NSApp.orderFrontStandardAboutPanel(options: options)
-        NSApp.activate()
+enum StarseedAbout {
+    static var credits: [AboutPanel.Credit] {
+        [
+            .text(String(localized: "Mod manager for Stardew Valley.")),
+            .text(String(localized: "Mod updates and info come from SMAPI's web API and Nexus Mods. Not affiliated with ConcernedApe, SMAPI or Nexus Mods.")),
+            // The project page (not translated: it's an address).
+            .links([("github.com/matguitarist/starseed", URL(string: "https://github.com/matguitarist/starseed")!)]),
+        ]
     }
-}
-
-enum AppLinks {
-    static let repository = URL(string: "https://github.com/matguitarist/starseed")!
-    static let newIssue = URL(string: "https://github.com/matguitarist/starseed/issues/new/choose")!
 }

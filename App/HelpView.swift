@@ -376,14 +376,13 @@ private struct HelpQuestion<Content: View>: View {
     }
 }
 
-/// Help menu items. A view, so it can open the Help window.
+/// Starseed's own Help items, under Starseed Help. The rest of the Help menu is the shared
+/// StandardCommands (AppCommands.swift). A view, so it can open windows.
 struct HelpCommands: View {
     let model: AppModel
     @Environment(\.openWindow) private var openWindow
 
     var body: some View {
-        Button("Starseed Help") { openWindow(id: HelpView.windowID) }
-            .keyboardShortcut("?", modifiers: .command)
         Button("Setup Assistant…") {
             openWindow(id: "main")
             model.showSetupAssistant = true
@@ -395,8 +394,5 @@ struct HelpCommands: View {
         Divider()
         Link("Stardew Valley Wiki: Getting started with mods", destination: URL(string: "https://stardewvalleywiki.com/Modding:Player_Guide/Getting_Started")!)
         Link("SMAPI website and log parser", destination: URL(string: "https://smapi.io")!)
-        Divider()
-        Link("Starseed on GitHub", destination: AppLinks.repository)
-        Link("Report a Problem or Suggest an Idea…", destination: AppLinks.newIssue)
     }
 }
