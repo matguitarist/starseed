@@ -3,6 +3,7 @@
 // `SMAPI.Installer --install --no-prompt --game-path <folder>`.
 
 import Foundation
+import ProcessKit
 
 public struct SMAPIRelease: Sendable, Equatable {
     public let version: SemanticVersion
@@ -119,29 +120,9 @@ public enum SMAPIInstaller {
     }
 
     /// Runs a tool and returns its combined output, whatever its exit status.
+    /// stdin is /dev/null, so the installer never waits for a key press.
     static func run(_ executable: String, _ arguments: [String], in directory: URL? = nil) async throws -> String {
-        let process = Process()
-        process.executableURL = URL(filePath: executable)
-        process.arguments = arguments
-        if let directory { process.currentDirectoryURL = directory }
-        process.standardInput = FileHandle.nullDevice  // never wait for a key press
-        let output = Pipe()
-        process.standardOutput = output
-        process.standardError = output
-
-        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<String, Error>) in
-            let handle = output.fileHandleForReading
-            let reader = Task.detached { handle.readDataToEndOfFile() }
-            process.terminationHandler = { _ in
-                Task { continuation.resume(returning: String(decoding: await reader.value, as: UTF8.self)) }
-            }
-            do {
-                try process.run()
-            } catch {
-                reader.cancel()
-                continuation.resume(throwing: error)
-            }
-        }
+        try await Shell.run(executable, arguments, options: Shell.Options(directory: directory, stderr: .merged)).text
     }
 }
 

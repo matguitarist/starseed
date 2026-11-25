@@ -3,6 +3,7 @@
 // game folder's save-backups/) can be listed and restored too.
 
 import Foundation
+import ProcessKit
 
 public struct SaveBackup: Identifiable, Hashable, Sendable {
     public let url: URL
@@ -194,35 +195,11 @@ public struct SaveBackupStore: Sendable {
 /// Runs the system archive tools and returns their output.
 enum Archive {
     static func run(_ executable: String, _ arguments: [String], in directory: URL? = nil) async throws -> String {
-        let process = Process()
-        process.executableURL = URL(filePath: executable)
-        process.arguments = arguments
-        if let directory { process.currentDirectoryURL = directory }
-        let output = Pipe()
-        process.standardOutput = output
-        process.standardError = FileHandle.nullDevice
-
-        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<String, Error>) in
-            // Read on a background thread so a large output can't fill the pipe and stall the tool.
-            let handle = output.fileHandleForReading
-            let reader = Task.detached { handle.readDataToEndOfFile() }
-            process.terminationHandler = { finished in
-                Task {
-                    let data = await reader.value
-                    if finished.terminationStatus == 0 {
-                        continuation.resume(returning: String(decoding: data, as: UTF8.self))
-                    } else {
-                        continuation.resume(throwing: ModManagerError("\((executable as NSString).lastPathComponent) failed (status \(finished.terminationStatus))."))
-                    }
-                }
-            }
-            do {
-                try process.run()
-            } catch {
-                reader.cancel()
-                continuation.resume(throwing: error)
-            }
+        let output = try await Shell.run(executable, arguments, options: Shell.Options(directory: directory, stderr: .discard))
+        guard output.succeeded else {
+            throw ModManagerError("\(output.name) failed (status \(output.status)).")
         }
+        return output.text
     }
 }
 

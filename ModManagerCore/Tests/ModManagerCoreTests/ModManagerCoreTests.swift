@@ -1,5 +1,6 @@
 import Foundation
 import Testing
+import ProcessKit
 @testable import ModManagerCore
 
 /// A throwaway directory that's deleted when the test finishes.
@@ -26,11 +27,7 @@ final class TempDir {
     /// Zips `folder` (keeping it as the top-level entry unless `keepParent` is false).
     func zip(_ folder: URL, named name: String, keepParent: Bool = true) throws -> URL {
         let out = url.appending(path: name)
-        let process = Process()
-        process.executableURL = URL(filePath: "/usr/bin/ditto")
-        process.arguments = ["-c", "-k"] + (keepParent ? ["--keepParent"] : []) + [folder.path, out.path]
-        try process.run()
-        process.waitUntilExit()
+        try Shell.runSync("/usr/bin/ditto", ["-c", "-k"] + (keepParent ? ["--keepParent"] : []) + [folder.path, out.path]).check()
         return out
     }
 }

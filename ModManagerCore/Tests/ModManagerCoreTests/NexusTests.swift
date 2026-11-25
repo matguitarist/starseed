@@ -1,5 +1,6 @@
 import Foundation
 import Testing
+import ProcessKit
 @testable import ModManagerCore
 
 @Suite struct NexusTests {
@@ -100,11 +101,7 @@ import Testing
         try tmp.makeMod("SevenZipMod", manifest: manifest("seven"), in: staging)
 
         let archive = tmp.url.appending(path: "SevenZipMod.7z")
-        let tar = Process()
-        tar.executableURL = URL(filePath: "/usr/bin/tar")
-        tar.arguments = ["--format", "7zip", "-cf", archive.path, "-C", staging.path, "SevenZipMod"]
-        try tar.run()
-        tar.waitUntilExit()
+        try Shell.runSync("/usr/bin/tar", ["--format", "7zip", "-cf", archive.path, "-C", staging.path, "SevenZipMod"]).check()
 
         let manager = ModManager.forTesting(mods)
         let result = await manager.commit(try await manager.prepareInstall(archive: archive), overwrite: false)

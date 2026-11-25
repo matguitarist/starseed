@@ -13,11 +13,19 @@ let package = Package(
     dependencies: [
         // SMAPI's log is parsed and shown with the log viewer the apps share.
         .package(url: "https://github.com/matguitarist/LogKit", from: "0.6.0"),
+        // Runs ditto, zip, tar and SMAPI's installer without blocking on a full pipe.
+        .package(url: "https://github.com/matguitarist/ProcessKit", from: "0.1.1"),
     ],
     targets: [
         .target(name: "ModManagerCore",
-                dependencies: [.product(name: "LogKit", package: "LogKit")],
+                dependencies: [
+                    .product(name: "LogKit", package: "LogKit"),
+                    .product(name: "ProcessKit", package: "ProcessKit"),
+                ],
                 resources: [.process("Resources")]),
-        .testTarget(name: "ModManagerCoreTests", dependencies: ["ModManagerCore"]),
+        .testTarget(name: "ModManagerCoreTests", dependencies: [
+            "ModManagerCore",
+            .product(name: "ProcessKit", package: "ProcessKit"),
+        ]),
     ]
 )

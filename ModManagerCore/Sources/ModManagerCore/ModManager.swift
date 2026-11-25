@@ -6,6 +6,7 @@
 // files out of the Mods folder.
 
 import Foundation
+import ProcessKit
 
 /// Expected, user-facing problems (bad zip, missing folder, name clash, etc).
 public struct ModManagerError: LocalizedError, Sendable {
@@ -401,25 +402,9 @@ public struct ModManager: Sendable {
     }
 
     private static func run(_ executable: String, _ arguments: [String]) async throws {
-        let process = Process()
-        process.executableURL = URL(filePath: executable)
-        process.arguments = arguments
-        process.standardOutput = FileHandle.nullDevice
-        process.standardError = FileHandle.nullDevice
-
-        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
-            process.terminationHandler = { finished in
-                if finished.terminationStatus == 0 {
-                    continuation.resume()
-                } else {
-                    continuation.resume(throwing: ModManagerError("\(executable) exited with status \(finished.terminationStatus)"))
-                }
-            }
-            do {
-                try process.run()
-            } catch {
-                continuation.resume(throwing: error)
-            }
+        let output = try await Shell.run(executable, arguments, options: Shell.Options(stdout: .discard, stderr: .discard))
+        guard output.succeeded else {
+            throw ModManagerError("\(executable) exited with status \(output.status)")
         }
     }
 
