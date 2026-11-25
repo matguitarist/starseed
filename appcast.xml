@@ -3,6 +3,19 @@
     <channel>
         <title>Starseed</title>
         <item>
+            <title>2.9.1</title>
+            <pubDate>Wed, 25 Nov 2026 18:55:57 -0500</pubDate>
+            <sparkle:version>19</sparkle:version>
+            <sparkle:shortVersionString>2.9.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[## See what changed after an update
+
+- The first time you open a new version, a sheet shows what's new in it, with a link to every release.
+- Steam games are found by the shared SteamKit: a game in two libraries shows once, a game with a damaged or nameless Steam file still shows, and Windows paths keep their backslashes.
+]]></description>
+            <enclosure url="https://github.com/matguitarist/starseed/releases/download/v2.9.1/Starseed-2.9.1.zip" length="8529175" type="application/octet-stream" sparkle:edSignature="suevp1v9TQcH6YSuNrU6pzZPEr5qp8aGTrfPZ0tzKDlPaY9LkLfab0hQUpeFc7fgVfHP7sj7VDMoiB66ze5dDw=="/>
+        </item>
+        <item>
             <title>2.9.0</title>
             <pubDate>Wed, 25 Nov 2026 17:01:57 -0500</pubDate>
             <sparkle:version>18</sparkle:version>
