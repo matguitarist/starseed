@@ -44,7 +44,7 @@ enum AppTheme: String, CaseIterable {
     }
 
     /// Applies to every window, including Settings and Help.
-    func apply() {
+    @MainActor func apply() {
         NSApp.appearance = switch self {
         case .system: nil
         case .light: NSAppearance(named: .aqua)
