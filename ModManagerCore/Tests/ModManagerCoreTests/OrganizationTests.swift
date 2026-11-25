@@ -1,5 +1,6 @@
 import Foundation
 import Testing
+import FileKit
 @testable import ModManagerCore
 
 @Suite struct SubfolderTests {
@@ -151,7 +152,7 @@ import Testing
         #expect(archive.versions(of: "Pathoschild.LookupAnything").map(\.version) == ["2.0.0"])  // can switch back
     }
 
-    @Test func listsSizesAndRemovesKeptVersions() throws {
+    @Test func listsSizesAndRemovesKeptVersions() async throws {
         let tmp = try TempDir()
         let archive = ModArchive(directory: tmp.url.appending(path: "Archive"), keep: 3, recycle: { try FileManager.default.removeItem(at: $0) })
         for (id, version) in [("a.One", "1.0.0"), ("b.Two", "1.0.0")] {
@@ -162,7 +163,7 @@ import Testing
         let versions = archive.allVersions()
         #expect(Set(versions.map(\.version)) == ["1.0.0"])
         #expect(versions.count == 2)
-        #expect(DiskUsage.size(of: archive.directory) >= 200_000)
+        #expect(await FolderSize.allocated(of: archive.directory) >= 200_000)
 
         try archive.remove(versions[0])
         #expect(archive.allVersions().count == 1)

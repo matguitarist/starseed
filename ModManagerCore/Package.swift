@@ -19,6 +19,8 @@ let package = Package(
         .package(url: "https://github.com/matguitarist/ArchiveKit", from: "0.1.1"),
         // Mod and SMAPI downloads that resume after a dropped connection; SMAPI's GitHub releases.
         .package(url: "https://github.com/matguitarist/DownloadKit", from: "0.1.0"),
+        // Folder sizes that count hard links once (the tests measure kept versions with it).
+        .package(url: "https://github.com/matguitarist/FileKit", from: "0.1.0"),
     ],
     targets: [
         .target(name: "ModManagerCore",
@@ -33,6 +35,7 @@ let package = Package(
             "ModManagerCore",
             .product(name: "ProcessKit", package: "ProcessKit"),
             .product(name: "DownloadKit", package: "DownloadKit"),
+            .product(name: "FileKit", package: "FileKit"),
         ]),
     ]
 )

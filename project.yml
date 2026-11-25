@@ -24,6 +24,10 @@ packages:
   LogKit:
     url: https://github.com/matguitarist/LogKit
     from: 0.6.0
+  # Folder sizes on the Storage page and the Nexus API key in the Keychain.
+  FileKit:
+    url: https://github.com/matguitarist/FileKit
+    from: 0.1.0
   # Self-updates for the app (see "Releasing updates" in the README).
   Sparkle:
     url: https://github.com/sparkle-project/Sparkle
@@ -38,6 +42,7 @@ targets:
       - package: ModManagerCore
       - package: LogKit
         product: LogKitUI
+      - package: FileKit
       - package: Sparkle
     # A locally ("ad-hoc") signed app with the hardened runtime can't load
     # separately signed frameworks (Sparkle) without this.

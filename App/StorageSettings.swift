@@ -2,6 +2,7 @@
 // take on disk, with ways to clean up. Everything removed goes to the Trash.
 
 import AppKit
+import FileKit
 import ModManagerCore
 import SwiftUI
 
@@ -36,16 +37,18 @@ extension AppModel {
         let archive = modArchive
         let backups = await backupStore.list().filter { !$0.isSMAPIBackup }
         return await Task.detached {
+            // Allocated bytes, as the Finder shows them; a file with several names counts once.
+            func size(_ url: URL) -> Int64 { (try? FolderSize.summary(of: url))?.allocated ?? 0 }
             var report = StorageReport()
-            report.modsTotal = modsURL.map(DiskUsage.size(of:)) ?? 0
+            report.modsTotal = modsURL.map(size) ?? 0
             report.largestMods = groups.map { group in
-                StorageReport.ModSize(id: group.id, name: group.name, bytes: group.folders.reduce(0) { $0 + DiskUsage.size(of: $1) })
+                StorageReport.ModSize(id: group.id, name: group.name, bytes: group.folders.reduce(0) { $0 + size($1) })
             }
             .sorted { $0.bytes > $1.bytes }
             let names = Dictionary(mods.map { ($0.uniqueID, $0.name) }, uniquingKeysWith: { first, _ in first })
             report.kept = archive.allVersions().map { version in
                 let name = names[version.uniqueID.lowercased()] ?? version.folder.lastPathComponent
-                return StorageReport.KeptVersion(version: version, name: name, bytes: DiskUsage.size(of: version.folder.deletingLastPathComponent()))
+                return StorageReport.KeptVersion(version: version, name: name, bytes: size(version.folder.deletingLastPathComponent()))
             }
             report.backups = backups
             return report
@@ -191,8 +194,7 @@ struct ModSizeText: View {
     var body: some View {
         Text(bytes.map(StorageSettings.bytes) ?? "…")
             .task(id: folder) {
-                let folder = folder
-                bytes = await Task.detached { DiskUsage.size(of: folder) }.value
+                bytes = await FolderSize.allocated(of: folder)
             }
     }
 }
